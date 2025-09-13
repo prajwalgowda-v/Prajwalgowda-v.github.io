@@ -373,7 +373,7 @@
         
         /* 3D Text Effects */
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2rem, 8vw, 5rem);
             font-weight: 800;
             margin-bottom: 20px;
             transform-style: preserve-3d;
@@ -453,6 +453,7 @@
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
+            padding: 60px 0; /* Increased padding for better spacing */
         }
         
         .services-content {
@@ -461,7 +462,7 @@
         }
         
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
             font-weight: 800;
             margin-bottom: 1rem;
             color: white;
@@ -486,6 +487,7 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            height: 100%; /* Ensure cards have consistent height */
         }
         
         .service-card::before {
@@ -538,6 +540,7 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
+            height: 100%; /* Ensure cards have consistent height */
         }
         
         .feature-card:hover {
@@ -567,6 +570,7 @@
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
             overflow: hidden;
+            padding: 60px 0; /* Increased padding for better spacing */
         }
         
         .testimonials-section::before {
@@ -1269,6 +1273,7 @@
             background: linear-gradient(135deg, #f97316, #f59e0b);
             position: relative;
             overflow: hidden;
+            padding: 60px 0; /* Increased padding for better spacing */
         }
         
         .cta-section::before {
@@ -1327,6 +1332,80 @@
             }
             .form-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Improved mobile responsiveness */
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .service-card, .feature-card, .testimonial-card {
+                margin-bottom: 20px;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .text-xl {
+                font-size: 1.1rem;
+            }
+            
+            .text-4xl {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Medium screen adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Small screen adjustments */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-card, .feature-card, .testimonial-card {
+                padding: 20px;
+            }
+            
+            .service-icon, .feature-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .service-icon i, .feature-icon i {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1481,7 +1560,7 @@
     <section class="services-section py-20">
         <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our Solar Solutions</h2>
+                <h2 class="section-title">Our Solar <span class="text-gradient">Solutions</span></h2>
                 <p class="section-subtitle">Comprehensive solar energy solutions for homes, businesses, and communities</p>
             </div>
             
@@ -1565,7 +1644,7 @@
     <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose SolarPower</h2>
+                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solars</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
             </div>
             
@@ -1631,7 +1710,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"SolarPower installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                    <p class="testimonial-text">"Naptico Green Energy Solars installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
                 </div>
                 
                 <!-- Testimonial 2 -->
@@ -1671,7 +1750,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"SolarPower's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
+                    <p class="testimonial-text">"Naptico Green Energy Solars's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
                 </div>
             </div>
         </div>
@@ -1759,7 +1838,7 @@
                         <li>
                             <i class="fas fa-envelope"></i>
                             <span>
-                                <a href="mailto:info@solarpower.in">info@solarpower.in</a>
+                                <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
                             </span>
                         </li>
                         <li>

@@ -271,12 +271,12 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - About Us */
+        /* Hero Section - About Us - Enhanced with Homepage Hero Banner */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
             overflow: hidden;
-            min-height: 70vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             perspective: 1000px;
@@ -328,7 +328,7 @@
         }
         
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
             margin-bottom: 20px;
             transform-style: preserve-3d;
@@ -353,6 +353,60 @@
             background-clip: text;
             text-fill-color: transparent;
             filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+        }
+        
+        /* Enhanced Button Design */
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            text-decoration: none;
+            margin: 5px;
+        }
+        
+        .hero-btn-primary {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .hero-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #f59e0b;
+        }
+        
+        .hero-btn-secondary:hover {
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .hero-btn:hover::before {
+            left : 100%;
         }
         
         /* About Us Sections */
@@ -1077,7 +1131,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Hero Section -->
+    <!-- Hero Section - Enhanced with Homepage Hero Banner -->
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
@@ -1091,11 +1145,22 @@
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
-            <div class="text-center">
-                <h1 class="hero-title text-white">
-                    About <span class="text-gradient">Naptico Green Energy</span>
-                </h1>
-                <p class="text-xl mb-8 text-gray-300 max-w-3xl mx-auto">Pioneering sustainable energy solutions for a brighter tomorrow</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="hero-title text-white">
+                        About <span class="text-gradient">Naptico Green Energy</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
+                        <a href="#meet-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Particle Effect -->
@@ -1103,7 +1168,7 @@
     </section>
     
     <!-- Our Story Section -->
-    <section class="about-section py-20">
+    <section id="our-story" class="about-section py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Our Story</h2>
@@ -1239,7 +1304,7 @@
     </section>
     
     <!-- Meet the Team Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+    <section id="meet-team" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Meet Our Leadership</h2>
@@ -1249,7 +1314,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="team-card fade-in stagger-1">
                     <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                    <img src="C:\Users\Prajwal_V\Documents\GitHub\Prajwalgowda-v.github.io\images\AJ.jpg" alt="CEO" class="team-avatar" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+                    <img src="./images/team-ceo.jpg" alt="CEO" class="team-avatar" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
                     <h3 class="team-name">Rajiv Sharma</h3>
                     <p class="team-position">Founder & CEO</p>
                     <p class="team-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to make solar power accessible to every Indian household.</p>
@@ -1421,11 +1486,23 @@
     </footer>
     
     <script>
-        // Loading Screen
+        // Loading Screen - Fixed with error handling
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3000);
+            try {
+                setTimeout(function() {
+                    const loadingScreen = document.getElementById('loadingScreen');
+                    if (loadingScreen) {
+                        loadingScreen.classList.add('hidden');
+                    }
+                }, 3000);
+            } catch (error) {
+                console.error('Error with loading screen:', error);
+                // Fallback - try to hide loading screen directly
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                }
+            }
         });
         
         // Custom Cursor - Fixed Lagging Issue Completely
@@ -1443,8 +1520,10 @@
             mouseY = e.clientY;
             
             // Update main cursor position immediately
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
+            if (cursor) {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            }
         });
         
         // Use animation frame for smooth follower movement
@@ -1452,8 +1531,10 @@
             followerX += (mouseX - followerX) * 0.15;
             followerY += (mouseY - followerY) * 0.15;
             
-            cursorFollower.style.left = followerX + 'px';
-            cursorFollower.style.top = followerY + 'px';
+            if (cursorFollower) {
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
+            }
             
             requestAnimationFrame(animateFollower);
         }
@@ -1462,13 +1543,13 @@
         
         // Hide cursor when leaving the window
         document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-            cursorFollower.style.opacity = '0';
+            if (cursor) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
         });
         
         document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-            cursorFollower.style.opacity = '1';
+            if (cursor) cursor.style.opacity = '1';
+            if (cursorFollower) cursorFollower.style.opacity = '1';
         });
         
         // Cursor hover effects
@@ -1476,13 +1557,13 @@
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-                cursorFollower.classList.add('hover');
+                if (cursor) cursor.classList.add('hover');
+                if (cursorFollower) cursorFollower.classList.add('hover');
             });
             
             element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-                cursorFollower.classList.remove('hover');
+                if (cursor) cursor.classList.remove('hover');
+                if (cursorFollower) cursorFollower.classList.remove('hover');
             });
         });
         
@@ -1491,9 +1572,9 @@
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                header.classList.add('scrolled');
+                if (header) header.classList.add('scrolled');
             } else {
-                header.classList.remove('scrolled');
+                if (header) header.classList.remove('scrolled');
             }
         });
         
@@ -1503,8 +1584,10 @@
         
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-            currentSlide = index;
+            if (slides[index]) {
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
         }
         
         function nextSlide() {
@@ -1518,6 +1601,8 @@
         // Create particle effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
             const particleCount = 50;
             
             for (let i = 0; i < particleCount; i++) {
@@ -1543,23 +1628,27 @@
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
+                if (backToTopBtn) backToTopBtn.classList.add('visible');
             } else {
-                backToTopBtn.classList.remove('visible');
+                if (backToTopBtn) backToTopBtn.classList.remove('visible');
             }
         });
         
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (navMenu) navMenu.classList.toggle('active');
+            });
+        }
         
         // Quote Form Modal (same as homepage)
         const contactBtns = document.querySelectorAll('.contact-btn');

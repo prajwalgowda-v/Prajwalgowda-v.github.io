@@ -282,6 +282,35 @@
             perspective: 1000px;
         }
         
+        /* Hero Slideshow */
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            transform: translateZ(-100px) rotateY(90deg);
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            transform: translateZ(0) rotateY(0deg);
+        }
+        
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -307,8 +336,14 @@
         }
         
         @keyframes floatText {
-            0%, 100% { transform: translateY(0) rotateX(0deg); }
-            50% { transform: translateY(-20px) rotateX(5deg); }
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg);
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            50% { 
+                transform: translateY(-20px) rotateX(5deg);
+                text-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            }
         }
         
         .text-gradient {
@@ -343,7 +378,7 @@
             margin: 0 auto 3rem;
         }
         
-        /* Timeline */
+        /* Enhanced Timeline */
         .timeline {
             position: relative;
             max-width: 1200px;
@@ -367,6 +402,14 @@
             position: relative;
             background-color: inherit;
             width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .timeline-item::after {
@@ -380,6 +423,7 @@
             top: 15px;
             border-radius: 50%;
             z-index: 1;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
         }
         
         .timeline-item:nth-child(even) {
@@ -391,7 +435,7 @@
         }
         
         .timeline-content {
-            padding: 20px 30px;
+            padding: 30px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -399,18 +443,49 @@
             position: relative;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            overflow: hidden;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
         
         .timeline-content:hover {
             transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .timeline-content:hover::before {
+            opacity: 1;
+        }
+        
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-content:hover .timeline-image {
+            transform: scale(1.05);
         }
         
         .timeline-date {
             color: #f59e0b;
             font-weight: 600;
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
         
         /* Mission & Vision */
@@ -1004,7 +1079,14 @@
     
     <!-- Hero Section -->
     <section class="hero-gradient">
-        <!-- Hero Background -->
+        <!-- Hero Slideshow - All slides will change automatically -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        </div>
+        
+        <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
@@ -1027,9 +1109,10 @@
                 <p class="section-subtitle">From a humble beginning to becoming India's most trusted solar energy provider</p>
             </div>
             
-            <div class="timeline fade-in">
+            <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1559302915-bf5c03479139?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Humble Beginnings" class="timeline-image">
                         <div class="timeline-date">2010</div>
                         <h3 class="text-xl font-bold text-white mb-2">Humble Beginnings</h3>
                         <p class="text-gray-300">Founded with a vision to make solar energy accessible to every Indian household, we started with a small team of 5 passionate engineers.</p>
@@ -1038,6 +1121,7 @@
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1542816417-098fce46b36d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Expansion Phase" class="timeline-image">
                         <div class="timeline-date">2015</div>
                         <h3 class="text-xl font-bold text-white mb-2">Expansion Phase</h3>
                         <p class="text-gray-300">Expanded operations to 5 major cities and completed our first 1000 installations, establishing ourselves as a reliable solar solutions provider.</p>
@@ -1046,6 +1130,7 @@
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Innovation Hub" class="timeline-image">
                         <div class="timeline-date">2018</div>
                         <h3 class="text-xl font-bold text-white mb-2">Innovation Hub</h3>
                         <p class="text-gray-300">Launched our R&D center focused on developing more efficient solar panels and energy storage solutions, filing 12 patents.</p>
@@ -1054,6 +1139,7 @@
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1605722249429-a27ed8def401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="National Recognition" class="timeline-image">
                         <div class="timeline-date">2020</div>
                         <h3 class="text-xl font-bold text-white mb-2">National Recognition</h3>
                         <p class="text-gray-300">Awarded "Best Solar Company in India" by the Ministry of New and Renewable Energy for our contribution to clean energy adoption.</p>
@@ -1062,6 +1148,7 @@
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Milestone Achievement" class="timeline-image">
                         <div class="timeline-date">2023</div>
                         <h3 class="text-xl font-bold text-white mb-2">Milestone Achievement</h3>
                         <p class="text-gray-300">Reached 50,000+ installations and 200+ MW of clean energy generated, becoming one of India's largest solar energy providers.</p>
@@ -1401,6 +1488,24 @@
             }
         });
         
+        // Hero Slideshow - Fixed to match background and foreground images
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+        
         // Create particle effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
@@ -1496,6 +1601,7 @@
         
         // Fixed Scroll Animation with Better Performance
         const fadeElements = document.querySelectorAll('.fade-in');
+        const timelineItems = document.querySelectorAll('.timeline-item');
         
         // Use a more efficient scroll handler with passive event listener
         let scrollTimeout;
@@ -1513,6 +1619,16 @@
                         element.classList.add('visible');
                     }
                 });
+                
+                // Timeline animation
+                timelineItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const itemVisible = 150;
+                    
+                    if (itemTop < window.innerHeight - itemVisible) {
+                        item.classList.add('visible');
+                    }
+                });
             });
         }, { passive: true });
         
@@ -1523,6 +1639,16 @@
             
             if (elementTop < window.innerHeight - elementVisible) {
                 element.classList.add('visible');
+            }
+        });
+        
+        // Initial check for timeline items
+        timelineItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            const itemVisible = 150;
+            
+            if (itemTop < window.innerHeight - itemVisible) {
+                item.classList.add('visible');
             }
         });
     </script>

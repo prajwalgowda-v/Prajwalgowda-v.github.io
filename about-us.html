@@ -49,7 +49,7 @@
             transform: translate(-50%, -50%) scale(3);
         }
         
-        /* Loading Screen - White Background with Improved Animation */
+        /* Loading Screen - Completely Redesigned for Reliability */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -66,8 +66,9 @@
         }
         
         .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -1088,7 +1089,7 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Loading Screen - White Background with Improved Animation -->
+    <!-- Loading Screen - Fixed with multiple approaches -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="index.html">
@@ -1486,24 +1487,57 @@
     </footer>
     
     <script>
-        // Loading Screen - Fixed with error handling
-        window.addEventListener('load', function() {
-            try {
-                setTimeout(function() {
-                    const loadingScreen = document.getElementById('loadingScreen');
-                    if (loadingScreen) {
-                        loadingScreen.classList.add('hidden');
-                    }
-                }, 3000);
-            } catch (error) {
-                console.error('Error with loading screen:', error);
-                // Fallback - try to hide loading screen directly
-                const loadingScreen = document.getElementById('loadingScreen');
-                if (loadingScreen) {
-                    loadingScreen.style.display = 'none';
-                }
+        // Loading Screen - Completely rewritten with multiple fallbacks
+        console.log('Script started');
+        
+        // Function to hide loading screen with multiple methods
+        function hideLoadingScreen() {
+            console.log('Attempting to hide loading screen');
+            const loadingScreen = document.getElementById('loadingScreen');
+            
+            if (!loadingScreen) {
+                console.log('Loading screen element not found');
+                return;
             }
+            
+            // Method 1: Add hidden class
+            loadingScreen.classList.add('hidden');
+            console.log('Added hidden class');
+            
+            // Method 2: Direct style manipulation
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.visibility = 'hidden';
+            loadingScreen.style.pointerEvents = 'none';
+            console.log('Applied direct styles');
+            
+            // Method 3: Force display none after transition
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                console.log('Set display to none');
+            }, 1000);
+        }
+        
+        // Set multiple timeouts to ensure loading screen is hidden
+        const timeout1 = setTimeout(hideLoadingScreen, 3000);
+        const timeout2 = setTimeout(hideLoadingScreen, 5000);
+        const timeout3 = setTimeout(hideLoadingScreen, 8000);
+        
+        // Try to hide when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            clearTimeout(timeout1);
+            hideLoadingScreen();
         });
+        
+        // Try to hide when window is fully loaded
+        window.addEventListener('load', function() {
+            console.log('Window loaded');
+            clearTimeout(timeout2);
+            hideLoadingScreen();
+        });
+        
+        // Final fallback
+        clearTimeout(timeout3);
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');

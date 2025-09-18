@@ -1321,7 +1321,7 @@
             </a>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about-us.html" class="nav-link">About Us</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
@@ -1413,9 +1413,10 @@
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <!-- REPLACE THESE WITH YOUR OWN IMAGES -->
+            <div class="hero-slide active" style="background-image: url('./images/hero-slide-1.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
+            <div class="hero-slide" style="background-image: url('./images/hero-slide-2.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
+            <div class="hero-slide" style="background-image: url('./images/hero-slide-3.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
         </div>
         
         <!-- Hero Overlay -->
@@ -1425,7 +1426,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="hero-title text-white">
-                        Power Your Future with <span class="text-gradient">Clean Energy</span>
+                        Power Your Future with <span class="text-gradient">Naptico Energy</span>
                     </h1>
                     <p class="text-xl mb-8 text-gray-300">India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -1435,7 +1436,8 @@
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
+                        <img id="heroImage" src="./images/hero-featured.jpg" alt="Solar Panels" class="rounded-2xl w-full h-auto" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
                     </div>
                 </div>
             </div>
@@ -1448,7 +1450,7 @@
     <section class="services-section py-20">
         <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our Solar Solutions</h2>
+                <h2 class="section-title">Our Solar <span class="text-gradient">Solutions</span></h2>
                 <p class="section-subtitle">Comprehensive solar energy solutions for homes, businesses, and communities</p>
             </div>
             
@@ -1532,7 +1534,7 @@
     <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose SolarPower</h2>
+                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solars</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
             </div>
             
@@ -1557,7 +1559,7 @@
                     <div class="feature-icon">
                         <i class="fas fa-users text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>  
                     <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
                 </div>
                 
@@ -1576,7 +1578,7 @@
     <section class="testimonials-section py-20">
         <div class="container mx-auto px-4 testimonials-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">What Our Customers Say</h2>
+                <h2 class="text-4xl font-bold mb-4 text-white">What Our<span class="text-gradient">Customers Say</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join thousands of satisfied customers who have made the switch to solar</p>
             </div>
             
@@ -1585,10 +1587,11 @@
                 <div class="testimonial-card fade-in stagger-1">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="testimonial-avatar">
+                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
+                        <img src="./images/testimonial-1.jpg" alt="Customer" class="testimonial-avatar" onerror="this.src='https://randomuser.me/api/portraits/women/44.jpg'">
                         <div class="testimonial-info">
-                            <h4>Priya Sharma</h4>
-                            <p>Homeowner, Mumbai</p>
+                            <h4>Priya</h4>
+                            <p>Homeowner, Bangalore [South]</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1598,17 +1601,18 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"SolarPower installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                    <p class="testimonial-text">"Naptico Green Energy Solars installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
                 </div>
                 
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card fade-in stagger-2">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="testimonial-avatar">
+                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
+                        <img src="./images/testimonial-2.jpg" alt="Customer" class="testimonial-avatar" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
                         <div class="testimonial-info">
                             <h4>Rajesh Kumar</h4>
-                            <p>Business Owner, Bangalore</p>
+                            <p>Business Owner, Bangalore [West]</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1618,17 +1622,18 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
+                    <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solars. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
                 </div>
                 
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card fade-in stagger-3">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="testimonial-avatar">
+                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
+                        <img src="./images/testimonial-3.jpg" alt="Customer" class="testimonial-avatar" onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
                         <div class="testimonial-info">
                             <h4>Anita Desai</h4>
-                            <p>Municipal Corporation, Pune</p>
+                            <p>Municipal Corporation, Bangalore [North]</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1638,7 +1643,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"SolarPower's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
+                    <p class="testimonial-text">"Naptico Green Energy Solars' solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
                 </div>
             </div>
         </div>
@@ -1726,12 +1731,12 @@
                         <li>
                             <i class="fas fa-envelope"></i>
                             <span>
-                                <a href="mailto:info@solarpower.in">info@solarpower.in</a>
+                                <a href="mailto:info@solarpower.in">support@napticogreenenergysolars.com</a>
                             </span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
-                            <span>Mon-Sat: 9:30 AM - 6:30 PM</span>
+                            <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
                         </li>
                     </ul>
                 </div>
@@ -1824,9 +1829,9 @@
         const slides = document.querySelectorAll('.hero-slide');
         const heroImage = document.getElementById('heroImage');
         const heroImages = [
-            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+            './images/hero-slide-1.jpg',
+            './images/hero-slide-2.jpg',
+            './images/hero-slide-3.jpg'
         ];
         let currentSlide = 0;
         

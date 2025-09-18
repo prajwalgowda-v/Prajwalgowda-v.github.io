@@ -593,6 +593,7 @@
             border-radius: 50%;
             margin-right: 15px;
             border: 3px solid rgba(245, 158, 11, 0.3);
+            object-fit: cover;
         }
         
         .testimonial-info h4 {
@@ -1269,6 +1270,72 @@
             transform: translateY(-3px);
         }
         
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: none;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: #f59e0b;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 20px 20px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -1323,7 +1390,7 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about-us.html" class="nav-link">About Us</a></li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="maintenance & support.html" class="nav-link">Maintenance & Support</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
                     <li><a href="customer-stories.html" class="nav-link">Stories</a></li>
@@ -1413,10 +1480,9 @@
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
-            <!-- REPLACE THESE WITH YOUR OWN IMAGES -->
-            <div class="hero-slide active" style="background-image: url('./images/hero-slide-1.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
-            <div class="hero-slide" style="background-image: url('./images/hero-slide-2.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
-            <div class="hero-slide" style="background-image: url('./images/hero-slide-3.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         </div>
         
         <!-- Hero Overlay -->
@@ -1428,16 +1494,15 @@
                     <h1 class="hero-title text-white">
                         Power Your Future with <span class="text-gradient">Naptico Energy</span>
                     </h1>
-                    <p class="text-xl mb-8 text-gray-300">India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
+                    <p class="text-xl mb-8 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
-                        <a href="services.html" class="hero-btn hero-btn-secondary">Explore Services</a>
+                        <a href="maintenance & support.html" class="hero-btn hero-btn-secondary">Explore Services</a>
                     </div>
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img id="heroImage" src="./images/hero-featured.jpg" alt="Solar Panels" class="rounded-2xl w-full h-auto" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
                     </div>
                 </div>
             </div>
@@ -1450,7 +1515,7 @@
     <section class="services-section py-20">
         <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our Solar <span class="text-gradient">Solutions</span></h2>
+                <h2 class="section-title">Our <span class="text-gradient">Solar Solutions</span></h2>
                 <p class="section-subtitle">Comprehensive solar energy solutions for homes, businesses, and communities</p>
             </div>
             
@@ -1474,7 +1539,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Ground-Mounted Solar</h3>
                     <p class="text-gray-300 mb-4">Large-scale solar installations for commercial and industrial applications.</p>
-                    <a href="services.html#ground-mounted" class="text-amber-400 font-medium hover:text-amber-300">
+                    <a href="maintenance & support.html#ground-mounted" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1486,7 +1551,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Solar Street Lights</h3>
                     <p class="text-gray-300 mb-4">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
-                    <a href="services.html#street-light" class="text-amber-400 font-medium hover:text-amber-300">
+                    <a href="maintenance & support.html#street-light" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1498,7 +1563,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (ETC)</h3>
                     <p class="text-gray-300 mb-4">Evacuated tube collector systems for efficient water heating solutions.</p>
-                    <a href="services.html#water-heater-etc" class="text-amber-400 font-medium hover:text-amber-300">
+                    <a href="maintenance & support.html#water-heater-etc" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1510,7 +1575,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (FPC)</h3>
                     <p class="text-gray-300 mb-4">Flat plate collector systems for reliable and durable water heating.</p>
-                    <a href="services.html#water-heater-fpc" class="text-amber-400 font-medium hover:text-amber-300">
+                    <a href="maintenance & support.html#water-heater-fpc" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1522,7 +1587,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Maintenance & Support</h3>
                     <p class="text-gray-300 mb-4">Comprehensive maintenance services to keep your solar system running efficiently.</p>
-                    <a href="Maintenance & Support.html" class="text-amber-400 font-medium hover:text-amber-300">
+                    <a href="maintenance & support.html" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1534,7 +1599,7 @@
     <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solars</span></h2>
+                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
             </div>
             
@@ -1559,7 +1624,7 @@
                     <div class="feature-icon">
                         <i class="fas fa-users text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>  
+                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
                     <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
                 </div>
                 
@@ -1578,7 +1643,7 @@
     <section class="testimonials-section py-20">
         <div class="container mx-auto px-4 testimonials-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">What Our<span class="text-gradient">Customers Say</span></h2>
+                <h2 class="text-4xl font-bold mb-4 text-white"><span class="text-gradient">What Our Clients Say</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join thousands of satisfied customers who have made the switch to solar</p>
             </div>
             
@@ -1587,11 +1652,10 @@
                 <div class="testimonial-card fade-in stagger-1">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/testimonial-1.jpg" alt="Customer" class="testimonial-avatar" onerror="this.src='https://randomuser.me/api/portraits/women/44.jpg'">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="testimonial-avatar">
                         <div class="testimonial-info">
-                            <h4>Priya</h4>
-                            <p>Homeowner, Bangalore [South]</p>
+                            <h4>Priya Sharma</h4>
+                            <p>Homeowner, Mumbai</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1601,18 +1665,17 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"SolarPower installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                    <p class="testimonial-text">"Naptico Green Energy Solar installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
                 </div>
                 
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card fade-in stagger-2">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/testimonial-2.jpg" alt="Customer" class="testimonial-avatar" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Rajesh Kumar</h4>
-                            <p>Business Owner, Bangalore [West]</p>
+                            <p>Business Owner, Bangalore</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1622,18 +1685,17 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
+                    <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solar. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
                 </div>
                 
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card fade-in stagger-3">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/testimonial-3.jpg" alt="Customer" class="testimonial-avatar" onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Anita Desai</h4>
-                            <p>Municipal Corporation, Bangalore [North]</p>
+                            <p>Municipal Corporation, Pune</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1643,7 +1705,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"SolarPower's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
+                    <p class="testimonial-text">"Naptico Green Energy Solar's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
                 </div>
             </div>
         </div>
@@ -1658,6 +1720,63 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
                 <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How much can I save with solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Most homeowners save between 70-90% on their electricity bills after installing solar panels. The exact savings depend on your energy consumption, the size of your solar system, and local electricity rates. Our savings calculator can provide a personalized estimate for your specific situation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the lifespan of solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Solar panels typically have a lifespan of 25-30 years. Most manufacturers offer a performance warranty that guarantees at least 80% production after 25 years. With proper maintenance, your solar system can continue generating clean energy for decades.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are there government subsidies for solar installation?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the Indian government offers various subsidies and incentives for solar installation. These include capital subsidies, tax benefits, and accelerated depreciation. The exact benefits depend on your location and system size. Our team can help you navigate the available subsidies and maximize your savings.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does the installation process take?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The installation process typically takes 3-7 days from the site survey to completion. This includes design, permitting, installation, and inspection. Larger commercial installations may take longer. Our team works efficiently to minimize disruption to your daily activities.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What maintenance is required for solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Solar panels require minimal maintenance. Regular cleaning to remove dust and debris is typically sufficient. We recommend professional inspection once a year to ensure optimal performance. Our maintenance plans include cleaning, inspection, and any necessary repairs to keep your system running efficiently.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1693,7 +1812,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="maintenance & support.html">Services</a></li>
                         <li><a href="how-it-works.html">How It Works</a></li>
                         <li><a href="savings-calculator.html">Calculator</a></li>
                         <li><a href="customer-stories.html">Customer Stories</a></li>
@@ -1705,12 +1824,12 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="services.html#rooftop">Rooftop Solar Panels</a></li>
-                        <li><a href="services.html#ground-mounted">Ground-Mounted Solar</a></li>
-                        <li><a href="services.html#street-light">Solar Street Lights</a></li>
-                        <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
-                        <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
-                        <li><a href="services.html">Maintenance & Support</a></li>
+                        <li><a href="maintenance & support.html#rooftop">Rooftop Solar Panels</a></li>
+                        <li><a href="maintenance & support.html#ground-mounted">Ground-Mounted Solar</a></li>
+                        <li><a href="maintenance & support.html#street-light">Solar Street Lights</a></li>
+                        <li><a href="maintenance & support.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
+                        <li><a href="maintenance & support.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
+                        <li><a href="maintenance & support.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -1731,12 +1850,12 @@
                         <li>
                             <i class="fas fa-envelope"></i>
                             <span>
-                                <a href="mailto:info@solarpower.in">support@napticogreenenergysolars.com</a>
+                                <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
                             </span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
-                            <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
+                            <span>Mon-Sat: 9:30 AM - 6:30 PM</span>
                         </li>
                     </ul>
                 </div>
@@ -1829,9 +1948,9 @@
         const slides = document.querySelectorAll('.hero-slide');
         const heroImage = document.getElementById('heroImage');
         const heroImages = [
-            './images/hero-slide-1.jpg',
-            './images/hero-slide-2.jpg',
-            './images/hero-slide-3.jpg'
+            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
         ];
         let currentSlide = 0;
         
@@ -2133,6 +2252,25 @@
             if (elementTop < window.innerHeight - elementVisible) {
                 element.classList.add('visible');
             }
+        });
+        
+        // FAQ Section Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Toggle active class on clicked item
+                item.classList.toggle('active');
+                
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
         });
     </script>
 </body>

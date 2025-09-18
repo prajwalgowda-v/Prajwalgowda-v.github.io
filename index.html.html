@@ -673,6 +673,110 @@
             font-family: Georgia, serif;
         }
         
+        /* FAQ Section - New Section */
+        .faq-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+        
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .faq-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .faq-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(249, 115, 22, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .faq-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .faq-card:hover::before {
+            opacity: 1;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question h3 {
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question i {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-card.active .faq-question i {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0 10px;
+        }
+        
+        .faq-card.active .faq-answer {
+            max-height: 500px;
+            padding: 15px 10px 0;
+        }
+        
+        .faq-answer p {
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
         /* Footer - World-Class Design */
         .footer {
             background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -1340,7 +1444,7 @@
                 padding-right: 15px;
             }
             
-            .service-card, .feature-card, .testimonial-card {
+            .service-card, .feature-card, .testimonial-card, .faq-card {
                 margin-bottom: 20px;
             }
             
@@ -1395,7 +1499,7 @@
                 font-size: 1.8rem;
             }
             
-            .service-card, .feature-card, .testimonial-card {
+            .service-card, .feature-card, .testimonial-card, .faq-card {
                 padding: 20px;
             }
             
@@ -1433,7 +1537,7 @@
             </a>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about us.html" class="nav-link">About Us</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
@@ -1537,9 +1641,9 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="hero-title text-white">
-                        Power Your Future with <span class="text-gradient">Clean Energy</span>
+                        Power Your Future with <span class="text-gradient">Naptico Energy</span>
                     </h1>
-                    <p class="text-xl mb-8 text-gray-300">India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
+                    <p class="text-xl mb-8 text-gray-300">Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
                         <a href="services.html" class="hero-btn hero-btn-secondary">Explore Services</a>
@@ -1571,8 +1675,8 @@
                         <i class="fas fa-home text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Rooftop Solar Panels</h3>
-                    <p class="text-gray-300 mb-4">Transform your roof into a power plant with our high-efficiency solar panel systems.</p>
-                    <a href="#" class="text-amber-400 font-medium hover:text-amber-300">
+                    <p class="text-gray-300 mb-4">Rooftop solar panels harness the power of the sun by converting sunlight into clean electricity, right from the rooftop of residential, commercial, or industrial buildings.</p>
+                    <a href="services.html#rooftop" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1583,7 +1687,7 @@
                         <i class="fas fa-industry text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Ground-Mounted Solar</h3>
-                    <p class="text-gray-300 mb-4">Large-scale solar installations for commercial and industrial applications.</p>
+                    <p class="text-gray-300 mb-4">Ground-mounted solar systems involve installing photovoltaic panels on open land or fields instead of rooftops, ideal for sites with large energy demands or limited roof space.</p>
                     <a href="services.html#ground-mounted" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -1595,7 +1699,7 @@
                         <i class="fas fa-lightbulb text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Solar Street Lights</h3>
-                    <p class="text-gray-300 mb-4">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
+                    <p class="text-gray-300 mb-4">Solar street lights harness solar energy during the day and automatically illuminate streets, pathways, and parks at night, providing efficient and eco-friendly lighting without reliance on grid electricity.</p>
                     <a href="services.html#street-light" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -1607,7 +1711,7 @@
                         <i class="fas fa-fire text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (ETC)</h3>
-                    <p class="text-gray-300 mb-4">Evacuated tube collector systems for efficient water heating solutions.</p>
+                    <p class="text-gray-300 mb-4">Solar Water Heater (ETC) uses evacuated tube collector (ETC) technology to efficiently heat water using solar energy, providing a reliable and eco-friendly solution for households and businesses.</p>
                     <a href="services.html#water-heater-etc" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -1631,8 +1735,8 @@
                         <i class="fas fa-tools text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Maintenance & Support</h3>
-                    <p class="text-gray-300 mb-4">Comprehensive maintenance services to keep your solar system running efficiently.</p>
-                    <a href="Maintenance & Support.html" class="text-amber-400 font-medium hover:text-amber-300">
+                    <p class="text-gray-300 mb-4">Regular maintenance and expert support ensure your solar energy system performs at its peak efficiency and enjoys a long service life. Our comprehensive services include cleaning, inspections, performance checks, and timely repairs to maximize energy output and reliability.</p>
+                    <a href="maintenance-support.html" class="text-amber-400 font-medium hover:text-amber-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -1688,7 +1792,7 @@
     <section class="testimonials-section py-20">
         <div class="container mx-auto px-4 testimonials-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">What Our Customers Say</h2>
+                <h2 class="text-4xl font-bold mb-4 text-white">What Our <span class="text-gradient">Customers Say</span></h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join thousands of satisfied customers who have made the switch to solar</p>
             </div>
             
@@ -1697,10 +1801,10 @@
                 <div class="testimonial-card fade-in stagger-1">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Customer" class="testimonial-avatar">
                         <div class="testimonial-info">
-                            <h4>Priya Sharma</h4>
-                            <p>Homeowner, Mumbai</p>
+                            <h4>Kiran</h4>
+                            <p>Homeowner, Bangalore [East]</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1717,10 +1821,10 @@
                 <div class="testimonial-card fade-in stagger-2">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/48.jpg" alt="Customer" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Rajesh Kumar</h4>
-                            <p>Business Owner, Bangalore</p>
+                            <p>Business Owner, Bangalore [North]</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1737,10 +1841,10 @@
                 <div class="testimonial-card fade-in stagger-3">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Customer" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Anita Desai</h4>
-                            <p>Municipal Corporation, Pune</p>
+                            <p>Homeowner, Bangalore [West]</p>
                         </div>
                     </div>
                     <div class="testimonial-rating">
@@ -1765,6 +1869,106 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
                 <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section - New Section -->
+    <section class="faq-section py-20">
+        <div class="container mx-auto px-4 faq-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-subtitle">Find answers to common questions about solar energy and our services</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="faq-card fade-in stagger-1">
+                    <div class="faq-question">
+                        <h3>How does solar energy work?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Solar energy works by converting sunlight into electricity using photovoltaic (PV) cells. When sunlight hits the solar panels, the PV cells absorb the energy and create an electrical current. This direct current (DC) is then converted to alternating current (AC) by an inverter, making it usable for your home or business.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-card fade-in stagger-2">
+                    <div class="faq-question">
+                        <h3>What are the benefits of installing solar panels?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Installing solar panels offers numerous benefits including significant reduction in electricity bills, protection against rising energy costs, increased property value, reduced carbon footprint, and potential government incentives and tax credits. Solar energy is a clean, renewable resource that contributes to a sustainable future.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-card fade-in stagger-3">
+                    <div class="faq-question">
+                        <h3>How much does a solar panel system cost?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The cost of a solar panel system varies depending on factors like system size, equipment quality, installation complexity, and location. On average, residential systems range from ₹1,50,000 to ₹5,00,000. Commercial systems are larger and cost more. We offer customized quotes based on your specific energy needs and site conditions.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-card fade-in stagger-4">
+                    <div class="faq-question">
+                        <h3>How long does it take to install solar panels?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The installation process typically takes 1-3 days for residential systems after all permits and approvals are obtained. The entire process from consultation to activation usually takes 4-8 weeks, including site assessment, design, permitting, equipment ordering, installation, and final inspection.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-card fade-in stagger-5">
+                    <div class="faq-question">
+                        <h3>Do solar panels work during cloudy days?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, solar panels still generate electricity on cloudy days, though at reduced efficiency (typically 10-25% of their capacity). Modern solar panels are designed to work in various weather conditions. They don't require direct sunlight to function, just daylight. Net metering allows you to draw from the grid when your system isn't producing enough.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-card fade-in stagger-6">
+                    <div class="faq-question">
+                        <h3>What maintenance is required for solar panels?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Solar panels require minimal maintenance. Regular cleaning 2-4 times a year to remove dust, leaves, and other debris is typically sufficient. Our systems come with monitoring software to track performance. We recommend annual professional inspections to ensure optimal performance and longevity of your system.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-card fade-in stagger-1">
+                    <div class="faq-question">
+                        <h3>Are there any government subsidies for solar installation?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the Indian government offers various subsidies and incentives for solar installations. These include capital subsidies, tax benefits, and accelerated depreciation. The Ministry of New and Renewable Energy (MNRE) provides subsidies up to 40% for rooftop solar systems. We assist our customers in availing all applicable benefits.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 8 -->
+                <div class="faq-card fade-in stagger-2">
+                    <div class="faq-question">
+                        <h3>How long do solar panels last?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most solar panels come with a performance warranty of 25-30 years, but they can continue to generate electricity beyond that period. The inverters typically need replacement after 10-15 years. With proper maintenance, your solar system can provide clean energy for decades, making it a sound long-term investment.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1817,7 +2021,7 @@
                         <li><a href="services.html#street-light">Solar Street Lights</a></li>
                         <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
                         <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
-                        <li><a href="services.html">Maintenance & Support</a></li>
+                        <li><a href="maintenance-support.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -1826,7 +2030,7 @@
                     <ul class="contact-info">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            <span>150, Achuth Arcade, 50 feet road, 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka-560085</span>
                         </li>
                         <li>
                             <i class="fas fa-phone-alt"></i>
@@ -1843,14 +2047,14 @@
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
-                            <span>Mon-Sat: 9:30 AM - 6:30 PM</span>
+                            <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Privacy Policy.html">Privacy Policy</a> | <a href="Terms of Service.html">Terms of Service</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
             </div>
         </div>
     </footer>
@@ -1909,7 +2113,7 @@
             });
             
             // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card');
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .faq-card');
             
             hoverElements.forEach(element => {
                 element.addEventListener('mouseenter', () => {
@@ -2199,7 +2403,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
+        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .faq-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -2218,6 +2422,25 @@
             
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+        
+        // FAQ Accordion
+        const faqCards = document.querySelectorAll('.faq-card');
+        
+        faqCards.forEach(card => {
+            const question = card.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other FAQ cards
+                faqCards.forEach(otherCard => {
+                    if (otherCard !== card && otherCard.classList.contains('active')) {
+                        otherCard.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ card
+                card.classList.toggle('active');
             });
         });
         
@@ -2254,4 +2477,4 @@
         });
     </script>
 </body>
-</html>
+</html> 

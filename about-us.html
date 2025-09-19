@@ -4,6 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Naptico Green Energy Solars</title>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <meta name="description" content="Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
+    <meta name="keywords" content="solar energy, solar panels, renewable energy, clean energy, solar installation, solar solutions">
+    <meta name="author" content="Naptico Green Energy Solars">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="og:title" content="About Us - Naptico Green Energy Solars">
+    <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
+    <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1212,7 +1249,7 @@
     <section id="our-story" class="story-section">
         <div class="container mx-auto px-4 story-container">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our Story</h2>
+                <h2 class="section-title">Our<span class="text-gradient">Story</span></h2>
                 <p class="section-subtitle">From a humble beginning to becoming India's most trusted solar energy provider</p>
             </div>
             
@@ -1269,7 +1306,7 @@
     <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Mission & Vision</h2>
+                <h2 class="section-title">Mission &<span class="text-gradient">Vision</span></h2>
                 <p class="section-subtitle">Our commitment to a sustainable future</p>
             </div>
             
@@ -1299,7 +1336,7 @@
     <section class="about-section py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our Values</h2>
+                <h2 class="section-title">Our<span class="text-gradient">Values</span></h2>
                 <p class="section-subtitle">The principles that guide our actions and decisions</p>
             </div>
             
@@ -1350,8 +1387,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
                 <!-- Team Member 1 -->
                 <div class="team-card fade-in stagger-1">
-                    <!-- Replace with your local image path -->
-                    <img src="./images/team-ceo.jpg" alt="Ajay Raju N - CEO" class="team-avatar" 
+                    <!-- Fixed image path -->
+                    <img src="./images/AJ.jpg" alt="Ajay Raju N - CEO" class="team-avatar" 
                          onerror="this.src='https://via.placeholder.com/150x150?text=CEO'">
                     <h3 class="team-name">Ajay Raju N</h3>
                     <p class="team-position">Founder & CEO</p>
@@ -1819,6 +1856,49 @@
                 element.classList.add('visible');
             }
         });
+        
+        // Lazy load images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+            
+            if ("IntersectionObserver" in window) {
+                const lazyImageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+        
+        // Error handling for missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
+                this.alt = 'Image not available';
+            });
+        });
+        
+        // Service Worker for PWA (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>

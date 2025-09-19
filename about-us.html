@@ -13,8 +13,8 @@
     <link rel="manifest" href="./images/site.webmanifest">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
-    <meta name="keywords" content="solar energy, solar panels, renewable energy, clean energy, solar installation, solar solutions">
+    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with over a decade of experience in delivering sustainable energy solutions.">
+    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy company">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -86,7 +86,7 @@
             transform: translate(-50%, -50%) scale(3);
         }
         
-        /* Loading Screen - Completely Fixed */
+        /* Loading Screen - White Background with Improved Animation */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -98,14 +98,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 99999;
-            transition: all 0.5s ease;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
-            pointer-events: none;
         }
         
         .loading-logo {
@@ -248,10 +247,6 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.5);
         }
         
-        .nav-link.active {
-            color: #f59e0b;
-        }
-        
         .header-actions {
             display: flex;
             gap: 20px;
@@ -309,50 +304,26 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - Enhanced with Homepage Hero Banner */
+        /* Hero Section - About Us Specific */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             perspective: 1000px;
         }
         
-        /* Hero Slideshow */
-        .hero-slideshow {
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.3;
             z-index: 1;
-            transform-style: preserve-3d;
-        }
-        
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: all 1.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            transform: translateZ(-100px) rotateY(90deg);
-        }
-        
-        .hero-slide.active {
-            opacity: 1;
-            transform: translateZ(0) rotateY(0deg);
-        }
-        
-        .hero-slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         
         .hero-overlay {
@@ -371,7 +342,6 @@
             transform-style: preserve-3d;
         }
         
-        /* 3D Text Effects */
         .hero-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
@@ -381,14 +351,8 @@
         }
         
         @keyframes floatText {
-            0%, 100% { 
-                transform: translateY(0) rotateX(0deg);
-                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
-            50% { 
-                transform: translateY(-20px) rotateX(5deg);
-                text-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
-            }
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
         }
         
         .text-gradient {
@@ -400,128 +364,17 @@
             filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
         }
         
-        /* Enhanced Button Design */
-        .hero-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            z-index: 1;
-            text-decoration: none;
-            margin: 5px;
-        }
-        
-        .hero-btn-primary {
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            color: white;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-        }
-        
-        .hero-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(245, 158, 11, 0.4);
-        }
-        
-        .hero-btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid #f59e0b;
-        }
-        
-        .hero-btn-secondary:hover {
-            background: rgba(245, 158, 11, 0.1);
-            transform: translateY(-3px);
-        }
-        
-        .hero-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-            z-index: -1;
-        }
-        
-        .hero-btn:hover::before {
-            left : 100%;
-        }
-        
-        /* Service Card for Hero Image */
-        .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        /* Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 20s infinite linear;
-            transform-style: preserve-3d;
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
-                opacity: 0;
-            }
-        }
-        
-        /* About Us Sections */
-        .about-section {
+        /* Story Section */
+        .story-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 80px 0;
+        }
+        
+        .story-content {
+            position: relative;
+            z-index: 1;
         }
         
         .section-title {
@@ -539,122 +392,7 @@
             margin: 0 auto 3rem;
         }
         
-        /* New Our Story Section Design */
-        .story-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-        
-        .story-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .story-container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .story-timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 50px auto;
-        }
-        
-        .story-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #f59e0b, #f97316);
-            transform: translateX(-50%);
-            border-radius: 4px;
-        }
-        
-        .story-milestone {
-            position: relative;
-            margin-bottom: 50px;
-        }
-        
-        .story-milestone:nth-child(odd) .story-content {
-            margin-left: 0;
-            margin-right: calc(50% + 30px);
-            text-align: right;
-        }
-        
-        .story-milestone:nth-child(even) .story-content {
-            margin-left: calc(50% + 30px);
-            margin-right: 0;
-            text-align: left;
-        }
-        
-        .story-content {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .story-content:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            background: rgba(245, 158, 11, 0.1);
-        }
-        
-        .story-year {
-            position: absolute;
-            top: 50%;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transform: translateY(-50%);
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
-        }
-        
-        .story-milestone:nth-child(odd) .story-year {
-            right: calc(50% - 40px);
-        }
-        
-        .story-milestone:nth-child(even) .story-year {
-            left: calc(50% - 40px);
-        }
-        
-        .story-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .story-description {
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        
-        /* Mission & Vision */
-        .mission-vision-card {
+        .story-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -664,10 +402,9 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
-            height: 100%;
         }
         
-        .mission-vision-card::before {
+        .story-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -680,20 +417,45 @@
             z-index: -1;
         }
         
-        .mission-vision-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+        .story-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
-        .mission-vision-card:hover::before {
+        .story-card:hover::before {
             opacity: 1;
         }
         
-        .icon-circle {
+        /* Mission & Vision Section */
+        .mission-vision-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
+        .mission-vision-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        
+        .mission-vision-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mission-vision-icon {
             width: 80px;
             height: 80px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -702,11 +464,18 @@
             transform-style: preserve-3d;
         }
         
-        .mission-vision-card:hover .icon-circle {
+        .mission-vision-card:hover .mission-vision-icon {
             transform: scale(1.1) rotateZ(5deg);
         }
         
-        /* Values */
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
         .value-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -723,12 +492,11 @@
         .value-card:hover {
             transform: translateY(-15px) rotateX(10deg);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            background: rgba(245, 158, 11, 0.1);
         }
         
         .value-icon {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 50%;
             display: flex;
@@ -743,61 +511,50 @@
             transform: scale(1.1) rotateY(180deg);
         }
         
-        /* Team */
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
         .team-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
+            height: 100%;
         }
         
         .team-card:hover {
-            transform: translateY(-15px) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .team-card:hover::before {
-            opacity: 1;
-        }
-        
-        .team-avatar {
+        .team-image {
             width: 150px;
             height: 150px;
             border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
             margin: 0 auto 20px;
             border: 4px solid rgba(245, 158, 11, 0.3);
             transition: all 0.3s ease;
-            object-fit: cover;
-            object-position: center;
         }
         
-        .team-card:hover .team-avatar {
+        .team-card:hover .team-image {
+            border-color: rgba(245, 158, 11, 0.6);
             transform: scale(1.05);
-            border-color: #f59e0b;
         }
         
         .team-name {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: white;
             margin-bottom: 5px;
@@ -805,24 +562,26 @@
         
         .team-position {
             color: #f59e0b;
-            font-weight: 600;
+            font-weight: 500;
             margin-bottom: 15px;
         }
         
         .team-bio {
             color: #e2e8f0;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
         
-        .team-social {
+        .social-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-top: 20px;
         }
         
-        .team-social a {
-            width: 40px;
-            height: 40px;
+        .social-icon {
+            width: 36px;
+            height: 36px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
@@ -835,17 +594,24 @@
             transform-style: preserve-3d;
         }
         
-        .team-social a:hover {
+        .social-icon:hover {
             background: #f59e0b;
             transform: translateY(-5px) rotateZ(360deg);
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
-        /* Achievements */
-        .achievement-card {
-            background: rgba(255, 255, 255, 0.1);
+        /* Milestones Section */
+        .milestones-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
+        .milestone-card {
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
@@ -855,15 +621,59 @@
             height: 100%;
         }
         
-        .achievement-card:hover {
+        .milestone-card:hover {
             transform: translateY(-15px) rotateX(10deg);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            background: rgba(245, 158, 11, 0.1);
         }
         
-        .achievement-icon {
-            width: 100px;
-            height: 100px;
+        .milestone-year {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .milestone-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-description {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Why Choose Us Section */
+        .why-choose-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
+        .why-choose-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            height: 100%;
+        }
+        
+        .why-choose-card:hover {
+            transform: translateY(-15px) rotateX(10deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .why-choose-icon {
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 50%;
             display: flex;
@@ -874,15 +684,56 @@
             transform-style: preserve-3d;
         }
         
-        .achievement-card:hover .achievement-icon {
+        .why-choose-card:hover .why-choose-icon {
             transform: scale(1.1) rotateY(180deg);
         }
         
-        .achievement-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #f59e0b;
-            margin-bottom: 10px;
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.2), transparent 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: #f97316;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+            background: #f8fafc;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
         
         /* Footer - World-Class Design */
@@ -1109,6 +960,33 @@
             transform: translateY(-10px);
         }
         
+        /* Particle Effect */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 20s infinite linear;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
         /* Scroll Animation - Fixed Performance Issues */
         .fade-in {
             opacity: 0;
@@ -1146,19 +1024,6 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            .story-timeline::before {
-                left: 30px;
-            }
-            .story-milestone:nth-child(odd) .story-content,
-            .story-milestone:nth-child(even) .story-content {
-                margin-left: 60px;
-                margin-right: 0;
-                text-align: left;
-            }
-            .story-year {
-                left: 30px !important;
-                right: auto !important;
-            }
         }
     </style>
 </head>
@@ -1167,7 +1032,7 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Loading Screen - Fixed -->
+    <!-- Loading Screen - White Background with Improved Animation -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="index.html">
@@ -1186,7 +1051,7 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about-us.html" class="nav-link active">About Us</a></li>
+                    <li><a href="about-us.html" class="nav-link">About Us</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
@@ -1205,303 +1070,267 @@
         </div>
     </header>
     
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <!-- Hero Section - Complete Home Banner Design -->
+    <!-- Hero Section -->
     <section class="hero-gradient">
-        <!-- Hero Slideshow - All slides will change automatically -->
-        <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-        </div>
-        
-        <!-- Hero Overlay -->
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="hero-title text-white">
-                        About <span class="text-gradient">Naptico Green Energy</span>
-                    </h1>
-                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#meet-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
-                    </div>
-                </div>
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="hero-title text-white">
+                    About <span class="text-gradient">Naptico Green Energy Solars</span>
+                </h1>
+                <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
             </div>
         </div>
         <!-- Particle Effect -->
         <div id="particles"></div>
     </section>
     
-    <!-- Our Story Section - New Design -->
-    <section id="our-story" class="story-section">
-        <div class="container mx-auto px-4 story-container">
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container mx-auto px-4 story-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our<span class="text-gradient">Story</span></h2>
-                <p class="section-subtitle">From a humble beginning to becoming India's most trusted solar energy provider</p>
+                <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
+                <p class="section-subtitle">From a small startup to a leading solar energy provider</p>
             </div>
             
-            <div class="story-timeline">
-                <!-- Story Milestone 1 -->
-                <div class="story-milestone fade-in stagger-1">
-                    <div class="story-year">2010</div>
-                    <div class="story-content">
-                        <h3 class="story-title">Humble Beginnings</h3>
-                        <p class="story-description">Founded with a vision to make solar energy accessible to every Indian household, we started with a small team of 5 passionate engineers.</p>
-                    </div>
-                </div>
-                
-                <!-- Story Milestone 2 -->
-                <div class="story-milestone fade-in stagger-2">
-                    <div class="story-year">2015</div>
-                    <div class="story-content">
-                        <h3 class="story-title">Expansion Phase</h3>
-                        <p class="story-description">Expanded operations to 5 major cities and completed our first 1000 installations, establishing ourselves as a reliable solar solutions provider.</p>
-                    </div>
-                </div>
-                
-                <!-- Story Milestone 3 -->
-                <div class="story-milestone fade-in stagger-3">
-                    <div class="story-year">2018</div>
-                    <div class="story-content">
-                        <h3 class="story-title">Innovation Hub</h3>
-                        <p class="story-description">Launched our R&D center focused on developing more efficient solar panels and energy storage solutions, filing 12 patents.</p>
-                    </div>
-                </div>
-                
-                <!-- Story Milestone 4 -->
-                <div class="story-milestone fade-in stagger-4">
-                    <div class="story-year">2020</div>
-                    <div class="story-content">
-                        <h3 class="story-title">National Recognition</h3>
-                        <p class="story-description">Awarded "Best Solar Company in India" by the Ministry of New and Renewable Energy for our contribution to clean energy adoption.</p>
-                    </div>
-                </div>
-                
-                <!-- Story Milestone 5 -->
-                <div class="story-milestone fade-in stagger-5">
-                    <div class="story-year">2023</div>
-                    <div class="story-content">
-                        <h3 class="story-title">Milestone Achievement</h3>
-                        <p class="story-description">Reached 50,000+ installations and 200+ MW of clean energy generated, becoming one of India's largest solar energy providers.</p>
-                    </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="story-card fade-in">
+                    <p class="text-gray-300 mb-4">Founded in 2010, Naptico Green Energy Solars began with a simple vision: to make clean, renewable energy accessible to every home and business in India. What started as a small team of passionate environmentalists has grown into a nationwide movement, with over 50,000 successful installations and 200+ MW of clean energy generated.</p>
+                    
+                    <p class="text-gray-300 mb-4">Our journey has been marked by innovation, dedication, and an unwavering commitment to sustainability. We've faced challenges, celebrated milestones, and continuously evolved to meet the growing energy needs of our country while reducing our collective carbon footprint.</p>
+                    
+                    <p class="text-gray-300">Today, Naptico Green Energy Solars stands as a testament to what's possible when vision meets determination. We're not just installing solar panels; we're powering a greener, more sustainable future for generations to come.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Mission & Vision Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+    <section class="mission-vision-section">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Mission &<span class="text-gradient">Vision</span></h2>
-                <p class="section-subtitle">Our commitment to a sustainable future</p>
+                <h2 class="section-title">Our <span class="text-gradient">Mission & Vision</span></h2>
+                <p class="section-subtitle">Guiding principles that drive everything we do</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="mission-vision-card fade-in stagger-1">
-                    <div class="icon-circle">
+                    <div class="mission-vision-icon">
                         <i class="fas fa-bullseye text-white text-3xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-white">Our Mission</h3>
-                    <p class="text-gray-300 mb-4">To accelerate the world's transition to sustainable energy by providing high-quality, affordable solar solutions that empower individuals, businesses, and communities to reduce their carbon footprint and achieve energy independence.</p>
-                    <p class="text-gray-300">We are committed to innovation, excellence, and customer satisfaction in every solar installation we undertake, ensuring maximum efficiency and long-term reliability.</p>
+                    <p class="text-gray-300">To accelerate India's transition to sustainable energy by providing high-quality, affordable solar solutions that empower individuals, businesses, and communities to reduce their carbon footprint and energy costs.</p>
                 </div>
                 
                 <div class="mission-vision-card fade-in stagger-2">
-                    <div class="icon-circle">
+                    <div class="mission-vision-icon">
                         <i class="fas fa-eye text-white text-3xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-                    <p class="text-gray-300 mb-4">To be the leading force in India's renewable energy revolution, powering millions of homes and businesses with clean, sustainable solar energy by 2030.</p>
-                    <p class="text-gray-300">We envision a future where solar energy is the primary source of power for all, contributing significantly to global efforts in combating climate change and creating a greener planet for future generations.</p>
+                    <p class="text-gray-300">To be India's most trusted and innovative solar energy company, leading the nation toward energy independence and environmental sustainability through cutting-edge technology and exceptional service.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Our Values Section -->
-    <section class="about-section py-20">
+    <section class="values-section">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our<span class="text-gradient">Values</span></h2>
-                <p class="section-subtitle">The principles that guide our actions and decisions</p>
+                <h2 class="section-title">Our <span class="text-gradient">Core Values</span></h2>
+                <p class="section-subtitle">The principles that define who we are and how we work</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="value-card fade-in stagger-1">
                     <div class="value-icon">
-                        <i class="fas fa-leaf text-white text-3xl"></i>
+                        <i class="fas fa-lightbulb text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Sustainability</h3>
-                    <p class="text-gray-300">We are committed to environmental stewardship and promoting sustainable practices in all our operations.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Innovation</h3>
+                    <p class="text-gray-300">Constantly pushing boundaries with cutting-edge solar technology and solutions.</p>
                 </div>
                 
                 <div class="value-card fade-in stagger-2">
                     <div class="value-icon">
-                        <i class="fas fa-lightbulb text-white text-3xl"></i>
+                        <i class="fas fa-leaf text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Innovation</h3>
-                    <p class="text-gray-300">We continuously seek new and better ways to harness solar energy through research and technological advancement.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Sustainability</h3>
+                    <p class="text-gray-300">Committed to environmental stewardship in all aspects of our business.</p>
                 </div>
                 
                 <div class="value-card fade-in stagger-3">
                     <div class="value-icon">
-                        <i class="fas fa-users text-white text-3xl"></i>
+                        <i class="fas fa-handshake text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Integrity</h3>
-                    <p class="text-gray-300">We conduct our business with honesty, transparency, and ethical practices, building trust with all stakeholders.</p>
+                    <p class="text-gray-300">Building trust through transparency, honesty, and ethical practices.</p>
                 </div>
                 
                 <div class="value-card fade-in stagger-4">
                     <div class="value-icon">
-                        <i class="fas fa-hands-helping text-white text-3xl"></i>
+                        <i class="fas fa-users text-white text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Customer Focus</h3>
-                    <p class="text-gray-300">We prioritize our customers' needs and satisfaction, delivering exceptional service and long-term value.</p>
+                    <p class="text-gray-300">Putting our customers at the center of everything we do.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Meet the Team Section - Updated with Local Images -->
-    <section id="meet-team" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+    <!-- Our Team Section -->
+    <section class="team-section">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Meet Our Leadership</h2>
+                <h2 class="section-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
                 <p class="section-subtitle">The visionaries driving our mission forward</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-                <!-- Team Member 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="team-card fade-in stagger-1">
-                    <!-- Fixed image path -->
-                    <img src="./images/AJ.jpg" alt="Ajay Raju N - CEO" class="team-avatar" 
-                         onerror="this.src='https://via.placeholder.com/150x150?text=CEO'">
-                    <h3 class="team-name">Ajay Raju N</h3>
+                    <img src="./images/CEO.jpg" alt="CEO" class="team-image" onerror="this.src='https://via.placeholder.com/150x150?text=CEO'">
+                    <h3 class="team-name">Rajesh Sharma</h3>
                     <p class="team-position">Founder & CEO</p>
-                    <p class="team-bio">With over 20 years of experience in renewable energy, Ajay founded Naptico with a vision to make solar power accessible to every Indian household.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <p class="team-bio">With over 15 years of experience in renewable energy, Rajesh founded Naptico with a vision to make solar energy accessible to all Indians.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Team Member 2 -->
                 <div class="team-card fade-in stagger-2">
-                    <!-- Replace with your local image path -->
-                    <img src="./images/team-cto.jpg" alt="Priya Patel - CTO" class="team-avatar" 
-                         onerror="this.src='https://via.placeholder.com/150x150?text=CTO'">
-                    <h3 class="team-name">Priya Patel</h3>
+                    <img src="./images/CTO.jpg" alt="CTO" class="team-image" onerror="this.src='https://via.placeholder.com/150x150?text=CTO'">
+                    <h3 class="team-name">Priya Nair</h3>
                     <p class="team-position">Chief Technology Officer</p>
-                    <p class="team-bio">Priya leads our R&D initiatives, bringing cutting-edge solar technology to market and driving innovation in energy storage solutions.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <p class="team-bio">Priya leads our technology innovation, ensuring we stay at the forefront of solar technology and digital solutions.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Team Member 3 -->
                 <div class="team-card fade-in stagger-3">
-                    <!-- Replace with your local image path -->
-                    <img src="./images/team-coo.jpg" alt="Amit Kumar - COO" class="team-avatar" 
-                         onerror="this.src='https://via.placeholder.com/150x150?text=COO'">
-                    <h3 class="team-name">Amit Kumar</h3>
-                    <p class="team-position">Chief Operating Officer</p>
-                    <p class="team-bio">Amit oversees our nationwide operations, ensuring seamless installation processes and exceptional customer service across all locations.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Team Member 4 -->
-                <div class="team-card fade-in stagger-4">
-                    <!-- Replace with your local image path -->
-                    <img src="./images/team-cfo.jpg" alt="Neha Sharma - CFO" class="team-avatar" 
-                         onerror="this.src='https://via.placeholder.com/150x150?text=CFO'">
-                    <h3 class="team-name">Neha Sharma</h3>
+                    <img src="./images/CFO.jpg" alt="CFO" class="team-image" onerror="this.src='https://via.placeholder.com/150x150?text=CFO'">
+                    <h3 class="team-name">Amit Patel</h3>
                     <p class="team-position">Chief Financial Officer</p>
-                    <p class="team-bio">Neha brings 15 years of financial expertise to Naptico, ensuring sustainable growth and financial stability for our expanding operations.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Team Member 5 -->
-                <div class="team-card fade-in stagger-5">
-                    <!-- Replace with your local image path -->
-                    <img src="./images/team-cmo.jpg" alt="Rajiv Singh - CMO" class="team-avatar" 
-                         onerror="this.src='https://via.placeholder.com/150x150?text=CMO'">
-                    <h3 class="team-name">Rajiv Singh</h3>
-                    <p class="team-position">Chief Marketing Officer</p>
-                    <p class="team-bio">Rajiv leads our marketing and brand strategy, helping us reach more customers with our message of sustainable energy solutions.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <p class="team-bio">Amit oversees our financial strategy, ensuring sustainable growth and value creation for all stakeholders.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Our Achievements Section -->
-    <section class="about-section py-20">
+    <!-- Milestones Section -->
+    <section class="milestones-section">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our Achievements</h2>
-                <p class="section-subtitle">Milestones that mark our journey of excellence</p>
+                <h2 class="section-title">Our <span class="text-gradient">Milestones</span></h2>
+                <p class="section-subtitle">Key moments in our journey of growth and impact</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="achievement-card fade-in stagger-1">
-                    <div class="achievement-icon">
-                        <i class="fas fa-home text-white text-3xl"></i>
-                    </div>
-                    <div class="achievement-number">50,000+</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Installations</h3>
-                    <p class="text-gray-300">Residential and commercial solar installations across India</p>
+                <div class="milestone-card fade-in stagger-1">
+                    <div class="milestone-year">2010</div>
+                    <h3 class="milestone-title">Company Founded</h3>
+                    <p class="milestone-description">Naptico Green Energy Solars established with a vision to revolutionize solar energy in India.</p>
                 </div>
                 
-                <div class="achievement-card fade-in stagger-2">
-                    <div class="achievement-icon">
-                        <i class="fas fa-bolt text-white text-3xl"></i>
-                    </div>
-                    <div class="achievement-number">200+ MW</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Clean Energy</h3>
-                    <p class="text-gray-300">Total clean energy generated through our solar installations</p>
+                <div class="milestone-card fade-in stagger-2">
+                    <div class="milestone-year">2015</div>
+                    <h3 class="milestone-title">10,000 Installations</h3>
+                    <p class="milestone-description">Reached a significant milestone of 10,000 successful solar installations across India.</p>
                 </div>
                 
-                <div class="achievement-card fade-in stagger-3">
-                    <div class="achievement-icon">
+                <div class="milestone-card fade-in stagger-3">
+                    <div class="milestone-year">2020</div>
+                    <h3 class="milestone-title">100 MW Generated</h3>
+                    <p class="milestone-description">Celebrated generating 100 MW of clean energy, significantly reducing carbon emissions.</p>
+                </div>
+                
+                <div class="milestone-card fade-in stagger-4">
+                    <div class="milestone-year">2023</div>
+                    <h3 class="milestone-title">National Award</h3>
+                    <p class="milestone-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Why Choose <span class="text-gradient">Naptico</span></h2>
+                <p class="section-subtitle">What sets us apart from the competition</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="why-choose-card fade-in stagger-1">
+                    <div class="why-choose-icon">
                         <i class="fas fa-award text-white text-3xl"></i>
                     </div>
-                    <div class="achievement-number">15+</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Awards</h3>
-                    <p class="text-gray-300">National and international awards for excellence in renewable energy</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Proven Track Record</h3>
+                    <p class="text-gray-300">Over a decade of experience with 50,000+ successful installations and 200+ MW of clean energy generated.</p>
                 </div>
                 
-                <div class="achievement-card fade-in stagger-4">
-                    <div class="achievement-icon">
-                        <i class="fas fa-tree text-white text-3xl"></i>
+                <div class="why-choose-card fade-in stagger-2">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-certificate text-white text-3xl"></i>
                     </div>
-                    <div class="achievement-number">1M+ Tons</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">CO₂ Reduced</h3>
-                    <p class="text-gray-300">Carbon emissions reduced through our solar solutions</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Quality Assurance</h3>
+                    <p class="text-gray-300">All our products are certified to international standards and come with comprehensive warranties.</p>
                 </div>
+                
+                <div class="why-choose-card fade-in stagger-3">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-rupee-sign text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Affordable Solutions</h3>
+                    <p class="text-gray-300">Competitive pricing with flexible financing options to make solar energy accessible to everyone.</p>
+                </div>
+                
+                <div class="why-choose-card fade-in stagger-4">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-headset text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Exceptional Service</h3>
+                    <p class="text-gray-300">Dedicated customer support team available 24/7 to address all your queries and concerns.</p>
+                </div>
+                
+                <div class="why-choose-card fade-in stagger-5">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-tools text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Expert Installation</h3>
+                    <p class="text-gray-300">Certified technicians ensure professional installation for optimal performance and longevity.</p>
+                </div>
+                
+                <div class="why-choose-card fade-in stagger-6">
+                    <div class="why-choose-icon">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Maximum Savings</h3>
+                    <p class="text-gray-300">Our systems are designed to deliver maximum energy output, ensuring the best return on investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container mx-auto px-4 text-center cta-content">
+            <h2 class="text-4xl font-bold mb-6 text-white fade-in">Join Our Solar Revolution</h2>
+            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy transition with Naptico Green Energy Solars</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
+                <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
             </div>
         </div>
     </section>
@@ -1554,7 +1383,7 @@
                         <li><a href="services.html#street-light">Solar Street Lights</a></li>
                         <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
                         <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
-                        <li><a href="services.html">Maintenance & Support</a></li>
+                        <li><a href="services.html#maintenance & support">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -1575,7 +1404,7 @@
                         <li>
                             <i class="fas fa-envelope"></i>
                             <span>
-                                <a href="mailto:info@solarpower.in">support@napticogreenenergysolars.com</a>
+                                <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
                             </span>
                         </li>
                         <li>
@@ -1593,159 +1422,100 @@
     </footer>
     
     <script>
-        // Loading Screen - Fixed with multiple approaches
-        document.addEventListener('DOMContentLoaded', function() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen) {
-                // Hide loading screen after a minimum time to ensure animation is visible
-                setTimeout(() => {
-                    loadingScreen.classList.add('hidden');
-                }, 2000);
-                
-                // Fallback in case the above doesn't work
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 5000);
-            }
-        });
-
-        // Additional fallback
+        // Loading Screen
         window.addEventListener('load', function() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-                loadingScreen.classList.add('hidden');
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 1000);
-            }
+            setTimeout(function() {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 3000);
         });
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
         
-        if (cursor && cursorFollower) {
-            // Use requestAnimationFrame for smooth cursor movement
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
+        // Use requestAnimationFrame for smooth cursor movement
+        let mouseX = 0;
+        let mouseY = 0;
+        let followerX = 0;
+        let followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
             
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                
-                // Update main cursor position immediately
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
-            });
+            // Update main cursor position immediately
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+        
+        // Use animation frame for smooth follower movement
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
             
-            // Use animation frame for smooth follower movement
-            function animateFollower() {
-                followerX += (mouseX - followerX) * 0.15;
-                followerY += (mouseY - followerY) * 0.15;
-                
-                cursorFollower.style.left = followerX + 'px';
-                cursorFollower.style.top = followerY + 'px';
-                
-                requestAnimationFrame(animateFollower);
-            }
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
             
-            animateFollower();
-            
-            // Hide cursor when leaving the window
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-                cursorFollower.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-            
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .team-card, .value-card, .achievement-card, .mission-vision-card, .story-content, .service-card');
-            
-            hoverElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
+            requestAnimationFrame(animateFollower);
         }
+        
+        animateFollower();
+        
+        // Hide cursor when leaving the window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorFollower.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorFollower.style.opacity = '1';
+        });
+        
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .story-card, .mission-vision-card, .value-card, .team-card, .milestone-card, .why-choose-card');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+            });
+        });
         
         // Header scroll effect
         const header = document.querySelector('.header');
         
-        if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
-        
-        // Hero Slideshow - Fixed to match background and foreground images
-        const slides = document.querySelectorAll('.hero-slide');
-        const heroImage = document.getElementById('heroImage');
-        const heroImages = [
-            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
-        ];
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            if (slides.length > 0) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                if (slides[index]) {
-                    slides[index].classList.add('active');
-                    if (heroImage) {
-                        heroImage.src = heroImages[index];
-                    }
-                    currentSlide = index;
-                }
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-        }
-        
-        function nextSlide() {
-            if (slides.length > 0) {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-        }
-        
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
+        });
         
         // Create particle effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            if (particlesContainer) {
-                const particleCount = 50;
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
                 
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    const size = Math.random() * 10 + 5;
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.animationDelay = `${Math.random() * 20}s`;
-                    particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
-                    
-                    particlesContainer.appendChild(particle);
-                }
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                
+                particlesContainer.appendChild(particle);
             }
         }
         
@@ -1754,38 +1524,46 @@
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        if (backToTopBtn) {
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
         
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
         
         // Quote Form Modal (same as homepage)
-        const contactBtns = document.querySelectorAll('.contact-btn');
+        const quoteModal = document.getElementById('quoteModal');
+        const quoteClose = document.querySelector('.quote-close');
+        const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
         
         contactBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Redirect to homepage or implement modal here
-                window.location.href = 'index.html#quoteModal';
+                quoteModal.classList.add('active');
+                centerModal();
             });
+        });
+        
+        quoteClose.addEventListener('click', () => {
+            quoteModal.classList.remove('active');
+        });
+        
+        quoteModal.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                quoteModal.classList.remove('active');
+            }
         });
         
         // Smooth scrolling for anchor links
@@ -1803,7 +1581,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.team-card, .value-card, .achievement-card, .mission-vision-card, .story-content, .service-card');
+        const cards = document.querySelectorAll('.story-card, .mission-vision-card, .value-card, .team-card, .milestone-card, .why-choose-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -1857,48 +1635,24 @@
             }
         });
         
-        // Lazy load images
-        document.addEventListener("DOMContentLoaded", function() {
-            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+        // Function to center the modal properly
+        function centerModal() {
+            const modalContainer = document.querySelector('.quote-form-container');
+            const windowHeight = window.innerHeight;
+            const modalHeight = modalContainer.offsetHeight;
             
-            if ("IntersectionObserver" in window) {
-                const lazyImageObserver = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-                
-                lazyImages.forEach(function(lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
+            if (modalHeight > windowHeight - 40) {
+                modalContainer.style.marginTop = '20px';
+                modalContainer.style.marginBottom = '20px';
+            } else {
+                const topMargin = (windowHeight - modalHeight) / 2;
+                modalContainer.style.marginTop = `${topMargin}px`;
+                modalContainer.style.marginBottom = '0';
             }
-        });
-        
-        // Error handling for missing images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', function() {
-                this.src = 'https://via.placeholder.com/300x200?text=Image+Not+Available';
-                this.alt = 'Image not available';
-            });
-        });
-        
-        // Service Worker for PWA (optional)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed:', error);
-                    });
-            });
         }
+        
+        // Add event listener for window resize to re-center modal
+        window.addEventListener('resize', centerModal);
     </script>
 </body>
 </html>

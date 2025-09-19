@@ -1474,24 +1474,8 @@
         .timeline {
             position: relative;
             padding: 60px 0;
-            overflow-x: auto;
+            overflow-x: hidden;
             overflow-y: hidden;
-            scrollbar-width: thin;
-            scrollbar-color: #f59e0b #1e293b;
-        }
-        
-        .timeline::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .timeline::-webkit-scrollbar-track {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-        
-        .timeline::-webkit-scrollbar-thumb {
-            background: #f59e0b;
-            border-radius: 4px;
         }
         
         .timeline-wrapper {
@@ -1499,6 +1483,20 @@
             gap: 40px;
             min-width: max-content;
             padding: 0 20px;
+            animation: autoScroll 30s linear infinite;
+        }
+        
+        .timeline-wrapper:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes autoScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
         
         .timeline-item {
@@ -2108,6 +2106,73 @@
             <div class="timeline-container">
                 <div class="timeline">
                     <div class="timeline-wrapper">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2010</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h3 class="timeline-title">The Beginning</h3>
+                                <p class="timeline-description">Founded with a vision to make renewable energy accessible to every household in India. Started as a small team of <span class="timeline-highlight">passionate engineers</span> with a dream to revolutionize the energy sector.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2013</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3 class="timeline-title">First Major Project</h3>
+                                <p class="timeline-description">Completed our first large-scale commercial installation, marking a significant milestone. This project <span class="timeline-highlight">paved the way</span> for future commercial partnerships.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2016</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <h3 class="timeline-title">Expansion Phase</h3>
+                                <p class="timeline-description">Expanded operations to multiple states across India. Our <span class="timeline-highlight">nationwide presence</span> allowed us to serve diverse markets and communities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h3 class="timeline-title">Innovation Hub</h3>
+                                <p class="timeline-description">Launched our R&D center focused on developing next-generation solar technologies. Our <span class="timeline-highlight">cutting-edge research</span> has led to several patents.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2022</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h3 class="timeline-title">National Recognition</h3>
+                                <p class="timeline-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy. This <span class="timeline-highlight">prestigious award</span> validated our commitment to excellence.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">Today</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3 class="timeline-title">Leading the Future</h3>
+                                <p class="timeline-description">With 50,000+ installations and 200+ MW of clean energy generated, we continue to lead the renewable energy revolution. Our <span class="timeline-highlight">sustainable impact</span> grows stronger each day.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Duplicate items for seamless scrolling -->
                         <div class="timeline-item">
                             <div class="timeline-content">
                                 <div class="timeline-year">2010</div>

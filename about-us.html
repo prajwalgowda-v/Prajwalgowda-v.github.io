@@ -681,7 +681,7 @@
             line-height: 1.6;
         }
         
-        /* Timeline Section - Redesigned */
+        /* Timeline Section - World-Class Redesign */
         .timeline-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
@@ -694,38 +694,131 @@
             z-index: 1;
         }
         
-        .timeline-container {
+        .journey-container {
             position: relative;
-            max-width: 1200px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .journey-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .journey-title h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .journey-title p {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .journey-road {
+            position: relative;
+            height: 600px;
             margin: 0 auto;
             overflow: hidden;
-        }
-        
-        .timeline-wrapper {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .timeline-item {
-            min-width: 300px;
-            margin: 0 15px;
-            perspective: 1000px;
-        }
-        
-        .timeline-card {
-            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .journey-road::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+        
+        .journey-path {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transform: translateY(-50%);
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        }
+        
+        .journey-milestone {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            z-index: 2;
+            transition: all 0.5s ease;
+            cursor: none;
+        }
+        
+        .journey-milestone:nth-child(odd) {
+            text-align: right;
+            margin-right: calc(50% - 150px);
+        }
+        
+        .journey-milestone:nth-child(even) {
+            text-align: left;
+            margin-left: calc(50% - 150px);
+        }
+        
+        .journey-milestone:nth-child(1) { left: 5%; }
+        .journey-milestone:nth-child(2) { left: 25%; }
+        .journey-milestone:nth-child(3) { left: 45%; }
+        .journey-milestone:nth-child(4) { left: 65%; }
+        .journey-milestone:nth-child(5) { left: 85%; }
+        .journey-milestone:nth-child(6) { left: 95%; }
+        
+        .journey-milestone:nth-child(odd) .milestone-connector {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transform: translateY(-50%);
+        }
+        
+        .journey-milestone:nth-child(even) .milestone-connector {
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transform: translateY(-50%);
+        }
+        
+        .milestone-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 30px;
-            height: 100%;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
+            padding: 25px;
             position: relative;
             overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
         }
         
-        .timeline-card::before {
+        .milestone-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -738,44 +831,87 @@
             z-index: -1;
         }
         
-        .timeline-card:hover {
-            transform: translateY(-15px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        .journey-milestone:hover .milestone-card {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .timeline-card:hover::before {
+        .journey-milestone:hover .milestone-card::before {
             opacity: 1;
         }
         
-        .timeline-year {
+        .milestone-year {
             font-size: 2.5rem;
             font-weight: 800;
             color: #f59e0b;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
         }
         
-        .timeline-title {
-            font-size: 1.5rem;
+        .milestone-title {
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: white;
         }
         
-        .timeline-text {
+        .milestone-text {
             color: #e2e8f0;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
         
-        .timeline-nav {
+        .milestone-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+            z-index: 3;
+        }
+        
+        .milestone-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .journey-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 30px;
+            margin-top: 50px;
             gap: 20px;
         }
         
-        .timeline-arrow {
+        .journey-nav-btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -791,17 +927,17 @@
             cursor: none;
         }
         
-        .timeline-arrow:hover {
+        .journey-nav-btn:hover {
             background: rgba(245, 158, 11, 0.2);
             transform: scale(1.1);
         }
         
-        .timeline-dots {
+        .journey-indicators {
             display: flex;
             gap: 10px;
         }
         
-        .timeline-dot {
+        .journey-indicator {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -810,7 +946,7 @@
             transition: all 0.3s ease;
         }
         
-        .timeline-dot.active {
+        .journey-indicator.active {
             background: #f59e0b;
             transform: scale(1.3);
         }
@@ -1489,8 +1625,38 @@
             .mission-vision-grid {
                 grid-template-columns: 1fr;
             }
-            .timeline-item {
-                min-width: 250px;
+            .journey-title h2 {
+                font-size: 2.5rem;
+            }
+            .journey-milestone {
+                width: 280px;
+            }
+            .journey-milestone:nth-child(odd),
+            .journey-milestone:nth-child(even) {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .journey-milestone:nth-child(odd) .milestone-connector,
+            .journey-milestone:nth-child(even) .milestone-connector {
+                display: none;
+            }
+            .journey-road {
+                height: 800px;
+            }
+            .milestone-card {
+                padding: 20px;
+            }
+            .milestone-year {
+                font-size: 2rem;
+            }
+            .milestone-title {
+                font-size: 1.1rem;
+            }
+            .milestone-text {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -1622,11 +1788,11 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="hero-title text-white">
-                        About <span class="text-gradient">Naptico Green Energy</span>
+                        Power Your Future with <span class="text-gradient">Naptico Energy</span>
                     </h1>
-                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
+                    <p class="text-xl mb-8 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#mission" class="hero-btn hero-btn-primary">Our Mission</a>
+                        <a href="#story" class="hero-btn hero-btn-primary">Our Story</a>
                         <a href="#journey" class="hero-btn hero-btn-secondary">Our Journey</a>
                     </div>
                 </div>
@@ -1642,7 +1808,7 @@
     </section>
     
     <!-- About Section - New Section for Company Information -->
-    <section class="about-section">
+    <section id="story" class="about-section">
         <div class="container mx-auto px-4 about-content">
             <div class="about-grid">
                 <div class="about-image fade-in">
@@ -1676,7 +1842,7 @@
     </section>
     
     <!-- Mission and Vision Section -->
-    <section id="mission" class="mission-vision-section">
+    <section class="mission-vision-section">
         <div class="container mx-auto px-4 mission-vision-content">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold mb-4 text-white">Our <span class="text-gradient">Mission & Vision</span></h2>
@@ -1747,79 +1913,102 @@
         </div>
     </section>
     
-    <!-- Timeline Section - Redesigned -->
+    <!-- Timeline Section - World-Class Redesign -->
     <section id="journey" class="timeline-section">
-        <div class="container mx-auto px-4 timeline-content">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">Our <span class="text-gradient">Journey</span></h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Key milestones in our mission to power India with clean energy</p>
+        <div class="journey-container">
+            <div class="journey-title fade-in">
+                <h2>Our Journey</h2>
+                <p>Key milestones in our mission to power India with clean energy</p>
             </div>
             
-            <div class="timeline-container">
-                <div class="timeline-wrapper" id="timelineWrapper">
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-year">2010</div>
-                            <h3 class="timeline-title">Company Founded</h3>
-                            <p class="timeline-text">Naptico Green Energy Solars was established with a vision to bring affordable solar energy to Indian households and businesses.</p>
-                        </div>
+            <div class="journey-road fade-in">
+                <div class="journey-path"></div>
+                
+                <!-- Milestone 1 -->
+                <div class="journey-milestone">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2010</div>
+                        <h3 class="milestone-title">Company Founded</h3>
+                        <p class="milestone-text">Naptico Green Energy Solars was established with a vision to bring affordable solar energy to Indian households and businesses.</p>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-year">2013</div>
-                            <h3 class="timeline-title">First Major Installation</h3>
-                            <p class="timeline-text">Completed our first large-scale commercial installation, marking a significant milestone in our growth journey.</p>
-                        </div>
+                    <div class="milestone-connector"></div>
+                </div>
+                <div class="milestone-glow"></div>
+                <div class="milestone-icon"></div>
+                
+                <!-- Milestone 2 -->
+                <div class="journey-milestone">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2013</div>
+                        <h3 class="milestone-title">First Major Installation</h3>
+                        <p class="milestone-text">Completed our first large-scale commercial installation, marking a significant milestone in our growth journey.</p>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-year">2016</div>
-                            <h3 class="timeline-title">Expansion Across India</h3>
-                            <p class="timeline-text">Expanded our operations to multiple states, establishing a strong presence across the country.</p>
-                        </div>
+                    <div class="milestone-connector"></div>
+                </div>
+                <div class="milestone-glow"></div>
+                <div class="milestone-icon"></div>
+                
+                <!-- Milestone 3 -->
+                <div class="journey-milestone">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2016</div>
+                        <h3 class="milestone-title">Expansion Across India</h3>
+                        <p class="milestone-text">Expanded our operations to multiple states, establishing a strong presence across the country.</p>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-year">2019</div>
-                            <h3 class="timeline-title">25,000 Installations Milestone</h3>
-                            <p class="timeline-text">Reached the significant milestone of 25,000 solar installations, generating clean energy for thousands of families.</p>
-                        </div>
+                    <div class="milestone-connector"></div>
+                </div>
+                <div class="milestone-glow"></div>
+                <div class="milestone-icon"></div>
+                
+                <!-- Milestone 4 -->
+                <div class="journey-milestone">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2019</div>
+                        <h3 class="milestone-title">25,000 Installations Milestone</h3>
+                        <p class="milestone-text">Reached the significant milestone of 25,000 solar installations, generating clean energy for thousands of families.</p>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-year">2022</div>
-                            <h3 class="timeline-title">National Recognition</h3>
-                            <p class="timeline-text">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy for our contributions to clean energy.</p>
-                        </div>
+                    <div class="milestone-connector"></div>
+                </div>
+                <div class="milestone-glow"></div>
+                <div class="milestone-icon"></div>
+                
+                <!-- Milestone 5 -->
+                <div class="journey-milestone">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2022</div>
+                        <h3 class="milestone-title">National Recognition</h3>
+                        <p class="milestone-text">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy for our contributions to clean energy.</p>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-year">2023</div>
-                            <h3 class="timeline-title">50,000 Installations Achieved</h3>
-                            <p class="timeline-text">Celebrated the milestone of 50,000 successful installations, generating over 200 MW of clean energy nationwide.</p>
-                        </div>
+                    <div class="milestone-connector"></div>
+                </div>
+                <div class="milestone-glow"></div>
+                <div class="milestone-icon"></div>
+                
+                <!-- Milestone 6 -->
+                <div class="journey-milestone">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2023</div>
+                        <h3 class="milestone-title">50,000 Installations Achieved</h3>
+                        <p class="milestone-text">Celebrated the milestone of 50,000 successful installations, generating over 200 MW of clean energy nationwide.</p>
                     </div>
                 </div>
+                <div class="milestone-glow"></div>
+                <div class="milestone-icon"></div>
             </div>
             
-            <div class="timeline-nav">
-                <button class="timeline-arrow" id="prevBtn">
+            <div class="journey-nav fade-in">
+                <button class="journey-nav-btn" id="prevBtn">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="timeline-dots" id="timelineDots">
-                    <span class="timeline-dot active"></span>
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-dot"></span>
-                    <span class="timeline-dot"></span>
+                <div class="journey-indicators" id="journeyIndicators">
+                    <span class="journey-indicator active"></span>
+                    <span class="journey-indicator"></span>
+                    <span class="journey-indicator"></span>
+                    <span class="journey-indicator"></span>
+                    <span class="journey-indicator"></span>
+                    <span class="journey-indicator"></span>
                 </div>
-                <button class="timeline-arrow" id="nextBtn">
+                <button class="journey-nav-btn" id="nextBtn">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -1977,7 +2166,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .mission-vision-card, .value-card, .timeline-card, .timeline-arrow, .timeline-dot');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .mission-vision-card, .value-card, .milestone-card, .journey-nav-btn, .journey-indicator');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -2258,7 +2447,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .mission-vision-card, .value-card, .timeline-card');
+        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .mission-vision-card, .value-card, .milestone-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -2312,78 +2501,107 @@
             }
         });
         
-        // Timeline Slider Functionality
-        const timelineWrapper = document.getElementById('timelineWrapper');
-        const timelineDots = document.querySelectorAll('.timeline-dot');
+        // Journey Timeline Interactive Features
+        const journeyMilestones = document.querySelectorAll('.journey-milestone');
+        const journeyIndicators = document.querySelectorAll('.journey-indicator');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         
-        let currentIndex = 0;
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        const totalItems = timelineItems.length;
-        const itemWidth = 330; // 300px width + 30px margin
+        let currentMilestone = 0;
         
-        // Update timeline position
-        function updateTimelinePosition() {
-            const offset = -currentIndex * itemWidth;
-            timelineWrapper.style.transform = `translateX(${offset}px)`;
-            
-            // Update dots
-            timelineDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
+        // Function to highlight a specific milestone
+        function highlightMilestone(index) {
+            // Remove active class from all indicators
+            journeyIndicators.forEach(indicator => {
+                indicator.classList.remove('active');
             });
-        }
-        
-        // Next button click
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < totalItems - 1) {
-                currentIndex++;
-                updateTimelinePosition();
+            
+            // Add active class to current indicator
+            if (journeyIndicators[index]) {
+                journeyIndicators[index].classList.add('active');
             }
-        });
+            
+            // Scroll to the milestone
+            if (journeyMilestones[index]) {
+                journeyMilestones[index].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center'
+                });
+                
+                // Add a pulse effect to the milestone
+                const milestoneCard = journeyMilestones[index].querySelector('.milestone-card');
+                milestoneCard.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    milestoneCard.style.transform = '';
+                }, 500);
+            }
+        }
         
         // Previous button click
         prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateTimelinePosition();
+            if (currentMilestone > 0) {
+                currentMilestone--;
+                highlightMilestone(currentMilestone);
             }
         });
         
-        // Dot click
-        timelineDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateTimelinePosition();
+        // Next button click
+        nextBtn.addEventListener('click', () => {
+            if (currentMilestone < journeyMilestones.length - 1) {
+                currentMilestone++;
+                highlightMilestone(currentMilestone);
+            }
+        });
+        
+        // Indicator click
+        journeyIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentMilestone = index;
+                highlightMilestone(currentMilestone);
             });
         });
         
-        // Auto slide timeline
-        let autoSlideInterval = setInterval(() => {
-            if (currentIndex < totalItems - 1) {
-                currentIndex++;
+        // Auto-navigate through milestones
+        let autoNavigateInterval = setInterval(() => {
+            if (currentMilestone < journeyMilestones.length - 1) {
+                currentMilestone++;
             } else {
-                currentIndex = 0;
+                currentMilestone = 0;
             }
-            updateTimelinePosition();
+            highlightMilestone(currentMilestone);
         }, 5000);
         
-        // Pause auto-slide on hover
-        const timelineContainer = document.querySelector('.timeline-container');
-        timelineContainer.addEventListener('mouseenter', () => {
-            clearInterval(autoSlideInterval);
+        // Pause auto-navigation on hover
+        const journeyRoad = document.querySelector('.journey-road');
+        journeyRoad.addEventListener('mouseenter', () => {
+            clearInterval(autoNavigateInterval);
         });
         
-        // Resume auto-slide on mouse leave
-        timelineContainer.addEventListener('mouseleave', () => {
-            autoSlideInterval = setInterval(() => {
-                if (currentIndex < totalItems - 1) {
-                    currentIndex++;
+        // Resume auto-navigation on mouse leave
+        journeyRoad.addEventListener('mouseleave', () => {
+            autoNavigateInterval = setInterval(() => {
+                if (currentMilestone < journeyMilestones.length - 1) {
+                    currentMilestone++;
                 } else {
-                    currentIndex = 0;
+                    currentMilestone = 0;
                 }
-                updateTimelinePosition();
+                highlightMilestone(currentMilestone);
             }, 5000);
+        });
+        
+        // Add parallax effect to journey road on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const journeySection = document.querySelector('.timeline-section');
+            const journeySectionTop = journeySection.offsetTop;
+            const journeySectionHeight = journeySection.offsetHeight;
+            
+            if (scrollPosition > journeySectionTop - window.innerHeight && 
+                scrollPosition < journeySectionTop + journeySectionHeight) {
+                const parallaxValue = (scrollPosition - journeySectionTop) * 0.1;
+                journeyRoad.style.transform = `translateY(${parallaxValue}px)`;
+            }
         });
     </script>
 </body>

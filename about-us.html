@@ -304,7 +304,7 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - Enhanced - Updated to match index page */
+        /* Hero Section - Enhanced */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -443,7 +443,7 @@
             left : 100%;
         }
         
-        /* About Section - New Section for Company Information */
+        /* About Section - New Section */
         .about-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
@@ -681,7 +681,7 @@
             line-height: 1.6;
         }
         
-        /* Timeline Section - World-Class Redesign - Fixed Alignment Issues */
+        /* Timeline Section - World-Class Redesign */
         .timeline-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
@@ -1772,7 +1772,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Hero Section - Updated to match index page -->
+    <!-- Hero Section -->
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
@@ -1792,8 +1792,8 @@
                     </h1>
                     <p class="text-xl mb-8 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
-                        <a href="services.html" class="hero-btn hero-btn-secondary">Explore Services</a>
+                        <a href="#story" class="hero-btn hero-btn-primary">Our Story</a>
+                        <a href="#journey" class="hero-btn hero-btn-secondary">Our Journey</a>
                     </div>
                 </div>
                 <div class="relative">
@@ -1913,7 +1913,7 @@
         </div>
     </section>
     
-    <!-- Timeline Section - World-Class Redesign - Fixed Alignment Issues -->
+    <!-- Timeline Section - World-Class Redesign -->
     <section id="journey" class="timeline-section">
         <div class="journey-container">
             <div class="journey-title fade-in">
@@ -2121,6 +2121,24 @@
                 document.getElementById('loadingScreen').classList.add('hidden');
             }, 3000);
         });
+        
+        // Prevent auto-scrolling to hash on page load
+        if (window.location.hash) {
+            // Store the hash
+            var hash = window.location.hash;
+            
+            // Remove the hash from the URL
+            history.replaceState(null, null, window.location.pathname);
+            
+            // After a short delay, scroll to the section if needed
+            setTimeout(function() {
+                if (hash === '#journey') {
+                    // Only scroll if user explicitly clicked on a link to this section
+                    // For now, we'll prevent auto-scrolling
+                    window.scrollTo(0, 0);
+                }
+            }, 100);
+        }
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');
@@ -2432,7 +2450,7 @@
             */
         });
         
-        // Smooth scrolling for anchor links - Fixed to prevent automatic scroll
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2501,7 +2519,7 @@
             }
         });
         
-        // Journey Timeline Interactive Features - Fixed alignment issues
+        // Journey Timeline Interactive Features
         const journeyMilestones = document.querySelectorAll('.journey-milestone');
         const journeyIndicators = document.querySelectorAll('.journey-indicator');
         const prevBtn = document.getElementById('prevBtn');

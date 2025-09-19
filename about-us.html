@@ -1659,6 +1659,33 @@
                 font-size: 0.9rem;
             }
         }
+        
+        /* Fix for timeline section alignment */
+        @media (max-width: 1024px) {
+            .journey-milestone {
+                width: 250px;
+            }
+            
+            .journey-milestone:nth-child(odd) {
+                margin-right: calc(50% - 125px);
+            }
+            
+            .journey-milestone:nth-child(even) {
+                margin-left: calc(50% - 125px);
+            }
+            
+            .milestone-year {
+                font-size: 2rem;
+            }
+            
+            .milestone-title {
+                font-size: 1.1rem;
+            }
+            
+            .milestone-text {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1772,7 +1799,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Hero Section -->
+    <!-- Hero Section - Updated to match index page -->
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
@@ -1792,8 +1819,8 @@
                     </h1>
                     <p class="text-xl mb-8 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#journey" class="hero-btn hero-btn-secondary">Our Journey</a>
+                        <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
+                        <a href="services.html" class="hero-btn hero-btn-secondary">Explore Services</a>
                     </div>
                 </div>
                 <div class="relative">
@@ -2115,6 +2142,18 @@
     </footer>
     
     <script>
+        // Fix for automatic scrolling to #journey section
+        window.addEventListener('load', function() {
+            // Check if URL has a hash fragment
+            if (window.location.hash) {
+                // Prevent default scroll behavior
+                window.scrollTo(0, 0);
+                
+                // Remove the hash from the URL without triggering a scroll
+                history.replaceState(null, null, window.location.pathname);
+            }
+        });
+        
         // Loading Screen
         window.addEventListener('load', function() {
             setTimeout(function() {

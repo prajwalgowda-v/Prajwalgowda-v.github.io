@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Naptico Green Energy Solars">
+    <title>About Us - Naptico Green Energy Solars</title>
     
     <!-- Favicon and Icons -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -13,8 +13,8 @@
     <link rel="manifest" href="./images/site.webmanifest">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with over a decade of experience, 50,000+ installations, and 200+ MW of clean energy generated.">
-    <meta name="keywords" content="about naptico, solar energy company, renewable energy, clean energy, solar solutions, company history">
+    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
+    <meta name="keywords" content="about solar energy, solar company, renewable energy company, clean energy provider, solar solutions India">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -22,14 +22,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://napticogreenenergysolars.com/about-us.html">
     <meta property="og:title" content="About Us - Naptico Green Energy Solars">
-    <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="og:description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
     <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="twitter:description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -45,7 +45,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* All the same CSS styles from the Home page */
         * {
             font-family: 'Poppins', sans-serif;
             cursor: none;
@@ -442,6 +441,93 @@
         
         .hero-btn:hover::before {
             left : 100%;
+        }
+        
+        /* About Section - New Section */
+        .about-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .about-image:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .about-text p {
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #e2e8f0;
+            font-size: 1rem;
         }
         
         /* Services Section - Fixed Text Color */
@@ -1309,548 +1395,70 @@
             transform: translateY(-3px);
         }
         
-        /* About Us Specific Styles */
-        .about-story {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .about-story::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .about-story::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .about-story-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Company Overview Section */
-        .company-overview {
+        /* FAQ Section */
+        .faq-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 60px 0;
             position: relative;
-            overflow: hidden;
-            padding: 100px 0;
         }
         
-        .company-overview::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 70%);
-            z-index: 0;
-        }
-        
-        .company-overview-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .overview-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 60px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .overview-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .overview-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .overview-card:hover::before {
-            opacity: 1;
-        }
-        
-        .overview-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .overview-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            border-radius: 2px;
-        }
-        
-        .overview-text {
-            color: #e2e8f0;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        
-        .overview-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            background: rgba(245, 158, 11, 0.1);
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #f59e0b;
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: #e2e8f0;
-            font-size: 1.1rem;
-        }
-        
-        /* World-Class Timeline Design - Landscape Orientation */
-        .timeline-container {
-            position: relative;
-            max-width: 1400px;
+        .faq-container {
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .timeline {
-            position: relative;
-            padding: 60px 0;
-            overflow-x: hidden;
-            overflow-y: hidden;
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
         }
         
-        .timeline-wrapper {
-            display: flex;
-            gap: 40px;
-            min-width: max-content;
-            padding: 0 20px;
-            animation: autoScroll 30s linear infinite;
-        }
-        
-        .timeline-wrapper:hover {
-            animation-play-state: paused;
-        }
-        
-        @keyframes autoScroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        .timeline-item {
-            position: relative;
-            min-width: 350px;
-            max-width: 400px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-            flex-shrink: 0;
-        }
-        
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .timeline-content {
+        .faq-item {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .timeline-content:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .timeline-content:hover::before {
-            opacity: 1;
-        }
-        
-        .timeline-year {
-            position: absolute;
-            top: -20px;
-            left: 30px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding: 10px 25px;
-            border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
-            z-index: 2;
-        }
-        
-        .timeline-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-content:hover .timeline-icon {
-            transform: scale(1.1) rotateY(180deg);
-            background: rgba(245, 158, 11, 0.2);
-            border-color: #f59e0b;
-        }
-        
-        .timeline-icon i {
-            font-size: 1.8rem;
-            color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-content:hover .timeline-icon i {
-            color: white;
-        }
-        
-        .timeline-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: white;
+            border-radius: 10px;
             margin-bottom: 15px;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            width: 100%;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         
-        .timeline-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            border-radius: 2px;
-        }
-        
-        .timeline-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1rem;
-            text-align: center;
-            flex-grow: 1;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        
-        .timeline-highlight {
-            color: #f59e0b;
+        .faq-question {
+            padding: 20px;
+            cursor: none;
             font-weight: 600;
-        }
-        
-        /* Values Section */
-        .values-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .values-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 70%);
-            z-index: 0;
-        }
-        
-        .values-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .value-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .value-card:hover::before {
-            opacity: 1;
-        }
-        
-        .value-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
-        
-        .value-card:hover .value-icon {
-            transform: scale(1.1) rotateY(180deg);
-        }
-        
-        .value-title {
-            font-size: 1.8rem;
-            font-weight: 700;
             color: white;
-            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .value-description {
-            color: #e2e8f0;
-            line-height: 1.8;
-            font-size: 1.1rem;
+        .faq-question:hover {
+            background: rgba(245, 158, 11, 0.1);
         }
         
-        /* Team Section */
-        .team-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .team-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .team-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .team-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .team-card:hover::before {
-            opacity: 1;
-        }
-        
-        .team-avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 5px solid rgba(245, 158, 11, 0.3);
-            object-fit: cover;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .team-card:hover .team-avatar {
-            transform: scale(1.05);
-            border-color: #f59e0b;
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
-        }
-        
-        .team-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .team-position {
-            font-size: 1.2rem;
+        .faq-icon {
+            transition: transform 0.3s ease;
             color: #f59e0b;
-            margin-bottom: 20px;
-            font-weight: 500;
         }
         
-        .team-bio {
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
             color: #e2e8f0;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 20px 20px;
         }
         
-        .team-social a {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .team-social a:hover {
-            background: #f59e0b;
-            transform: translateY(-5px) rotateZ(360deg);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
         
         /* Responsive adjustments */
@@ -1879,36 +1487,8 @@
             .form-grid {
                 grid-template-columns: 1fr;
             }
-            
-            /* Timeline responsive */
-            .timeline-wrapper {
-                gap: 20px;
-            }
-            
-            .timeline-item {
-                min-width: 280px;
-                max-width: 320px;
-            }
-            
-            .overview-card {
-                padding: 30px 20px;
-            }
-            
-            .overview-title {
-                font-size: 2rem;
-            }
-            
-            .overview-text {
-                font-size: 1rem;
-            }
-            
-            .overview-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
+            .about-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -2042,10 +1622,10 @@
                     <h1 class="hero-title text-white">
                         About <span class="text-gradient">Naptico Green Energy</span>
                     </h1>
-                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering homes and businesses across the nation.</p>
+                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#company-overview" class="hero-btn hero-btn-primary">Company Overview</a>
-                        <a href="#our-story" class="hero-btn hero-btn-secondary">Our Story</a>
+                        <a href="services.html" class="hero-btn hero-btn-primary">Our Services</a>
+                        <a href="contact.html" class="hero-btn hero-btn-secondary">Contact Us</a>
                     </div>
                 </div>
                 <div class="relative">
@@ -2059,398 +1639,306 @@
         <div id="particles"></div>
     </section>
     
-    <!-- Company Overview Section -->
-    <section id="company-overview" class="company-overview">
-        <div class="container mx-auto px-4 company-overview-content">
-            <div class="overview-card fade-in">
-                <h2 class="overview-title">Company Overview</h2>
-                <p class="overview-text">
-                    Naptico Green Energy Solars is India's leading solar energy solutions provider, dedicated to transforming the way the nation powers its homes and businesses. Founded in 2010, we have grown from a small team of passionate engineers to a nationwide network of solar experts, serving thousands of customers across multiple states.
-                </p>
-                <p class="overview-text">
-                    Our mission is to accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions. We offer a comprehensive range of products and services, including rooftop solar panels, ground-mounted solar systems, solar street lights, and solar water heaters, all designed to meet the diverse energy needs of our customers.
-                </p>
-                <p class="overview-text">
-                    At Naptico Green Energy Solars, we combine cutting-edge technology with exceptional customer service to deliver solutions that not only reduce energy costs but also contribute to a cleaner, greener planet. Our team of certified professionals ensures that every installation is done to the highest standards of quality and safety.
-                </p>
-                
-                <div class="overview-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50,000+</div>
-                        <div class="stat-label">Happy Customers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">200+ MW</div>
-                        <div class="stat-label">Clean Energy</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">States Covered</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Expert Team</div>
+    <!-- About Section - New Section for Company Information -->
+    <section class="about-section">
+        <div class="container mx-auto px-4 about-content">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Our Team" class="rounded-2xl">
+                </div>
+                <div class="about-text fade-in">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2010, Naptico Green Energy Solars began with a simple mission: to make clean, renewable energy accessible to every home and business in India. What started as a small team of passionate engineers has grown into a nationwide movement, with over 50,000 successful installations and counting.</p>
+                    <p>Our journey has been marked by innovation, dedication, and an unwavering commitment to sustainability. We've pioneered new technologies in solar energy, developed efficient installation processes, and built a reputation for reliability and excellence that sets us apart in the industry.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50,000+</div>
+                            <div class="stat-label">Installations</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+ MW</div>
+                            <div class="stat-label">Clean Energy</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Expert Team</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">13+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Our Story Section - Landscape Design -->
-    <section id="our-story" class="about-story">
-        <div class="container mx-auto px-4 about-story-content">
+    <!-- Services Overview - Fixed Text Color -->
+    <section class="services-section py-20">
+        <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
-                <p class="section-subtitle">From a humble beginning to becoming a leader in solar energy solutions</p>
-            </div>
-            
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-wrapper">
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2010</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-seedling"></i>
-                                </div>
-                                <h3 class="timeline-title">The Beginning</h3>
-                                <p class="timeline-description">Founded with a vision to make renewable energy accessible to every household in India. Started as a small team of <span class="timeline-highlight">passionate engineers</span> with a dream to revolutionize the energy sector.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2013</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <h3 class="timeline-title">First Major Project</h3>
-                                <p class="timeline-description">Completed our first large-scale commercial installation, marking a significant milestone. This project <span class="timeline-highlight">paved the way</span> for future commercial partnerships.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2016</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-map-marked-alt"></i>
-                                </div>
-                                <h3 class="timeline-title">Expansion Phase</h3>
-                                <p class="timeline-description">Expanded operations to multiple states across India. Our <span class="timeline-highlight">nationwide presence</span> allowed us to serve diverse markets and communities.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2019</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-flask"></i>
-                                </div>
-                                <h3 class="timeline-title">Innovation Hub</h3>
-                                <p class="timeline-description">Launched our R&D center focused on developing next-generation solar technologies. Our <span class="timeline-highlight">cutting-edge research</span> has led to several patents.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2022</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <h3 class="timeline-title">National Recognition</h3>
-                                <p class="timeline-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy. This <span class="timeline-highlight">prestigious award</span> validated our commitment to excellence.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">Today</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <h3 class="timeline-title">Leading the Future</h3>
-                                <p class="timeline-description">With 50,000+ installations and 200+ MW of clean energy generated, we continue to lead the renewable energy revolution. Our <span class="timeline-highlight">sustainable impact</span> grows stronger each day.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Duplicate items for seamless scrolling -->
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2010</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-seedling"></i>
-                                </div>
-                                <h3 class="timeline-title">The Beginning</h3>
-                                <p class="timeline-description">Founded with a vision to make renewable energy accessible to every household in India. Started as a small team of <span class="timeline-highlight">passionate engineers</span> with a dream to revolutionize the energy sector.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2013</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <h3 class="timeline-title">First Major Project</h3>
-                                <p class="timeline-description">Completed our first large-scale commercial installation, marking a significant milestone. This project <span class="timeline-highlight">paved the way</span> for future commercial partnerships.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2016</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-map-marked-alt"></i>
-                                </div>
-                                <h3 class="timeline-title">Expansion Phase</h3>
-                                <p class="timeline-description">Expanded operations to multiple states across India. Our <span class="timeline-highlight">nationwide presence</span> allowed us to serve diverse markets and communities.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2019</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-flask"></i>
-                                </div>
-                                <h3 class="timeline-title">Innovation Hub</h3>
-                                <p class="timeline-description">Launched our R&D center focused on developing next-generation solar technologies. Our <span class="timeline-highlight">cutting-edge research</span> has led to several patents.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2022</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <h3 class="timeline-title">National Recognition</h3>
-                                <p class="timeline-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy. This <span class="timeline-highlight">prestigious award</span> validated our commitment to excellence.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">Today</div>
-                                <div class="timeline-icon">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <h3 class="timeline-title">Leading the Future</h3>
-                                <p class="timeline-description">With 50,000+ installations and 200+ MW of clean energy generated, we continue to lead the renewable energy revolution. Our <span class="timeline-highlight">sustainable impact</span> grows stronger each day.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Mission & Vision Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-bullseye text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our Mission</h3>
-                    <p class="text-gray-300 mb-4">To accelerate the world's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to reduce their carbon footprint and energy costs.</p>
-                    <p class="text-gray-300">We are committed to making solar energy accessible to everyone, regardless of location or budget, through continuous innovation and exceptional service.</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-eye text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-                    <p class="text-gray-300 mb-4">To be the leading solar energy company in India, recognized for our technological innovation, environmental stewardship, and customer-centric approach.</p>
-                    <p class="text-gray-300">We envision a future where clean, renewable energy powers every home and business, creating a sustainable world for future generations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Our Values Section -->
-    <section class="values-section">
-        <div class="container mx-auto px-4 values-content">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Core Values</span></h2>
-                <p class="section-subtitle">The principles that guide everything we do</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="value-card fade-in stagger-1">
-                    <div class="value-icon">
-                        <i class="fas fa-leaf text-white text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Sustainability</h3>
-                    <p class="value-description">We are committed to environmental stewardship and promoting sustainable practices in all aspects of our business.</p>
-                </div>
-                
-                <div class="value-card fade-in stagger-2">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb text-white text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Innovation</h3>
-                    <p class="value-description">We constantly seek new and better ways to harness solar energy, pushing the boundaries of what's possible.</p>
-                </div>
-                
-                <div class="value-card fade-in stagger-3">
-                    <div class="value-icon">
-                        <i class="fas fa-users text-white text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Integrity</h3>
-                    <p class="value-description">We conduct our business with honesty, transparency, and ethical behavior, building trust with our customers and partners.</p>
-                </div>
-                
-                <div class="value-card fade-in stagger-4">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake text-white text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Excellence</h3>
-                    <p class="value-description">We strive for excellence in everything we do, from product quality to customer service, ensuring the best experience for our clients.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Our Team Section -->
-    <section id="our-team" class="team-section">
-        <div class="container mx-auto px-4 team-content">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
-                <p class="section-subtitle">The passionate individuals driving our mission forward</p>
+                <h2 class="section-title">Our <span class="text-gradient">Solar Services</span></h2>
+                <p class="section-subtitle">Comprehensive solar energy solutions for homes, businesses, and communities</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="team-card fade-in stagger-1">
-                    <img src="./images/Rajesh Kumar.jpg" alt="Rajesh Kumar" class="team-avatar">
-                    <h3 class="team-name">Rajesh Kumar</h3>
-                    <p class="team-position">Founder & CEO</p>
-                    <p class="team-bio">With over 20 years of experience in the renewable energy sector, Rajesh founded Naptico with a vision to make solar energy accessible to all Indians.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                <!-- Service 1 -->
+                <div class="service-card fade-in stagger-1">
+                    <div class="service-icon">
+                        <i class="fas fa-home text-white text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Rooftop Solar Panels</h3>
+                    <p class="text-gray-300 mb-4">Transform your roof into a power plant with our high-efficiency solar panel systems.</p>
+                    <a href="#" class="text-amber-400 font-medium hover:text-amber-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
                 
-                <div class="team-card fade-in stagger-2">
-                    <img src="./images/Rajesh Kumar.jpg" alt="Priya Sharma" class="team-avatar">
-                    <h3 class="team-name">Priya Sharma</h3>
-                    <p class="team-position">Chief Technology Officer</p>
-                    <p class="team-bio">Priya leads our innovation efforts, bringing cutting-edge solar technologies to market and ensuring our solutions are at the forefront of the industry.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                <!-- Service 2 -->
+                <div class="service-card fade-in stagger-2">
+                    <div class="service-icon">
+                        <i class="fas fa-industry text-white text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Ground-Mounted Solar</h3>
+                    <p class="text-gray-300 mb-4">Large-scale solar installations for commercial and industrial applications.</p>
+                    <a href="maintenance & support.html#ground-mounted" class="text-amber-400 font-medium hover:text-amber-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
                 
-                <div class="team-card fade-in stagger-3">
-                    <img src="./images/Rajesh Kumar.jpg" alt="Anil Verma" class="team-avatar">
-                    <h3 class="team-name">Anil Verma</h3>
-                    <p class="team-position">Chief Operations Officer</p>
-                    <p class="team-bio">Anil oversees our nationwide operations, ensuring seamless installation and maintenance services for our growing customer base.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                <!-- Service 3 -->
+                <div class="service-card fade-in stagger-3">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb text-white text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Solar Street Lights</h3>
+                    <p class="text-gray-300 mb-4">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
+                    <a href="maintenance & support.html#street-light" class="text-amber-400 font-medium hover:text-amber-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
                 
-                <div class="team-card fade-in stagger-4">
-                    <img src="./images/Rajesh Kumar.jpg" alt="Sunita Reddy" class="team-avatar">
-                    <h3 class="team-name">Sunita Reddy</h3>
-                    <p class="team-position">Chief Financial Officer</p>
-                    <p class="team-bio">Sunita manages our financial strategy, ensuring sustainable growth and making solar solutions affordable through innovative financing options.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                <!-- Service 4 -->
+                <div class="service-card fade-in stagger-4">
+                    <div class="service-icon">
+                        <i class="fas fa-fire text-white text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (ETC)</h3>
+                    <p class="text-gray-300 mb-4">Evacuated tube collector systems for efficient water heating solutions.</p>
+                    <a href="maintenance & support.html#water-heater-etc" class="text-amber-400 font-medium hover:text-amber-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
                 
-                <div class="team-card fade-in stagger-5">
-                    <img src="./images/Rajesh Kumar.jpg" alt="Vikram Mehta" class="team-avatar">
-                    <h3 class="team-name">Vikram Mehta</h3>
-                    <p class="team-position">Chief Marketing Officer</p>
-                    <p class="team-bio">Vikram leads our marketing and customer engagement efforts, spreading awareness about the benefits of solar energy across India.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                <!-- Service 5 -->
+                <div class="service-card fade-in stagger-5">
+                    <div class="service-icon">
+                        <i class="fas fa-temperature-high text-white text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (FPC)</h3>
+                    <p class="text-gray-300 mb-4">Flat plate collector systems for reliable and durable water heating.</p>
+                    <a href="maintenance & support.html#water-heater-fpc" class="text-amber-400 font-medium hover:text-amber-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
                 
-                <div class="team-card fade-in stagger-6">
-                    <img src="./images/Rajesh Kumar.jpg" alt="Meera Joshi" class="team-avatar">
-                    <h3 class="team-name">Meera Joshi</h3>
-                    <p class="team-position">Head of Customer Experience</p>
-                    <p class="team-bio">Meera ensures that every customer has an exceptional journey with Naptico, from initial consultation to post-installation support.</p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                <!-- Service 6 -->
+                <div class="service-card fade-in stagger-6">
+                    <div class="service-icon">
+                        <i class="fas fa-tools text-white text-3xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Maintenance & Support</h3>
+                    <p class="text-gray-300 mb-4">Comprehensive maintenance services to keep your solar system running efficiently.</p>
+                    <a href="maintenance & support.html" class="text-amber-400 font-medium hover:text-amber-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Achievements Section -->
+    <!-- Why Choose Us -->
     <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Achievements</span></h2>
-                <p class="section-subtitle">Milestones that mark our journey of excellence</p>
+                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="feature-card fade-in stagger-1">
                     <div class="feature-icon">
-                        <i class="fas fa-home text-white text-3xl"></i>
+                        <i class="fas fa-award text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-3xl font-bold mb-2 text-white">50,000+</h3>
-                    <p class="text-gray-300">Happy Customers</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
+                    <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
                 </div>
                 
                 <div class="feature-card fade-in stagger-2">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt text-white text-3xl"></i>
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-3xl font-bold mb-2 text-white">200+ MW</h3>
-                    <p class="text-gray-300">Clean Energy Generated</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
+                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
                 </div>
                 
                 <div class="feature-card fade-in stagger-3">
                     <div class="feature-icon">
-                        <i class="fas fa-award text-white text-3xl"></i>
+                        <i class="fas fa-users text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-3xl font-bold mb-2 text-white">25+</h3>
-                    <p class="text-gray-300">Industry Awards</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
+                    <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
                 </div>
                 
                 <div class="feature-card fade-in stagger-4">
                     <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt text-white text-3xl"></i>
+                        <i class="fas fa-clock text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-3xl font-bold mb-2 text-white">15+</h3>
-                    <p class="text-gray-300">States Covered</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
+                    <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- CTA Section -->
+    <!-- Testimonials Section - Enhanced Design -->
+    <section class="testimonials-section py-20">
+        <div class="container mx-auto px-4 testimonials-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-white">What Our<span class="text-gradient"> Clients Say</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join thousands of satisfied customers who have made the switch to solar</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card fade-in stagger-1">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-header">
+                        <img src="./images/Rajesh Kumar.jpg" alt="Customer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Homeowner, Bangalore [North]</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Naptico Green Energy Solar installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card fade-in stagger-2">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-header">
+                        <img src="./images/Rajesh Kumar.jpg" alt="Customer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Business Owner, Bangalore [East]</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solar. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card fade-in stagger-3">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-header">
+                        <img src="./images/Rajesh Kumar.jpg" alt="Customer" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Anita Desai</h4>
+                            <p>Houseowner, Bangalore [South]</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Naptico Green Energy Solar's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section - Fixed Button Visibility -->
     <section class="cta-section py-20">
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
             <h2 class="text-4xl font-bold mb-6 text-white fade-in">Join Our Solar Revolution</h2>
-            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy future with Naptico Green Energy Solars</p>
+            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Become part of India's clean energy future with Naptico Green Energy Solars</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
                 <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long has Naptico Green Energy been in business?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Naptico Green Energy Solars was founded in 2010, bringing over 13 years of experience in the solar energy industry. We've grown from a small team of passionate engineers to India's most trusted solar energy provider with over 50,000 installations nationwide.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What makes Naptico Green Energy different from other solar companies?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>At Naptico Green Energy, we combine cutting-edge technology with personalized service. Our expert team of 500+ certified professionals ensures every installation meets the highest standards. We offer a comprehensive 5-year warranty on all products and installations, and our customer-centric approach has made us India's most trusted solar provider.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What areas does Naptico Green Energy serve?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>While headquartered in Bangalore, Naptico Green Energy Solars serves customers across India. We have installation teams and service centers in major cities and are continuously expanding our reach to bring clean energy solutions to more communities.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Does Naptico Green Energy offer maintenance services?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer comprehensive maintenance and support services for all solar installations. Our maintenance plans include regular inspections, cleaning, and any necessary repairs to ensure your solar system continues to operate at peak efficiency for years to come.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can I get started with Naptico Green Energy?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Getting started is easy! Simply contact us through our website or call our customer service team. We'll schedule a free consultation to assess your energy needs and provide a customized solar solution. Our team will guide you through the entire process, from design and permitting to installation and activation.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -2593,7 +2081,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -2618,7 +2106,7 @@
             }
         });
         
-        // Hero Slideshow - Fixed to match background and static image
+        // Hero Slideshow - Fixed to match background and foreground images
         const slides = document.querySelectorAll('.hero-slide');
         const heroImage = document.getElementById('heroImage');
         const heroImages = [
@@ -2873,6 +2361,29 @@
             });
         });
         
+        // 3D Card Effect
+        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+        
         // Fixed Scroll Animation with Better Performance
         const fadeElements = document.querySelectorAll('.fade-in');
         
@@ -2892,15 +2403,6 @@
                         element.classList.add('visible');
                     }
                 });
-                
-                // Timeline animation
-                const timelineItems = document.querySelectorAll('.timeline-item');
-                timelineItems.forEach(item => {
-                    const itemTop = item.getBoundingClientRect().top;
-                    if (itemTop < window.innerHeight - 100) {
-                        item.classList.add('visible');
-                    }
-                });
             });
         }, { passive: true });
         
@@ -2914,13 +2416,23 @@
             }
         });
         
-        // Initial check for timeline items
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        timelineItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            if (itemTop < window.innerHeight - 100) {
-                item.classList.add('visible');
-            }
+        // FAQ Section Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Toggle active class on clicked item
+                item.classList.toggle('active');
+                
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
         });
     </script>
 </body>

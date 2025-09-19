@@ -304,7 +304,7 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - Enhanced */
+        /* Hero Section - Enhanced - Updated to match index page */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -443,7 +443,7 @@
             left : 100%;
         }
         
-        /* About Section - New Section */
+        /* About Section - New Section for Company Information */
         .about-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
@@ -681,7 +681,7 @@
             line-height: 1.6;
         }
         
-        /* Timeline Section - World-Class Redesign */
+        /* Timeline Section - World-Class Redesign - Fixed Alignment Issues */
         .timeline-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
@@ -1659,33 +1659,6 @@
                 font-size: 0.9rem;
             }
         }
-        
-        /* Fix for timeline section alignment */
-        @media (max-width: 1024px) {
-            .journey-milestone {
-                width: 250px;
-            }
-            
-            .journey-milestone:nth-child(odd) {
-                margin-right: calc(50% - 125px);
-            }
-            
-            .journey-milestone:nth-child(even) {
-                margin-left: calc(50% - 125px);
-            }
-            
-            .milestone-year {
-                font-size: 2rem;
-            }
-            
-            .milestone-title {
-                font-size: 1.1rem;
-            }
-            
-            .milestone-text {
-                font-size: 0.9rem;
-            }
-        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1940,7 +1913,7 @@
         </div>
     </section>
     
-    <!-- Timeline Section - World-Class Redesign -->
+    <!-- Timeline Section - World-Class Redesign - Fixed Alignment Issues -->
     <section id="journey" class="timeline-section">
         <div class="journey-container">
             <div class="journey-title fade-in">
@@ -2142,18 +2115,6 @@
     </footer>
     
     <script>
-        // Fix for automatic scrolling to #journey section
-        window.addEventListener('load', function() {
-            // Check if URL has a hash fragment
-            if (window.location.hash) {
-                // Prevent default scroll behavior
-                window.scrollTo(0, 0);
-                
-                // Remove the hash from the URL without triggering a scroll
-                history.replaceState(null, null, window.location.pathname);
-            }
-        });
-        
         // Loading Screen
         window.addEventListener('load', function() {
             setTimeout(function() {
@@ -2471,7 +2432,7 @@
             */
         });
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links - Fixed to prevent automatic scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2540,7 +2501,7 @@
             }
         });
         
-        // Journey Timeline Interactive Features
+        // Journey Timeline Interactive Features - Fixed alignment issues
         const journeyMilestones = document.querySelectorAll('.journey-milestone');
         const journeyIndicators = document.querySelectorAll('.journey-indicator');
         const prevBtn = document.getElementById('prevBtn');

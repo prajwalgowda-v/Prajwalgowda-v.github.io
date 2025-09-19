@@ -324,26 +324,50 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - About Us Specific */
+        /* Hero Section - Enhanced with Slideshow */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
             overflow: hidden;
-            min-height: 70vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             perspective: 1000px;
         }
         
-        .hero-bg {
+        /* Hero Slideshow */
+        .hero-slideshow {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.3;
             z-index: 1;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            transform: translateZ(-100px) rotateY(90deg);
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            transform: translateZ(0) rotateY(0deg);
+        }
+        
+        .hero-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .hero-overlay {
@@ -362,6 +386,7 @@
             transform-style: preserve-3d;
         }
         
+        /* 3D Text Effects */
         .hero-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
@@ -382,6 +407,60 @@
             background-clip: text;
             text-fill-color: transparent;
             filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+        }
+        
+        /* Enhanced Button Design */
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            text-decoration: none;
+            margin: 5px;
+        }
+        
+        .hero-btn-primary {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .hero-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #f59e0b;
+        }
+        
+        .hero-btn-secondary:hover {
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .hero-btn:hover::before {
+            left : 100%;
         }
         
         /* Story Section */
@@ -1090,17 +1169,35 @@
         </div>
     </header>
     
-    <!-- Hero Section -->
+    <!-- Hero Section - Enhanced with Slideshow -->
     <section class="hero-gradient">
-        <div class="hero-bg"></div>
+        <!-- Hero Slideshow - All slides will change automatically -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        </div>
+        
+        <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="hero-title text-white">
-                    About <span class="text-gradient">Naptico Green Energy Solars</span>
-                </h1>
-                <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="hero-title text-white">
+                        About <span class="text-gradient">Naptico Green Energy Solars</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
+                        <a href="maintenance & support.html" class="hero-btn hero-btn-secondary">Explore Services</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="service-card">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Particle Effect -->
@@ -1532,6 +1629,31 @@
                 }
             });
         }
+        
+        // Hero Slideshow - Fixed to match background and foreground images
+        const slides = document.querySelectorAll('.hero-slide');
+        const heroImage = document.getElementById('heroImage');
+        const heroImages = [
+            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        ];
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            heroImage.src = heroImages[index];
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
         
         // Create particle effect
         function createParticles() {

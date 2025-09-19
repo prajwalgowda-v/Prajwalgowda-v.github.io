@@ -49,7 +49,7 @@
             transform: translate(-50%, -50%) scale(3);
         }
         
-        /* Loading Screen - Completely Redesigned for Reliability */
+        /* Loading Screen - Completely Fixed */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -61,13 +61,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            z-index: 99999;
+            transition: all 0.5s ease;
         }
         
         .loading-screen.hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
+            opacity: 0;
+            visibility: hidden;
             pointer-events: none;
         }
         
@@ -272,7 +272,7 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - About Us - Enhanced with Homepage Hero Banner */
+        /* Hero Section - Enhanced with Homepage Hero Banner */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -312,6 +312,12 @@
             transform: translateZ(0) rotateY(0deg);
         }
         
+        .hero-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -328,6 +334,7 @@
             transform-style: preserve-3d;
         }
         
+        /* 3D Text Effects */
         .hero-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
@@ -410,6 +417,68 @@
             left : 100%;
         }
         
+        /* Service Card for Hero Image */
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Particle Effect */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 20s infinite linear;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
         /* About Us Sections */
         .about-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -433,114 +502,118 @@
             margin: 0 auto 3rem;
         }
         
-        /* Enhanced Timeline */
-        .timeline {
+        /* New Our Story Section Design */
+        .story-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: linear-gradient(to bottom, #f59e0b, #f97316);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 10px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background-color: #f59e0b;
-            border: 4px solid #0f172a;
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -16px;
-        }
-        
-        .timeline-content {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            position: relative;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
             overflow: hidden;
+            padding: 80px 0;
         }
         
-        .timeline-content::before {
+        .story-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
         }
         
-        .timeline-content:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        .story-container {
+            position: relative;
+            z-index: 1;
         }
         
-        .timeline-content:hover::before {
-            opacity: 1;
+        .story-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
         }
         
-        .timeline-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            transform: translateX(-50%);
+            border-radius: 4px;
         }
         
-        .timeline-content:hover .timeline-image {
-            transform: scale(1.05);
+        .story-milestone {
+            position: relative;
+            margin-bottom: 50px;
         }
         
-        .timeline-date {
-            color: #f59e0b;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .story-milestone:nth-child(odd) .story-content {
+            margin-left: 0;
+            margin-right: calc(50% + 30px);
+            text-align: right;
+        }
+        
+        .story-milestone:nth-child(even) .story-content {
+            margin-left: calc(50% + 30px);
+            margin-right: 0;
+            text-align: left;
+        }
+        
+        .story-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .story-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .story-year {
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
             font-size: 1.2rem;
+            transform: translateY(-50%);
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        .story-milestone:nth-child(odd) .story-year {
+            right: calc(50% - 40px);
+        }
+        
+        .story-milestone:nth-child(even) .story-year {
+            left: calc(50% - 40px);
+        }
+        
+        .story-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .story-description {
+            color: #e2e8f0;
+            line-height: 1.6;
         }
         
         /* Mission & Vision */
@@ -677,6 +750,8 @@
             margin: 0 auto 20px;
             border: 4px solid rgba(245, 158, 11, 0.3);
             transition: all 0.3s ease;
+            object-fit: cover;
+            object-position: center;
         }
         
         .team-card:hover .team-avatar {
@@ -997,33 +1072,6 @@
             transform: translateY(-10px);
         }
         
-        /* Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 20s infinite linear;
-            transform-style: preserve-3d;
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
-                opacity: 0;
-            }
-        }
-        
         /* Scroll Animation - Fixed Performance Issues */
         .fade-in {
             opacity: 0;
@@ -1061,25 +1109,18 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            .timeline::after {
-                left: 31px;
+            .story-timeline::before {
+                left: 30px;
             }
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+            .story-milestone:nth-child(odd) .story-content,
+            .story-milestone:nth-child(even) .story-content {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
             }
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid white;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent white transparent transparent;
-            }
-            .timeline-item::after {
-                left: 19px;
-            }
-            .timeline-item:nth-child(even) {
-                left: 0%;
+            .story-year {
+                left: 30px !important;
+                right: auto !important;
             }
         }
     </style>
@@ -1089,7 +1130,7 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Loading Screen - Fixed with multiple approaches -->
+    <!-- Loading Screen - Fixed -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="index.html">
@@ -1132,14 +1173,13 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Hero Section - Enhanced with Homepage Hero Banner -->
+    <!-- Hero Section - Complete Home Banner Design -->
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
-            <!-- REPLACE THESE WITH YOUR OWN IMAGES -->
-            <div class="hero-slide active" style="background-image: url('./images/about-hero-1.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
-            <div class="hero-slide" style="background-image: url('./images/about-hero-2.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
-            <div class="hero-slide" style="background-image: url('./images/about-hero-3.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'"></div>
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         </div>
         
         <!-- Hero Overlay -->
@@ -1159,7 +1199,7 @@
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
                     </div>
                 </div>
             </div>
@@ -1168,62 +1208,57 @@
         <div id="particles"></div>
     </section>
     
-    <!-- Our Story Section -->
-    <section id="our-story" class="about-section py-20">
-        <div class="container mx-auto px-4">
+    <!-- Our Story Section - New Design -->
+    <section id="our-story" class="story-section">
+        <div class="container mx-auto px-4 story-container">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Our Story</h2>
                 <p class="section-subtitle">From a humble beginning to becoming India's most trusted solar energy provider</p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/timeline-2010.jpg" alt="Humble Beginnings" class="timeline-image" onerror="this.src='https://images.unsplash.com/photo-1559302915-bf5c03479139?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
-                        <div class="timeline-date">2010</div>
-                        <h3 class="text-xl font-bold text-white mb-2">Humble Beginnings</h3>
-                        <p class="text-gray-300">Founded with a vision to make solar energy accessible to every Indian household, we started with a small team of 5 passionate engineers.</p>
+            <div class="story-timeline">
+                <!-- Story Milestone 1 -->
+                <div class="story-milestone fade-in stagger-1">
+                    <div class="story-year">2010</div>
+                    <div class="story-content">
+                        <h3 class="story-title">Humble Beginnings</h3>
+                        <p class="story-description">Founded with a vision to make solar energy accessible to every Indian household, we started with a small team of 5 passionate engineers.</p>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/timeline-2015.jpg" alt="Expansion Phase" class="timeline-image" onerror="this.src='https://images.unsplash.com/photo-1542816417-098fce46b36d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
-                        <div class="timeline-date">2015</div>
-                        <h3 class="text-xl font-bold text-white mb-2">Expansion Phase</h3>
-                        <p class="text-gray-300">Expanded operations to 5 major cities and completed our first 1000 installations, establishing ourselves as a reliable solar solutions provider.</p>
+                <!-- Story Milestone 2 -->
+                <div class="story-milestone fade-in stagger-2">
+                    <div class="story-year">2015</div>
+                    <div class="story-content">
+                        <h3 class="story-title">Expansion Phase</h3>
+                        <p class="story-description">Expanded operations to 5 major cities and completed our first 1000 installations, establishing ourselves as a reliable solar solutions provider.</p>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/timeline-2018.jpg" alt="Innovation Hub" class="timeline-image" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
-                        <div class="timeline-date">2018</div>
-                        <h3 class="text-xl font-bold text-white mb-2">Innovation Hub</h3>
-                        <p class="text-gray-300">Launched our R&D center focused on developing more efficient solar panels and energy storage solutions, filing 12 patents.</p>
+                <!-- Story Milestone 3 -->
+                <div class="story-milestone fade-in stagger-3">
+                    <div class="story-year">2018</div>
+                    <div class="story-content">
+                        <h3 class="story-title">Innovation Hub</h3>
+                        <p class="story-description">Launched our R&D center focused on developing more efficient solar panels and energy storage solutions, filing 12 patents.</p>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/timeline-2020.jpg" alt="National Recognition" class="timeline-image" onerror="this.src='https://images.unsplash.com/photo-1605722249429-a27ed8def401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
-                        <div class="timeline-date">2020</div>
-                        <h3 class="text-xl font-bold text-white mb-2">National Recognition</h3>
-                        <p class="text-gray-300">Awarded "Best Solar Company in India" by the Ministry of New and Renewable Energy for our contribution to clean energy adoption.</p>
+                <!-- Story Milestone 4 -->
+                <div class="story-milestone fade-in stagger-4">
+                    <div class="story-year">2020</div>
+                    <div class="story-content">
+                        <h3 class="story-title">National Recognition</h3>
+                        <p class="story-description">Awarded "Best Solar Company in India" by the Ministry of New and Renewable Energy for our contribution to clean energy adoption.</p>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                        <img src="./images/timeline-2023.jpg" alt="Milestone Achievement" class="timeline-image" onerror="this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
-                        <div class="timeline-date">2023</div>
-                        <h3 class="text-xl font-bold text-white mb-2">Milestone Achievement</h3>
-                        <p class="text-gray-300">Reached 50,000+ installations and 200+ MW of clean energy generated, becoming one of India's largest solar energy providers.</p>
+                <!-- Story Milestone 5 -->
+                <div class="story-milestone fade-in stagger-5">
+                    <div class="story-year">2023</div>
+                    <div class="story-content">
+                        <h3 class="story-title">Milestone Achievement</h3>
+                        <p class="story-description">Reached 50,000+ installations and 200+ MW of clean energy generated, becoming one of India's largest solar energy providers.</p>
                     </div>
                 </div>
             </div>
@@ -1312,13 +1347,13 @@
                 <p class="section-subtitle">The visionaries driving our mission forward</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
                 <div class="team-card fade-in stagger-1">
                     <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
-                    <img src="./images/team-ceo.jpg" alt="CEO" class="team-avatar" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
-                    <h3 class="team-name">Rajiv Sharma</h3>
+                    <img src="C:\Users\Prajwal_V\Documents\GitHub\Prajwalgowda-v.github.io\images\AJ.jpg" alt="CEO" class="team-avatar" onerror="this.src='#'">
+                    <h3 class="team-name">Ajay Raju N</h3>
                     <p class="team-position">Founder & CEO</p>
-                    <p class="team-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to make solar power accessible to every Indian household.</p>
+                    <p class="team-bio">With over 20 years of experience in renewable energy, Ajay founded Naptico with a vision to make solar power accessible to every Indian household.</p>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1343,6 +1378,30 @@
                     <h3 class="team-name">Amit Kumar</h3>
                     <p class="team-position">Chief Operating Officer</p>
                     <p class="team-bio">Amit oversees our nationwide operations, ensuring seamless installation processes and exceptional customer service across all locations.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in stagger-4">
+                    <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
+                    <img src="./images/team-cfo.jpg" alt="CFO" class="team-avatar" onerror="this.src='https://randomuser.me/api/portraits/women/28.jpg'">
+                    <h3 class="team-name">Neha Sharma</h3>
+                    <p class="team-position">Chief Financial Officer</p>
+                    <p class="team-bio">Neha brings 15 years of financial expertise to Naptico, ensuring sustainable growth and financial stability for our expanding operations.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in stagger-5">
+                    <!-- REPLACE THIS WITH YOUR OWN IMAGE -->
+                    <img src="./images/team-cmo.jpg" alt="CMO" class="team-avatar" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+                    <h3 class="team-name">Rajiv Singh</h3>
+                    <p class="team-position">Chief Marketing Officer</p>
+                    <p class="team-bio">Rajiv leads our marketing and brand strategy, helping us reach more customers with our message of sustainable energy solutions.</p>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1487,7 +1546,7 @@
     </footer>
     
     <script>
-        // Loading Screen - Simplified and fixed
+        // Loading Screen - Fixed with multiple approaches
         document.addEventListener('DOMContentLoaded', function() {
             const loadingScreen = document.getElementById('loadingScreen');
             if (loadingScreen) {
@@ -1495,14 +1554,22 @@
                 setTimeout(() => {
                     loadingScreen.classList.add('hidden');
                 }, 2000);
+                
+                // Fallback in case the above doesn't work
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 5000);
             }
         });
-        
-        // Fallback in case DOMContentLoaded doesn't fire properly
+
+        // Additional fallback
         window.addEventListener('load', function() {
             const loadingScreen = document.getElementById('loadingScreen');
             if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
                 loadingScreen.classList.add('hidden');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 1000);
             }
         });
         
@@ -1551,7 +1618,7 @@
             });
             
             // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .team-card, .value-card, .achievement-card, .mission-vision-card, .timeline-content');
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .team-card, .value-card, .achievement-card, .mission-vision-card, .story-content, .service-card');
             
             hoverElements.forEach(element => {
                 element.addEventListener('mouseenter', () => {
@@ -1581,6 +1648,12 @@
         
         // Hero Slideshow - Fixed to match background and foreground images
         const slides = document.querySelectorAll('.hero-slide');
+        const heroImage = document.getElementById('heroImage');
+        const heroImages = [
+            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        ];
         let currentSlide = 0;
         
         function showSlide(index) {
@@ -1588,6 +1661,9 @@
                 slides.forEach(slide => slide.classList.remove('active'));
                 if (slides[index]) {
                     slides[index].classList.add('active');
+                    if (heroImage) {
+                        heroImage.src = heroImages[index];
+                    }
                     currentSlide = index;
                 }
             }
@@ -1680,7 +1756,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.team-card, .value-card, .achievement-card, .mission-vision-card, .timeline-content');
+        const cards = document.querySelectorAll('.team-card, .value-card, .achievement-card, .mission-vision-card, .story-content, .service-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -1704,7 +1780,6 @@
         
         // Fixed Scroll Animation with Better Performance
         const fadeElements = document.querySelectorAll('.fade-in');
-        const timelineItems = document.querySelectorAll('.timeline-item');
         
         // Use a more efficient scroll handler with passive event listener
         let scrollTimeout;
@@ -1722,16 +1797,6 @@
                         element.classList.add('visible');
                     }
                 });
-                
-                // Timeline animation
-                timelineItems.forEach(item => {
-                    const itemTop = item.getBoundingClientRect().top;
-                    const itemVisible = 150;
-                    
-                    if (itemTop < window.innerHeight - itemVisible) {
-                        item.classList.add('visible');
-                    }
-                });
             });
         }, { passive: true });
         
@@ -1742,16 +1807,6 @@
             
             if (elementTop < window.innerHeight - elementVisible) {
                 element.classList.add('visible');
-            }
-        });
-        
-        // Initial check for timeline items
-        timelineItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            const itemVisible = 150;
-            
-            if (itemTop < window.innerHeight - itemVisible) {
-                item.classList.add('visible');
             }
         });
     </script>

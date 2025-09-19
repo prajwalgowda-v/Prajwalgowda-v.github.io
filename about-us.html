@@ -14,7 +14,7 @@
     
     <!-- SEO and Social Media Meta Tags -->
     <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with over a decade of experience in delivering sustainable energy solutions.">
-    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy company">
+    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy company, solar panels India, green energy">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -24,13 +24,33 @@
     <meta property="og:title" content="About Us - Naptico Green Energy Solars">
     <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Naptico Green Energy Solars">
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
-    <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
-    <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta name="twitter:title" content="About Us - Naptico Green Energy Solars">
+    <meta name="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta name="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- LinkedIn -->
+    <meta property="linkedin:company" content="naptico-green-energy-solars" />
+    <meta property="linkedin:title" content="About Us - Naptico Green Energy Solars" />
+    <meta property="linkedin:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider." />
+    <meta property="linkedin:image" content="https://napticogreenenergysolars.com/images/og-image.jpg" />
+    
+    <!-- Instagram -->
+    <meta property="instagram:username" content="napticogreenenergy" />
+    <meta property="instagram:caption" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider." />
+    <meta property="instagram:image" content="https://napticogreenenergysolars.com/images/og-image.jpg" />
+    
+    <!-- YouTube -->
+    <meta property="youtube:channel" content="UCnapticogreenenergy" />
+    <meta property="youtube:title" content="About Us - Naptico Green Energy Solars" />
+    <meta property="youtube:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider." />
+    <meta property="youtube:image" content="https://napticogreenenergysolars.com/images/og-image.jpg" />
     
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1425,97 +1445,114 @@
         // Loading Screen
         window.addEventListener('load', function() {
             setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
             }, 3000);
         });
+        
+        // Fallback: Hide loading screen after 5 seconds even if load event doesn't fire
+        setTimeout(function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+                loadingScreen.classList.add('hidden');
+            }
+        }, 5000);
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
         
-        // Use requestAnimationFrame for smooth cursor movement
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        if (cursor && cursorFollower) {
+            // Use requestAnimationFrame for smooth cursor movement
+            let mouseX = 0;
+            let mouseY = 0;
+            let followerX = 0;
+            let followerY = 0;
             
-            // Update main cursor position immediately
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
-        });
-        
-        // Use animation frame for smooth follower movement
-        function animateFollower() {
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update main cursor position immediately
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            });
             
-            cursorFollower.style.left = followerX + 'px';
-            cursorFollower.style.top = followerY + 'px';
+            // Use animation frame for smooth follower movement
+            function animateFollower() {
+                followerX += (mouseX - followerX) * 0.15;
+                followerY += (mouseY - followerY) * 0.15;
+                
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
+                
+                requestAnimationFrame(animateFollower);
+            }
             
-            requestAnimationFrame(animateFollower);
+            animateFollower();
+            
+            // Hide cursor when leaving the window
+            document.addEventListener('mouseleave', () => {
+                cursor.style.opacity = '0';
+                cursorFollower.style.opacity = '0';
+            });
+            
+            document.addEventListener('mouseenter', () => {
+                cursor.style.opacity = '1';
+                cursorFollower.style.opacity = '1';
+            });
+            
+            // Cursor hover effects
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .story-card, .mission-vision-card, .value-card, .team-card, .milestone-card, .why-choose-card');
+            
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    cursorFollower.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    cursorFollower.classList.remove('hover');
+                });
+            });
         }
-        
-        animateFollower();
-        
-        // Hide cursor when leaving the window
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-            cursorFollower.style.opacity = '0';
-        });
-        
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-            cursorFollower.style.opacity = '1';
-        });
-        
-        // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .story-card, .mission-vision-card, .value-card, .team-card, .milestone-card, .why-choose-card');
-        
-        hoverElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-                cursorFollower.classList.add('hover');
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-                cursorFollower.classList.remove('hover');
-            });
-        });
         
         // Header scroll effect
         const header = document.querySelector('.header');
         
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
         
         // Create particle effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+            if (particlesContainer) {
+                const particleCount = 50;
                 
-                const size = Math.random() * 10 + 5;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 20}s`;
-                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
-                
-                particlesContainer.appendChild(particle);
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 10 + 5;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.animationDelay = `${Math.random() * 20}s`;
+                    particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
             }
         }
         
@@ -1524,47 +1561,29 @@
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Quote Form Modal (same as homepage)
-        const quoteModal = document.getElementById('quoteModal');
-        const quoteClose = document.querySelector('.quote-close');
-        const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
-        
-        contactBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                quoteModal.classList.add('active');
-                centerModal();
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
             });
-        });
-        
-        quoteClose.addEventListener('click', () => {
-            quoteModal.classList.remove('active');
-        });
-        
-        quoteModal.addEventListener('click', (e) => {
-            if (e.target === quoteModal) {
-                quoteModal.classList.remove('active');
-            }
-        });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1634,25 +1653,6 @@
                 element.classList.add('visible');
             }
         });
-        
-        // Function to center the modal properly
-        function centerModal() {
-            const modalContainer = document.querySelector('.quote-form-container');
-            const windowHeight = window.innerHeight;
-            const modalHeight = modalContainer.offsetHeight;
-            
-            if (modalHeight > windowHeight - 40) {
-                modalContainer.style.marginTop = '20px';
-                modalContainer.style.marginBottom = '20px';
-            } else {
-                const topMargin = (windowHeight - modalHeight) / 2;
-                modalContainer.style.marginTop = `${topMargin}px`;
-                modalContainer.style.marginBottom = '0';
-            }
-        }
-        
-        // Add event listener for window resize to re-center modal
-        window.addEventListener('resize', centerModal);
     </script>
 </body>
 </html>

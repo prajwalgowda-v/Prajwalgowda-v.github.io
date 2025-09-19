@@ -1345,39 +1345,170 @@
             z-index: 1;
         }
         
-        /* World-Class Timeline Design */
+        /* Company Overview Section */
+        .company-overview {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .company-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .company-overview-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .overview-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 60px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .overview-card:hover::before {
+            opacity: 1;
+        }
+        
+        .overview-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .overview-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            border-radius: 2px;
+        }
+        
+        .overview-text {
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+        }
+        
+        /* World-Class Timeline Design - Landscape Orientation */
         .timeline-container {
             position: relative;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         .timeline {
             position: relative;
-            padding: 80px 0;
+            padding: 60px 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #f59e0b #1e293b;
         }
         
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #f59e0b, #f97316, #f59e0b);
-            border-radius: 2px;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        .timeline::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .timeline::-webkit-scrollbar-track {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        
+        .timeline::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 4px;
+        }
+        
+        .timeline-wrapper {
+            display: flex;
+            gap: 40px;
+            min-width: max-content;
+            padding: 0 20px;
         }
         
         .timeline-item {
             position: relative;
-            margin-bottom: 80px;
-            width: 50%;
+            min-width: 350px;
+            max-width: 400px;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease;
+            flex-shrink: 0;
         }
         
         .timeline-item.visible {
@@ -1385,60 +1516,20 @@
             transform: translateY(0);
         }
         
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 60px;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 60px;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            top: 0;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #f59e0b;
-            border: 5px solid #0f172a;
-            z-index: 2;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
-            }
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -15px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -15px;
-        }
-        
         .timeline-content {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 30px;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .timeline-content::before {
@@ -1465,34 +1556,28 @@
         
         .timeline-year {
             position: absolute;
-            top: -15px;
+            top: -20px;
+            left: 30px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: white;
             font-size: 1.2rem;
             font-weight: 700;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 30px;
             box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-year {
-            right: 40px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-year {
-            left: 40px;
+            z-index: 2;
         }
         
         .timeline-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(245, 158, 11, 0.5);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin: 0 auto 25px;
             transition: all 0.3s ease;
         }
         
@@ -1503,7 +1588,7 @@
         }
         
         .timeline-icon i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #f59e0b;
             transition: all 0.3s ease;
         }
@@ -1513,19 +1598,22 @@
         }
         
         .timeline-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
             margin-bottom: 15px;
+            text-align: center;
             position: relative;
             display: inline-block;
+            width: 100%;
         }
         
         .timeline-title::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 50px;
             height: 3px;
             background: linear-gradient(90deg, #f59e0b, #f97316);
@@ -1534,8 +1622,12 @@
         
         .timeline-description {
             color: #e2e8f0;
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-align: center;
+            flex-grow: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .timeline-highlight {
@@ -1545,7 +1637,7 @@
         
         /* Values Section */
         .values-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
             overflow: hidden;
             padding: 100px 0;
@@ -1639,7 +1731,7 @@
         
         /* Team Section */
         .team-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 100px 0;
@@ -1790,27 +1882,34 @@
             }
             
             /* Timeline responsive */
-            .timeline::before {
-                left: 20px;
+            .timeline-wrapper {
+                gap: 20px;
             }
             
             .timeline-item {
-                width: 100%;
-                padding-left: 60px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-                left: 0 !important;
+                min-width: 280px;
+                max-width: 320px;
             }
             
-            .timeline-dot {
-                left: 5px !important;
-                right: auto !important;
+            .overview-card {
+                padding: 30px 20px;
             }
             
-            .timeline-year {
-                position: static !important;
-                display: inline-block;
-                margin-bottom: 15px;
+            .overview-title {
+                font-size: 2rem;
+            }
+            
+            .overview-text {
+                font-size: 1rem;
+            }
+            
+            .overview-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
             }
         }
     </style>
@@ -1946,8 +2045,8 @@
                     </h1>
                     <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering homes and businesses across the nation.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+                        <a href="#company-overview" class="hero-btn hero-btn-primary">Company Overview</a>
+                        <a href="#our-story" class="hero-btn hero-btn-secondary">Our Story</a>
                     </div>
                 </div>
                 <div class="relative">
@@ -1961,7 +2060,44 @@
         <div id="particles"></div>
     </section>
     
-    <!-- Our Story Section - World-Class Design -->
+    <!-- Company Overview Section -->
+    <section id="company-overview" class="company-overview">
+        <div class="container mx-auto px-4 company-overview-content">
+            <div class="overview-card fade-in">
+                <h2 class="overview-title">Company Overview</h2>
+                <p class="overview-text">
+                    Naptico Green Energy Solars is India's leading solar energy solutions provider, dedicated to transforming the way the nation powers its homes and businesses. Founded in 2010, we have grown from a small team of passionate engineers to a nationwide network of solar experts, serving thousands of customers across multiple states.
+                </p>
+                <p class="overview-text">
+                    Our mission is to accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions. We offer a comprehensive range of products and services, including rooftop solar panels, ground-mounted solar systems, solar street lights, and solar water heaters, all designed to meet the diverse energy needs of our customers.
+                </p>
+                <p class="overview-text">
+                    At Naptico Green Energy Solars, we combine cutting-edge technology with exceptional customer service to deliver solutions that not only reduce energy costs but also contribute to a cleaner, greener planet. Our team of certified professionals ensures that every installation is done to the highest standards of quality and safety.
+                </p>
+                
+                <div class="overview-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+ MW</div>
+                        <div class="stat-label">Clean Energy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">States Covered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Expert Team</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Story Section - Landscape Design -->
     <section id="our-story" class="about-story">
         <div class="container mx-auto px-4 about-story-content">
             <div class="text-center mb-16 fade-in">
@@ -1971,75 +2107,71 @@
             
             <div class="timeline-container">
                 <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2010</div>
-                            <div class="timeline-icon">
-                                <i class="fas fa-seedling"></i>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2010</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h3 class="timeline-title">The Beginning</h3>
+                                <p class="timeline-description">Founded with a vision to make renewable energy accessible to every household in India. Started as a small team of <span class="timeline-highlight">passionate engineers</span> with a dream to revolutionize the energy sector.</p>
                             </div>
-                            <h3 class="timeline-title">The Beginning</h3>
-                            <p class="timeline-description">Naptico Green Energy Solars was founded with a vision to make renewable energy accessible to every household in India. Started as a small team of <span class="timeline-highlight">passionate engineers</span> with a dream to revolutionize the energy sector.</p>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2013</div>
-                            <div class="timeline-icon">
-                                <i class="fas fa-building"></i>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2013</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3 class="timeline-title">First Major Project</h3>
+                                <p class="timeline-description">Completed our first large-scale commercial installation, marking a significant milestone. This project <span class="timeline-highlight">paved the way</span> for future commercial partnerships.</p>
                             </div>
-                            <h3 class="timeline-title">First Major Project</h3>
-                            <p class="timeline-description">Completed our first large-scale commercial installation, marking a significant milestone in our journey towards sustainable energy solutions. This project <span class="timeline-highlight">paved the way</span> for future commercial partnerships.</p>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2016</div>
-                            <div class="timeline-icon">
-                                <i class="fas fa-map-marked-alt"></i>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2016</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <h3 class="timeline-title">Expansion Phase</h3>
+                                <p class="timeline-description">Expanded operations to multiple states across India. Our <span class="timeline-highlight">nationwide presence</span> allowed us to serve diverse markets and communities.</p>
                             </div>
-                            <h3 class="timeline-title">Expansion Phase</h3>
-                            <p class="timeline-description">Expanded operations to multiple states across India, establishing ourselves as a trusted name in the solar energy sector. Our <span class="timeline-highlight">nationwide presence</span> allowed us to serve diverse markets and communities.</p>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2019</div>
-                            <div class="timeline-icon">
-                                <i class="fas fa-flask"></i>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h3 class="timeline-title">Innovation Hub</h3>
+                                <p class="timeline-description">Launched our R&D center focused on developing next-generation solar technologies. Our <span class="timeline-highlight">cutting-edge research</span> has led to several patents.</p>
                             </div>
-                            <h3 class="timeline-title">Innovation Hub</h3>
-                            <p class="timeline-description">Launched our R&D center focused on developing next-generation solar technologies and improving energy efficiency. Our <span class="timeline-highlight">cutting-edge research</span> has led to several patents and technological breakthroughs.</p>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2022</div>
-                            <div class="timeline-icon">
-                                <i class="fas fa-award"></i>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2022</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h3 class="timeline-title">National Recognition</h3>
+                                <p class="timeline-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy. This <span class="timeline-highlight">prestigious award</span> validated our commitment to excellence.</p>
                             </div>
-                            <h3 class="timeline-title">National Recognition</h3>
-                            <p class="timeline-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy for our contributions to the sector. This <span class="timeline-highlight">prestigious award</span> validated our commitment to excellence.</p>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">Today</div>
-                            <div class="timeline-icon">
-                                <i class="fas fa-rocket"></i>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">Today</div>
+                                <div class="timeline-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3 class="timeline-title">Leading the Future</h3>
+                                <p class="timeline-description">With 50,000+ installations and 200+ MW of clean energy generated, we continue to lead the renewable energy revolution. Our <span class="timeline-highlight">sustainable impact</span> grows stronger each day.</p>
                             </div>
-                            <h3 class="timeline-title">Leading the Future</h3>
-                            <p class="timeline-description">With 50,000+ installations and 200+ MW of clean energy generated, we continue to lead the renewable energy revolution in India. Our <span class="timeline-highlight">sustainable impact</span> grows stronger each day as we power a greener future.</p>
                         </div>
                     </div>
                 </div>
@@ -2395,7 +2527,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content, .overview-card');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -2676,7 +2808,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content');
+        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content, .overview-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {

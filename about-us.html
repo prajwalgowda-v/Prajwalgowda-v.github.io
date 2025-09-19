@@ -13,8 +13,8 @@
     <link rel="manifest" href="./images/site.webmanifest">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with over a decade of experience in delivering sustainable energy solutions.">
-    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy company, solar panels India, green energy">
+    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with over a decade of experience, 50,000+ installations, and 200+ MW of clean energy generated.">
+    <meta name="keywords" content="about naptico, solar energy company, renewable energy, clean energy, solar solutions, company history">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -24,33 +24,13 @@
     <meta property="og:title" content="About Us - Naptico Green Energy Solars">
     <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Naptico Green Energy Solars">
     
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
-    <meta name="twitter:title" content="About Us - Naptico Green Energy Solars">
-    <meta name="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
-    <meta name="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
-    
-    <!-- LinkedIn -->
-    <meta property="linkedin:company" content="naptico-green-energy-solars" />
-    <meta property="linkedin:title" content="About Us - Naptico Green Energy Solars" />
-    <meta property="linkedin:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider." />
-    <meta property="linkedin:image" content="https://napticogreenenergysolars.com/images/og-image.jpg" />
-    
-    <!-- Instagram -->
-    <meta property="instagram:username" content="napticogreenenergy" />
-    <meta property="instagram:caption" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider." />
-    <meta property="instagram:image" content="https://napticogreenenergysolars.com/images/og-image.jpg" />
-    
-    <!-- YouTube -->
-    <meta property="youtube:channel" content="UCnapticogreenenergy" />
-    <meta property="youtube:title" content="About Us - Naptico Green Energy Solars" />
-    <meta property="youtube:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider." />
-    <meta property="youtube:image" content="https://napticogreenenergysolars.com/images/og-image.jpg" />
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
+    <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,6 +45,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* All the same CSS styles from the Home page */
         * {
             font-family: 'Poppins', sans-serif;
             cursor: none;
@@ -324,7 +305,7 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - Enhanced with Slideshow */
+        /* Hero Section - Enhanced */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -463,15 +444,14 @@
             left : 100%;
         }
         
-        /* Story Section */
-        .story-section {
+        /* Services Section - Fixed Text Color */
+        .services-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
-            padding: 80px 0;
         }
         
-        .story-content {
+        .services-content {
             position: relative;
             z-index: 1;
         }
@@ -491,19 +471,20 @@
             margin: 0 auto 3rem;
         }
         
-        .story-card {
+        /* 3D Cards */
+        .service-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
         }
         
-        .story-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -516,41 +497,16 @@
             z-index: -1;
         }
         
-        .story-card:hover {
-            transform: translateY(-10px);
+        .service-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
-        .story-card:hover::before {
+        .service-card:hover::before {
             opacity: 1;
         }
         
-        /* Mission & Vision Section */
-        .mission-vision-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-        
-        .mission-vision-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            height: 100%;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-        
-        .mission-vision-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .mission-vision-icon {
+        .service-icon {
             width: 80px;
             height: 80px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
@@ -563,19 +519,12 @@
             transform-style: preserve-3d;
         }
         
-        .mission-vision-card:hover .mission-vision-icon {
+        .service-card:hover .service-icon {
             transform: scale(1.1) rotateZ(5deg);
         }
         
-        /* Values Section */
-        .values-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-        
-        .value-card {
+        /* 3D Feature Cards */
+        .feature-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -585,17 +534,16 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
-            height: 100%;
         }
         
-        .value-card:hover {
+        .feature-card:hover {
             transform: translateY(-15px) rotateX(10deg);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .value-icon {
-            width: 80px;
-            height: 80px;
+        .feature-icon {
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 50%;
             display: flex;
@@ -606,233 +554,117 @@
             transform-style: preserve-3d;
         }
         
-        .value-card:hover .value-icon {
+        .feature-card:hover .feature-icon {
             transform: scale(1.1) rotateY(180deg);
         }
         
-        /* Team Section */
-        .team-section {
+        /* Testimonials Section - Enhanced Design */
+        .testimonials-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
             overflow: hidden;
-            padding: 80px 0;
         }
         
-        .team-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            height: 100%;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .team-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: top center;
-            margin: 0 auto 20px;
-            border: 4px solid rgba(245, 158, 11, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .team-card:hover .team-image {
-            border-color: rgba(245, 158, 11, 0.6);
-            transform: scale(1.05);
-        }
-        
-        .team-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .team-position {
-            color: #f59e0b;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        
-        .team-bio {
-            color: #e2e8f0;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .social-icon:hover {
-            background: #f59e0b;
-            transform: translateY(-5px) rotateZ(360deg);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
-        
-        /* Milestones Section */
-        .milestones-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-        
-        .milestone-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            height: 100%;
-        }
-        
-        .milestone-card:hover {
-            transform: translateY(-15px) rotateX(10deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .milestone-year {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #f59e0b;
-            margin-bottom: 15px;
-        }
-        
-        .milestone-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 10px;
-        }
-        
-        .milestone-description {
-            color: #e2e8f0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* Why Choose Us Section */
-        .why-choose-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-        
-        .why-choose-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            height: 100%;
-        }
-        
-        .why-choose-card:hover {
-            transform: translateY(-15px) rotateX(10deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .why-choose-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .why-choose-card:hover .why-choose-icon {
-            transform: scale(1.1) rotateY(180deg);
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #f97316, #f59e0b);
-            position: relative;
-            overflow: hidden;
-            padding: 80px 0;
-        }
-        
-        .cta-section::before {
+        .testimonials-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.2), transparent 70%);
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent 70%);
             z-index: 0;
         }
         
-        .cta-content {
+        .testimonials-content {
             position: relative;
             z-index: 1;
         }
         
-        .cta-btn-primary {
-            background: white;
-            color: #f97316;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
-        .cta-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
-            background: #f8fafc;
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
         }
         
-        .cta-btn-secondary {
-            background: transparent;
+        .testimonial-card:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 3px solid rgba(245, 158, 11, 0.3);
+            object-fit: cover;
+            object-position: top center;
+        }
+        
+        .testimonial-info h4 {
             color: white;
-            border: 2px solid white;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
         
-        .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+        .testimonial-info p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-rating {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            color: #e2e8f0;
+            font-style: italic;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(245, 158, 11, 0.1);
+            font-family: Georgia, serif;
         }
         
         /* Footer - World-Class Design */
@@ -1086,6 +918,330 @@
             }
         }
         
+        /* Quote Form Modal - World Class Design with Fixed Alignment */
+        .quote-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .quote-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .quote-form-container {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            padding: 0;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            margin: 20px auto;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .quote-modal.active .quote-form-container {
+            transform: translateY(0);
+        }
+        
+        .quote-form-header {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .quote-form-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .quote-form-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .quote-form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+            text-align: center;
+        }
+        
+        .quote-form-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .quote-form-body {
+            padding: 40px 30px;
+        }
+        
+        .quote-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .quote-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: none;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #e2e8f0;
+            cursor: none;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload-label:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f59e0b;
+        }
+        
+        .file-upload-label i {
+            margin-right: 10px;
+            color: #f59e0b;
+        }
+        
+        /* File list styles for multiple files */
+        .file-list {
+            margin-top: 10px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+            font-size: 14px;
+        }
+        
+        .file-name {
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 10px;
+        }
+        
+        .file-size {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        
+        .file-remove {
+            color: #f59e0b;
+            cursor: none;
+            transition: color 0.2s;
+        }
+        
+        .file-remove:hover {
+            color: #f97316;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: none;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+        
+        .form-submit:hover::before {
+            left: 100%;
+        }
+        
+        .form-submit i {
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-submit span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .required {
+            color: #f59e0b;
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            font-weight: 500;
+        }
+        
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .privacy-text {
+            color: #94a3b8;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 25px;
+            line-height: 1.6;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid #f59e0b;
+        }
+        
         /* Scroll Animation - Fixed Performance Issues */
         .fade-in {
             opacity: 0;
@@ -1106,6 +1262,333 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
+        /* CTA Section - Fixed Button Visibility */
+        .cta-section {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.2), transparent 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: #f97316;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+            background: #f8fafc;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* About Us Specific Styles */
+        .about-story {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-story::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .about-story-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #f59e0b;
+            border: 4px solid #0f172a;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-description {
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .values-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .values-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .values-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotateY(180deg);
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .team-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .team-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            height: 100%;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(245, 158, 11, 0.3);
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover .team-avatar {
+            transform: scale(1.05);
+            border-color: #f59e0b;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            font-size: 1.1rem;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .team-bio {
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .team-social a:hover {
+            background: #f59e0b;
+            transform: translateY(-5px) rotateZ(360deg);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -1120,8 +1603,35 @@
             .section-title {
                 font-size: 2rem;
             }
+            .quote-form-container {
+                width: 95%;
+            }
+            .quote-form-body {
+                padding: 30px 20px;
+            }
             .hero-title {
                 font-size: 2.5rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Timeline responsive */
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+                left: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
             }
         }
     </style>
@@ -1169,7 +1679,75 @@
         </div>
     </header>
     
-    <!-- Hero Section - Enhanced with Slideshow -->
+    <!-- Quote Form Modal -->
+    <div id="quoteModal" class="quote-modal">
+        <div class="quote-form-container">
+            <div class="quote-form-header">
+                <button class="quote-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- Logo path updated to use relative path and made clickable -->
+                <a href="index.html">
+                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
+                </a>
+                <h2 class="quote-form-title">Get Your Solar Quote</h2>
+                <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
+            </div>
+            
+            <div class="quote-form-body">
+                <form id="quoteForm" class="quote-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile" class="form-label">Mobile Number <span class="required">*</span></label>
+                            <input type="tel" id="mobile" name="mobile" class="form-input" placeholder="Enter your mobile number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email ID <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" id="bill" name="bill" class="file-upload-input" accept="image/*,.pdf" multiple required>
+                                <label for="bill" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span id="fileLabel">Choose Files</span>
+                                </label>
+                            </div>
+                            <div id="fileList" class="file-list"></div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="address" class="form-label">Address <span class="required">*</span></label>
+                            <textarea id="address" name="address" class="form-textarea" placeholder="Enter your complete address" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Submit Request</span>
+                    </button>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                    
+                    <div class="privacy-text">
+                        <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 8px;"></i>
+                        We respect your privacy and will never share your information with third parties.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Hero Section -->
     <section class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
@@ -1185,17 +1763,17 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="hero-title text-white">
-                        About <span class="text-gradient">Naptico Green Energy Solars</span>
+                        About <span class="text-gradient">Naptico Green Energy</span>
                     </h1>
-                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
+                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering homes and businesses across the nation.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
-                        <a href="maintenance & support.html" class="hero-btn hero-btn-secondary">Explore Services</a>
+                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
+                        <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
                     </div>
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
                     </div>
                 </div>
             </div>
@@ -1205,246 +1783,274 @@
     </section>
     
     <!-- Our Story Section -->
-    <section class="story-section">
-        <div class="container mx-auto px-4 story-content">
+    <section id="our-story" class="about-story py-20">
+        <div class="container mx-auto px-4 about-story-content">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
-                <p class="section-subtitle">From a small startup to a leading solar energy provider</p>
+                <p class="section-subtitle">From a humble beginning to becoming a leader in solar energy solutions</p>
             </div>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="story-card fade-in">
-                    <p class="text-gray-300 mb-4">Founded in 2010, Naptico Green Energy Solars began with a simple vision: to make clean, renewable energy accessible to every home and business in India. What started as a small team of passionate environmentalists has grown into a nationwide movement, with over 50,000 successful installations and 200+ MW of clean energy generated.</p>
-                    
-                    <p class="text-gray-300 mb-4">Our journey has been marked by innovation, dedication, and an unwavering commitment to sustainability. We've faced challenges, celebrated milestones, and continuously evolved to meet the growing energy needs of our country while reducing our collective carbon footprint.</p>
-                    
-                    <p class="text-gray-300">Today, Naptico Green Energy Solars stands as a testament to what's possible when vision meets determination. We're not just installing solar panels; we're powering a greener, more sustainable future for generations to come.</p>
+            <div class="timeline">
+                <div class="timeline-item fade-in stagger-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3 class="timeline-title">The Beginning</h3>
+                        <p class="timeline-description">Naptico Green Energy Solars was founded with a vision to make renewable energy accessible to every household in India. Started as a small team of passionate engineers.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in stagger-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <h3 class="timeline-title">First Major Project</h3>
+                        <p class="timeline-description">Completed our first large-scale commercial installation, marking a significant milestone in our journey towards sustainable energy solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in stagger-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <h3 class="timeline-title">Expansion Phase</h3>
+                        <p class="timeline-description">Expanded operations to multiple states across India, establishing ourselves as a trusted name in the solar energy sector.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in stagger-4">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">Innovation Hub</h3>
+                        <p class="timeline-description">Launched our R&D center focused on developing next-generation solar technologies and improving energy efficiency.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in stagger-5">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="timeline-title">National Recognition</h3>
+                        <p class="timeline-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy for our contributions to the sector.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in stagger-6">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Today</div>
+                        <h3 class="timeline-title">Leading the Future</h3>
+                        <p class="timeline-description">With 50,000+ installations and 200+ MW of clean energy generated, we continue to lead the renewable energy revolution in India.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Mission & Vision Section -->
-    <section class="mission-vision-section">
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Mission & Vision</span></h2>
-                <p class="section-subtitle">Guiding principles that drive everything we do</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="mission-vision-card fade-in stagger-1">
-                    <div class="mission-vision-icon">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-bullseye text-white text-3xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-white">Our Mission</h3>
-                    <p class="text-gray-300">To accelerate India's transition to sustainable energy by providing high-quality, affordable solar solutions that empower individuals, businesses, and communities to reduce their carbon footprint and energy costs.</p>
+                    <p class="text-gray-300 mb-4">To accelerate the world's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to reduce their carbon footprint and energy costs.</p>
+                    <p class="text-gray-300">We are committed to making solar energy accessible to everyone, regardless of location or budget, through continuous innovation and exceptional service.</p>
                 </div>
                 
-                <div class="mission-vision-card fade-in stagger-2">
-                    <div class="mission-vision-icon">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-eye text-white text-3xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-                    <p class="text-gray-300">To be India's most trusted and innovative solar energy company, leading the nation toward energy independence and environmental sustainability through cutting-edge technology and exceptional service.</p>
+                    <p class="text-gray-300 mb-4">To be the leading solar energy company in India, recognized for our technological innovation, environmental stewardship, and customer-centric approach.</p>
+                    <p class="text-gray-300">We envision a future where clean, renewable energy powers every home and business, creating a sustainable world for future generations.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Our Values Section -->
-    <section class="values-section">
-        <div class="container mx-auto px-4">
+    <section class="values-section py-20">
+        <div class="container mx-auto px-4 values-content">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Our <span class="text-gradient">Core Values</span></h2>
-                <p class="section-subtitle">The principles that define who we are and how we work</p>
+                <p class="section-subtitle">The principles that guide everything we do</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="value-card fade-in stagger-1">
                     <div class="value-icon">
-                        <i class="fas fa-lightbulb text-white text-3xl"></i>
+                        <i class="fas fa-leaf text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Innovation</h3>
-                    <p class="text-gray-300">Constantly pushing boundaries with cutting-edge solar technology and solutions.</p>
+                    <h3 class="value-title">Sustainability</h3>
+                    <p class="value-description">We are committed to environmental stewardship and promoting sustainable practices in all aspects of our business.</p>
                 </div>
                 
                 <div class="value-card fade-in stagger-2">
                     <div class="value-icon">
-                        <i class="fas fa-leaf text-white text-3xl"></i>
+                        <i class="fas fa-lightbulb text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Sustainability</h3>
-                    <p class="text-gray-300">Committed to environmental stewardship in all aspects of our business.</p>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">We constantly seek new and better ways to harness solar energy, pushing the boundaries of what's possible.</p>
                 </div>
                 
                 <div class="value-card fade-in stagger-3">
                     <div class="value-icon">
-                        <i class="fas fa-handshake text-white text-3xl"></i>
+                        <i class="fas fa-users text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Integrity</h3>
-                    <p class="text-gray-300">Building trust through transparency, honesty, and ethical practices.</p>
+                    <h3 class="value-title">Integrity</h3>
+                    <p class="value-description">We conduct our business with honesty, transparency, and ethical behavior, building trust with our customers and partners.</p>
                 </div>
                 
                 <div class="value-card fade-in stagger-4">
                     <div class="value-icon">
-                        <i class="fas fa-users text-white text-3xl"></i>
+                        <i class="fas fa-handshake text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Customer Focus</h3>
-                    <p class="text-gray-300">Putting our customers at the center of everything we do.</p>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We strive for excellence in everything we do, from product quality to customer service, ensuring the best experience for our clients.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Our Team Section -->
-    <section class="team-section">
-        <div class="container mx-auto px-4">
+    <section id="our-team" class="team-section py-20">
+        <div class="container mx-auto px-4 team-content">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
-                <p class="section-subtitle">The visionaries driving our mission forward</p>
+                <p class="section-subtitle">The passionate individuals driving our mission forward</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="team-card fade-in stagger-1">
-                    <img src="./images/CEO.jpg" alt="CEO" class="team-image" onerror="this.src='https://via.placeholder.com/150x150?text=CEO'">
-                    <h3 class="team-name">Rajesh Sharma</h3>
+                    <img src="./images/Rajesh Kumar.jpg" alt="Rajesh Kumar" class="team-avatar">
+                    <h3 class="team-name">Rajesh Kumar</h3>
                     <p class="team-position">Founder & CEO</p>
-                    <p class="team-bio">With over 15 years of experience in renewable energy, Rajesh founded Naptico with a vision to make solar energy accessible to all Indians.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                    <p class="team-bio">With over 20 years of experience in the renewable energy sector, Rajesh founded Naptico with a vision to make solar energy accessible to all Indians.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card fade-in stagger-2">
-                    <img src="./images/CTO.jpg" alt="CTO" class="team-image" onerror="this.src='https://via.placeholder.com/150x150?text=CTO'">
-                    <h3 class="team-name">Priya Nair</h3>
+                    <img src="./images/Rajesh Kumar.jpg" alt="Priya Sharma" class="team-avatar">
+                    <h3 class="team-name">Priya Sharma</h3>
                     <p class="team-position">Chief Technology Officer</p>
-                    <p class="team-bio">Priya leads our technology innovation, ensuring we stay at the forefront of solar technology and digital solutions.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                    <p class="team-bio">Priya leads our innovation efforts, bringing cutting-edge solar technologies to market and ensuring our solutions are at the forefront of the industry.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card fade-in stagger-3">
-                    <img src="./images/CFO.jpg" alt="CFO" class="team-image" onerror="this.src='https://via.placeholder.com/150x150?text=CFO'">
-                    <h3 class="team-name">Amit Patel</h3>
+                    <img src="./images/Rajesh Kumar.jpg" alt="Anil Verma" class="team-avatar">
+                    <h3 class="team-name">Anil Verma</h3>
+                    <p class="team-position">Chief Operations Officer</p>
+                    <p class="team-bio">Anil oversees our nationwide operations, ensuring seamless installation and maintenance services for our growing customer base.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in stagger-4">
+                    <img src="./images/Rajesh Kumar.jpg" alt="Sunita Reddy" class="team-avatar">
+                    <h3 class="team-name">Sunita Reddy</h3>
                     <p class="team-position">Chief Financial Officer</p>
-                    <p class="team-bio">Amit oversees our financial strategy, ensuring sustainable growth and value creation for all stakeholders.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                    <p class="team-bio">Sunita manages our financial strategy, ensuring sustainable growth and making solar solutions affordable through innovative financing options.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in stagger-5">
+                    <img src="./images/Rajesh Kumar.jpg" alt="Vikram Mehta" class="team-avatar">
+                    <h3 class="team-name">Vikram Mehta</h3>
+                    <p class="team-position">Chief Marketing Officer</p>
+                    <p class="team-bio">Vikram leads our marketing and customer engagement efforts, spreading awareness about the benefits of solar energy across India.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in stagger-6">
+                    <img src="./images/Rajesh Kumar.jpg" alt="Meera Joshi" class="team-avatar">
+                    <h3 class="team-name">Meera Joshi</h3>
+                    <p class="team-position">Head of Customer Experience</p>
+                    <p class="team-bio">Meera ensures that every customer has an exceptional journey with Naptico, from initial consultation to post-installation support.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Milestones Section -->
-    <section class="milestones-section">
+    <!-- Achievements Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Milestones</span></h2>
-                <p class="section-subtitle">Key moments in our journey of growth and impact</p>
+                <h2 class="section-title">Our <span class="text-gradient">Achievements</span></h2>
+                <p class="section-subtitle">Milestones that mark our journey of excellence</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="milestone-card fade-in stagger-1">
-                    <div class="milestone-year">2010</div>
-                    <h3 class="milestone-title">Company Founded</h3>
-                    <p class="milestone-description">Naptico Green Energy Solars established with a vision to revolutionize solar energy in India.</p>
+                <div class="feature-card fade-in stagger-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-home text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-white">50,000+</h3>
+                    <p class="text-gray-300">Happy Customers</p>
                 </div>
                 
-                <div class="milestone-card fade-in stagger-2">
-                    <div class="milestone-year">2015</div>
-                    <h3 class="milestone-title">10,000 Installations</h3>
-                    <p class="milestone-description">Reached a significant milestone of 10,000 successful solar installations across India.</p>
+                <div class="feature-card fade-in stagger-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-white">200+ MW</h3>
+                    <p class="text-gray-300">Clean Energy Generated</p>
                 </div>
                 
-                <div class="milestone-card fade-in stagger-3">
-                    <div class="milestone-year">2020</div>
-                    <h3 class="milestone-title">100 MW Generated</h3>
-                    <p class="milestone-description">Celebrated generating 100 MW of clean energy, significantly reducing carbon emissions.</p>
-                </div>
-                
-                <div class="milestone-card fade-in stagger-4">
-                    <div class="milestone-year">2023</div>
-                    <h3 class="milestone-title">National Award</h3>
-                    <p class="milestone-description">Recognized as India's Best Solar Company by the Ministry of New and Renewable Energy.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-section">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Why Choose <span class="text-gradient">Naptico</span></h2>
-                <p class="section-subtitle">What sets us apart from the competition</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="why-choose-card fade-in stagger-1">
-                    <div class="why-choose-icon">
+                <div class="feature-card fade-in stagger-3">
+                    <div class="feature-icon">
                         <i class="fas fa-award text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Proven Track Record</h3>
-                    <p class="text-gray-300">Over a decade of experience with 50,000+ successful installations and 200+ MW of clean energy generated.</p>
+                    <h3 class="text-3xl font-bold mb-2 text-white">25+</h3>
+                    <p class="text-gray-300">Industry Awards</p>
                 </div>
                 
-                <div class="why-choose-card fade-in stagger-2">
-                    <div class="why-choose-icon">
-                        <i class="fas fa-certificate text-white text-3xl"></i>
+                <div class="feature-card fade-in stagger-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Quality Assurance</h3>
-                    <p class="text-gray-300">All our products are certified to international standards and come with comprehensive warranties.</p>
-                </div>
-                
-                <div class="why-choose-card fade-in stagger-3">
-                    <div class="why-choose-icon">
-                        <i class="fas fa-rupee-sign text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Affordable Solutions</h3>
-                    <p class="text-gray-300">Competitive pricing with flexible financing options to make solar energy accessible to everyone.</p>
-                </div>
-                
-                <div class="why-choose-card fade-in stagger-4">
-                    <div class="why-choose-icon">
-                        <i class="fas fa-headset text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Exceptional Service</h3>
-                    <p class="text-gray-300">Dedicated customer support team available 24/7 to address all your queries and concerns.</p>
-                </div>
-                
-                <div class="why-choose-card fade-in stagger-5">
-                    <div class="why-choose-icon">
-                        <i class="fas fa-tools text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Expert Installation</h3>
-                    <p class="text-gray-300">Certified technicians ensure professional installation for optimal performance and longevity.</p>
-                </div>
-                
-                <div class="why-choose-card fade-in stagger-6">
-                    <div class="why-choose-icon">
-                        <i class="fas fa-chart-line text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Maximum Savings</h3>
-                    <p class="text-gray-300">Our systems are designed to deliver maximum energy output, ensuring the best return on investment.</p>
+                    <h3 class="text-3xl font-bold mb-2 text-white">15+</h3>
+                    <p class="text-gray-300">States Covered</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section py-20">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
             <h2 class="text-4xl font-bold mb-6 text-white fade-in">Join Our Solar Revolution</h2>
-            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy transition with Naptico Green Energy Solars</p>
+            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy future with Naptico Green Energy Solars</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
                 <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
@@ -1542,108 +2148,86 @@
         // Loading Screen
         window.addEventListener('load', function() {
             setTimeout(function() {
-                const loadingScreen = document.getElementById('loadingScreen');
-                if (loadingScreen) {
-                    loadingScreen.classList.add('hidden');
-                }
+                document.getElementById('loadingScreen').classList.add('hidden');
             }, 3000);
         });
-        
-        // Fallback: Hide loading screen after 5 seconds even if load event doesn't fire
-        setTimeout(function() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-                loadingScreen.classList.add('hidden');
-            }
-        }, 5000);
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
         
-        if (cursor && cursorFollower) {
-            // Use requestAnimationFrame for smooth cursor movement
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
+        // Use requestAnimationFrame for smooth cursor movement
+        let mouseX = 0;
+        let mouseY = 0;
+        let followerX = 0;
+        let followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
             
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                
-                // Update main cursor position immediately
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
-            });
+            // Update main cursor position immediately
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+        
+        // Use animation frame for smooth follower movement
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
             
-            // Use animation frame for smooth follower movement
-            function animateFollower() {
-                followerX += (mouseX - followerX) * 0.15;
-                followerY += (mouseY - followerY) * 0.15;
-                
-                cursorFollower.style.left = followerX + 'px';
-                cursorFollower.style.top = followerY + 'px';
-                
-                requestAnimationFrame(animateFollower);
-            }
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
             
-            animateFollower();
-            
-            // Hide cursor when leaving the window
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-                cursorFollower.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-            
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .story-card, .mission-vision-card, .value-card, .team-card, .milestone-card, .why-choose-card');
-            
-            hoverElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
+            requestAnimationFrame(animateFollower);
         }
+        
+        animateFollower();
+        
+        // Hide cursor when leaving the window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorFollower.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorFollower.style.opacity = '1';
+        });
+        
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+            });
+        });
         
         // Header scroll effect
         const header = document.querySelector('.header');
         
-        if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
         
         // Hero Slideshow - Fixed to match background and foreground images
         const slides = document.querySelectorAll('.hero-slide');
-        const heroImage = document.getElementById('heroImage');
-        const heroImages = [
-            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
-        ];
         let currentSlide = 0;
         
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             slides[index].classList.add('active');
-            heroImage.src = heroImages[index];
             currentSlide = index;
         }
         
@@ -1658,23 +2242,21 @@
         // Create particle effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            if (particlesContainer) {
-                const particleCount = 50;
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
                 
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    const size = Math.random() * 10 + 5;
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.animationDelay = `${Math.random() * 20}s`;
-                    particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
-                    
-                    particlesContainer.appendChild(particle);
-                }
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                
+                particlesContainer.appendChild(particle);
             }
         }
         
@@ -1683,29 +2265,195 @@
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        if (backToTopBtn) {
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
         
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Quote Form Modal
+        const quoteModal = document.getElementById('quoteModal');
+        const quoteClose = document.querySelector('.quote-close');
+        const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
+        
+        contactBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                quoteModal.classList.add('active');
+                centerModal();
+            });
+        });
+        
+        quoteClose.addEventListener('click', () => {
+            quoteModal.classList.remove('active');
+        });
+        
+        quoteModal.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                quoteModal.classList.remove('active');
+            }
+        });
+        
+        // File upload handling for multiple files
+        const fileInput = document.getElementById('bill');
+        const fileLabel = document.getElementById('fileLabel');
+        const fileList = document.getElementById('fileList');
+        let selectedFiles = [];
+        
+        fileInput.addEventListener('change', function() {
+            // Get newly selected files
+            const newFiles = Array.from(this.files);
+            
+            // Add to our list of selected files
+            newFiles.forEach(file => {
+                selectedFiles.push(file);
+            });
+            
+            // Update the display
+            updateFileDisplay();
+        });
+        
+        function updateFileDisplay() {
+            // Clear current display
+            fileList.innerHTML = '';
+            
+            if (selectedFiles.length === 0) {
+                fileLabel.textContent = 'Choose Files';
+                return;
+            }
+            
+            // Update label text
+            fileLabel.textContent = `${selectedFiles.length} file${selectedFiles.length > 1 ? 's' : ''} selected`;
+            
+            // Display each file
+            selectedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                // Format file size
+                const fileSize = formatFileSize(file.size);
+                
+                fileItem.innerHTML = `
+                    <span class="file-name">${file.name}</span>
+                    <span class="file-size">${fileSize}</span>
+                    <i class="fas fa-times file-remove" data-index="${index}"></i>
+                `;
+                
+                fileList.appendChild(fileItem);
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.file-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    selectedFiles.splice(index, 1);
+                    updateFileDisplay();
+                    
+                    // Update the actual input
+                    const dataTransfer = new DataTransfer();
+                    selectedFiles.forEach(file => {
+                        dataTransfer.items.add(file);
+                    });
+                    fileInput.files = dataTransfer.files;
+                });
             });
         }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // Function to center the modal properly
+        function centerModal() {
+            const modalContainer = document.querySelector('.quote-form-container');
+            const windowHeight = window.innerHeight;
+            const modalHeight = modalContainer.offsetHeight;
+            
+            if (modalHeight > windowHeight - 40) {
+                modalContainer.style.marginTop = '20px';
+                modalContainer.style.marginBottom = '20px';
+            } else {
+                const topMargin = (windowHeight - modalHeight) / 2;
+                modalContainer.style.marginTop = `${topMargin}px`;
+                modalContainer.style.marginBottom = '0';
+            }
+        }
+        
+        // Add event listener for window resize to re-center modal
+        window.addEventListener('resize', centerModal);
+        
+        // Form submission
+        const quoteForm = document.getElementById('quoteForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Here you would normally send the data to a server
+            // For demonstration, we'll just show a success message
+            
+            // Simulate form submission
+            formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
+            formMessage.className = 'form-message success';
+            formMessage.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            selectedFiles = [];
+            updateFileDisplay();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+                quoteModal.classList.remove('active');
+            }, 5000);
+            
+            // In a real implementation, you would send the form data to a server
+            // that would then email it to multiple addresses
+            // Example:
+            /*
+            fetch('https://your-form-endpoint.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
+                    formMessage.className = 'form-message success';
+                } else {
+                    formMessage.textContent = 'There was an error submitting your form. Please try again.';
+                    formMessage.className = 'form-message error';
+                }
+                formMessage.style.display = 'block';
+            })
+            .catch(error => {
+                formMessage.textContent = 'There was an error submitting your form. Please try again.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            });
+            */
+        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1722,7 +2470,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.story-card, .mission-vision-card, .value-card, .team-card, .milestone-card, .why-choose-card');
+        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {

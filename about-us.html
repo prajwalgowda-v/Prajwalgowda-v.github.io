@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Naptico Green Energy Solars</title>
+    <title>About Us - Naptico Green Energy Solars">
     
     <!-- Favicon and Icons -->
     <link rel="icon" href="./images/Icon.ico" type="image/x-icon">
@@ -47,7 +47,6 @@
     <style>
         * {
             font-family: 'Poppins', sans-serif;
-            cursor: none;
         }
         
         /* Custom Cursor - Fixed Lagging Issue */
@@ -61,7 +60,8 @@
             pointer-events: none;
             z-index: 100001;
             mix-blend-mode: difference;
-            opacity: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .cursor-follower {
@@ -73,7 +73,7 @@
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 100000;
-            opacity: 1;
+            opacity: 0;
             transition: all 0.1s ease-out;
         }
         
@@ -84,6 +84,13 @@
         
         .cursor-follower.hover {
             transform: translate(-50%, -50%) scale(3);
+        }
+        
+        /* Show custom cursor only on desktop */
+        @media (min-width: 1025px) {
+            .cursor, .cursor-follower {
+                opacity: 1;
+            }
         }
         
         /* Loading Screen - Completely Fixed */
@@ -270,6 +277,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            cursor: pointer;
         }
         
         .contact-btn::before {
@@ -301,12 +309,46 @@
             border: none;
             color: white;
             font-size: 24px;
-            cursor: none;
+            cursor: pointer;
             padding: 5px;
         }
         
         .mobile-menu-btn:hover {
             color: #f59e0b;
+        }
+        
+        /* Mobile Menu Styles - Added missing styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .header-actions {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
         }
         
         /* Hero Section - Enhanced with Homepage Hero Banner */
@@ -414,6 +456,7 @@
             z-index: 1;
             text-decoration: none;
             margin: 5px;
+            cursor: pointer;
         }
         
         .hero-btn-primary {
@@ -465,6 +508,7 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .service-card::before {
@@ -607,6 +651,7 @@
             position: relative;
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
         }
         
         .story-content:hover {
@@ -665,6 +710,7 @@
             position: relative;
             overflow: hidden;
             height: 100%;
+            cursor: pointer;
         }
         
         .mission-vision-card::before {
@@ -718,6 +764,7 @@
             transform-style: preserve-3d;
             position: relative;
             height: 100%;
+            cursor: pointer;
         }
         
         .value-card:hover {
@@ -755,6 +802,7 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .team-card::before {
@@ -853,6 +901,7 @@
             transform-style: preserve-3d;
             position: relative;
             height: 100%;
+            cursor: pointer;
         }
         
         .achievement-card:hover {
@@ -1084,7 +1133,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: none;
+            cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -1131,15 +1180,6 @@
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .header-actions {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
             .section-title {
                 font-size: 2rem;
             }
@@ -1199,14 +1239,14 @@
                 <button class="contact-btn">Get Quote</button>
             </div>
             <!-- Mobile Menu Button (3-line icon) - This is for toggling the mobile menu on small screens -->
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
     
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
@@ -1394,8 +1434,8 @@
                     <p class="team-position">Founder & CEO</p>
                     <p class="team-bio">With over 20 years of experience in renewable energy, Ajay founded Naptico with a vision to make solar power accessible to every Indian household.</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -1408,8 +1448,8 @@
                     <p class="team-position">Chief Technology Officer</p>
                     <p class="team-bio">Priya leads our R&D initiatives, bringing cutting-edge solar technology to market and driving innovation in energy storage solutions.</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -1422,8 +1462,8 @@
                     <p class="team-position">Chief Operating Officer</p>
                     <p class="team-bio">Amit oversees our nationwide operations, ensuring seamless installation processes and exceptional customer service across all locations.</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -1436,8 +1476,8 @@
                     <p class="team-position">Chief Financial Officer</p>
                     <p class="team-bio">Neha brings 15 years of financial expertise to Naptico, ensuring sustainable growth and financial stability for our expanding operations.</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
@@ -1450,8 +1490,8 @@
                     <p class="team-position">Chief Marketing Officer</p>
                     <p class="team-bio">Rajiv leads our marketing and brand strategy, helping us reach more customers with our message of sustainable energy solutions.</p>
                     <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
@@ -1517,16 +1557,16 @@
                     </a>
                     <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon">
+                        <a href="#" class="social-icon" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="#" class="social-icon" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="#" class="social-icon" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -1775,6 +1815,9 @@
         if (mobileMenuBtn && navMenu) {
             mobileMenuBtn.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
+                // Update aria-expanded for accessibility
+                const isExpanded = navMenu.classList.contains('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
             });
         }
         
@@ -1783,8 +1826,8 @@
         
         contactBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Redirect to homepage or implement modal here
-                window.location.href = 'index.html#quoteModal';
+                // Redirect to contact page instead of modal
+                window.location.href = 'contact.html';
             });
         });
         

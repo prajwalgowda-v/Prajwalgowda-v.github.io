@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Naptico Green Energy Solars</title>
+    <title>About Us - Naptico Green Energy Solars">
     
     <!-- Favicon and Icons -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -1396,7 +1396,7 @@
         }
         
         .overview-card:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            transform: translateY(-15px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
         
@@ -1429,6 +1429,7 @@
             line-height: 1.8;
             font-size: 1.2rem;
             margin-bottom: 30px;
+            text-align: left;
         }
         
         .overview-stats {
@@ -2592,7 +2593,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content, .overview-card');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -2869,29 +2870,6 @@
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-        
-        // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .team-card, .value-card, .timeline-content, .overview-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
             });
         });
         

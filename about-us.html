@@ -86,7 +86,7 @@
             transform: translate(-50%, -50%) scale(3);
         }
         
-        /* Loading Screen - White Background with Improved Animation */
+        /* Loading Screen - Simplified for reliability */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -99,71 +99,22 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         
         .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
+            display: none;
         }
         
         .loading-logo {
             width: 250px;
             height: auto;
-            animation: logoFadeIn 2s ease-out forwards;
-            opacity: 0;
-            transition: transform 0.3s ease;
-        }
-        
-        .loading-logo:hover {
-            transform: scale(1.05);
-        }
-        
-        @keyframes logoFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) rotate(-10deg);
-            }
-            50% {
-                opacity: 0.7;
-                transform: scale(1.05) rotate(5deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0deg);
-            }
+            margin-bottom: 30px;
         }
         
         .loading-text {
-            margin-top: 30px;
             font-size: 18px;
             color: #f59e0b;
             font-weight: 500;
-            letter-spacing: 1px;
-            animation: textFadeIn 1s ease-out 1s forwards;
-            opacity: 0;
-        }
-        
-        @keyframes textFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .loading-dots {
-            display: inline-block;
-            animation: dots 1.5s infinite;
-        }
-        
-        @keyframes dots {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60%, 100% { content: '...'; }
         }
         
         /* Header Design */
@@ -1666,13 +1617,13 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Loading Screen - White Background with Improved Animation -->
+    <!-- Loading Screen - Simplified for reliability -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="index.html">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/250x100?text=Naptico+Green+Energy+Solars'">
         </a>
-        <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <p class="loading-text">Powering Your Future...</p>
     </div>
     
     <!-- Header -->
@@ -2115,30 +2066,32 @@
     </footer>
     
     <script>
-        // Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3000);
+        // SIMPLIFIED LOADING SCREEN FIX
+        // This will definitely remove the loading screen
+        
+        // Remove loading screen immediately when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
         });
         
-        // Prevent auto-scrolling to hash on page load
-        if (window.location.hash) {
-            // Store the hash
-            var hash = window.location.hash;
-            
-            // Remove the hash from the URL
-            history.replaceState(null, null, window.location.pathname);
-            
-            // After a short delay, scroll to the section if needed
-            setTimeout(function() {
-                if (hash === '#journey') {
-                    // Only scroll if user explicitly clicked on a link to this section
-                    // For now, we'll prevent auto-scrolling
-                    window.scrollTo(0, 0);
-                }
-            }, 100);
-        }
+        // Also remove loading screen when window is fully loaded
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        });
+        
+        // Fallback: Remove loading screen after 2 seconds regardless
+        setTimeout(function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        }, 2000);
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');

@@ -1563,6 +1563,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center;
             transition: transform 0.5s ease;
         }
         
@@ -1667,35 +1668,6 @@
         .leadership-card:hover::after {
             transform: scale(1.5);
             opacity: 0.5;
-        }
-        
-        /* Image Upload Button */
-        .upload-image-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(245, 158, 11, 0.8);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: none;
-            z-index: 3;
-            transition: all 0.3s ease;
-            font-size: 16px;
-        }
-        
-        .upload-image-btn:hover {
-            background: #f97316;
-            transform: scale(1.1);
-        }
-        
-        .image-upload-input {
-            display: none;
         }
         
         /* Responsive adjustments */
@@ -2046,13 +2018,10 @@
             
             <div class="leadership-grid">
                 <!-- Team Member 1 -->
-                <div class="leadership-card fade-in stagger-1" data-member-id="1">
+                <div class="leadership-card fade-in stagger-1">
                     <div class="leadership-image">
-                        <img id="member-image-1" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO">
-                        <button class="upload-image-btn" data-member-id="1">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                        <input type="file" id="image-upload-1" class="image-upload-input" accept="image/*">
+                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                        <img src="./images/CEO-Image.jpg" alt="CEO" onerror="this.src='https://via.placeholder.com/600x400?text=CEO'">
                         <div class="leadership-badge">CEO</div>
                     </div>
                     <div class="leadership-content">
@@ -2068,13 +2037,10 @@
                 </div>
                 
                 <!-- Team Member 2 -->
-                <div class="leadership-card fade-in stagger-2" data-member-id="2">
+                <div class="leadership-card fade-in stagger-2">
                     <div class="leadership-image">
-                        <img id="member-image-2" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CTO">
-                        <button class="upload-image-btn" data-member-id="2">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                        <input type="file" id="image-upload-2" class="image-upload-input" accept="image/*">
+                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                        <img src="./images/CTO-Image.jpg" alt="CTO" onerror="this.src='https://via.placeholder.com/600x400?text=CTO'">
                         <div class="leadership-badge">CTO</div>
                     </div>
                     <div class="leadership-content">
@@ -2090,13 +2056,10 @@
                 </div>
                 
                 <!-- Team Member 3 -->
-                <div class="leadership-card fade-in stagger-3" data-member-id="3">
+                <div class="leadership-card fade-in stagger-3">
                     <div class="leadership-image">
-                        <img id="member-image-3" src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="COO">
-                        <button class="upload-image-btn" data-member-id="3">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                        <input type="file" id="image-upload-3" class="image-upload-input" accept="image/*">
+                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                        <img src="./images/COO-Image.jpg" alt="COO" onerror="this.src='https://via.placeholder.com/600x400?text=COO'">
                         <div class="leadership-badge">COO</div>
                     </div>
                     <div class="leadership-content">
@@ -2112,13 +2075,10 @@
                 </div>
                 
                 <!-- Team Member 4 -->
-                <div class="leadership-card fade-in stagger-4" data-member-id="4">
+                <div class="leadership-card fade-in stagger-4">
                     <div class="leadership-image">
-                        <img id="member-image-4" src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CFO">
-                        <button class="upload-image-btn" data-member-id="4">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                        <input type="file" id="image-upload-4" class="image-upload-input" accept="image/*">
+                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                        <img src="./images/CFO-Image.jpg" alt="CFO" onerror="this.src='https://via.placeholder.com/600x400?text=CFO'">
                         <div class="leadership-badge">CFO</div>
                     </div>
                     <div class="leadership-content">
@@ -2134,13 +2094,10 @@
                 </div>
                 
                 <!-- Team Member 5 -->
-                <div class="leadership-card fade-in stagger-5" data-member-id="5">
+                <div class="leadership-card fade-in stagger-5">
                     <div class="leadership-image">
-                        <img id="member-image-5" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CMO">
-                        <button class="upload-image-btn" data-member-id="5">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                        <input type="file" id="image-upload-5" class="image-upload-input" accept="image/*">
+                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                        <img src="./images/CMO-Image.jpg" alt="CMO" onerror="this.src='https://via.placeholder.com/600x400?text=CMO'">
                         <div class="leadership-badge">CMO</div>
                     </div>
                     <div class="leadership-content">
@@ -2353,7 +2310,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-member, .timeline-content, .leadership-card, .milestone-arrow, .milestone-dot, .upload-image-btn');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -2790,45 +2747,6 @@
                     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
                 });
             });
-            
-            // Image upload functionality for leadership team
-            const uploadButtons = document.querySelectorAll('.upload-image-btn');
-            
-            uploadButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const memberId = this.getAttribute('data-member-id');
-                    const fileInput = document.getElementById(`image-upload-${memberId}`);
-                    fileInput.click();
-                });
-            });
-            
-            // Handle file input change events
-            for (let i = 1; i <= 5; i++) {
-                const fileInput = document.getElementById(`image-upload-${i}`);
-                const memberImage = document.getElementById(`member-image-${i}`);
-                
-                fileInput.addEventListener('change', function(e) {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        
-                        reader.onload = function(event) {
-                            memberImage.src = event.target.result;
-                            
-                            // Save to localStorage
-                            localStorage.setItem(`leaderImage${i}`, event.target.result);
-                        }
-                        
-                        reader.readAsDataURL(file);
-                    }
-                });
-                
-                // Load saved image from localStorage if it exists
-                const savedImage = localStorage.getItem(`leaderImage${i}`);
-                if (savedImage) {
-                    memberImage.src = savedImage;
-                }
-            }
         });
     </script>
 </body>

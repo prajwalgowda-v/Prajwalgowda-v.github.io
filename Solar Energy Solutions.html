@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Naptico Green Energy Solars</title>
+    <title>Services - Naptico Green Energy Solars">
     
     <!-- Favicon and Icons -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -439,11 +439,24 @@
             left : 100%;
         }
         
-        /* Services Section - Fixed Text Color */
+        /* Services Section - World-Class Redesign */
         .services-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
             overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
         }
         
         .services-content {
@@ -452,31 +465,39 @@
         }
         
         .section-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
         
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: #e2e8f0;
-            max-width: 3xl;
-            margin: 0 auto 3rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
         }
         
-        /* 3D Cards */
+        /* Service Cards - New World-Class Design */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
         .service-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
             overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .service-card::before {
@@ -485,72 +506,259 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
         
         .service-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
         .service-card:hover::before {
-            opacity: 1;
+            transform: scaleX(1);
         }
         
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotateZ(5deg);
-        }
-        
-        /* 3D Feature Cards */
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
+        .service-image {
+            height: 200px;
+            overflow: hidden;
             position: relative;
         }
         
-        .feature-card:hover {
-            transform: translateY(-15px) rotateX(10deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
         
-        .feature-icon {
-            width: 100px;
-            height: 100px;
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            z-index: 1;
+        }
+        
+        .service-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .service-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            margin-bottom: 25px;
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+        }
+        
+        .service-feature i {
+            color: #f59e0b;
+            margin-right: 10px;
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: #f59e0b;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link:hover {
+            color: #f97316;
+            transform: translateX(5px);
+        }
+        
+        .service-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Service Detail Section */
+        .service-detail {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 60px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-detail-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .service-detail-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .service-detail-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .service-detail-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .service-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .service-detail-text {
+            color: #e2e8f0;
+            line-height: 1.8;
+        }
+        
+        .service-detail-image {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .service-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .service-detail:hover .service-detail-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-process {
+            margin-top: 40px;
+        }
+        
+        .process-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step-number {
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
             margin: 0 auto 20px;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotateY(180deg);
+        .process-step-number::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .process-step:hover .process-step-number::after {
+            opacity: 1;
+        }
+        
+        .process-step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .process-step-description {
+            color: #e2e8f0;
+            line-height: 1.6;
         }
         
         /* Testimonials Section - Enhanced Design */
@@ -1666,31 +1874,43 @@
             opacity: 0.5;
         }
         
-        /* Service Type Tabs */
-        .tab-container {
-            background: rgba(255, 255, 255, 0.05);
+        /* Service Type Tabs - World-Class Redesign */
+        .service-tabs-container {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
+            border-radius: 30px;
+            padding: 50px;
+            margin: 60px auto;
+            max-width: 1200px;
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-tabs-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.05), transparent 70%);
+            z-index: -1;
         }
         
         .tab-nav {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 15px;
+            margin-bottom: 40px;
         }
         
         .tab-button {
-            padding: 12px 24px;
+            padding: 15px 25px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
+            border-radius: 50px;
             color: #e2e8f0;
             font-weight: 600;
             cursor: none;
@@ -1742,7 +1962,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Service Detail Card */
+        /* Service Detail Card - Enhanced */
         .service-detail-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -1833,77 +2053,6 @@
         
         .service-detail-card:hover .service-detail-image img {
             transform: scale(1.05);
-        }
-        
-        /* Service Process */
-        .service-process {
-            margin-top: 40px;
-        }
-        
-        .process-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-        
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-        
-        .process-step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 auto 20px;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
-        
-        .process-step-number::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .process-step:hover .process-step-number::after {
-            opacity: 1;
-        }
-        
-        .process-step-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .process-step-description {
-            color: #e2e8f0;
-            line-height: 1.6;
         }
         
         /* Service Benefits */
@@ -2031,6 +2180,14 @@
             }
             
             .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -2167,7 +2324,7 @@
                     </h1>
                     <p class="text-xl mb-8 text-gray-300">Comprehensive solar energy solutions tailored to your needs. From rooftop installations to maintenance, we provide end-to-end services to harness the power of the sun.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#service-types" class="hero-btn hero-btn-primary">Explore Services</a>
+                        <a href="#services" class="hero-btn hero-btn-primary">Explore Services</a>
                         <a href="#contact" class="hero-btn hero-btn-secondary">Get Consultation</a>
                     </div>
                 </div>
@@ -2182,15 +2339,181 @@
         <div id="particles"></div>
     </section>
     
-    <!-- Service Types Section -->
-    <section id="service-types" class="services-section py-20">
+    <!-- Services Section - World-Class Redesign -->
+    <section id="services" class="services-section">
         <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
                 <h2 class="section-title">Our <span class="text-gradient">Solar Services</span></h2>
-                <p class="section-subtitle">Comprehensive solutions for all your solar energy needs</p>
+                <p class="section-subtitle">Premium solar energy solutions designed to meet your unique needs</p>
             </div>
             
-            <div class="tab-container fade-in">
+            <!-- Service Cards Grid -->
+            <div class="services-grid">
+                <!-- Rooftop Solar Card -->
+                <div class="service-card fade-in stagger-1">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Rooftop Solar Installation">
+                        <div class="service-badge">Most Popular</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Rooftop Solar</h3>
+                        <p class="service-description">Transform your rooftop into a power generation hub with our premium solar installations.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Customized design for optimal energy</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>25-year warranty on panels</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Grid-tied, off-grid, hybrid options</span>
+                            </div>
+                        </div>
+                        <a href="#rooftop" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Ground-Mounted Solar Card -->
+                <div class="service-card fade-in stagger-2">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ground-Mounted Solar Systems">
+                        <div class="service-badge">High Efficiency</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Ground-Mounted Solar</h3>
+                        <p class="service-description">Ideal for properties with land availability, offering flexible installation with optimal sun exposure.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Fixed and tracking system options</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Scalable from small to utility-scale</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Easy maintenance and cleaning</span>
+                            </div>
+                        </div>
+                        <a href="#ground-mounted" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Solar Street Lights Card -->
+                <div class="service-card fade-in stagger-3">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Street Lights">
+                        <div class="service-badge">Eco-Friendly</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Solar Street Lights</h3>
+                        <p class="service-description">Illuminate your streets and pathways with energy-efficient, standalone lighting solutions.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Automatic dusk-to-dawn operation</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Motion sensor for energy conservation</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Weather-resistant and durable</span>
+                            </div>
+                        </div>
+                        <a href="#street-light" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Solar Water Heater (ETC) Card -->
+                <div class="service-card fade-in stagger-4">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater (ETC)">
+                        <div class="service-badge">All Weather</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Water Heater (ETC)</h3>
+                        <p class="service-description">High-efficiency evacuated tube collectors that work even in cloudy conditions.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>High efficiency in low sunlight</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vacuum tube technology</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Suitable for all climate conditions</span>
+                            </div>
+                        </div>
+                        <a href="#water-heater-etc" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Solar Water Heater (FPC) Card -->
+                <div class="service-card fade-in stagger-5">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater (FPC)">
+                        <div class="service-badge">Durable</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Water Heater (FPC)</h3>
+                        <p class="service-description">Flat plate collectors perfect for regions with abundant sunlight and excellent durability.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>High durability and weather resistance</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Excellent performance in sunny climates</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Easy integration with existing systems</span>
+                            </div>
+                        </div>
+                        <a href="#water-heater-fpc" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Maintenance & Support Card -->
+                <div class="service-card fade-in stagger-6">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Maintenance & Support">
+                        <div class="service-badge">Essential</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Maintenance & Support</h3>
+                        <p class="service-description">Comprehensive maintenance services to ensure optimal performance and longevity.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Regular system health check-ups</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Panel cleaning and maintenance</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>24/7 emergency support and repairs</span>
+                            </div>
+                        </div>
+                        <a href="#maintenance" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Details Tabs -->
+            <div class="service-tabs-container fade-in">
                 <div class="tab-nav">
                     <button class="tab-button active" data-tab="rooftop">Rooftop Solar</button>
                     <button class="tab-button" data-tab="ground-mounted">Ground-Mounted</button>
@@ -3241,29 +3564,6 @@
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-        
-        // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card, .service-detail-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
             });
         });
         

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Naptico Green Energy Solars</title>
+    <title>About Us - Naptico Green Energy Solars">
     
     <!-- Favicon and Icons -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -86,7 +86,7 @@
             transform: translate(-50%, -50%) scale(3);
         }
         
-        /* Loading Screen - White Background with Improved Animation */
+        /* Loading Screen - Fixed to properly hide and show content */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -105,6 +105,7 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -164,6 +165,16 @@
             0%, 20% { content: '.'; }
             40% { content: '..'; }
             60%, 100% { content: '...'; }
+        }
+        
+        /* Main content - ensure it's hidden initially then shown after loading */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        
+        .main-content.visible {
+            opacity: 1;
         }
         
         /* Header Design */
@@ -1717,14 +1728,19 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Fallback for no JavaScript */
+        .no-js .loading-screen {
+            display: none;
+        }
+        
+        .no-js .main-content {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    
-    <!-- Loading Screen - White Background with Improved Animation -->
+    <!-- Loading Screen - Fixed to properly hide and show content -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="index.html">
@@ -1733,538 +1749,565 @@
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
     </div>
     
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <!-- Logo path updated to use relative path and made clickable -->
-            <a href="index.html">
-                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
-            </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about-us.html" class="nav-link">About Us</a></li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
-                    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-                    <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
-                    <li><a href="customer-stories.html" class="nav-link">Stories</a></li>
-                    <li><a href="subsidies.html" class="nav-link">Subsidies</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="contact-btn">Get Quote</button>
-            </div>
-            <!-- Mobile Menu Button (3-line icon) - This is for toggling the mobile menu on small screens -->
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-    
-    <!-- Quote Form Modal -->
-    <div id="quoteModal" class="quote-modal">
-        <div class="quote-form-container">
-            <div class="quote-form-header">
-                <button class="quote-close">
-                    <i class="fas fa-times"></i>
-                </button>
+    <!-- Main Content - Initially hidden, shown after loading -->
+    <div id="mainContent" class="main-content">
+        <!-- Custom Cursor -->
+        <div class="cursor"></div>
+        <div class="cursor-follower"></div>
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
                 <!-- Logo path updated to use relative path and made clickable -->
                 <a href="index.html">
-                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
+                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
                 </a>
-                <h2 class="quote-form-title">Get Your Solar Quote</h2>
-                <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                        <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
+                        <li><a href="customer-stories.html" class="nav-link">Stories</a></li>
+                        <li><a href="subsidies.html" class="nav-link">Subsidies</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="contact-btn">Get Quote</button>
+                </div>
+                <!-- Mobile Menu Button (3-line icon) - This is for toggling the mobile menu on small screens -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            
-            <div class="quote-form-body">
-                <form id="quoteForm" class="quote-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile" class="form-label">Mobile Number <span class="required">*</span></label>
-                            <input type="tel" id="mobile" name="mobile" class="form-input" placeholder="Enter your mobile number" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email ID <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
-                            <div class="file-upload">
-                                <input type="file" id="bill" name="bill" class="file-upload-input" accept="image/*,.pdf" multiple required>
-                                <label for="bill" class="file-upload-label">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span id="fileLabel">Choose Files</span>
-                                </label>
-                            </div>
-                            <div id="fileList" class="file-list"></div>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="address" class="form-label">Address <span class="required">*</span></label>
-                            <textarea id="address" name="address" class="form-textarea" placeholder="Enter your complete address" required></textarea>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">
-                        <i class="fas fa-paper-plane"></i>
-                        <span>Submit Request</span>
-                    </button>
-                    
-                    <div id="formMessage" class="form-message"></div>
-                    
-                    <div class="privacy-text">
-                        <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 8px;"></i>
-                        We respect your privacy and will never share your information with third parties.
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <!-- Hero Section -->
-    <section class="hero-gradient">
-        <!-- Hero Slideshow - All slides will change automatically -->
-        <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-        </div>
+        </header>
         
-        <!-- Hero Overlay -->
-        <div class="hero-overlay"></div>
-        
-        <div class="container mx-auto px-4 relative z-10 hero-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="hero-title text-white">
-                        About <span class="text-gradient">Naptico Green Energy</span>
-                    </h1>
-                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering 50,000+ homes and businesses across the country.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Particle Effect -->
-        <div id="particles"></div>
-    </section>
-    
-    <!-- Our Story Section -->
-    <section id="our-story" class="services-section py-20">
-        <div class="container mx-auto px-4 services-content">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
-                <p class="section-subtitle">From a small startup to India's leading solar energy provider</p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="fade-in stagger-1">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our Journey</h3>
-                    <p class="text-gray-300 mb-4">Founded in 2010, Naptico Green Energy Solars began with a simple vision: to make clean, renewable energy accessible to every Indian. Our founders, a team of passionate engineers and environmentalists, saw the immense potential of solar energy to transform India's energy landscape.</p>
-                    <p class="text-gray-300 mb-4">Starting with just a small office in Bangalore and a handful of dedicated employees, we focused on providing high-quality solar solutions to residential customers. Our commitment to excellence and customer satisfaction quickly earned us a reputation as a reliable solar provider.</p>
-                    <p class="text-gray-300">Today, we've grown into a national leader in the solar industry with over 500 employees, offices in 12 major cities, and a track record of 50,000+ successful installations. But our core mission remains the same: to accelerate India's transition to clean energy.</p>
-                </div>
-                <div class="fade-in stagger-2">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Our Office" class="rounded-2xl w-full h-auto">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1 fade-in stagger-3">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Installation" class="rounded-2xl w-full h-auto">
-                    </div>
-                </div>
-                <div class="order-1 lg:order-2 fade-in stagger-4">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our Mission & Vision</h3>
-                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Mission:</strong> To accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to harness the power of the sun.</p>
-                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Vision:</strong> To be the most trusted and innovative solar energy company in India, leading the country toward a future powered by 100% renewable energy and setting new standards for excellence in the industry.</p>
-                    <p class="text-gray-300">We envision a future where every home and business in India is powered by clean, renewable energy, reducing carbon emissions and creating a healthier planet for future generations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Our Milestones Section - Redesigned -->
-    <section class="milestones-section">
-        <div class="milestones-container">
-            <div class="text-center fade-in">
-                <h2 class="milestones-title">Our <span class="text-gradient">Milestones</span></h2>
-                <p class="milestones-subtitle">Key moments in our journey to becoming India's most trusted solar provider</p>
-            </div>
-            
-            <div class="milestone-carousel fade-in">
-                <div class="milestone-track">
-                    <!-- Milestone 1 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Company Founded">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2010</div>
-                                <h3 class="milestone-title">Company Founded</h3>
-                                <p class="milestone-description">Naptico Green Energy Solars was established in Bangalore with a vision to make solar energy accessible to all Indians.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 2 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="First Major Project">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2013</div>
-                                <h3 class="milestone-title">First Major Project</h3>
-                                <p class="milestone-description">Completed our first 1MW solar installation for a commercial client, marking our entry into large-scale solar projects.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 3 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="National Expansion">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2016</div>
-                                <h3 class="milestone-title">National Expansion</h3>
-                                <p class="milestone-description">Expanded operations to 5 major cities across India, establishing ourselves as a national solar provider.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 4 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2019</div>
-                                <h3 class="milestone-title">25,000 Installations</h3>
-                                <p class="milestone-description">Reached the milestone of 25,000 solar installations, generating over 100MW of clean energy.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 5 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2022</div>
-                                <h3 class="milestone-title">Industry Recognition</h3>
-                                <p class="milestone-description">Awarded "India's Best Solar Company 2022" by the Ministry of New and Renewable Energy.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 6 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="50,000+ Installations">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2025</div>
-                                <h3 class="milestone-title">50,000+ Installations</h3>
-                                <p class="milestone-description">Achieved our biggest milestone yet - 50,000+ installations and 200+ MW of clean energy generated across India.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Carousel Navigation -->
-                <div class="milestone-nav">
-                    <span class="milestone-dot active" data-slide="0"></span>
-                    <span class="milestone-dot" data-slide="1"></span>
-                    <span class="milestone-dot" data-slide="2"></span>
-                    <span class="milestone-dot" data-slide="3"></span>
-                    <span class="milestone-dot" data-slide="4"></span>
-                    <span class="milestone-dot" data-slide="5"></span>
-                </div>
-                
-                <div class="milestone-arrows">
-                    <button class="milestone-arrow prev">
-                        <i class="fas fa-chevron-left"></i>
+        <!-- Quote Form Modal -->
+        <div id="quoteModal" class="quote-modal">
+            <div class="quote-form-container">
+                <div class="quote-form-header">
+                    <button class="quote-close">
+                        <i class="fas fa-times"></i>
                     </button>
-                    <button class="milestone-arrow next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Leadership Team Section - Redesigned -->
-    <section id="our-team" class="leadership-section">
-        <div class="leadership-container">
-            <div class="text-center fade-in">
-                <h2 class="leadership-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
-                <p class="leadership-subtitle">The visionaries driving Naptico Green Energy Solars toward a sustainable future</p>
-            </div>
-            
-            <div class="leadership-grid">
-                <!-- Team Member 1 -->
-                <div class="leadership-card fade-in stagger-1">
-                    <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CEO-Image.jpg" alt="CEO" onerror="this.src='https://via.placeholder.com/600x400?text=CEO'">
-                        <div class="leadership-badge">CEO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Rajiv Sharma</h3>
-                        <p class="leadership-position"><i class="fas fa-crown"></i> Founder & CEO</p>
-                        <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="leadership-card fade-in stagger-2">
-                    <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CTO-Image.jpg" alt="CTO" onerror="this.src='https://via.placeholder.com/600x400?text=CTO'">
-                        <div class="leadership-badge">CTO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Priya Nair</h3>
-                        <p class="leadership-position"><i class="fas fa-microchip"></i> Chief Technology Officer</p>
-                        <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="leadership-card fade-in stagger-3">
-                    <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/COO-Image.jpg" alt="COO" onerror="this.src='https://via.placeholder.com/600x400?text=COO'">
-                        <div class="leadership-badge">COO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Amit Patel</h3>
-                        <p class="leadership-position"><i class="fas fa-cogs"></i> Chief Operating Officer</p>
-                        <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 4 -->
-                <div class="leadership-card fade-in stagger-4">
-                    <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CFO-Image.jpg" alt="CFO" onerror="this.src='https://via.placeholder.com/600x400?text=CFO'">
-                        <div class="leadership-badge">CFO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Sneha Reddy</h3>
-                        <p class="leadership-position"><i class="fas fa-chart-line"></i> Chief Financial Officer</p>
-                        <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 5 -->
-                <div class="leadership-card fade-in stagger-5">
-                    <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CMO-Image.jpg" alt="CMO" onerror="this.src='https://via.placeholder.com/600x400?text=CMO'">
-                        <div class="leadership-badge">CMO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Vikram Mehta</h3>
-                        <p class="leadership-position"><i class="fas fa-bullhorn"></i> Chief Marketing Officer</p>
-                        <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Why Choose Us -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="feature-card fade-in stagger-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-award text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
-                    <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
-                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-3">
-                    <div class="feature-icon">
-                        <i class="fas fa-users text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
-                    <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-4">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
-                    <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section - Fixed Button Visibility -->
-    <section class="cta-section py-20">
-        <div class="absolute inset-0 bg-black opacity-10"></div>
-        <div class="container mx-auto px-4 text-center cta-content">
-            <h2 class="text-4xl font-bold mb-6 text-white fade-in">Join Our Solar Revolution</h2>
-            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's sustainable future with Naptico Green Energy Solars</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
-                <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
-                <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer - World-Class Design -->
-    <footer class="footer">
-        <div class="container mx-auto px-4">
-            <div class="footer-content">
-                <div class="footer-section">
                     <!-- Logo path updated to use relative path and made clickable -->
                     <a href="index.html">
-                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
                     </a>
-                    <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                    <h2 class="quote-form-title">Get Your Solar Quote</h2>
+                    <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
+                </div>
+                
+                <div class="quote-form-body">
+                    <form id="quoteForm" class="quote-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile" class="form-label">Mobile Number <span class="required">*</span></label>
+                                <input type="tel" id="mobile" name="mobile" class="form-input" placeholder="Enter your mobile number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email ID <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
+                                <div class="file-upload">
+                                    <input type="file" id="bill" name="bill" class="file-upload-input" accept="image/*,.pdf" multiple required>
+                                    <label for="bill" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span id="fileLabel">Choose Files</span>
+                                    </label>
+                                </div>
+                                <div id="fileList" class="file-list"></div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="address" class="form-label">Address <span class="required">*</span></label>
+                                <textarea id="address" name="address" class="form-textarea" placeholder="Enter your complete address" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Submit Request</span>
+                        </button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                        
+                        <div class="privacy-text">
+                            <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 8px;"></i>
+                            We respect your privacy and will never share your information with third parties.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <button id="backToTop" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <!-- Hero Section -->
+        <section class="hero-gradient">
+            <!-- Hero Slideshow - All slides will change automatically -->
+            <div class="hero-slideshow">
+                <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            </div>
+            
+            <!-- Hero Overlay -->
+            <div class="hero-overlay"></div>
+            
+            <div class="container mx-auto px-4 relative z-10 hero-content">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="hero-title text-white">
+                            About <span class="text-gradient">Naptico Green Energy</span>
+                        </h1>
+                        <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering 50,000+ homes and businesses across the country.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
+                            <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="service-card">
+                            <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Particle Effect -->
+            <div id="particles"></div>
+        </section>
+        
+        <!-- Our Story Section -->
+        <section id="our-story" class="services-section py-20">
+            <div class="container mx-auto px-4 services-content">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
+                    <p class="section-subtitle">From a small startup to India's leading solar energy provider</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="fade-in stagger-1">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Our Journey</h3>
+                        <p class="text-gray-300 mb-4">Founded in 2010, Naptico Green Energy Solars began with a simple vision: to make clean, renewable energy accessible to every Indian. Our founders, a team of passionate engineers and environmentalists, saw the immense potential of solar energy to transform India's energy landscape.</p>
+                        <p class="text-gray-300 mb-4">Starting with just a small office in Bangalore and a handful of dedicated employees, we focused on providing high-quality solar solutions to residential customers. Our commitment to excellence and customer satisfaction quickly earned us a reputation as a reliable solar provider.</p>
+                        <p class="text-gray-300">Today, we've grown into a national leader in the solar industry with over 500 employees, offices in 12 major cities, and a track record of 50,000+ successful installations. But our core mission remains the same: to accelerate India's transition to clean energy.</p>
+                    </div>
+                    <div class="fade-in stagger-2">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Our Office" class="rounded-2xl w-full h-auto">
+                        </div>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="how-it-works.html">How It Works</a></li>
-                        <li><a href="savings-calculator.html">Calculator</a></li>
-                        <li><a href="customer-stories.html">Customer Stories</a></li>
-                        <li><a href="subsidies.html">Subsidies</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="services.html#rooftop">Rooftop Solar Panels</a></li>
-                        <li><a href="services.html#ground-mounted">Ground-Mounted Solar</a></li>
-                        <li><a href="services.html#street-light">Solar Street Lights</a></li>
-                        <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
-                        <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
-                        <li><a href="services.html#maintenance & support">Maintenance & Support</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>
-                                <a href="tel:080 2952 7671">080 2952 7671</a> | 
-                                <a href="tel:+91 70192 99196">+91 70192 99196</a>
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>
-                                <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
-                        </li>
-                    </ul>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1 fade-in stagger-3">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Installation" class="rounded-2xl w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 fade-in stagger-4">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Our Mission & Vision</h3>
+                        <p class="text-gray-300 mb-4"><strong class="text-amber-400">Mission:</strong> To accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to harness the power of the sun.</p>
+                        <p class="text-gray-300 mb-4"><strong class="text-amber-400">Vision:</strong> To be the most trusted and innovative solar energy company in India, leading the country toward a future powered by 100% renewable energy and setting new standards for excellence in the industry.</p>
+                        <p class="text-gray-300">We envision a future where every home and business in India is powered by clean, renewable energy, reducing carbon emissions and creating a healthier planet for future generations.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Privacy Policy.html">Privacy Policy</a> | <a href="Terms of Service.html">Terms of Service</a></p>
+        </section>
+        
+        <!-- Our Milestones Section - Redesigned -->
+        <section class="milestones-section">
+            <div class="milestones-container">
+                <div class="text-center fade-in">
+                    <h2 class="milestones-title">Our <span class="text-gradient">Milestones</span></h2>
+                    <p class="milestones-subtitle">Key moments in our journey to becoming India's most trusted solar provider</p>
+                </div>
+                
+                <div class="milestone-carousel fade-in">
+                    <div class="milestone-track">
+                        <!-- Milestone 1 -->
+                        <div class="milestone-slide">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Company Founded">
+                            <div class="milestone-overlay">
+                                <div class="milestone-content">
+                                    <div class="milestone-year">2010</div>
+                                    <h3 class="milestone-title">Company Founded</h3>
+                                    <p class="milestone-description">Naptico Green Energy Solars was established in Bangalore with a vision to make solar energy accessible to all Indians.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Milestone 2 -->
+                        <div class="milestone-slide">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="First Major Project">
+                            <div class="milestone-overlay">
+                                <div class="milestone-content">
+                                    <div class="milestone-year">2013</div>
+                                    <h3 class="milestone-title">First Major Project</h3>
+                                    <p class="milestone-description">Completed our first 1MW solar installation for a commercial client, marking our entry into large-scale solar projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Milestone 3 -->
+                        <div class="milestone-slide">
+                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="National Expansion">
+                            <div class="milestone-overlay">
+                                <div class="milestone-content">
+                                    <div class="milestone-year">2016</div>
+                                    <h3 class="milestone-title">National Expansion</h3>
+                                    <p class="milestone-description">Expanded operations to 5 major cities across India, establishing ourselves as a national solar provider.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Milestone 4 -->
+                        <div class="milestone-slide">
+                            <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
+                            <div class="milestone-overlay">
+                                <div class="milestone-content">
+                                    <div class="milestone-year">2019</div>
+                                    <h3 class="milestone-title">25,000 Installations</h3>
+                                    <p class="milestone-description">Reached the milestone of 25,000 solar installations, generating over 100MW of clean energy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Milestone 5 -->
+                        <div class="milestone-slide">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
+                            <div class="milestone-overlay">
+                                <div class="milestone-content">
+                                    <div class="milestone-year">2022</div>
+                                    <h3 class="milestone-title">Industry Recognition</h3>
+                                    <p class="milestone-description">Awarded "India's Best Solar Company 2022" by the Ministry of New and Renewable Energy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Milestone 6 -->
+                        <div class="milestone-slide">
+                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="50,000+ Installations">
+                            <div class="milestone-overlay">
+                                <div class="milestone-content">
+                                    <div class="milestone-year">2025</div>
+                                    <h3 class="milestone-title">50,000+ Installations</h3>
+                                    <p class="milestone-description">Achieved our biggest milestone yet - 50,000+ installations and 200+ MW of clean energy generated across India.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Navigation -->
+                    <div class="milestone-nav">
+                        <span class="milestone-dot active" data-slide="0"></span>
+                        <span class="milestone-dot" data-slide="1"></span>
+                        <span class="milestone-dot" data-slide="2"></span>
+                        <span class="milestone-dot" data-slide="3"></span>
+                        <span class="milestone-dot" data-slide="4"></span>
+                        <span class="milestone-dot" data-slide="5"></span>
+                    </div>
+                    
+                    <div class="milestone-arrows">
+                        <button class="milestone-arrow prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="milestone-arrow next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+        
+        <!-- Leadership Team Section - Redesigned -->
+        <section id="our-team" class="leadership-section">
+            <div class="leadership-container">
+                <div class="text-center fade-in">
+                    <h2 class="leadership-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
+                    <p class="leadership-subtitle">The visionaries driving Naptico Green Energy Solars toward a sustainable future</p>
+                </div>
+                
+                <div class="leadership-grid">
+                    <!-- Team Member 1 -->
+                    <div class="leadership-card fade-in stagger-1">
+                        <div class="leadership-image">
+                            <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                            <img src="./images/CEO-Image.jpg" alt="CEO" onerror="this.src='https://via.placeholder.com/600x400?text=CEO'">
+                            <div class="leadership-badge">CEO</div>
+                        </div>
+                        <div class="leadership-content">
+                            <h3 class="leadership-name">Rajiv Sharma</h3>
+                            <p class="leadership-position"><i class="fas fa-crown"></i> Founder & CEO</p>
+                            <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
+                            <div class="leadership-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="leadership-card fade-in stagger-2">
+                        <div class="leadership-image">
+                            <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                            <img src="./images/CTO-Image.jpg" alt="CTO" onerror="this.src='https://via.placeholder.com/600x400?text=CTO'">
+                            <div class="leadership-badge">CTO</div>
+                        </div>
+                        <div class="leadership-content">
+                            <h3 class="leadership-name">Priya Nair</h3>
+                            <p class="leadership-position"><i class="fas fa-microchip"></i> Chief Technology Officer</p>
+                            <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
+                            <div class="leadership-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="leadership-card fade-in stagger-3">
+                        <div class="leadership-image">
+                            <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                            <img src="./images/COO-Image.jpg" alt="COO" onerror="this.src='https://via.placeholder.com/600x400?text=COO'">
+                            <div class="leadership-badge">COO</div>
+                        </div>
+                        <div class="leadership-content">
+                            <h3 class="leadership-name">Amit Patel</h3>
+                            <p class="leadership-position"><i class="fas fa-cogs"></i> Chief Operating Officer</p>
+                            <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
+                            <div class="leadership-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 4 -->
+                    <div class="leadership-card fade-in stagger-4">
+                        <div class="leadership-image">
+                            <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                            <img src="./images/CFO-Image.jpg" alt="CFO" onerror="this.src='https://via.placeholder.com/600x400?text=CFO'">
+                            <div class="leadership-badge">CFO</div>
+                        </div>
+                        <div class="leadership-content">
+                            <h3 class="leadership-name">Sneha Reddy</h3>
+                            <p class="leadership-position"><i class="fas fa-chart-line"></i> Chief Financial Officer</p>
+                            <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
+                            <div class="leadership-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 5 -->
+                    <div class="leadership-card fade-in stagger-5">
+                        <div class="leadership-image">
+                            <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
+                            <img src="./images/CMO-Image.jpg" alt="CMO" onerror="this.src='https://via.placeholder.com/600x400?text=CMO'">
+                            <div class="leadership-badge">CMO</div>
+                        </div>
+                        <div class="leadership-content">
+                            <h3 class="leadership-name">Vikram Mehta</h3>
+                            <p class="leadership-position"><i class="fas fa-bullhorn"></i> Chief Marketing Officer</p>
+                            <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
+                            <div class="leadership-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us -->
+        <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="feature-card fade-in stagger-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-award text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
+                        <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in stagger-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
+                        <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in stagger-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-users text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
+                        <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in stagger-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
+                        <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section - Fixed Button Visibility -->
+        <section class="cta-section py-20">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="container mx-auto px-4 text-center cta-content">
+                <h2 class="text-4xl font-bold mb-6 text-white fade-in">Join Our Solar Revolution</h2>
+                <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's sustainable future with Naptico Green Energy Solars</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
+                    <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer - World-Class Design -->
+        <footer class="footer">
+            <div class="container mx-auto px-4">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <!-- Logo path updated to use relative path and made clickable -->
+                        <a href="index.html">
+                            <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
+                        </a>
+                        <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="how-it-works.html">How It Works</a></li>
+                            <li><a href="savings-calculator.html">Calculator</a></li>
+                            <li><a href="customer-stories.html">Customer Stories</a></li>
+                            <li><a href="subsidies.html">Subsidies</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Our Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="services.html#rooftop">Rooftop Solar Panels</a></li>
+                            <li><a href="services.html#ground-mounted">Ground-Mounted Solar</a></li>
+                            <li><a href="services.html#street-light">Solar Street Lights</a></li>
+                            <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
+                            <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
+                            <li><a href="services.html#maintenance & support">Maintenance & Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>
+                                    <a href="tel:080 2952 7671">080 2952 7671</a> | 
+                                    <a href="tel:+91 70192 99196">+91 70192 99196</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>
+                                    <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
+                                </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Privacy Policy.html">Privacy Policy</a> | <a href="Terms of Service.html">Terms of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
     
     <script>
-        // Loading Screen
+        // Loading Screen - Fixed to properly hide and show content
         window.addEventListener('load', function() {
             setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
+                const loadingScreen = document.getElementById('loadingScreen');
+                const mainContent = document.getElementById('mainContent');
+                
+                // Hide loading screen
+                loadingScreen.classList.add('hidden');
+                
+                // Show main content with a slight delay for smoother transition
+                setTimeout(function() {
+                    mainContent.classList.add('visible');
+                }, 300);
             }, 3000);
         });
+        
+        // Fallback - if loading takes too long, show content anyway
+        setTimeout(function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (!loadingScreen.classList.contains('hidden')) {
+                loadingScreen.classList.add('hidden');
+                mainContent.classList.add('visible');
+            }
+        }, 8000); // 8 seconds fallback
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');
@@ -2749,5 +2792,17 @@
             });
         });
     </script>
+    
+    <!-- No-JS fallback -->
+    <noscript>
+        <style>
+            .loading-screen {
+                display: none !important;
+            }
+            .main-content {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
 </body>
 </html>

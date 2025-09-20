@@ -1259,6 +1259,7 @@
         .stagger-3 { transition-delay: 0.3s; }
         .stagger-4 { transition-delay: 0.4s; }
         .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
         
         /* CTA Section - Fixed Button Visibility */
         .cta-section {
@@ -1563,7 +1564,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center;
             transition: transform 0.5s ease;
         }
         
@@ -2020,8 +2020,7 @@
                 <!-- Team Member 1 -->
                 <div class="leadership-card fade-in stagger-1">
                     <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CEO-Image.jpg" alt="CEO" onerror="this.src='https://via.placeholder.com/600x400?text=CEO'">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO">
                         <div class="leadership-badge">CEO</div>
                     </div>
                     <div class="leadership-content">
@@ -2039,8 +2038,7 @@
                 <!-- Team Member 2 -->
                 <div class="leadership-card fade-in stagger-2">
                     <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CTO-Image.jpg" alt="CTO" onerror="this.src='https://via.placeholder.com/600x400?text=CTO'">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CTO">
                         <div class="leadership-badge">CTO</div>
                     </div>
                     <div class="leadership-content">
@@ -2058,8 +2056,7 @@
                 <!-- Team Member 3 -->
                 <div class="leadership-card fade-in stagger-3">
                     <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/COO-Image.jpg" alt="COO" onerror="this.src='https://via.placeholder.com/600x400?text=COO'">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="COO">
                         <div class="leadership-badge">COO</div>
                     </div>
                     <div class="leadership-content">
@@ -2077,8 +2074,7 @@
                 <!-- Team Member 4 -->
                 <div class="leadership-card fade-in stagger-4">
                     <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CFO-Image.jpg" alt="CFO" onerror="this.src='https://via.placeholder.com/600x400?text=CFO'">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CFO">
                         <div class="leadership-badge">CFO</div>
                     </div>
                     <div class="leadership-content">
@@ -2093,17 +2089,34 @@
                     </div>
                 </div>
                 
-                <!-- Team Member 5 -->
+                <!-- Team Member 5 - New -->
                 <div class="leadership-card fade-in stagger-5">
                     <div class="leadership-image">
-                        <!-- REPLACE THIS IMAGE WITH YOUR LOCAL IMAGE -->
-                        <img src="./images/CMO-Image.jpg" alt="CMO" onerror="this.src='https://via.placeholder.com/600x400?text=CMO'">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CMO">
                         <div class="leadership-badge">CMO</div>
                     </div>
                     <div class="leadership-content">
                         <h3 class="leadership-name">Vikram Mehta</h3>
                         <p class="leadership-position"><i class="fas fa-bullhorn"></i> Chief Marketing Officer</p>
                         <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 - New -->
+                <div class="leadership-card fade-in stagger-6">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1539571698357-5a269d9ea7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CPO">
+                        <div class="leadership-badge">CPO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Ananya Joshi</h3>
+                        <p class="leadership-position"><i class="fas fa-lightbulb"></i> Chief Product Officer</p>
+                        <p class="leadership-bio">Ananya oversees our product development and innovation strategy. With a background in engineering and an MBA from Stanford, she has led the development of our most successful solar solutions and holds 12 patents in solar technology.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -2310,7 +2323,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-member, .timeline-content, .leadership-card, .milestone-arrow, .milestone-dot');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {

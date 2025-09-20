@@ -1740,6 +1740,16 @@
             opacity: 1;
             visibility: visible;
         }
+        
+        /* CRITICAL FIX: Ensure content is visible even if JavaScript fails */
+        .loading-screen.force-hide {
+            display: none !important;
+        }
+        
+        .main-content.force-show {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -2285,6 +2295,47 @@
     </div>
     
     <script>
+        // CRITICAL FIX: Ensure loading screen is hidden and content is visible
+        // This will run immediately when the script loads
+        (function() {
+            // Try to hide loading screen and show content immediately
+            var loadingScreen = document.getElementById('loadingScreen');
+            var mainContent = document.getElementById('mainContent');
+            
+            if (loadingScreen) {
+                loadingScreen.classList.add('hidden');
+                // Fallback: Force hide with inline styles
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                    loadingScreen.classList.add('force-hide');
+                }, 1000);
+            }
+            
+            if (mainContent) {
+                mainContent.classList.add('visible');
+                // Fallback: Force show with inline styles
+                setTimeout(function() {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.visibility = 'visible';
+                    mainContent.classList.add('force-show');
+                }, 100);
+            }
+            
+            // Ultimate fallback - ensure content is visible after 2 seconds no matter what
+            setTimeout(function() {
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                    loadingScreen.classList.add('force-hide');
+                }
+                
+                if (mainContent) {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.visibility = 'visible';
+                    mainContent.classList.add('force-show');
+                }
+            }, 2000);
+        })();
+        
         // Loading Screen - Fixed to properly hide and show content
         function hideLoadingScreen() {
             const loadingScreen = document.getElementById('loadingScreen');
@@ -2304,7 +2355,7 @@
         // Multiple approaches to ensure the loading screen hides
         // 1. On DOMContentLoaded
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(hideLoadingScreen, 3000);
+            setTimeout(hideLoadingScreen, 1000); // Reduced from 3000ms to 1000ms
         });
         
         // 2. On window load
@@ -2312,23 +2363,25 @@
             hideLoadingScreen();
         });
         
-        // 3. Fallback timeout after 3 seconds
-        setTimeout(hideLoadingScreen, 3000);
+        // 3. Fallback timeout after 1 second (reduced from 3)
+        setTimeout(hideLoadingScreen, 1000);
         
-        // 4. Ultimate fallback after 8 seconds
+        // 4. Ultimate fallback after 3 seconds (reduced from 8)
         setTimeout(function() {
             const loadingScreen = document.getElementById('loadingScreen');
             const mainContent = document.getElementById('mainContent');
             
             if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
                 loadingScreen.style.display = 'none';
+                loadingScreen.classList.add('force-hide');
             }
             
             if (mainContent && !mainContent.classList.contains('visible')) {
                 mainContent.style.opacity = '1';
                 mainContent.style.visibility = 'visible';
+                mainContent.classList.add('force-show');
             }
-        }, 8000);
+        }, 3000);
         
         // Custom Cursor - Fixed Lagging Issue Completely
         const cursor = document.querySelector('.cursor');

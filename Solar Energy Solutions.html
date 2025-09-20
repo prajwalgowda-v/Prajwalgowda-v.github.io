@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Energy Solutions - Naptico Green Energy Solars</title>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="./images/Icon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <meta name="description" content="Naptico Green Energy Solars provides innovative solar energy solutions for residential and commercial properties across India.">
+    <meta name="keywords" content="solar energy, solar panels, renewable energy, green energy, solar solutions">
+    <meta name="author" content="Naptico Green Energy Solars">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/">
+    <meta property="og:title" content="Solar Energy Solutions - Naptico Green Energy Solars">
+    <meta property="og:description" content="Naptico Green Energy Solars provides innovative solar energy solutions for residential and commercial properties across India.">
+    <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/">
+    <meta property="twitter:title" content="Solar Energy Solutions - Naptico Green Energy Solars">
+    <meta property="twitter:description" content="Naptico Green Energy Solars provides innovative solar energy solutions for residential and commercial properties across India.">
+    <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            cursor: none;
+        }
+        
+        /* Custom Cursor - Fixed Lagging Issue */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f59e0b;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 100001;
+            mix-blend-mode: difference;
+            opacity: 1;
+        }
+        
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 100000;
+            opacity: 1;
+            transition: all 0.1s ease-out;
+        }
+        
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(2);
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .cursor-follower.hover {
+            transform: translate(-50%, -50%) scale(3);
+        }
+        
+        /* Loading Screen - White Background with Improved Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-logo {
+            width: 250px;
+            height: auto;
+            animation: logoFadeIn 2s ease-out forwards;
+            opacity: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .loading-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes logoFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotate(-10deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.05) rotate(5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        .loading-text {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #f59e0b;
+            font-weight: 500;
+            letter-spacing: 1px;
+            animation: textFadeIn 1s ease-out 1s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes textFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .loading-dots {
+            display: inline-block;
+            animation: dots 1.5s infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        /* Header Design */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .header.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 10px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .header-content {
+            padding: 10px 5%;
+        }
+        
+        .logo {
+            width: 200px;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .header.scrolled .logo {
+            width: 150px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 5px 15px rgba(245, 158, 11, 0.5);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .contact-btn {
+            background: transparent;
+            border: 2px solid #f59e0b;
+            color: #f59e0b;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .contact-btn:hover::before {
+            width: 100%;
+        }
+        
+        .contact-btn:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Mobile Menu Button (3-line icon) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: none;
+            padding: 5px;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: #f59e0b;
+        }
+        
+        /* Hero Section - Enhanced */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            perspective: 1000px;
+        }
+        
+        /* Hero Slideshow */
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            transform: translateZ(-100px) rotateY(90deg);
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            transform: translateZ(0) rotateY(0deg);
+        }
+        
+        .hero-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            transform-style: preserve-3d;
+        }
+        
+        /* 3D Text Effects */
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            transform-style: preserve-3d;
+            animation: floatText 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
+        }
+        
+        .text-gradient { 
+            background: linear-gradient(90deg, #f59e0b, #f97316); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+        }
+        
+        /* Enhanced Button Design */
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            text-decoration: none;
+            margin: 5px;
+        }
+        
+        .hero-btn-primary {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .hero-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #f59e0b;
+        }
+        
+        .hero-btn-secondary:hover {
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .hero-btn:hover::before {
+            left : 100%;
+        }
+        
+        /* Services Section - Fixed Text Color */
+        .services-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title { 
+            text-align: center; 
+            margin-bottom: 1rem; 
+            position: relative; 
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -12px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 100px; 
+            height: 4px; 
+            background: linear-gradient(90deg, #f59e0b, #f97316); 
+            border-radius: 2px; 
+        }
+        
+        .section-subtitle { 
+            text-align: center; 
+            max-width: 800px; 
+            margin: 0 auto 3rem auto; 
+            color: #e2e8f0;
+            font-size: 1.25rem;
+        }
+        
+        .content-section { 
+            margin-bottom: 5rem; 
+        }
+        
+        /* 3D Cards */
+        .service-card { 
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        .service-card:hover { 
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg); 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-icon { 
+            width: 80px; 
+            height: 80px; 
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 20px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 25px; 
+            font-size: 32px; 
+            color: white; 
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotateZ(5deg);
+        }
+        
+        .scroll-to-top { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: linear-gradient(45deg, #f59e0b, #f97316); 
+            color: white; 
+            border: none; 
+            border-radius: 50%; 
+            width: 60px; 
+            height: 60px; 
+            cursor: pointer; 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            z-index: 1000; 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .scroll-to-top.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        .scroll-to-top:hover { 
+            transform: translateY(-8px) scale(1.1); 
+            box-shadow: 0 20px 40px -12px rgba(245, 158, 11, 0.4); 
+        }
+        
+        /* Enhanced Tab styles */
+        .tab-container { 
+            margin: 2rem 0; 
+            position: sticky;
+            top: 80px;
+            z-index: 40;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 1rem;
+            padding: 1.5rem 0;
+        }
+        
+        .tab-nav { 
+            display: flex; 
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1); 
+            margin-bottom: 2rem; 
+            justify-content: center;
+        }
+        
+        .tab-button { 
+            padding: 16px 28px; 
+            background: none; 
+            border: none; 
+            font-size: 16px; 
+            font-weight: 600; 
+            color: #94a3b8; 
+            cursor: pointer; 
+            position: relative; 
+            transition: all 0.3s ease;
+            border-radius: 0.5rem 0.5rem 0 0;
+            margin: 0 0.5rem;
+        }
+        
+        .tab-button:hover {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+        }
+        
+        .tab-button.active { 
+            color: #f59e0b; 
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+        
+        .tab-button.active::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            left: 0; 
+            width: 100%; 
+            height: 3px; 
+            background: linear-gradient(90deg, #f59e0b, #f97316); 
+            border-radius: 2px; 
+        }
+        
+        .tab-content { 
+            display: none; 
+        }
+        
+        .tab-content.active { 
+            display: block; 
+            animation: fadeIn 0.5s ease; 
+        }
+        
+        /* Enhanced Modal styles */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.7); 
+            backdrop-filter: blur(8px); 
+            overflow-y: auto; 
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content { 
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            margin: 5% auto; 
+            padding: 0; 
+            border: none; 
+            width: 90%; 
+            max-width: 600px; 
+            border-radius: 20px; 
+            position: relative; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .modal-header:hover::before {
+            opacity: 1;
+        }
+        
+        .modal-header h2 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .modal-body {
+            padding: 2.5rem;
+        }
+        
+        .modal-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+        
+        .close { 
+            color: white; 
+            font-size: 28px; 
+            font-weight: bold; 
+            position: absolute; 
+            right: 20px; 
+            top: 20px; 
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .close:hover { 
+            background-color: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+        
+        .form-group { 
+            margin-bottom: 1.5rem; 
+        }
+        
+        .form-group label { 
+            display: block; 
+            margin-bottom: 0.5rem; 
+            font-weight: 600; 
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 16px 20px; 
+            border: 2px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 12px; 
+            font-size: 16px; 
+            transition: all 0.3s;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus { 
+            outline: none; 
+            border-color: #f59e0b; 
+            box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .file-upload input[type=file] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 16px 20px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: all 0.3s;
+            color: #e2e8f0;
+        }
+        
+        .file-upload:hover .file-upload-label {
+            border-color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+        
+        .btn-submit { 
+            background: linear-gradient(45deg, #f59e0b, #f97316); 
+            color: white; 
+            border: none; 
+            padding: 18px 24px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-size: 16px; 
+            width: 100%; 
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px -5px rgba(245,158,11,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        
+        .btn-submit:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .btn-submit:hover { 
+            background: linear-gradient(45deg, #f97316, #f59e0b); 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 35px -5px rgba(245,158,11,0.4);
+        }
+        
+        .btn-submit i {
+            transition: transform 0.5s ease;
+        }
+        
+        .btn-submit.submitting i {
+            animation: spin 1s linear infinite;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-footer p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        
+        /* Enhanced Table styles */
+        .price-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-bottom: 20px; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
+        }
+        
+        .price-table th, .price-table td { 
+            border: none; 
+            padding: 16px 20px; 
+            text-align: left; 
+        }
+        
+        .price-table th { 
+            background-color: rgba(248, 249, 250, 0.1); 
+            color: #e2e8f0;
+            font-weight: 600; 
+        }
+        
+        .price-table tr:nth-child(even) { 
+            background-color: rgba(248, 249, 250, 0.05); 
+        }
+        
+        .price-table tr:hover { 
+            background-color: rgba(241, 245, 249, 0.1); 
+        }
+        
+        .subsection-title { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            margin-bottom: 1.5rem; 
+            color: white; 
+            position: relative; 
+            padding-left: 20px; 
+        }
+        
+        .subsection-title::before { 
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            width: 8px; 
+            height: 30px; 
+            background: linear-gradient(to bottom, #f59e0b, #f97316); 
+            border-radius: 4px; 
+        }
+        
+        /* Enhanced Feature card styling */
+        .feature-card { 
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px; 
+            padding: 30px; 
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            height: 100%; 
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(249, 115, 22, 0.05));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        .feature-card:hover { 
+            transform: translateY(-15px) rotateX(10deg); 
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); 
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-icon { 
+            width: 80px; 
+            height: 80px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 25px; 
+            font-size: 32px; 
+            color: white; 
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform-style: preserve-3d;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotateY(180deg);
+        }
+        
+        /* Enhanced Process step styling */
+        .process-step { 
+            position: relative; 
+            padding-left: 70px; 
+            margin-bottom: 35px;
+            transition: all 0.5s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateX(10px);
+        }
+        
+        .step-number { 
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            width: 50px; 
+            height: 50px; 
+            background: linear-gradient(45deg, #f59e0b, #f97316); 
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .step-number {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        /* Enhanced Timeline styling */
+        .timeline { 
+            position: relative; 
+            padding-left: 40px; 
+        }
+        
+        .timeline::before { 
+            content: ''; 
+            position: absolute; 
+            left: 15px; 
+            top: 0; 
+            bottom: 0; 
+            width: 4px; 
+            background: linear-gradient(to bottom, #f59e0b, #f97316); 
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .timeline-item { 
+            position: relative; 
+            padding-bottom: 40px; 
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-item::before { 
+            content: ''; 
+            position: absolute; 
+            left: -40px; 
+            top: 8px; 
+            width: 25px; 
+            height: 25px; 
+            border-radius: 50%; 
+            background: white; 
+            border: 4px solid #f59e0b; 
+            box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 12px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Enhanced Animations */
+        @keyframes fadeIn { 
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            } 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+        }
+        
+        @keyframes slideUp { 
+            from { 
+                opacity: 0; 
+                transform: translateY(50px); 
+            } 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+        }
+        
+        @keyframes spin { 
+            from { 
+                transform: rotate(0deg); 
+            } 
+            to { 
+                transform: rotate(360deg); 
+            } 
+        }
+        
+        /* Particle Effect */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 20s infinite linear;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Scroll Animation - Fixed Performance Issues */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered animation delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        /* Footer - World-Class Design */
+        .footer {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px;
+            transform-style: preserve-3d;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+        }
+        
+        .footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #f59e0b;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+        }
+        
+        .footer-section p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            max-width: 200px;
+            height: auto;
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .social-icon:hover {
+            background: #f59e0b;
+            transform: translateY(-5px) rotateZ(360deg);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-links li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #f59e0b;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links li a:hover {
+            color: #f59e0b;
+            transform: translateX(5px);
+        }
+        
+        .footer-links li a:hover::before {
+            width: 100%;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #94a3b8;
+        }
+        
+        .contact-info i {
+            color: #f59e0b;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .contact-info a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #f59e0b;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-bottom a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .header-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .modal-content {
+                width: 95%;
+            }
+            .modal-body {
+                padding: 30px 20px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Loading Screen - White Background with Improved Animation -->
+    <div id="loadingScreen" class="loading-screen">
+        <!-- Logo path updated to use relative path and made clickable -->
+        <a href="index.html">
+            <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/250x100?text=Naptico+Green+Energy+Solars'">
+        </a>
+        <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo path updated to use relative path and made clickable -->
+            <a href="index.html">
+                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                    <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
+                    <li><a href="customer-stories.html" class="nav-link">Stories</a></li>
+                    <li><a href="subsidies.html" class="nav-link">Subsidies</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="contact-btn">Get Quote</button>
+            </div>
+            <!-- Mobile Menu Button (3-line icon) - This is for toggling the mobile menu on small screens -->
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Quote Form Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close">&times;</button>
+                <!-- Logo path updated to use relative path and made clickable -->
+                <a href="index.html">
+                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="modal-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
+                </a>
+                <h2>Get Your Solar Quote</h2>
+            </div>
+            <div class="modal-body">
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bill">Upload Electricity Bill</label>
+                        <div class="file-upload">
+                            <input type="file" id="bill" name="bill" accept="image/*,.pdf">
+                            <label for="bill" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i> Choose File
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Submit Request
+                    </button>
+                    <div class="form-footer">
+                        <p>We respect your privacy and will never share your information with third parties.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient">
+        <!-- Hero Slideshow -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        </div>
+        
+        <!-- Hero Overlay -->
+        <div class="hero-overlay"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 hero-content">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="hero-title text-white">
+                        Solar Energy <span class="text-gradient">Solutions</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">Harness the power of the sun with our innovative solar energy solutions. Reduce your electricity bills and carbon footprint with our reliable and efficient solar systems.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#services" class="hero-btn hero-btn-primary">Explore Services</a>
+                        <a href="#contact" class="hero-btn hero-btn-secondary">Get Free Quote</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="service-card">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Particle Effect -->
+        <div id="particles"></div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services-section py-20">
+        <div class="container mx-auto px-4 services-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Our <span class="text-gradient">Services</span></h2>
+                <p class="section-subtitle">Comprehensive solar energy solutions tailored to your needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card fade-in stagger-1">
+                    <div class="service-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Rooftop Solar Panels</h3>
+                    <p class="text-gray-300">Transform your rooftop into a power generation unit with our high-efficiency solar panels. Perfect for residential and commercial properties.</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-2">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Ground-Mounted Solar</h3>
+                    <p class="text-gray-300">Maximize your energy production with our ground-mounted solar systems, ideal for large-scale installations and open spaces.</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-3">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Solar Street Lights</h3>
+                    <p class="text-gray-300">Illuminate your streets, pathways, and public spaces with our energy-efficient solar street lighting solutions.</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-4">
+                    <div class="service-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (ETC)</h3>
+                    <p class="text-gray-300">Enjoy hot water throughout the year with our Evacuated Tube Collector solar water heaters, designed for maximum efficiency.</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-5">
+                    <div class="service-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Solar Water Heater (FPC)</h3>
+                    <p class="text-gray-300">Our Flat Plate Collector solar water heaters are perfect for regions with hard water, offering durability and high performance.</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-6">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Maintenance & Support</h3>
+                    <p class="text-gray-300">Ensure optimal performance of your solar systems with our comprehensive maintenance and support services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Why Choose <span class="text-gradient">Naptico</span></h2>
+                <p class="section-subtitle">Experience the difference with our industry-leading solar solutions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card fade-in stagger-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-award text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
+                    <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
+                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
+                    <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
+                    <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="services-section py-20">
+        <div class="container mx-auto px-4 services-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Our <span class="text-gradient">Process</span></h2>
+                <p class="section-subtitle">A simple, streamlined approach to solar energy adoption</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="process-step fade-in stagger-1">
+                    <div class="step-number">1</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Consultation & Site Survey</h3>
+                    <p class="text-gray-300">Our experts conduct a thorough site assessment to understand your energy needs and evaluate the solar potential of your property.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-2">
+                    <div class="step-number">2</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Customized System Design</h3>
+                    <p class="text-gray-300">Based on the site survey, we design a customized solar system that maximizes energy production and fits your budget.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-3">
+                    <div class="step-number">3</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Professional Installation</h3>
+                    <p class="text-gray-300">Our certified technicians install the system with precision, adhering to all safety standards and regulations.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-4">
+                    <div class="step-number">4</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Commissioning & Handover</h3>
+                    <p class="text-gray-300">We thoroughly test the system, provide comprehensive training, and hand over all documentation for your records.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-5">
+                    <div class="step-number">5</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Ongoing Support</h3>
+                    <p class="text-gray-300">Our relationship doesn't end with installation. We provide continuous monitoring, maintenance, and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Solar <span class="text-gradient">Pricing</span></h2>
+                <p class="section-subtitle">Transparent pricing with no hidden costs</p>
+            </div>
+            
+            <div class="tab-container fade-in">
+                <div class="tab-nav">
+                    <button class="tab-button active" data-tab="residential">Residential</button>
+                    <button class="tab-button" data-tab="commercial">Commercial</button>
+                    <button class="tab-button" data-tab="industrial">Industrial</button>
+                </div>
+                
+                <div id="residential" class="tab-content active">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>System Size</th>
+                                <th>Price Range</th>
+                                <th>Estimated Savings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 kW</td>
+                                <td>₹45,000 - ₹60,000</td>
+                                <td>₹1,000 - ₹1,500/month</td>
+                            </tr>
+                            <tr>
+                                <td>2 kW</td>
+                                <td>₹85,000 - ₹1,10,000</td>
+                                <td>₹2,000 - ₹3,000/month</td>
+                            </tr>
+                            <tr>
+                                <td>3 kW</td>
+                                <td>₹1,25,000 - ₹1,60,000</td>
+                                <td>₹3,000 - ₹4,500/month</td>
+                            </tr>
+                            <tr>
+                                <td>5 kW</td>
+                                <td>₹2,00,000 - ₹2,60,000</td>
+                                <td>₹5,000 - ₹7,500/month</td>
+                            </tr>
+                            <tr>
+                                <td>10 kW</td>
+                                <td>₹3,80,000 - ₹4,80,000</td>
+                                <td>₹10,000 - ₹15,000/month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="commercial" class="tab-content">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>System Size</th>
+                                <th>Price Range</th>
+                                <th>Estimated Savings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10 kW</td>
+                                <td>₹3,60,000 - ₹4,50,000</td>
+                                <td>₹10,000 - ₹15,000/month</td>
+                            </tr>
+                            <tr>
+                                <td>25 kW</td>
+                                <td>₹8,50,000 - ₹10,50,000</td>
+                                <td>₹25,000 - ₹37,500/month</td>
+                            </tr>
+                            <tr>
+                                <td>50 kW</td>
+                                <td>₹16,00,000 - ₹20,00,000</td>
+                                <td>₹50,000 - ₹75,000/month</td>
+                            </tr>
+                            <tr>
+                                <td>100 kW</td>
+                                <td>₹31,00,000 - ₹38,00,000</td>
+                                <td>₹1,00,000 - ₹1,50,000/month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="industrial" class="tab-content">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>System Size</th>
+                                <th>Price Range</th>
+                                <th>Estimated Savings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100 kW</td>
+                                <td>₹30,00,000 - ₹37,00,000</td>
+                                <td>₹1,00,000 - ₹1,50,000/month</td>
+                            </tr>
+                            <tr>
+                                <td>250 kW</td>
+                                <td>₹72,00,000 - ₹88,00,000</td>
+                                <td>₹2,50,000 - ₹3,75,000/month</td>
+                            </tr>
+                            <tr>
+                                <td>500 kW</td>
+                                <td>₹1,40,00,000 - ₹1,70,00,000</td>
+                                <td>₹5,00,000 - ₹7,50,000/month</td>
+                            </tr>
+                            <tr>
+                                <td>1 MW</td>
+                                <td>₹2,70,00,000 - ₹3,30,00,000</td>
+                                <td>₹10,00,000 - ₹15,00,000/month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="services-section py-20">
+        <div class="container mx-auto px-4 services-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Customer <span class="text-gradient">Testimonials</span></h2>
+                <p class="section-subtitle">Hear from our satisfied customers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card fade-in stagger-1">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Rajesh Sharma</h4>
+                            <p class="text-gray-400">Homeowner, Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300">"Naptico installed a 5kW solar system on my rooftop, and I've seen my electricity bills reduce by 80%. The team was professional and the installation was seamless."</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Priya Patel</h4>
+                            <p class="text-gray-400">Business Owner, Mumbai</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300">"We installed a 50kW system for our factory, and the ROI was achieved in just 3 years. Excellent service and support from Naptico throughout the process."</p>
+                </div>
+                
+                <div class="service-card fade-in stagger-3">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Amit Kumar</h4>
+                            <p class="text-gray-400">Resident, Delhi</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300">"The solar water heater from Naptico has been a game-changer for our family. We now have hot water 24/7 without worrying about electricity bills."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-amber-500 to-orange-500">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-white fade-in">Ready to Go Solar?</h2>
+            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Join thousands of satisfied customers who have made the switch to clean, renewable energy</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <a href="savings-calculator.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
+                <button id="ctaQuoteBtn" class="hero-btn hero-btn-secondary">Get Free Consultation</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- Logo path updated to use relative path and made clickable -->
+                    <a href="index.html">
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
+                    </a>
+                    <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="savings-calculator.html">Calculator</a></li>
+                        <li><a href="customer-stories.html">Customer Stories</a></li>
+                        <li><a href="subsidies.html">Subsidies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#rooftop">Rooftop Solar Panels</a></li>
+                        <li><a href="services.html#ground-mounted">Ground-Mounted Solar</a></li>
+                        <li><a href="services.html#street-light">Solar Street Lights</a></li>
+                        <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
+                        <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
+                        <li><a href="services.html#maintenance & support">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>
+                                <a href="tel:080 2952 7671">080 2952 7671</a> | 
+                                <a href="tel:+91 70192 99196">+91 70192 99196</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>
+                                <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Privacy Policy.html">Privacy Policy</a> | <a href="Terms of Service.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 3000);
+        });
+        
+        // Custom Cursor - Fixed Lagging Issue Completely
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        // Use requestAnimationFrame for smooth cursor movement
+        let mouseX = 0;
+        let mouseY = 0;
+        let followerX = 0;
+        let followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Update main cursor position immediately
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+        
+        // Use animation frame for smooth follower movement
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+            
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animateFollower);
+        }
+        
+        animateFollower();
+        
+        // Hide cursor when leaving the window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorFollower.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorFollower.style.opacity = '1';
+        });
+        
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-member, .timeline-content, .leadership-card, .milestone-arrow, .milestone-dot');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Hero Slideshow - Fixed to match background and foreground images
+        const slides = document.querySelectorAll('.hero-slide');
+        const heroImage = document.getElementById('heroImage');
+        const heroImages = [
+            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        ];
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            heroImage.src = heroImages[index];
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Create particle effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Back to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Quote Form Modal
+        const quoteModal = document.getElementById('quoteModal');
+        const quoteClose = document.querySelector('.close');
+        const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
+        
+        contactBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                quoteModal.style.display = 'block';
+            });
+        });
+        
+        quoteClose.addEventListener('click', () => {
+            quoteModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                quoteModal.style.display = 'none';
+            }
+        });
+        
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Form submission
+        const quoteForm = document.getElementById('quoteForm');
+        
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Here you would normally send the data to a server
+            // For demonstration, we'll just show a success message
+            alert('Thank you for your request! We will contact you shortly.');
+            
+            // Reset form
+            this.reset();
+            
+            // Close modal
+            quoteModal.style.display = 'none';
+            
+            // In a real implementation, you would send the form data to a server
+            // that would then email it to multiple addresses
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 3D Card Effect
+        const cards = document.querySelectorAll('.service-card, .feature-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+        
+        // Fixed Scroll Animation with Better Performance
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        // Use a more efficient scroll handler with passive event listener
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                cancelAnimationFrame(scrollTimeout);
+            }
+            
+            scrollTimeout = requestAnimationFrame(() => {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            });
+        }, { passive: true });
+        
+        // Initial check for elements already in view
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1308,176 +1308,366 @@
             transform: translateY(-3px);
         }
         
-        /* Team Section */
-        .team-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 60px 0;
-            position: relative;
-        }
-        
-        .team-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .team-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-            color: white;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-member {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .member-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 4px solid rgba(245, 158, 11, 0.3);
-            object-fit: cover;
-        }
-        
-        .member-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: white;
-        }
-        
-        .member-position {
-            color: #f59e0b;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        
-        .member-bio {
-            color: #e2e8f0;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        /* Timeline Section */
-        .timeline-section {
+        /* New Milestones Section Styles */
+        .milestones-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
-            padding: 60px 0;
+            padding: 80px 0;
             position: relative;
+            overflow: hidden;
         }
         
-        .timeline-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .timeline-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-            color: white;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .timeline::before {
+        .milestones-section::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #f59e0b, #f97316);
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            width: 50%;
-        }
-        
-        .timeline-item:nth-child(odd) {
             left: 0;
-            padding-right: 40px;
-            text-align: right;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
         }
         
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 40px;
-        }
-        
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
+        .milestones-container {
             position: relative;
-            transition: all 0.3s ease;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .timeline-content:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-        }
-        
-        .timeline-date {
-            color: #f59e0b;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .timeline-title-item {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .milestones-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
             color: white;
         }
         
-        .timeline-description {
+        .milestones-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        /* Milestone Carousel */
+        .milestone-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .milestone-track {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .milestone-slide {
+            min-width: 100%;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .milestone-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .milestone-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+            display: flex;
+            align-items: center;
+        }
+        
+        .milestone-content {
+            padding: 0 10%;
+            max-width: 800px;
+        }
+        
+        .milestone-year {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #f59e0b;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .milestone-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .milestone-description {
+            font-size: 1.2rem;
             color: #e2e8f0;
             line-height: 1.6;
         }
         
-        .timeline-dot {
+        /* Carousel Navigation */
+        .milestone-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .milestone-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: none;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-dot.active {
+            background: #f59e0b;
+            transform: scale(1.2);
+        }
+        
+        .milestone-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .milestone-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+        
+        .milestone-arrow:hover {
+            background: #f97316;
+            transform: scale(1.1);
+        }
+        
+        /* New Leadership Team Section Styles */
+        .leadership-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leadership-section::before {
+            content: '';
             position: absolute;
             top: 0;
-            width: 20px;
-            height: 20px;
-            background: #f59e0b;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .leadership-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .leadership-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .leadership-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+        
+        .leadership-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .leadership-card:hover::before {
+            opacity: 1;
+        }
+        
+        .leadership-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .leadership-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .leadership-card:hover .leadership-image img {
+            transform: scale(1.1);
+        }
+        
+        .leadership-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            z-index: 1;
+        }
+        
+        .leadership-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .leadership-content {
+            padding: 30px;
+        }
+        
+        .leadership-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .leadership-position {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .leadership-position i {
+            font-size: 1rem;
+        }
+        
+        .leadership-bio {
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .leadership-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .leadership-social a {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
         }
         
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -10px;
+        .leadership-social a:hover {
+            background: #f59e0b;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -10px;
+        /* Decorative elements */
+        .leadership-card::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .leadership-card:hover::after {
+            transform: scale(1.5);
+            opacity: 0.5;
         }
         
         /* Responsive adjustments */
@@ -1507,20 +1697,24 @@
                 grid-template-columns: 1fr;
             }
             
-            .timeline::before {
-                left: 30px;
+            .milestone-year {
+                font-size: 3rem;
             }
             
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
+            .milestone-title {
+                font-size: 1.8rem;
             }
             
-            .timeline-item:nth-child(odd) .timeline-dot,
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: 20px !important;
+            .milestone-description {
+                font-size: 1rem;
+            }
+            
+            .milestone-content {
+                padding: 0 5%;
+            }
+            
+            .leadership-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1709,107 +1903,226 @@
         </div>
     </section>
     
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="timeline-container">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Milestones</span></h2>
-                <p class="section-subtitle">Key moments in our journey to becoming India's most trusted solar provider</p>
+    <!-- Our Milestones Section - Redesigned -->
+    <section class="milestones-section">
+        <div class="milestones-container">
+            <div class="text-center fade-in">
+                <h2 class="milestones-title">Our <span class="text-gradient">Milestones</span></h2>
+                <p class="milestones-subtitle">Key moments in our journey to becoming India's most trusted solar provider</p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item fade-in stagger-1">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2010</div>
-                        <h3 class="timeline-title-item">Company Founded</h3>
-                        <p class="timeline-description">Naptico Green Energy Solars was established in Bangalore with a vision to make solar energy accessible to all Indians.</p>
+            <div class="milestone-carousel fade-in">
+                <div class="milestone-track">
+                    <!-- Milestone 1 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Company Founded">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2010</div>
+                                <h3 class="milestone-title">Company Founded</h3>
+                                <p class="milestone-description">Naptico Green Energy Solars was established in Bangalore with a vision to make solar energy accessible to all Indians.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 2 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="First Major Project">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2013</div>
+                                <h3 class="milestone-title">First Major Project</h3>
+                                <p class="milestone-description">Completed our first 1MW solar installation for a commercial client, marking our entry into large-scale solar projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 3 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="National Expansion">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2016</div>
+                                <h3 class="milestone-title">National Expansion</h3>
+                                <p class="milestone-description">Expanded operations to 5 major cities across India, establishing ourselves as a national solar provider.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 4 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2019</div>
+                                <h3 class="milestone-title">25,000 Installations</h3>
+                                <p class="milestone-description">Reached the milestone of 25,000 solar installations, generating over 100MW of clean energy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 5 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2022</div>
+                                <h3 class="milestone-title">Industry Recognition</h3>
+                                <p class="milestone-description">Awarded "India's Best Solar Company 2022" by the Ministry of New and Renewable Energy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 6 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="50,000+ Installations">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2025</div>
+                                <h3 class="milestone-title">50,000+ Installations</h3>
+                                <p class="milestone-description">Achieved our biggest milestone yet - 50,000+ installations and 200+ MW of clean energy generated across India.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="timeline-item fade-in stagger-2">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2013</div>
-                        <h3 class="timeline-title-item">First Major Project</h3>
-                        <p class="timeline-description">Completed our first 1MW solar installation for a commercial client, marking our entry into large-scale solar projects.</p>
-                    </div>
+                <!-- Carousel Navigation -->
+                <div class="milestone-nav">
+                    <span class="milestone-dot active" data-slide="0"></span>
+                    <span class="milestone-dot" data-slide="1"></span>
+                    <span class="milestone-dot" data-slide="2"></span>
+                    <span class="milestone-dot" data-slide="3"></span>
+                    <span class="milestone-dot" data-slide="4"></span>
+                    <span class="milestone-dot" data-slide="5"></span>
                 </div>
                 
-                <div class="timeline-item fade-in stagger-3">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2016</div>
-                        <h3 class="timeline-title-item">National Expansion</h3>
-                        <p class="timeline-description">Expanded operations to 5 major cities across India, establishing ourselves as a national solar provider.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item fade-in stagger-4">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019</div>
-                        <h3 class="timeline-title-item">25,000 Installations</h3>
-                        <p class="timeline-description">Reached the milestone of 25,000 solar installations, generating over 100MW of clean energy.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item fade-in stagger-5">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022</div>
-                        <h3 class="timeline-title-item">Industry Recognition</h3>
-                        <p class="timeline-description">Awarded "India's Best Solar Company 2022" by the Ministry of New and Renewable Energy.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item fade-in stagger-6">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
-                        <h3 class="timeline-title-item">50,000+ Installations</h3>
-                        <p class="timeline-description">Achieved our biggest milestone yet - 50,000+ installations and 200+ MW of clean energy generated across India.</p>
-                    </div>
+                <div class="milestone-arrows">
+                    <button class="milestone-arrow prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="milestone-arrow next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Our Team Section -->
-    <section id="our-team" class="team-section">
-        <div class="team-container">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
-                <p class="section-subtitle">The visionaries driving Naptico Green Energy Solars toward a sustainable future</p>
+    <!-- Leadership Team Section - Redesigned -->
+    <section id="our-team" class="leadership-section">
+        <div class="leadership-container">
+            <div class="text-center fade-in">
+                <h2 class="leadership-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
+                <p class="leadership-subtitle">The visionaries driving Naptico Green Energy Solars toward a sustainable future</p>
             </div>
             
-            <div class="team-grid">
-                <div class="team-member fade-in stagger-1">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO" class="member-photo">
-                    <h3 class="member-name">Rajiv Sharma</h3>
-                    <p class="member-position">Founder & CEO</p>
-                    <p class="member-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
+            <div class="leadership-grid">
+                <!-- Team Member 1 -->
+                <div class="leadership-card fade-in stagger-1">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO">
+                        <div class="leadership-badge">CEO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Rajiv Sharma</h3>
+                        <p class="leadership-position"><i class="fas fa-crown"></i> Founder & CEO</p>
+                        <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="team-member fade-in stagger-2">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CTO" class="member-photo">
-                    <h3 class="member-name">Priya Nair</h3>
-                    <p class="member-position">Chief Technology Officer</p>
-                    <p class="member-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
+                <!-- Team Member 2 -->
+                <div class="leadership-card fade-in stagger-2">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CTO">
+                        <div class="leadership-badge">CTO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Priya Nair</h3>
+                        <p class="leadership-position"><i class="fas fa-microchip"></i> Chief Technology Officer</p>
+                        <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="team-member fade-in stagger-3">
-                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="COO" class="member-photo">
-                    <h3 class="member-name">Amit Patel</h3>
-                    <p class="member-position">Chief Operating Officer</p>
-                    <p class="member-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
+                <!-- Team Member 3 -->
+                <div class="leadership-card fade-in stagger-3">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="COO">
+                        <div class="leadership-badge">COO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Amit Patel</h3>
+                        <p class="leadership-position"><i class="fas fa-cogs"></i> Chief Operating Officer</p>
+                        <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="team-member fade-in stagger-4">
-                    <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CFO" class="member-photo">
-                    <h3 class="member-name">Sneha Reddy</h3>
-                    <p class="member-position">Chief Financial Officer</p>
-                    <p class="member-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
+                <!-- Team Member 4 -->
+                <div class="leadership-card fade-in stagger-4">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CFO">
+                        <div class="leadership-badge">CFO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Sneha Reddy</h3>
+                        <p class="leadership-position"><i class="fas fa-chart-line"></i> Chief Financial Officer</p>
+                        <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 - New -->
+                <div class="leadership-card fade-in stagger-5">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CMO">
+                        <div class="leadership-badge">CMO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Vikram Mehta</h3>
+                        <p class="leadership-position"><i class="fas fa-bullhorn"></i> Chief Marketing Officer</p>
+                        <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 - New -->
+                <div class="leadership-card fade-in stagger-6">
+                    <div class="leadership-image">
+                        <img src="https://images.unsplash.com/photo-1539571698357-5a269d9ea7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CPO">
+                        <div class="leadership-badge">CPO</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Ananya Joshi</h3>
+                        <p class="leadership-position"><i class="fas fa-lightbulb"></i> Chief Product Officer</p>
+                        <p class="leadership-bio">Ananya oversees our product development and innovation strategy. With a background in engineering and an MBA from Stanford, she has led the development of our most successful solar solutions and holds 12 patents in solar technology.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2010,7 +2323,7 @@
         });
         
         // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-member, .timeline-content');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-member, .timeline-content, .leadership-card, .milestone-arrow, .milestone-dot');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -2291,7 +2604,7 @@
         });
         
         // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .team-member, .timeline-content');
+        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card');
         
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -2343,6 +2656,110 @@
             if (elementTop < window.innerHeight - elementVisible) {
                 element.classList.add('visible');
             }
+        });
+        
+        // Milestone Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.milestone-track');
+            const slides = document.querySelectorAll('.milestone-slide');
+            const dots = document.querySelectorAll('.milestone-dot');
+            const prevBtn = document.querySelector('.milestone-arrow.prev');
+            const nextBtn = document.querySelector('.milestone-arrow.next');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Set initial position
+            updateSlidePosition();
+            
+            // Auto-advance slides
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // Functions to change slides
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlidePosition();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlidePosition();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateSlidePosition();
+            }
+            
+            function updateSlidePosition() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // Reset interval on manual navigation
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Pause on hover
+            const carousel = document.querySelector('.milestone-carousel');
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // 3D effect for leadership cards
+            const leadershipCards = document.querySelectorAll('.leadership-card');
+            
+            leadershipCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 15;
+                    const rotateY = (centerX - x) / 15;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+            });
         });
     </script>
 </body>

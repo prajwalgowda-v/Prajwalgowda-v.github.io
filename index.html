@@ -63,11 +63,17 @@
     <style>
         * {
             font-family: 'Poppins', sans-serif;
-            cursor: none;
             box-sizing: border-box;
         }
         
-        /* Premium Cursor with Glowing Effect */
+        /* Only apply custom cursor on non-touch devices */
+        @media (hover: hover) {
+            * {
+                cursor: none;
+            }
+        }
+        
+        /* Premium Cursor with Glowing Effect - Only for non-touch devices */
         .cursor {
             width: 25px;
             height: 25px;
@@ -78,7 +84,7 @@
             pointer-events: none;
             z-index: 100001;
             mix-blend-mode: difference;
-            opacity: 1;
+            opacity: 0;
             transition: all 0.1s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
         }
@@ -92,9 +98,16 @@
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 100000;
-            opacity: 1;
+            opacity: 0;
             transition: all 0.2s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Only show cursor on non-touch devices */
+        @media (hover: hover) {
+            .cursor, .cursor-follower {
+                opacity: 1;
+            }
         }
         
         .cursor.hover {
@@ -106,6 +119,39 @@
         .cursor-follower.hover {
             transform: translate(-50%, -50%) scale(3.5);
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+        }
+        
+        /* Touch indicator for mobile devices */
+        .touch-indicator {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            pointer-events: none;
+            z-index: 100000;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .touch-indicator.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        /* Only show touch indicator on touch devices */
+        @media (hover: none) {
+            .touch-indicator {
+                display: block;
+            }
+        }
+        
+        @media (hover: hover) {
+            .touch-indicator {
+                display: none;
+            }
         }
         
         /* Premium Loading Screen with White Background */
@@ -314,7 +360,6 @@
             border: none;
             color: white;
             font-size: 24px;
-            cursor: none;
             padding: 5px;
         }
         
@@ -976,7 +1021,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: none;
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
@@ -1121,7 +1165,6 @@
             border: none;
             font-size: 22px;
             color: white;
-            cursor: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -1196,7 +1239,7 @@
             opacity: 0;
             width: 100%;
             height: 100%;
-            cursor: none;
+            cursor: pointer;
         }
         
         .file-upload-label {
@@ -1208,7 +1251,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 12px;
             color: #e2e8f0;
-            cursor: none;
+            cursor: pointer;
             transition: all 0.4s ease;
         }
         
@@ -1258,7 +1301,7 @@
         
         .file-remove {
             color: #f59e0b;
-            cursor: none;
+            cursor: pointer;
             transition: color 0.3s;
         }
         
@@ -1275,7 +1318,6 @@
             color: white;
             font-weight: 600;
             font-size: 17px;
-            cursor: none;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             margin-top: 35px;
@@ -1459,7 +1501,7 @@
         
         .faq-question {
             padding: 25px;
-            cursor: none;
+            cursor: pointer;
             font-weight: 600;
             color: white;
             display: flex;
@@ -1527,13 +1569,22 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            .back-to-top {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Premium Custom Cursor -->
+    <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+    
+    <!-- Touch Indicator (for mobile only) -->
+    <div class="touch-indicator"></div>
     
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
@@ -2033,6 +2084,11 @@
     </footer>
     
     <script>
+        // Function to detect if device is touch-enabled
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        }
+        
         // Premium Loading Screen
         window.addEventListener('load', function() {
             setTimeout(function() {
@@ -2040,63 +2096,88 @@
             }, 3500);
         });
         
-        // Premium Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        // Use requestAnimationFrame for smooth cursor movement
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        // Only initialize custom cursor on non-touch devices
+        if (!isTouchDevice()) {
+            // Premium Custom Cursor
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
             
-            // Update main cursor position immediately
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
-        });
-        
-        // Use animation frame for smooth follower movement
-        function animateFollower() {
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
+            // Use requestAnimationFrame for smooth cursor movement
+            let mouseX = 0;
+            let mouseY = 0;
+            let followerX = 0;
+            let followerY = 0;
             
-            cursorFollower.style.left = followerX + 'px';
-            cursorFollower.style.top = followerY + 'px';
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update main cursor position immediately
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            });
             
-            requestAnimationFrame(animateFollower);
+            // Use animation frame for smooth follower movement
+            function animateFollower() {
+                followerX += (mouseX - followerX) * 0.15;
+                followerY += (mouseY - followerY) * 0.15;
+                
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
+                
+                requestAnimationFrame(animateFollower);
+            }
+            
+            animateFollower();
+            
+            // Hide cursor when leaving the window
+            document.addEventListener('mouseleave', () => {
+                cursor.style.opacity = '0';
+                cursorFollower.style.opacity = '0';
+            });
+            
+            document.addEventListener('mouseenter', () => {
+                cursor.style.opacity = '1';
+                cursorFollower.style.opacity = '1';
+            });
+            
+            // Cursor hover effects
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card');
+            
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    cursorFollower.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    cursorFollower.classList.remove('hover');
+                });
+            });
         }
         
-        animateFollower();
-        
-        // Hide cursor when leaving the window
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-            cursorFollower.style.opacity = '0';
-        });
-        
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-            cursorFollower.style.opacity = '1';
-        });
-        
-        // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card');
-        
-        hoverElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-                cursorFollower.classList.add('hover');
+        // Touch indicator for mobile devices
+        if (isTouchDevice()) {
+            const touchIndicator = document.querySelector('.touch-indicator');
+            
+            document.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                touchIndicator.style.left = touch.clientX + 'px';
+                touchIndicator.style.top = touch.clientY + 'px';
+                touchIndicator.classList.add('active');
             });
             
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-                cursorFollower.classList.remove('hover');
+            document.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                touchIndicator.style.left = touch.clientX + 'px';
+                touchIndicator.style.top = touch.clientY + 'px';
             });
-        });
+            
+            document.addEventListener('touchend', () => {
+                touchIndicator.classList.remove('active');
+            });
+        }
         
         // Premium Header scroll effect
         const header = document.querySelector('.header');
@@ -2364,28 +2445,31 @@
             });
         });
         
-        // Premium 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 12;
-                const rotateY = (centerX - x) / 12;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
-            });
+        // Only apply 3D card effects on non-touch devices
+        if (!isTouchDevice()) {
+            // Premium 3D Card Effect
+            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 12;
+                    const rotateY = (centerX - x) / 12;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
             });
-        });
+        }
         
         // Premium Scroll Animation
         const fadeElements = document.querySelectorAll('.fade-in');

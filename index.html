@@ -364,10 +364,54 @@
             padding: 5px;
             z-index: 1002;
             cursor: pointer;
+            position: relative;
+            width: 30px;
+            height: 30px;
         }
         
         .mobile-menu-btn:hover {
             color: #f59e0b;
+        }
+        
+        /* Mobile Menu Icon Animation */
+        .mobile-menu-btn span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .mobile-menu-btn span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .mobile-menu-btn span:nth-child(2) {
+            top: 10px;
+        }
+        
+        .mobile-menu-btn span:nth-child(3) {
+            top: 20px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(135deg);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-135deg);
         }
         
         /* Mobile Menu Overlay */
@@ -781,6 +825,48 @@
             box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
         }
         
+        /* Animated Learn More Button */
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #f59e0b;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            margin-top: 15px;
+        }
+        
+        .learn-more-btn:hover {
+            color: #f97316;
+        }
+        
+        .learn-more-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .learn-more-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .learn-more-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.3s ease;
+        }
+        
+        .learn-more-btn:hover::after {
+            width: 100%;
+        }
+        
         /* Premium Feature Cards */
         .feature-card {
             background: rgba(255, 255, 255, 0.08);
@@ -1012,7 +1098,6 @@
         
         .footer-logo:hover {
             transform: scale(1.05) rotateY(10deg);
-            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5));
         }
         
         .social-icons {
@@ -1806,7 +1891,9 @@
             </div>
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </header>
@@ -1948,8 +2035,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Rooftop Solar Panels</h3>
                     <p class="text-gray-300 mb-5">Transform your roof into a power plant with our high-efficiency solar panel systems.</p>
-                    <a href="Solar Energy Solutions.html" class="text-amber-400 font-medium hover:text-amber-300">
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="Solar Energy Solutions.html" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -1960,8 +2047,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Ground-Mounted Solar</h3>
                     <p class="text-gray-300 mb-5">Large-scale solar installations for commercial and industrial applications.</p>
-                    <a href="maintenance & support.html#ground-mounted" class="text-amber-400 font-medium hover:text-amber-300">
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="maintenance & support.html#ground-mounted" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -1972,8 +2059,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Street Lights</h3>
                     <p class="text-gray-300 mb-5">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
-                    <a href="maintenance & support.html#street-light" class="text-amber-400 font-medium hover:text-amber-300">
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="maintenance & support.html#street-light" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -1984,8 +2071,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (ETC)</h3>
                     <p class="text-gray-300 mb-5">Evacuated tube collector systems for efficient water heating solutions.</p>
-                    <a href="maintenance & support.html#water-heater-etc" class="text-amber-400 font-medium hover:text-amber-300">
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="maintenance & support.html#water-heater-etc" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -1996,8 +2083,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (FPC)</h3>
                     <p class="text-gray-300 mb-5">Flat plate collector systems for reliable and durable water heating.</p>
-                    <a href="maintenance & support.html#water-heater-fpc" class="text-amber-400 font-medium hover:text-amber-300">
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="maintenance & support.html#water-heater-fpc" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -2008,8 +2095,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Maintenance & Support</h3>
                     <p class="text-gray-300 mb-5">Comprehensive maintenance services to keep your solar system running efficiently.</p>
-                    <a href="maintenance & support.html" class="text-amber-400 font-medium hover:text-amber-300">
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="maintenance & support.html" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -2407,12 +2494,14 @@
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuOverlay.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            mobileMenuBtn.classList.toggle('active'); // Toggle animation class
         });
         
         // Close mobile menu
         function closeMobileMenu() {
             mobileMenuOverlay.classList.remove('active');
             document.body.style.overflow = ''; // Restore scrolling
+            mobileMenuBtn.classList.remove('active'); // Remove animation class
         }
         
         mobileMenuClose.addEventListener('click', closeMobileMenu);

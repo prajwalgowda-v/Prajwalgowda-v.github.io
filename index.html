@@ -362,11 +362,134 @@
             color: white;
             font-size: 24px;
             padding: 5px;
-            z-index: 1001;
+            z-index: 1002;
+            cursor: pointer;
         }
         
         .mobile-menu-btn:hover {
             color: #f59e0b;
+        }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-close:hover {
+            color: #f59e0b;
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mobile-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        .mobile-nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-nav a:hover {
+            color: #f59e0b;
+            transform: translateY(-3px);
+        }
+        
+        .mobile-contact-btn {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            cursor: pointer;
+        }
+        
+        .mobile-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #f59e0b);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .mobile-contact-btn:hover::before {
+            width: 100%;
+        }
+        
+        .mobile-contact-btn:hover {
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
         /* Premium Hero Section with Advanced Effects */
@@ -1581,25 +1704,7 @@
             /* Mobile Header Adjustments */
             .header-content {
                 padding: 15px 5%;
-            }
-            
-            .logo {
-                width: 160px;
-            }
-            
-            .header.scrolled .logo {
-                width: 140px;
-            }
-            
-            .header.scrolled .header-content {
-                padding: 8px 5%;
-            }
-        }
-        
-        /* Additional mobile adjustments for smaller screens */
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 12px 5%;
+                justify-content: space-between;
             }
             
             .logo {
@@ -1610,8 +1715,37 @@
                 width: 120px;
             }
             
+            .header.scrolled .header-content {
+                padding: 10px 5%;
+            }
+            
             .mobile-menu-btn {
                 font-size: 20px;
+                padding: 8px;
+            }
+        }
+        
+        /* Additional mobile adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 12px 5%;
+            }
+            
+            .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .logo {
+                width: 100px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 18px;
+                padding: 6px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -1661,6 +1795,24 @@
             </button>
         </div>
     </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="savings-calculator.html">Calculator</a></li>
+            <li><a href="customer-stories.html">Stories</a></li>
+            <li><a href="subsidies.html">Subsidies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-contact-btn">Get Quote</button>
+    </div>
     
     <!-- Premium Quote Form Modal -->
     <div id="quoteModal" class="quote-modal">
@@ -2228,6 +2380,42 @@
             }
         });
         
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileContactBtn = document.querySelector('.mobile-contact-btn');
+        
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+        
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Mobile contact button functionality
+        mobileContactBtn.addEventListener('click', () => {
+            closeMobileMenu();
+            // Open quote modal after a short delay
+            setTimeout(() => {
+                document.getElementById('quoteModal').classList.add('active');
+                centerModal();
+            }, 300);
+        });
+        
         // Premium Hero Slideshow
         const slides = document.querySelectorAll('.hero-slide');
         const heroImage = document.getElementById('heroImage');
@@ -2289,14 +2477,6 @@
         
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
         });
         
         // Premium Quote Form Modal

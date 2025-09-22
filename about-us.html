@@ -248,7 +248,7 @@
         
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
-         }
+        }
         
         .header.scrolled .logo {
             width: 170px;
@@ -335,7 +335,7 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
-        /* Mobile Menu Button */
+        /* Mobile Menu Button - FIXED */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -348,13 +348,14 @@
             position: relative;
             width: 30px;
             height: 30px;
+            overflow: hidden;
         }
         
         .mobile-menu-btn:hover {
             color: #f59e0b;
         }
         
-        /* Mobile Menu Icon Animation */
+        /* Mobile Menu Icon Animation - FIXED */
         .mobile-menu-btn span {
             display: block;
             position: absolute;
@@ -2182,7 +2183,7 @@
                 <button class="contact-btn">Get Quote</button>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2191,8 +2192,8 @@
     </header>
     
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay">
-        <button class="mobile-menu-close">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <button class="mobile-menu-close" id="mobileMenuClose">
             <i class="fas fa-times"></i>
         </button>
         <ul class="mobile-nav">
@@ -2205,7 +2206,7 @@
             <li><a href="subsidies.html">Subsidies</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="mobile-contact-btn">Get Quote</button>
+        <button class="mobile-contact-btn" id="mobileContactBtn">Get Quote</button>
     </div>
     
     <!-- Premium Quote Form Modal -->
@@ -2634,16 +2635,20 @@
                     </a>
                     <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon">
+                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd
+" class="social-icon">
                             <i class="fab fa-facebook text-white"></i>
                         </a>
-                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon">
+                        <a href="https://www.instagram.com/napticogreenenergysolars/
+" class="social-icon">
                             <i class="fab fa-instagram text-white"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon">
+                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/
+" class="social-icon">
                             <i class="fab fa-linkedin text-white"></i>
                         </a>
-                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon">
+                        <a href="https://www.youtube.com/@Napticogreenenergysolars
+" class="social-icon">
                             <i class="fab fa-youtube text-white"></i>
                         </a>
                     </div>
@@ -2818,11 +2823,11 @@
             }
         });
         
-        // Mobile menu functionality
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
-        const mobileContactBtn = document.querySelector('.mobile-contact-btn');
+        // Mobile menu functionality - FIXED
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileContactBtn = document.getElementById('mobileContactBtn');
         
         // Open mobile menu
         mobileMenuBtn.addEventListener('click', () => {

@@ -45,9 +45,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
+        * { 
             font-family: 'Poppins', sans-serif;
             cursor: none;
+        }
+        
+        /* Enhanced Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-circle {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(245, 158, 11, 0.2);
+            border-top-color: #f59e0b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-text {
+            position: absolute;
+            bottom: 30%;
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.2rem;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
         
         /* Custom Cursor - Fixed Lagging Issue */
@@ -84,86 +131,6 @@
         
         .cursor-follower.hover {
             transform: translate(-50%, -50%) scale(3);
-        }
-        
-        /* Loading Screen - White Background with Improved Animation */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loading-logo {
-            width: 250px;
-            height: auto;
-            animation: logoFadeIn 2s ease-out forwards;
-            opacity: 0;
-            transition: transform 0.3s ease;
-        }
-        
-        .loading-logo:hover {
-            transform: scale(1.05);
-        }
-        
-        @keyframes logoFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) rotate(-10deg);
-            }
-            50% {
-                opacity: 0.7;
-                transform: scale(1.05) rotate(5deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0deg);
-            }
-        }
-        
-        .loading-text {
-            margin-top: 30px;
-            font-size: 18px;
-            color: #f59e0b;
-            font-weight: 500;
-            letter-spacing: 1px;
-            animation: textFadeIn 1s ease-out 1s forwards;
-            opacity: 0;
-        }
-        
-        @keyframes textFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .loading-dots {
-            display: inline-block;
-            animation: dots 1.5s infinite;
-        }
-        
-        @keyframes dots {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60%, 100% { content: '...'; }
         }
         
         /* Header Design */
@@ -304,15 +271,61 @@
             color: #f59e0b;
         }
         
-        /* Hero Section - Enhanced */
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
+        /* Enhanced Hero Section */
+        .hero-gradient { 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            perspective: 1000px;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(245, 158, 11, 0.1)" stroke-width="1"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.3;
+            animation: bg-move 20s linear infinite;
+        }
+        
+        @keyframes bg-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        
+        /* Text Gradient */
+        .text-gradient { 
+            background: linear-gradient(90deg, #f59e0b, #f97316); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .text-gradient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            filter: blur(8px);
+            opacity: 0.7;
+            z-index: -1;
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes text-glow {
+            from { opacity: 0.5; transform: scale(1); }
+            to { opacity: 0.8; transform: scale(1.05); }
         }
         
         /* Hero Slideshow */
@@ -378,15 +391,6 @@
         @keyframes floatText {
             0%, 100% { transform: translateY(0) rotateX(0deg); }
             50% { transform: translateY(-20px) rotateX(5deg); }
-        }
-        
-        .text-gradient {
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
         }
         
         /* Enhanced Button Design */
@@ -2046,6 +2050,7 @@
             font-size: 1rem;
             box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
             transition: all 0.3s ease;
+            z-index: 10;
         }
         
         .process-step:hover .process-number {
@@ -2340,6 +2345,470 @@
             transform: rotate(180deg);
         }
         
+        /* Overview Section */
+        .overview-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .overview-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .overview-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .overview-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .overview-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .overview-subsection-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .overview-subsection-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            border-radius: 4px;
+        }
+        
+        .overview-price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .overview-price-table th, .overview-price-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #333; /* Changed from white to dark color for visibility */
+        }
+        
+        .overview-price-table th {
+            background: rgba(245, 158, 11, 0.1);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .overview-price-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .overview-price-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .overview-highlight {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        
+        /* Subsidy Section */
+        .subsidy-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subsidy-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .subsidy-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .subsidy-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .subsidy-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .subsidy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .subsidy-table th, .subsidy-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0; /* Fixed text color for visibility */
+        }
+        
+        .subsidy-table th {
+            background: rgba(245, 158, 11, 0.1);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .subsidy-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .subsidy-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ROI Section */
+        .roi-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .roi-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .roi-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .roi-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .roi-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .roi-example {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .roi-example h4 {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .roi-example ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .roi-example li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            color: #e2e8f0;
+        }
+        
+        .roi-example li i {
+            color: #f59e0b;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Advantages Section */
+        .advantages-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .advantages-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .advantages-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .advantages-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .advantages-column {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: perspective(1000px) rotateX(5deg);
+        }
+        
+        .advantages-column h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .advantages-column h3 i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .advantages-column h3 i.fa-thumbs-up {
+            color: #10b981;
+        }
+        
+        .advantages-column h3 i.fa-exclamation-triangle {
+            color: #ef4444;
+        }
+        
+        .advantages-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .advantages-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+        }
+        
+        .advantages-list li i {
+            color: #f59e0b;
+            margin-right: 10px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+        
+        .advantages-note {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .advantages-note h4 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .advantages-note p {
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        /* Installation Process Section */
+        .installation-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .installation-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .installation-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .installation-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .installation-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .installation-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .installation-step {
+            position: relative;
+            padding-bottom: 40px;
+            padding-left: 20px;
+        }
+        
+        .installation-step::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid #f59e0b;
+            box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .installation-step:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 12px rgba(245, 158, 11, 0.3);
+        }
+        
+        .installation-number {
+            position: absolute;
+            left: -45px;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .installation-step:hover .installation-number {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .installation-title-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .installation-description {
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -2406,30 +2875,42 @@
             .process-number {
                 left: -2.5rem;
             }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .installation-timeline {
+                padding-left: 25px;
+            }
+            
+            .installation-step::before {
+                left: -20px;
+            }
+            
+            .installation-number {
+                left: -35px;
+            }
         }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Enhanced Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Loading Solar Energy...</div>
+    </div>
+    
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Loading Screen - White Background with Improved Animation -->
-    <div id="loadingScreen" class="loading-screen">
-        <!-- Logo path updated to use relative path and made clickable -->
-        <a href="index.html">
-            <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/250x100?text=Naptico+Green+Energy+Solars'">
-        </a>
-        <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
-    </div>
-    
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <!-- Logo path updated to use relative path and made clickable -->
-            <a href="index.html">
-                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
-            </a>
+            <div class="flex items-center space-x-3">
+                <img width="200" src="./images/Logo.png" alt="Naptico Green Energy Solars" class="logo">
+            </div>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -2445,7 +2926,7 @@
             <div class="header-actions">
                 <button class="contact-btn">Get Quote</button>
             </div>
-            <!-- Mobile Menu Button (3-line icon) - This is for toggling the mobile menu on small screens -->
+            <!-- Mobile Menu Button (3-line icon) -->
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -2459,10 +2940,7 @@
                 <button class="quote-close">
                     <i class="fas fa-times"></i>
                 </button>
-                <!-- Logo path updated to use relative path and made clickable -->
-                <a href="index.html">
-                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
-                </a>
+                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo">
                 <h2 class="quote-form-title">Get Your Solar Quote</h2>
                 <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
             </div>
@@ -2522,7 +3000,7 @@
     
     <!-- Hero Section -->
     <section class="hero-gradient">
-        <!-- Hero Slideshow - All slides will change automatically -->
+        <!-- Hero Slideshow -->
         <div class="hero-slideshow">
             <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
@@ -2795,6 +3273,53 @@
         </div>
     </section>
     
+    <!-- Overview Section -->
+    <section class="overview-section py-20">
+        <div class="overview-container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="overview-title">Overview of On-Grid Solar Systems</h2>
+                <p class="overview-subtitle">Understanding grid-tied solar technology</p>
+            </div>
+            
+            <div class="overview-content fade-in">
+                <h3 class="overview-subsection-title">What is an On-Grid Solar System?</h3>
+                <p class="text-gray-300 mb-6">
+                    An on-grid solar system (grid-tied) connects directly to the utility grid through a bi-directional meter (net meter). Most Indian homes with a reliable grid connection choose on-grid solar since this system is powerful enough to support all household energy requirements.
+                </p>
+                <div class="bg-amber-900/20 p-6 rounded-xl mb-6">
+                    <div class="flex items-start">
+                        <div class="feature-icon bg-gradient-to-r from-amber-500 to-orange-500 mr-4 flex-shrink-0">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white mb-2">Government Subsidy Benefits</h4>
+                            <p class="text-gray-300">
+                                One of the best things about installing on-grid solar at home is the subsidy you get. The Indian government offers homeowners a subsidy for installing a rooftop on-grid solar system ranging between Rs. 30,000 and Rs. 78,000 (depending upon the installed system capacity).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">Price Example - Bhopal</h4>
+                        <p class="text-gray-700">
+                            3 kW on-grid solar system price in Bhopal with subsidy: <span class="font-bold text-amber-600">~ Rs. 1,35,000</span>
+                        </p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">Price Example - Bengaluru</h4>
+                        <p class="text-gray-700">
+                            5 kW on-grid solar system price in Bengaluru with subsidy: <span class="font-bold text-amber-600">~ Rs. 3,00,000</span>
+                        </p>
+                    </div>
+                </div>
+                <p class="text-gray-300 mt-4 text-sm">
+                    *Please note: The prices above are indicative as of 29th April 2025 for Naptico Green Energy Solars Blue 6ft variant. The final on-grid solar system cost in India depends on your city, DISCOM charges, product variant opted for, panel type, system capacity, inverter type, mounting structure height, type of after-sales service, savings guarantee, roof height, etc. Also, prices are subject to change without prior notice.
+                </p>
+            </div>
+        </div>
+    </section>
+    
     <!-- Components Section -->
     <section class="services-section py-20">
         <div class="container mx-auto px-4 services-content">
@@ -2936,6 +3461,99 @@
         </div>
     </section>
     
+    <!-- Subsidy Section -->
+    <section class="subsidy-section py-20">
+        <div class="subsidy-container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="subsidy-title">Solar Subsidy For On-Grid System</h2>
+                <p class="subsidy-subtitle">Government incentives to make solar affordable</p>
+            </div>
+            
+            <div class="subsidy-content fade-in">
+                <h3 class="overview-subsection-title">Central Government Subsidy</h3>
+                <p class="text-gray-300 mb-6">
+                    The Indian government offers a subsidy when you install an on-grid solar system for home. This subsidy remains the same for all states in India.
+                </p>
+                
+                <table class="subsidy-table">
+                    <thead>
+                        <tr>
+                            <th>Solar System Size</th>
+                            <th>Solar Subsidy Offered Under PM Surya Ghar Muft Bijli Yojana</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 kWp</td>
+                            <td>Rs. 30,000</td>
+                        </tr>
+                        <tr>
+                            <td>2 kWp</td>
+                            <td>Rs. 60,000</td>
+                        </tr>
+                        <tr>
+                            <td>3 kWp and higher</td>
+                            <td>Rs. 78,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p class="text-gray-300 mt-4">
+                    *Please note: The subsidy is capped at Rs. 78,000 for on-grid rooftop solar systems that are 3 kWp or higher.
+                </p>
+            </div>
+            
+            <div class="subsidy-content fade-in">
+                <h3 class="overview-subsection-title">Additional State Subsidy (Uttar Pradesh Example)</h3>
+                <p class="text-gray-300 mb-6">
+                    The state government of UP offers an additional subsidy to homeowners on top of the subsidy offered by the central government.
+                </p>
+                
+                <table class="subsidy-table">
+                    <thead>
+                        <tr>
+                            <th>On-grid Solar System Size</th>
+                            <th>On-grid Solar System Subsidy in All States Except UP</th>
+                            <th>Total On-grid Solar System Subsidy in UP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 kWp</td>
+                            <td>Rs. 30,000</td>
+                            <td>Rs. 30,000 + Rs. 15,000 = Rs. 45,000</td>
+                        </tr>
+                        <tr>
+                            <td>2 kWp</td>
+                            <td>Rs. 60,000</td>
+                            <td>Rs. 60,000 + Rs. 30,000 = Rs. 90,000</td>
+                        </tr>
+                        <tr>
+                            <td>3 kWp</td>
+                            <td>Rs. 78,000</td>
+                            <td>Rs. 78,000 + Rs. 30,000 = Rs. 1,08,000</td>
+                        </tr>
+                        <tr>
+                            <td>4 kWp</td>
+                            <td>Rs. 78,000</td>
+                            <td>Rs. 78,000 + Rs. 30,000 = Rs. 1,08,000</td>
+                        </tr>
+                        <tr>
+                            <td>5 kWp</td>
+                            <td>Rs. 78,000</td>
+                            <td>Rs. 78,000 + Rs. 30,000 = Rs. 1,08,000</td>
+                        </tr>
+                        <tr>
+                            <td>10 kWp</td>
+                            <td>Rs. 78,000</td>
+                            <td>Rs. 78,000 + Rs. 30,000 = Rs. 1,08,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
     <!-- Pricing Section -->
     <section id="plans" class="services-section py-20">
         <div class="container mx-auto px-4 services-content">
@@ -3024,56 +3642,258 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg mb-8 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800 text-center">Pricing Examples Across India</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-gray-800">2 kW Solar System</h4>
+                        <p class="text-gray-700 mb-4">
+                            A 2 kW on-grid solar system can generate 2,800 to 2,900 units of electricity annually, sufficient to power a 1-2 BHK home in India.
+                        </p>
+                        <div class="overflow-x-auto">
+                            <table class="overview-price-table text-sm">
+                                <thead>
+                                    <tr>
+                                        <th>City</th>
+                                        <th>Price With Subsidy</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Pune</td>
+                                        <td>~ Rs. 1,15,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bhopal</td>
+                                        <td>~ Rs. 1,20,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lucknow</td>
+                                        <td>~ Rs. 90,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bengaluru</td>
+                                        <td>~ Rs. 1,40,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-gray-800">5 kW Solar System</h4>
+                        <p class="text-gray-700 mb-4">
+                            A 5 kW on-grid solar system can generate 7,000 to 7,250 units of electricity annually, sufficient to power a 3-4 BHK home in India.
+                        </p>
+                        <div class="overflow-x-auto">
+                            <table class="overview-price-table text-sm">
+                                <thead>
+                                    <tr>
+                                        <th>City</th>
+                                        <th>Price With Subsidy</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Pune</td>
+                                        <td>~ Rs. 2,22,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bhopal</td>
+                                        <td>~ Rs. 2,32,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lucknow</td>
+                                        <td>~ Rs. 1,97,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bengaluru</td>
+                                        <td>~ Rs. 2,92,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
-    <!-- FAQ Section -->
-    <section class="services-section py-20">
-        <div class="container mx-auto px-4 services-content">
+    <!-- ROI Section -->
+    <section class="roi-section py-20">
+        <div class="roi-container">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
-                <p class="section-subtitle">Everything you need to know about solar energy</p>
+                <h2 class="roi-title">Return on Investment</h2>
+                <p class="roi-subtitle">Maximize your savings with solar energy</p>
             </div>
             
-            <div class="faq-container">
-                <div class="faq-item fade-in stagger-1">
-                    <div class="faq-question">
-                        Does on-grid solar need a battery?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No. That's the beauty of installing an on-grid solar system. It does not require a battery connection like off-grid and hybrid solar systems, which makes it easier to maintain and the most affordable option of the three types.</p>
-                    </div>
+            <div class="roi-content fade-in">
+                <h3 class="overview-subsection-title">What's the ROI On On-Grid Solar Panel Installation?</h3>
+                <p class="text-gray-300 mb-6">
+                    The return on investment depends on a lot of factors, including:
+                </p>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-amber-500 mt-1 mr-3"></i>
+                        <span class="text-gray-300">The type of solar panels and the inverter you chose</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-amber-500 mt-1 mr-3"></i>
+                        <span class="text-gray-300">The amount of sunlight your house receives</span>
+                    </li>
+                </ul>
+                
+                <div class="roi-example">
+                    <h4 class="text-white">Example: 3 kW System in Nagpur</h4>
+                    <p class="text-gray-300 mb-4">
+                        Based on the factors listed below, you will save ~ Rs. 16.58 lakhs in 25 years by installing a 3 kW system that costs ~ Rs. 1,02,000* in Lucknow to ~ Rs. 1,57,000* in Bengaluru and Chennai today. The initial investment cost will break even in 3-5 years.
+                    </p>
+                    <ul>
+                        <li class="flex items-start">
+                            <i class="fas fa-bolt text-amber-500 mt-1 mr-3"></i>
+                            <span class="text-gray-300">Electricity tariff: Rs. 12.2 per unit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-amber-500 mt-1 mr-3"></i>
+                            <span class="text-gray-300">Electricity rates increase: 3-6% every year</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-tint text-amber-500 mt-1 mr-3"></i>
+                            <span class="text-gray-300">Annual degradation rate: 1%</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="faq-item fade-in stagger-2">
-                    <div class="faq-question">
-                        Do solar panels work at night?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No. Solar panels generate electricity when photons from sunlight knock electrons loose in the PV cells. At night, an on-grid solar system draws power from the grid to keep a house running.</p>
-                    </div>
+                <div class="text-center mt-6">
+                    <a href="savings-calculator.html" class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 inline-block">
+                        Calculate Your Savings
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Advantages Section -->
+    <section class="advantages-section py-20">
+        <div class="advantages-container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="advantages-title">Advantages and Disadvantages</h2>
+                <p class="advantages-subtitle">Making an informed decision about solar energy</p>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantages-column fade-in">
+                    <h3>
+                        <i class="fas fa-thumbs-up"></i>
+                        Advantages
+                    </h3>
+                    <ul class="advantages-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Energy Production Monitoring:</strong> Easy tracking of electricity generated by your solar system</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Simplified Solar Billing:</strong> Easier to understand the solar electricity bill</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Rapid Payback:</strong> Break even in 3-5 years, then enjoy free electricity for 20-22 years</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Significant Monthly Savings:</strong> Substantial reduction in electricity bills</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>No Battery Requirement:</strong> Grid acts as the battery, reducing maintenance costs</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Most Affordable Option:</strong> On-grid systems are the most cost-effective of the three types</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Exclusive Solar Subsidy:</strong> Government subsidy only available for on-grid systems</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="faq-item fade-in stagger-3">
-                    <div class="faq-question">
-                        What is the difference between on-grid and hybrid solar systems?
-                        <i class="fas fa-chevron-down faq-icon"></i>
+                <div class="advantages-column fade-in">
+                    <h3>
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Disadvantages
+                    </h3>
+                    <div class="mb-6">
+                        <h4 class="text-white">Power Outages</h4>
+                        <p class="text-gray-300">
+                            When there's a power cut from the grid, the on-grid solar system automatically shuts down. This interruption in the supply of power is known as a power outage.
+                        </p>
                     </div>
-                    <div class="faq-answer">
-                        <p>The main difference is that a hybrid system is connected to the grid and batteries, while an on-grid solar system is connected only to the grid.</p>
+                    <div class="mb-6">
+                        <h4 class="text-white">Anti-Islanding Protection</h4>
+                        <p class="text-gray-300">
+                            The main reason an on-grid solar inverter is designed to automatically shut down if the grid fails is to eliminate safety risks. This feature protects electrical maintenance personnel from electric shocks.
+                        </p>
+                    </div>
+                    <div class="advantages-note">
+                        <h4>On-grid vs Off-grid</h4>
+                        <p>
+                            Hands down, on-grid solar systems in urban areas with a reliable grid are unbeatable for meeting a home's power requirements. You don't have to worry about costs related to battery upkeep, it's more affordable than an off-grid solar system, and the government offers a subsidy on on-grid systems, not off-grid systems.
+                        </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Installation Process Section -->
+    <section class="installation-section py-20">
+        <div class="installation-container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="installation-title">Installation Process</h2>
+                <p class="installation-subtitle">Professional installation by our expert team</p>
+            </div>
+            
+            <div class="installation-timeline">
+                <div class="installation-step fade-in">
+                    <div class="installation-number">1</div>
+                    <h3 class="installation-title-text">Rooftop Inspection and Site Assessment</h3>
+                    <p class="installation-description">
+                        A trained engineer surveys your rooftop to map shadow-casting objects and determine the optimal panel orientation (usually south in India) and tilt angle (approximately equal to your latitude). This analysis maximizes sunlight exposure and long-term energy yield.
+                    </p>
+                </div>
                 
-                <div class="faq-item fade-in stagger-4">
-                    <div class="faq-question">
-                        What is the on-grid solar panel price in India?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The prices vary based on the type of solar panels. For instance, the latest technology, MonoPERC half-cut solar panels in India, cost Rs. 24 per watt.</p>
-                    </div>
+                <div class="installation-step fade-in">
+                    <div class="installation-number">2</div>
+                    <h3 class="installation-title-text">Roof Mounting and Panel Clamping</h3>
+                    <p class="installation-description">
+                        Mounting structures are securely fixed to your roof using corrosion-protected rails and fasteners. Panels are then clamped onto these rails, following the manufacturer's torque specifications to prevent damage.
+                    </p>
+                </div>
+                
+                <div class="installation-step fade-in">
+                    <div class="installation-number">3</div>
+                    <h3 class="installation-title-text">Inverter Installation & Electrical Wiring</h3>
+                    <p class="installation-description">
+                        Solar strings (series-connected panels) are routed to the DC combiner box, then to the inverter, which converts DC into grid-compatible AC. AC output is channeled through an AC combiner box to your bi-directional meter, with all cables protected in conduit or trays.
+                    </p>
+                </div>
+                
+                <div class="installation-step fade-in">
+                    <div class="installation-number">4</div>
+                    <h3 class="installation-title-text">Earthing & Lightning Protection</h3>
+                    <p class="installation-description">
+                        Dedicated earthing rods and cables bond both DC and AC components to the ground, safeguarding against electrical faults. A lightning arrester mounted above the panels intercepts strikes and diverts surge energy safely to the earthing grid.
+                    </p>
+                </div>
+                
+                <div class="installation-step fade-in">
+                    <div class="installation-number">5</div>
+                    <h3 class="installation-title-text">System Commissioning & Monitoring Setup</h3>
+                    <p class="installation-description">
+                        Technicians verify string voltages, phase sequence, and inverter settings before energizing the system. Finally, the inverter is linked to your Wi-Fi for real-time performance monitoring, ensuring any issues are spotted and resolved by Naptico Green Energy Solars's team promptly.
+                    </p>
                 </div>
             </div>
         </div>
@@ -3151,6 +3971,58 @@
         </div>
     </section>
     
+    <!-- FAQ Section -->
+    <section class="services-section py-20">
+        <div class="container mx-auto px-4 services-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-subtitle">Everything you need to know about solar energy</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in stagger-1">
+                    <div class="faq-question">
+                        Does on-grid solar need a battery?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. That's the beauty of installing an on-grid solar system. It does not require a battery connection like off-grid and hybrid solar systems, which makes it easier to maintain and the most affordable option of the three types.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-2">
+                    <div class="faq-question">
+                        Do solar panels work at night?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. Solar panels generate electricity when photons from sunlight knock electrons loose in the PV cells. At night, an on-grid solar system draws power from the grid to keep a house running.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-3">
+                    <div class="faq-question">
+                        What is the difference between on-grid and hybrid solar systems?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The main difference is that a hybrid system is connected to the grid and batteries, while an on-grid solar system is connected only to the grid.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-4">
+                    <div class="faq-question">
+                        What is the on-grid solar panel price in India?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The prices vary based on the type of solar panels. For instance, the latest technology, MonoPERC half-cut solar panels in India, cost Rs. 24 per watt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- CTA Section - Fixed Button Visibility -->
     <section class="cta-section py-20">
         <div class="absolute inset-0 bg-black opacity-10"></div>
@@ -3169,10 +4041,7 @@
         <div class="container mx-auto px-4">
             <div class="footer-content">
                 <div class="footer-section">
-                    <!-- Logo path updated to use relative path and made clickable -->
-                    <a href="index.html">
-                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
-                    </a>
+                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo">
                     <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon">
@@ -3251,11 +4120,43 @@
     </footer>
     
     <script>
-        // Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3000);
+        // Enhanced Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+        
+        // Create particle effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 12 + 6;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${Math.random() * 15 + 15}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
         
         // Custom Cursor - Fixed Lagging Issue Completely
@@ -3352,29 +4253,6 @@
         // Auto-advance slides every 5 seconds
         setInterval(nextSlide, 5000);
         
-        // Create particle effect
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 10 + 5;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 20}s`;
-                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        createParticles();
-        
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
@@ -3388,14 +4266,6 @@
         
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
         });
         
         // Quote Form Modal

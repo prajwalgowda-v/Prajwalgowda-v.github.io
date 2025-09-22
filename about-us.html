@@ -43,50 +43,102 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Poppins', sans-serif;
-            cursor: none;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
         }
         
-        /* Custom Cursor - Fixed Lagging Issue */
+        /* Only apply custom cursor on non-touch devices */
+        @media (hover: hover) {
+            * {
+                cursor: none;
+            }
+        }
+        
+        /* Premium Cursor with Glowing Effect - Only for non-touch devices */
         .cursor {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             border: 2px solid #f59e0b;
             border-radius: 50%;
             position: fixed;
-            transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 100001;
             mix-blend-mode: difference;
-            opacity: 1;
+            opacity: 0;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            will-change: transform;
         }
         
         .cursor-follower {
-            width: 40px;
-            height: 40px;
-            background: rgba(245, 158, 11, 0.1);
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0));
             border-radius: 50%;
             position: fixed;
-            transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 100000;
-            opacity: 1;
-            transition: all 0.1s ease-out;
+            opacity: 0;
+            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            will-change: transform;
+        }
+        
+        /* Only show cursor on non-touch devices */
+        @media (hover: hover) {
+            .cursor, .cursor-follower {
+                opacity: 1;
+            }
         }
         
         .cursor.hover {
-            transform: translate(-50%, -50%) scale(2);
-            background: rgba(245, 158, 11, 0.1);
+            transform: scale(2.5);
+            background: rgba(245, 158, 11, 0.15);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
         }
         
         .cursor-follower.hover {
-            transform: translate(-50%, -50%) scale(3);
+            transform: scale(3.5);
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
         }
         
-        /* Loading Screen - White Background with Improved Animation */
+        /* Touch indicator for mobile devices */
+        .touch-indicator {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            pointer-events: none;
+            z-index: 100000;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .touch-indicator.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        /* Only show touch indicator on touch devices */
+        @media (hover: none) {
+            .touch-indicator {
+                display: block;
+            }
+        }
+        
+        @media (hover: hover) {
+            .touch-indicator {
+                display: none;
+            }
+        }
+        
+        /* Premium Loading Screen with White Background */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -100,6 +152,7 @@
             align-items: center;
             z-index: 9999;
             transition: opacity 0.8s ease, visibility 0.8s ease;
+            overflow: hidden;
         }
         
         .loading-screen.hidden {
@@ -108,50 +161,41 @@
         }
         
         .loading-logo {
-            width: 250px;
+            width: 300px;
             height: auto;
-            animation: logoFadeIn 2s ease-out forwards;
-            opacity: 0;
-            transition: transform 0.3s ease;
+            animation: logoFloat 3s ease-in-out infinite;
         }
         
-        .loading-logo:hover {
-            transform: scale(1.05);
-        }
-        
-        @keyframes logoFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) rotate(-10deg);
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(2deg);
             }
             50% {
-                opacity: 0.7;
-                transform: scale(1.05) rotate(5deg);
+                transform: translateY(0) rotate(0deg);
             }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0deg);
+            75% {
+                transform: translateY(-10px) rotate(-2deg);
             }
         }
         
         .loading-text {
             margin-top: 30px;
-            font-size: 18px;
+            font-size: 22px;
             color: #f59e0b;
-            font-weight: 500;
-            letter-spacing: 1px;
-            animation: textFadeIn 1s ease-out 1s forwards;
-            opacity: 0;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: textGlow 2s ease-in-out infinite;
         }
         
-        @keyframes textFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            50% {
+                text-shadow: 0 0 20px rgba(245, 158, 11, 1);
             }
         }
         
@@ -166,19 +210,19 @@
             60%, 100% { content: '...'; }
         }
         
-        /* Header Design */
+        /* Premium Header with Glass Effect */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
         }
         
         .header.scrolled {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             padding: 10px 0;
@@ -197,22 +241,24 @@
         }
         
         .logo {
-            width: 200px;
-            transition: all 0.3s ease;
+            width: 220px;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
         }
         
         .logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotateY(10deg);
+            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5));
         }
         
         .header.scrolled .logo {
-            width: 150px;
+            width: 170px;
         }
         
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -225,6 +271,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             transform-style: preserve-3d;
+            padding: 5px 0;
         }
         
         .nav-link::before {
@@ -233,9 +280,10 @@
             bottom: -5px;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(90deg, #f59e0b, #f97316);
-            transition: width 0.3s ease;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
         }
         
         .nav-link:hover::before {
@@ -243,8 +291,8 @@
         }
         
         .nav-link:hover {
-            transform: translateY(-2px);
-            text-shadow: 0 5px 15px rgba(245, 158, 11, 0.5);
+            transform: translateY(-3px);
+            text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
         .header-actions {
@@ -254,17 +302,18 @@
         }
         
         .contact-btn {
-            background: transparent;
-            border: 2px solid #f59e0b;
-            color: #f59e0b;
-            padding: 10px 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 12px 25px;
             border-radius: 30px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
             z-index: 1;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
         
         .contact-btn::before {
@@ -274,8 +323,8 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #f97316, #f59e0b);
+            transition: width 0.4s ease;
             z-index: -1;
         }
         
@@ -284,27 +333,193 @@
         }
         
         .contact-btn:hover {
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
-        /* Mobile Menu Button (3-line icon) */
+        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             color: white;
             font-size: 24px;
-            cursor: none;
             padding: 5px;
+            z-index: 1002;
+            cursor: pointer;
+            position: relative;
+            width: 30px;
+            height: 30px;
         }
         
         .mobile-menu-btn:hover {
             color: #f59e0b;
         }
         
-        /* Hero Section - Enhanced */
+        /* Mobile Menu Icon Animation */
+        .mobile-menu-btn span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .mobile-menu-btn span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .mobile-menu-btn span:nth-child(2) {
+            top: 10px;
+        }
+        
+        .mobile-menu-btn span:nth-child(3) {
+            top: 20px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(135deg);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-135deg);
+        }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-close:hover {
+            color: #f59e0b;
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mobile-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        .mobile-nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-nav a:hover {
+            color: #f59e0b;
+            transform: translateY(-3px);
+        }
+        
+        .mobile-contact-btn {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            cursor: pointer;
+        }
+        
+        .mobile-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #f59e0b);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .mobile-contact-btn:hover::before {
+            width: 100%;
+        }
+        
+        .mobile-contact-btn:hover {
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
+        }
+        
+        /* Premium Hero Section with Advanced Effects */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -313,9 +528,41 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
+            padding-top: 90px; /* Add padding to prevent header overlap */
         }
         
-        /* Hero Slideshow */
+        /* Dynamic Background Effect */
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            animation: backgroundMove 20s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes backgroundMove {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(-20px, -20px) scale(1.05);
+            }
+            50% {
+                transform: translate(20px, -10px) scale(1.1);
+            }
+            75% {
+                transform: translate(-10px, 20px) scale(1.05);
+            }
+        }
+        
+        /* Hero Slideshow with 3D Effect */
         .hero-slideshow {
             position: absolute;
             top: 0;
@@ -333,7 +580,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: all 1.5s ease-in-out;
+            transition: all 1.8s ease-in-out;
             background-size: cover;
             background-position: center;
             transform: translateZ(-100px) rotateY(90deg);
@@ -356,7 +603,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.6);
             z-index: 2;
         }
         
@@ -366,65 +613,87 @@
             transform-style: preserve-3d;
         }
         
-        /* 3D Text Effects */
+        /* Premium 3D Text Effects */
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             transform-style: preserve-3d;
-            animation: floatText 6s ease-in-out infinite;
+            animation: floatText 8s ease-in-out infinite;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         @keyframes floatText {
-            0%, 100% { transform: translateY(0) rotateX(0deg); }
-            50% { transform: translateY(-20px) rotateX(5deg); }
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg); 
+            }
+            25% { 
+                transform: translateY(-15px) rotateX(3deg); 
+            }
+            50% { 
+                transform: translateY(0) rotateX(0deg); 
+            }
+            75% { 
+                transform: translateY(-10px) rotateX(-2deg); 
+            }
         }
         
         .text-gradient {
-            background: linear-gradient(90deg, #f59e0b, #f97316);
+            background: linear-gradient(90deg, #f59e0b, #f97316, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+            background-size: 200% auto;
+            animation: gradientShift 5s ease infinite;
         }
         
-        /* Enhanced Button Design */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Premium Button Design */
         .hero-btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 16px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             z-index: 1;
             text-decoration: none;
             margin: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .hero-btn-primary {
-            background: linear-gradient(90deg, #f59e0b, #f97316);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             color: white;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
         
         .hero-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(245, 158, 11, 0.4);
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
         }
         
         .hero-btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 2px solid #f59e0b;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            backdrop-filter: blur(10px);
         }
         
         .hero-btn-secondary:hover {
-            background: rgba(245, 158, 11, 0.1);
-            transform: translateY(-3px);
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-5px) rotateX(5deg);
+            border-color: #f59e0b;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
         
         .hero-btn::before {
@@ -435,19 +704,32 @@
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
+            transition: left 0.6s ease;
             z-index: -1;
         }
         
         .hero-btn:hover::before {
-            left : 100%;
+            left: 100%;
         }
         
-        /* Services Section - Fixed Text Color */
+        /* Premium Services Section */
         .services-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
         }
         
         .services-content {
@@ -456,31 +738,32 @@
         }
         
         .section-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: #e2e8f0;
             max-width: 3xl;
-            margin: 0 auto 3rem;
+            margin: 0 auto 4rem;
         }
         
-        /* 3D Cards */
+        /* Premium 3D Cards with Glass Effect */
         .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s ease;
+            padding: 35px;
+            transition: all 0.5s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .service-card::before {
@@ -490,15 +773,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
             z-index: -1;
         }
         
         .service-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
         }
         
         .service-card:hover::before {
@@ -506,62 +790,111 @@
         }
         
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
         .service-card:hover .service-icon {
-            transform: scale(1.1) rotateZ(5deg);
+            transform: scale(1.15) rotateZ(10deg);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
         }
         
-        /* 3D Feature Cards */
+        /* Animated Learn More Button */
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #f59e0b;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            margin-top: 15px;
+        }
+        
+        .learn-more-btn:hover {
+            color: #f97316;
+        }
+        
+        .learn-more-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .learn-more-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .learn-more-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.3s ease;
+        }
+        
+        .learn-more-btn:hover::after {
+            width: 100%;
+        }
+        
+        /* Premium Feature Cards */
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
             transform-style: preserve-3d;
             position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .feature-card:hover {
-            transform: translateY(-15px) rotateX(10deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
         }
         
         .feature-icon {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            transition: all 0.3s ease;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
             transform-style: preserve-3d;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
         }
         
         .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotateY(180deg);
+            transform: scale(1.15) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
-        /* Testimonials Section - Enhanced Design */
+        /* Premium Testimonials Section */
         .testimonials-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
             overflow: hidden;
+            padding: 100px 0;
         }
         
         .testimonials-section::before {
@@ -571,7 +904,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent 70%);
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
             z-index: 0;
         }
         
@@ -581,11 +914,11 @@
         }
         
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             position: relative;
@@ -593,6 +926,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .testimonial-card::before {
@@ -602,16 +936,16 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0) 70%);
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: -1;
         }
         
         .testimonial-card:hover {
-            transform: translateY(-15px) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-20px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
         }
         
         .testimonial-card:hover::before {
@@ -621,57 +955,61 @@
         .testimonial-header {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .testimonial-avatar {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            margin-right: 15px;
-            border: 3px solid rgba(245, 158, 11, 0.3);
+            margin-right: 20px;
+            border: 3px solid rgba(245, 158, 11, 0.5);
             object-fit: cover;
             object-position: top center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .testimonial-info h4 {
             color: white;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
         }
         
         .testimonial-info p {
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
         .testimonial-rating {
             color: #f59e0b;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
         
         .testimonial-text {
             color: #e2e8f0;
             font-style: italic;
-            line-height: 1.6;
+            line-height: 1.7;
             flex-grow: 1;
+            font-size: 1.1rem;
         }
         
         .testimonial-quote {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3rem;
-            color: rgba(245, 158, 11, 0.1);
+            top: 25px;
+            right: 25px;
+            font-size: 3.5rem;
+            color: rgba(245, 158, 11, 0.15);
             font-family: Georgia, serif;
         }
         
-        /* Footer - World-Class Design */
+        /* Premium Footer */
         .footer {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
             overflow: hidden;
-            padding: 80px 0 40px;
+            padding: 100px 0 50px;
             transform-style: preserve-3d;
         }
         
@@ -681,8 +1019,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
         }
         
         .footer::after {
@@ -701,15 +1040,15 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
         .footer-section h3 {
             color: #f59e0b;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.7rem;
+            margin-bottom: 25px;
             position: relative;
             display: inline-block;
         }
@@ -717,39 +1056,41 @@
         .footer-section h3::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 0;
-            width: 50px;
+            width: 60px;
             height: 3px;
             background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
         }
         
         .footer-section p {
             color: #94a3b8;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
         
         .footer-logo {
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            max-width: 200px;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            max-width: 220px;
             height: auto;
         }
         
         .footer-logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotateY(10deg);
         }
         
         .social-icons {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 18px;
+            margin-top: 25px;
         }
         
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
@@ -758,14 +1099,16 @@
             justify-content: center;
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
+            font-size: 1.2rem;
         }
         
         .social-icon:hover {
-            background: #f59e0b;
-            transform: translateY(-5px) rotateZ(360deg);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-8px) rotateZ(360deg);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
+            border-color: transparent;
         }
         
         .footer-links {
@@ -774,7 +1117,7 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .footer-links li a {
@@ -783,6 +1126,7 @@
             transition: all 0.3s ease;
             display: inline-block;
             position: relative;
+            font-size: 1.05rem;
         }
         
         .footer-links li a::before {
@@ -791,14 +1135,15 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 1px;
+            height: 2px;
             background: #f59e0b;
-            transition: width 0.3s ease;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
         }
         
         .footer-links li a:hover {
             color: #f59e0b;
-            transform: translateX(5px);
+            transform: translateX(8px);
         }
         
         .footer-links li a:hover::before {
@@ -813,14 +1158,16 @@
         .contact-info li {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #94a3b8;
+            font-size: 1.05rem;
         }
         
         .contact-info i {
             color: #f59e0b;
-            margin-right: 10px;
+            margin-right: 12px;
             margin-top: 5px;
+            font-size: 1.2rem;
         }
         
         .contact-info a {
@@ -835,11 +1182,12 @@
         
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #64748b;
             position: relative;
             z-index: 1;
+            font-size: 1.05rem;
         }
         
         .footer-bottom a {
@@ -852,26 +1200,26 @@
             color: #f59e0b;
         }
         
-        /* Back to Top Button */
+        /* Premium Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
+            color: black;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: none;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             z-index: 100;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
+            font-size: 1.5rem;
         }
         
         .back-to-top.visible {
@@ -882,22 +1230,24 @@
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-8px);}
         }
         
         .back-to-top:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) rotateZ(10deg);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
-        /* Particle Effect */
+        /* Premium Particle Effect */
         .particle {
             position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
             border-radius: 50%;
             pointer-events: none;
-            animation: particleFloat 20s infinite linear;
+            animation: particleFloat 25s infinite linear;
             transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
         }
         
         @keyframes particleFloat {
@@ -912,27 +1262,27 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
                 opacity: 0;
             }
         }
         
-        /* Quote Form Modal - World Class Design with Fixed Alignment */
+        /* Premium Quote Form Modal */
         .quote-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 99999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             overflow-y: auto;
         }
         
@@ -943,15 +1293,15 @@
         
         .quote-form-container {
             background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 0;
             width: 90%;
-            max-width: 600px;
+            max-width: 650px;
             position: relative;
-            transform: translateY(30px);
-            transition: transform 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(40px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             overflow: hidden;
             margin: 20px auto;
             max-height: calc(100vh - 40px);
@@ -964,27 +1314,27 @@
         
         .quote-form-header {
             background: linear-gradient(135deg, #f59e0b, #f97316);
-            padding: 30px;
+            padding: 40px;
             text-align: center;
             position: relative;
         }
         
         .quote-form-logo {
-            width: 120px;
+            width: 140px;
             height: auto;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
         
         .quote-form-logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .quote-form-title {
-            font-size: 2rem;
+            font-size: 2.3rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: white;
             text-align: center;
         }
@@ -992,29 +1342,28 @@
         .quote-form-subtitle {
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         
         .quote-form-body {
-            padding: 40px 30px;
+            padding: 50px 40px;
         }
         
         .quote-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             background: rgba(255, 255, 255, 0.2);
             border: none;
-            font-size: 20px;
+            font-size: 22px;
             color: white;
-            cursor: none;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             z-index: 10;
         }
         
@@ -1026,11 +1375,11 @@
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         
         .form-group.full-width {
@@ -1039,36 +1388,36 @@
         
         .form-label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #e2e8f0;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
         .form-input, .form-textarea {
             width: 100%;
-            padding: 15px;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+            border-radius: 12px;
             color: white;
             font-size: 16px;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             box-sizing: border-box;
         }
         
         .form-input:focus, .form-textarea:focus {
             background: rgba(255, 255, 255, 0.15);
             border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
         }
         
         .form-textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
         
         .file-upload {
@@ -1082,20 +1431,20 @@
             opacity: 0;
             width: 100%;
             height: 100%;
-            cursor: none;
+            cursor: pointer;
         }
         
         .file-upload-label {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+            border-radius: 12px;
             color: #e2e8f0;
-            cursor: none;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            transition: all 0.4s ease;
         }
         
         .file-upload-label:hover {
@@ -1104,14 +1453,15 @@
         }
         
         .file-upload-label i {
-            margin-right: 10px;
+            margin-right: 12px;
             color: #f59e0b;
+            font-size: 1.2rem;
         }
         
         /* File list styles for multiple files */
         .file-list {
-            margin-top: 10px;
-            max-height: 120px;
+            margin-top: 15px;
+            max-height: 140px;
             overflow-y: auto;
         }
         
@@ -1119,12 +1469,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 12px;
+            padding: 12px 15px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            margin-bottom: 8px;
+            border-radius: 10px;
+            margin-bottom: 10px;
             color: #e2e8f0;
-            font-size: 14px;
+            font-size: 15px;
         }
         
         .file-name {
@@ -1132,19 +1482,19 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            margin-right: 10px;
+            margin-right: 15px;
         }
         
         .file-size {
             color: #94a3b8;
-            font-size: 12px;
-            margin-right: 10px;
+            font-size: 13px;
+            margin-right: 15px;
         }
         
         .file-remove {
             color: #f59e0b;
-            cursor: none;
-            transition: color 0.2s;
+            cursor: pointer;
+            transition: color 0.3s;
         }
         
         .file-remove:hover {
@@ -1153,28 +1503,28 @@
         
         .form-submit {
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border: none;
             border-radius: 50px;
             color: white;
             font-weight: 600;
-            font-size: 16px;
-            cursor: none;
-            transition: all 0.3s ease;
+            font-size: 17px;
+            transition: all 0.4s ease;
             transform-style: preserve-3d;
-            margin-top: 30px;
+            margin-top: 35px;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
         }
         
         .form-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
         .form-submit::before {
@@ -1185,7 +1535,7 @@
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
+            transition: left 0.6s ease;
             z-index: 0;
         }
         
@@ -1194,7 +1544,7 @@
         }
         
         .form-submit i {
-            font-size: 18px;
+            font-size: 20px;
             position: relative;
             z-index: 1;
         }
@@ -1209,43 +1559,44 @@
         }
         
         .form-message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
             text-align: center;
             display: none;
             font-weight: 500;
+            font-size: 16px;
         }
         
         .form-message.success {
             background: rgba(16, 185, 129, 0.2);
             color: #10b981;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.4);
         }
         
         .form-message.error {
             background: rgba(239, 68, 68, 0.2);
             color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.4);
         }
         
         .privacy-text {
             color: #94a3b8;
-            font-size: 13px;
+            font-size: 14px;
             text-align: center;
-            margin-top: 25px;
-            line-height: 1.6;
-            padding: 15px;
+            margin-top: 30px;
+            line-height: 1.7;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            border-left: 3px solid #f59e0b;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
         }
         
-        /* Scroll Animation - Fixed Performance Issues */
+        /* Premium Scroll Animation */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
         .fade-in.visible {
@@ -1261,11 +1612,12 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
-        /* CTA Section - Fixed Button Visibility */
+        /* Premium CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #f97316, #f59e0b);
             position: relative;
             overflow: hidden;
+            padding: 100px 0;
         }
         
         .cta-section::before {
@@ -1275,7 +1627,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.2), transparent 70%);
+            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
             z-index: 0;
         }
         
@@ -1288,12 +1640,12 @@
             background: white;
             color: #f97316;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
         }
         
         .cta-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
             background: #f8fafc;
         }
         
@@ -1305,7 +1657,8 @@
         
         .cta-btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         /* New Milestones Section Styles */
@@ -1431,7 +1784,7 @@
             height: 15px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
-            cursor: none;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
         
@@ -1460,7 +1813,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: none;
+            cursor: pointer;
             transition: all 0.3s ease;
             font-size: 20px;
         }
@@ -1670,7 +2023,7 @@
             opacity: 0.5;
         }
         
-        /* Responsive adjustments */
+        /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -1682,19 +2035,91 @@
                 display: block;
             }
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             .quote-form-container {
                 width: 95%;
             }
             .quote-form-body {
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             .form-grid {
                 grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .back-to-top {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            /* Mobile Header Adjustments */
+            .header-content {
+                padding: 15px 5%;
+                justify-content: space-between;
+                height: 70px; /* Fixed height for mobile header */
+            }
+            
+            .logo {
+                width: 140px;
+                height: auto; /* Ensure logo maintains aspect ratio */
+            }
+            
+            .header.scrolled .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .header-content {
+                padding: 10px 5%;
+                height: 60px; /* Slightly smaller when scrolled */
+            }
+            
+            .mobile-menu-btn {
+                font-size: 20px;
+                padding: 8px;
+            }
+            
+            /* Add padding-top to hero section to account for fixed header */
+            .hero-gradient {
+                padding-top: 80px; /* Adjust based on header height */
+            }
+        }
+        
+        /* Additional mobile adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 12px 5%;
+                height: 60px; /* Smaller fixed height for very small screens */
+            }
+            
+            .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .logo {
+                width: 100px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 18px;
+                padding: 6px;
+            }
+            
+            /* Adjust hero section padding for smaller screens */
+            .hero-gradient {
+                padding-top: 70px; /* Slightly less padding for smaller screens */
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+                margin-top: 20px; /* Add some space between header and title */
             }
             
             .milestone-year {
@@ -1720,25 +2145,28 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Custom Cursor -->
+    <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
-    <!-- Loading Screen - White Background with Improved Animation -->
+    <!-- Touch Indicator (for mobile only) -->
+    <div class="touch-indicator"></div>
+    
+    <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="index.html">
-            <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/250x100?text=Naptico+Green+Energy+Solars'">
+            <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
     </div>
     
-    <!-- Header -->
+    <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
             <!-- Logo path updated to use relative path and made clickable -->
             <a href="index.html">
-                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
+                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
             </a>
             <nav>
                 <ul class="nav-menu">
@@ -1755,14 +2183,34 @@
             <div class="header-actions">
                 <button class="contact-btn">Get Quote</button>
             </div>
-            <!-- Mobile Menu Button (3-line icon) - This is for toggling the mobile menu on small screens -->
+            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </header>
     
-    <!-- Quote Form Modal -->
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="savings-calculator.html">Calculator</a></li>
+            <li><a href="customer-stories.html">Stories</a></li>
+            <li><a href="subsidies.html">Subsidies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-contact-btn">Get Quote</button>
+    </div>
+    
+    <!-- Premium Quote Form Modal -->
     <div id="quoteModal" class="quote-modal">
         <div class="quote-form-container">
             <div class="quote-form-header">
@@ -1771,7 +2219,7 @@
                 </button>
                 <!-- Logo path updated to use relative path and made clickable -->
                 <a href="index.html">
-                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
+                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
                 <h2 class="quote-form-title">Get Your Solar Quote</h2>
                 <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
@@ -1817,7 +2265,7 @@
                     <div id="formMessage" class="form-message"></div>
                     
                     <div class="privacy-text">
-                        <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 8px;"></i>
+                        <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 10px;"></i>
                         We respect your privacy and will never share your information with third parties.
                     </div>
                 </form>
@@ -1825,14 +2273,14 @@
         </div>
     </div>
     
-    <!-- Back to Top Button -->
+    <!-- Premium Back to Top Button -->
     <button id="backToTop" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Hero Section -->
+    <!-- Premium Hero Section -->
     <section class="hero-gradient">
-        <!-- Hero Slideshow - All slides will change automatically -->
+        <!-- Hero Slideshow -->
         <div class="hero-slideshow">
             <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
@@ -1843,13 +2291,13 @@
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h1 class="hero-title text-white">
                         About <span class="text-gradient">Naptico Green Energy</span>
                     </h1>
-                    <p class="text-xl mb-8 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering 50,000+ homes and businesses across the country.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering 50,000+ homes and businesses across the country.</p>
+                    <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
                         <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
                     </div>
@@ -1861,14 +2309,14 @@
                 </div>
             </div>
         </div>
-        <!-- Particle Effect -->
+        <!-- Premium Particle Effect -->
         <div id="particles"></div>
     </section>
     
     <!-- Our Story Section -->
     <section id="our-story" class="services-section py-20">
         <div class="container mx-auto px-4 services-content">
-            <div class="text-center mb-16 fade-in">
+            <div class="text-center mb-20 fade-in">
                 <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
                 <p class="section-subtitle">From a small startup to India's leading solar energy provider</p>
             </div>
@@ -2027,13 +2475,13 @@
                         <h3 class="leadership-name">Ajay Raju N</h3>
                         <p class="leadership-position"><i class="fas fa-crown"></i> Managing Director & CEO</p>
                         <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
-<div class="leadership-social">
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <!-- Phone icon-->
-    <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-    <!-- Email icon-->
-    <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-</div>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 
@@ -2047,13 +2495,13 @@
                         <h3 class="leadership-name">Priya Nair</h3>
                         <p class="leadership-position"><i class="fas fa-microchip"></i> Chief Technology Officer</p>
                         <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
-<div class="leadership-social">
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <!-- Phone icon-->
-    <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-    <!-- Email icon-->
-    <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-</div>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 
@@ -2068,12 +2516,12 @@
                         <p class="leadership-position"><i class="fas fa-cogs"></i> Chief Operating Officer</p>
                         <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
                         <div class="leadership-social">
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <!-- Phone icon-->
-    <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-    <!-- Email icon-->
-    <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-</div>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 
@@ -2088,12 +2536,12 @@
                         <p class="leadership-position"><i class="fas fa-chart-line"></i> Chief Financial Officer</p>
                         <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
                         <div class="leadership-social">
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <!-- Phone icon-->
-    <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-    <!-- Email icon-->
-    <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-</div>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 
@@ -2108,12 +2556,12 @@
                         <p class="leadership-position"><i class="fas fa-bullhorn"></i> Chief Marketing Officer</p>
                         <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
                         <div class="leadership-social">
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <!-- Phone icon-->
-    <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-    <!-- Email icon-->
-    <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-</div>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2131,7 +2579,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="feature-card fade-in stagger-1">
                     <div class="feature-icon">
-                        <i class="fas fa-award text-white text-3xl"></i>
+                        <i class="fas fa-award text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
                     <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
@@ -2139,7 +2587,7 @@
                 
                 <div class="feature-card fade-in stagger-2">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                        <i class="fas fa-shield-alt text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
                     <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
@@ -2147,7 +2595,7 @@
                 
                 <div class="feature-card fade-in stagger-3">
                     <div class="feature-icon">
-                        <i class="fas fa-users text-white text-3xl"></i>
+                        <i class="fas fa-users text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
                     <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
@@ -2155,7 +2603,7 @@
                 
                 <div class="feature-card fade-in stagger-4">
                     <div class="feature-icon">
-                        <i class="fas fa-clock text-white text-3xl"></i>
+                        <i class="fas fa-clock text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
                     <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
@@ -2164,41 +2612,41 @@
         </div>
     </section>
     
-    <!-- CTA Section - Fixed Button Visibility -->
+    <!-- Premium CTA Section -->
     <section class="cta-section py-20">
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
-            <h2 class="text-4xl font-bold mb-6 text-white fade-in">Join Our Solar Revolution</h2>
-            <p class="text-xl mb-8 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's sustainable future with Naptico Green Energy Solars</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+            <h2 class="text-4xl font-bold mb-8 text-white fade-in">Join Our Solar Revolution</h2>
+            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's sustainable future with Naptico Green Energy Solars</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
                 <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
             </div>
         </div>
     </section>
     
-    <!-- Footer - World-Class Design -->
+    <!-- Premium Footer -->
     <footer class="footer">
         <div class="container mx-auto px-4">
             <div class="footer-content">
                 <div class="footer-section">
                     <!-- Logo path updated to use relative path and made clickable -->
                     <a href="index.html">
-                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/200x80?text=Naptico+Green+Energy+Solars'">
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
                     </a>
                     <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon">
-                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-facebook text-white"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-instagram text-white"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
+                            <i class="fab fa-linkedin text-white"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-youtube"></i>
+                            <i class="fab fa-youtube text-white"></i>
                         </a>
                     </div>
                 </div>
@@ -2220,12 +2668,12 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="services.html#rooftop">Rooftop Solar Panels</a></li>
-                        <li><a href="services.html#ground-mounted">Ground-Mounted Solar</a></li>
-                        <li><a href="services.html#street-light">Solar Street Lights</a></li>
-                        <li><a href="services.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
-                        <li><a href="services.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
-                        <li><a href="services.html#maintenance & support">Maintenance & Support</a></li>
+                        <li><a href="Solar Energy Solutions.html">Rooftop Solar Panels</a></li>
+                        <li><a href="maintenance & support.html#ground-mounted">Ground-Mounted Solar</a></li>
+                        <li><a href="maintenance & support.html#street-light">Solar Street Lights</a></li>
+                        <li><a href="maintenance & support.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
+                        <li><a href="maintenance & support.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
+                        <li><a href="maintenance & support.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -2233,24 +2681,24 @@
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt text-black"></i>
                             <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i>
+                            <i class="fas fa-phone-alt text-black"></i>
                             <span>
                                 <a href="tel:080 2952 7671">080 2952 7671</a> | 
                                 <a href="tel:+91 70192 99196">+91 70192 99196</a>
                             </span>
                         </li>
                         <li>
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope text-black"></i>
                             <span>
                                 <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
                             </span>
                         </li>
                         <li>
-                            <i class="fas fa-clock"></i>
+                            <i class="fas fa-clock text-black"></i>
                             <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
                         </li>
                     </ul>
@@ -2264,72 +2712,104 @@
     </footer>
     
     <script>
-        // Loading Screen
+        // Function to detect if device is touch-enabled
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        }
+        
+        // Premium Loading Screen
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3000);
+            }, 3500);
         });
         
-        // Custom Cursor - Fixed Lagging Issue Completely
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        // Use requestAnimationFrame for smooth cursor movement
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        // Only initialize custom cursor on non-touch devices
+        if (!isTouchDevice()) {
+            // Premium Custom Cursor
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
             
-            // Update main cursor position immediately
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
-        });
-        
-        // Use animation frame for smooth follower movement
-        function animateFollower() {
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
+            // Optimized cursor movement using direct position updates
+            let mouseX = 0;
+            let mouseY = 0;
+            let followerX = 0;
+            let followerY = 0;
             
-            cursorFollower.style.left = followerX + 'px';
-            cursorFollower.style.top = followerY + 'px';
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update main cursor position immediately
+                cursor.style.left = mouseX - 12.5 + 'px';
+                cursor.style.top = mouseY - 12.5 + 'px';
+            });
             
-            requestAnimationFrame(animateFollower);
+            // Use requestAnimationFrame for smooth follower animation
+            function animateFollower() {
+                // Simple linear interpolation for smooth following
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                
+                // Apply position to follower
+                cursorFollower.style.left = followerX - 25 + 'px';
+                cursorFollower.style.top = followerY - 25 + 'px';
+                
+                requestAnimationFrame(animateFollower);
+            }
+            
+            animateFollower();
+            
+            // Hide cursor when leaving the window
+            document.addEventListener('mouseleave', () => {
+                cursor.style.opacity = '0';
+                cursorFollower.style.opacity = '0';
+            });
+            
+            document.addEventListener('mouseenter', () => {
+                cursor.style.opacity = '1';
+                cursorFollower.style.opacity = '1';
+            });
+            
+            // Cursor hover effects
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
+            
+            hoverElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                    cursorFollower.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                    cursorFollower.classList.remove('hover');
+                });
+            });
         }
         
-        animateFollower();
-        
-        // Hide cursor when leaving the window
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-            cursorFollower.style.opacity = '0';
-        });
-        
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-            cursorFollower.style.opacity = '1';
-        });
-        
-        // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .team-member, .timeline-content, .leadership-card, .milestone-arrow, .milestone-dot');
-        
-        hoverElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-                cursorFollower.classList.add('hover');
+        // Touch indicator for mobile devices
+        if (isTouchDevice()) {
+            const touchIndicator = document.querySelector('.touch-indicator');
+            
+            document.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                touchIndicator.style.left = touch.clientX + 'px';
+                touchIndicator.style.top = touch.clientY + 'px';
+                touchIndicator.classList.add('active');
             });
             
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-                cursorFollower.classList.remove('hover');
+            document.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                touchIndicator.style.left = touch.clientX + 'px';
+                touchIndicator.style.top = touch.clientY + 'px';
             });
-        });
+            
+            document.addEventListener('touchend', () => {
+                touchIndicator.classList.remove('active');
+            });
+        }
         
-        // Header scroll effect
+        // Premium Header scroll effect
         const header = document.querySelector('.header');
         
         window.addEventListener('scroll', () => {
@@ -2340,7 +2820,45 @@
             }
         });
         
-        // Hero Slideshow - Fixed to match background and foreground images
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileContactBtn = document.querySelector('.mobile-contact-btn');
+        
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+        });
+        
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            mobileMenuBtn.classList.remove('active'); // Remove animation class
+        }
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Mobile contact button functionality
+        mobileContactBtn.addEventListener('click', () => {
+            closeMobileMenu();
+            // Open quote modal after a short delay
+            setTimeout(() => {
+                document.getElementById('quoteModal').classList.add('active');
+                centerModal();
+            }, 300);
+        });
+        
+        // Premium Hero Slideshow
         const slides = document.querySelectorAll('.hero-slide');
         const heroImage = document.getElementById('heroImage');
         const heroImages = [
@@ -2365,22 +2883,22 @@
         // Auto-advance slides every 5 seconds
         setInterval(nextSlide, 5000);
         
-        // Create particle effect
+        // Premium Particle Effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = 60;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 10 + 5;
+                const size = Math.random() * 12 + 6;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 20}s`;
-                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                particle.style.animationDelay = `${Math.random() * 25}s`;
+                particle.style.animationDuration = `${Math.random() * 15 + 20}s`;
                 
                 particlesContainer.appendChild(particle);
             }
@@ -2388,7 +2906,7 @@
         
         createParticles();
         
-        // Back to Top Button
+        // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -2403,15 +2921,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Quote Form Modal
+        // Premium Quote Form Modal
         const quoteModal = document.getElementById('quoteModal');
         const quoteClose = document.querySelector('.quote-close');
         const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
@@ -2595,30 +3105,33 @@
             });
         });
         
-        // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
+        // Only apply 3D card effects on non-touch devices
+        if (!isTouchDevice()) {
+            // Premium 3D Card Effect
+            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card');
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 12;
+                    const rotateY = (centerX - x) / 12;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
             });
-        });
+        }
         
-        // Fixed Scroll Animation with Better Performance
+        // Premium Scroll Animation
         const fadeElements = document.querySelectorAll('.fade-in');
         
         // Use a more efficient scroll handler with passive event listener
@@ -2728,29 +3241,6 @@
             
             carousel.addEventListener('mouseleave', () => {
                 slideInterval = setInterval(nextSlide, 5000);
-            });
-            
-            // 3D effect for leadership cards
-            const leadershipCards = document.querySelectorAll('.leadership-card');
-            
-            leadershipCards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = (y - centerY) / 15;
-                    const rotateY = (centerX - x) / 15;
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-                });
             });
         });
     </script>

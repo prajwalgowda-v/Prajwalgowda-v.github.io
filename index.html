@@ -362,6 +362,7 @@
             color: white;
             font-size: 24px;
             padding: 5px;
+            z-index: 1001;
         }
         
         .mobile-menu-btn:hover {
@@ -1575,6 +1576,42 @@
                 height: 60px;
                 bottom: 20px;
                 right: 20px;
+            }
+            
+            /* Mobile Header Adjustments */
+            .header-content {
+                padding: 15px 5%;
+            }
+            
+            .logo {
+                width: 160px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+            
+            .header.scrolled .header-content {
+                padding: 8px 5%;
+            }
+        }
+        
+        /* Additional mobile adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 12px 5%;
+            }
+            
+            .logo {
+                width: 140px;
+            }
+            
+            .header.scrolled .logo {
+                width: 120px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 20px;
             }
         }
     </style>

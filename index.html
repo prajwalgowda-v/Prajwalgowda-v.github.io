@@ -81,13 +81,13 @@
             border: 2px solid #f59e0b;
             border-radius: 50%;
             position: fixed;
-            transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 100001;
             mix-blend-mode: difference;
             opacity: 0;
-            transition: all 0.1s ease;
+            transition: opacity 0.15s ease, transform 0.15s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            will-change: transform;
         }
         
         .cursor-follower {
@@ -96,12 +96,12 @@
             background: radial-gradient(circle, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0));
             border-radius: 50%;
             position: fixed;
-            transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 100000;
             opacity: 0;
-            transition: all 0.2s ease;
+            transition: opacity 0.15s ease, transform 0.25s ease-out;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            will-change: transform;
         }
         
         /* Only show cursor on non-touch devices */
@@ -112,13 +112,13 @@
         }
         
         .cursor.hover {
-            transform: translate(-50%, -50%) scale(2.5);
+            transform: scale(2.5);
             background: rgba(245, 158, 11, 0.15);
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
         }
         
         .cursor-follower.hover {
-            transform: translate(-50%, -50%) scale(3.5);
+            transform: scale(3.5);
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
         }
         
@@ -1709,12 +1709,12 @@
             }
             
             .logo {
-                width: 160px;
+                width: 140px;
                 height: auto; /* Ensure logo maintains aspect ratio */
             }
             
             .header.scrolled .logo {
-                width: 130px;
+                width: 120px;
             }
             
             .header.scrolled .header-content {
@@ -1944,7 +1944,7 @@
                 <!-- Service 1 -->
                 <div class="service-card fade-in stagger-1">
                     <div class="service-icon">
-                        <i class="fas fa-home text-white text-3xl"></i>
+                        <i class="fas fa-home text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Rooftop Solar Panels</h3>
                     <p class="text-gray-300 mb-5">Transform your roof into a power plant with our high-efficiency solar panel systems.</p>
@@ -1956,7 +1956,7 @@
                 <!-- Service 2 -->
                 <div class="service-card fade-in stagger-2">
                     <div class="service-icon">
-                        <i class="fas fa-industry text-white text-3xl"></i>
+                        <i class="fas fa-industry text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Ground-Mounted Solar</h3>
                     <p class="text-gray-300 mb-5">Large-scale solar installations for commercial and industrial applications.</p>
@@ -1968,7 +1968,7 @@
                 <!-- Service 3 -->
                 <div class="service-card fade-in stagger-3">
                     <div class="service-icon">
-                        <i class="fas fa-lightbulb text-white text-3xl"></i>
+                        <i class="fas fa-lightbulb text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Street Lights</h3>
                     <p class="text-gray-300 mb-5">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
@@ -1980,7 +1980,7 @@
                 <!-- Service 4 -->
                 <div class="service-card fade-in stagger-4">
                     <div class="service-icon">
-                        <i class="fas fa-fire text-white text-3xl"></i>
+                        <i class="fas fa-fire text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (ETC)</h3>
                     <p class="text-gray-300 mb-5">Evacuated tube collector systems for efficient water heating solutions.</p>
@@ -1992,7 +1992,7 @@
                 <!-- Service 5 -->
                 <div class="service-card fade-in stagger-5">
                     <div class="service-icon">
-                        <i class="fas fa-temperature-high text-white text-3xl"></i>
+                        <i class="fas fa-temperature-high text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (FPC)</h3>
                     <p class="text-gray-300 mb-5">Flat plate collector systems for reliable and durable water heating.</p>
@@ -2004,7 +2004,7 @@
                 <!-- Service 6 -->
                 <div class="service-card fade-in stagger-6">
                     <div class="service-icon">
-                        <i class="fas fa-tools text-white text-3xl"></i>
+                        <i class="fas fa-tools text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Maintenance & Support</h3>
                     <p class="text-gray-300 mb-5">Comprehensive maintenance services to keep your solar system running efficiently.</p>
@@ -2027,7 +2027,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div class="feature-card fade-in stagger-1">
                     <div class="feature-icon">
-                        <i class="fas fa-award text-white text-3xl"></i>
+                        <i class="fas fa-award text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Award Winning</h3>
                     <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
@@ -2035,7 +2035,7 @@
                 
                 <div class="feature-card fade-in stagger-2">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                        <i class="fas fa-shield-alt text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">5-Year Warranty</h3>
                     <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
@@ -2043,7 +2043,7 @@
                 
                 <div class="feature-card fade-in stagger-3">
                     <div class="feature-icon">
-                        <i class="fas fa-users text-white text-3xl"></i>
+                        <i class="fas fa-users text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Expert Team</h3>
                     <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
@@ -2051,7 +2051,7 @@
                 
                 <div class="feature-card fade-in stagger-4">
                     <div class="feature-icon">
-                        <i class="fas fa-clock text-white text-3xl"></i>
+                        <i class="fas fa-clock text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Quick Installation</h3>
                     <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
@@ -2214,16 +2214,16 @@
                     <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon">
-                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-facebook text-black"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-instagram text-black"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
+                            <i class="fab fa-linkedin text-black"></i>
                         </a>
                         <a href="#" class="social-icon">
-                            <i class="fab fa-youtube"></i>
+                            <i class="fab fa-youtube text-black"></i>
                         </a>
                     </div>
                 </div>
@@ -2258,24 +2258,24 @@
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt text-black"></i>
                             <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i>
+                            <i class="fas fa-phone-alt text-black"></i>
                             <span>
                                 <a href="tel:080 2952 7671">080 2952 7671</a> | 
                                 <a href="tel:+91 70192 99196">+91 70192 99196</a>
                             </span>
                         </li>
                         <li>
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope text-black"></i>
                             <span>
                                 <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
                             </span>
                         </li>
                         <li>
-                            <i class="fas fa-clock"></i>
+                            <i class="fas fa-clock text-black"></i>
                             <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
                         </li>
                     </ul>
@@ -2307,7 +2307,7 @@
             const cursor = document.querySelector('.cursor');
             const cursorFollower = document.querySelector('.cursor-follower');
             
-            // Use requestAnimationFrame for smooth cursor movement
+            // Optimized cursor movement using direct position updates
             let mouseX = 0;
             let mouseY = 0;
             let followerX = 0;
@@ -2318,17 +2318,19 @@
                 mouseY = e.clientY;
                 
                 // Update main cursor position immediately
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
+                cursor.style.left = mouseX - 12.5 + 'px';
+                cursor.style.top = mouseY - 12.5 + 'px';
             });
             
-            // Use animation frame for smooth follower movement
+            // Use requestAnimationFrame for smooth follower animation
             function animateFollower() {
-                followerX += (mouseX - followerX) * 0.15;
-                followerY += (mouseY - followerY) * 0.15;
+                // Simple linear interpolation for smooth following
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
                 
-                cursorFollower.style.left = followerX + 'px';
-                cursorFollower.style.top = followerY + 'px';
+                // Apply position to follower
+                cursorFollower.style.left = followerX - 25 + 'px';
+                cursorFollower.style.top = followerY - 25 + 'px';
                 
                 requestAnimationFrame(animateFollower);
             }

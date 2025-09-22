@@ -470,7 +470,7 @@
             margin: 0 auto 3rem;
         }
         
-        /* 3D Cards */
+        /* Fixed 3D Cards */
         .service-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -481,6 +481,7 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
         }
         
         .service-card::before {
@@ -497,7 +498,7 @@
         }
         
         .service-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
@@ -522,7 +523,7 @@
             transform: scale(1.1) rotateZ(5deg);
         }
         
-        /* 3D Feature Cards */
+        /* Fixed 3D Feature Cards */
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -533,10 +534,11 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             position: relative;
+            transform: perspective(1000px) rotateX(10deg);
         }
         
         .feature-card:hover {
-            transform: translateY(-15px) rotateX(10deg);
+            transform: perspective(1000px) rotateX(10deg) translateY(-15px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
@@ -593,6 +595,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            transform: perspective(1000px) rotateY(5deg);
         }
         
         .testimonial-card::before {
@@ -609,7 +612,7 @@
         }
         
         .testimonial-card:hover {
-            transform: translateY(-15px) rotateY(5deg);
+            transform: perspective(1000px) rotateY(5deg) translateY(-15px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.3);
         }
@@ -1530,6 +1533,7 @@
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
         }
         
         .leadership-card::before {
@@ -1546,7 +1550,7 @@
         }
         
         .leadership-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-20px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
         
@@ -1747,6 +1751,7 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
         }
         
         .solar-system-card::before {
@@ -1763,7 +1768,7 @@
         }
         
         .solar-system-card:hover {
-            transform: translateY(-10px);
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
@@ -1878,6 +1883,7 @@
             position: relative;
             overflow: hidden;
             height: 100%;
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
         }
         
         .component-card::before {
@@ -1894,7 +1900,7 @@
         }
         
         .component-card:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-15px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
@@ -1932,7 +1938,50 @@
             line-height: 1.6;
         }
         
-        /* How It Works Section - Enhanced */
+        /* Enhanced How It Works Section */
+        .how-it-works-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .how-it-works-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+        
+        .how-it-works-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .how-it-works-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .how-it-works-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
         .process-timeline {
             position: relative;
             padding-left: 3rem;
@@ -1948,12 +1997,18 @@
             width: 4px;
             background: linear-gradient(to bottom, #f59e0b, #f97316);
             border-radius: 2px;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
         }
         
         .process-step {
             position: relative;
             padding-bottom: 2rem;
             padding-left: 2rem;
+            transition: all 0.5s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateX(10px);
         }
         
         .process-step::before {
@@ -2009,6 +2064,74 @@
             line-height: 1.6;
         }
         
+        /* Energy Flow Animation */
+        .energy-flow-container {
+            position: relative;
+            height: 140px;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: linear-gradient(to right, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            margin-top: 3rem;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .energy-flow-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+            transform: translateY(-50%);
+            border-radius: 2px;
+        }
+        
+        .energy-flow-particle {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.8), 0 0 60px rgba(245, 158, 11, 0.4);
+            animation: energyFlow 8s infinite linear;
+        }
+        
+        .energy-flow-particle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse 4s infinite;
+        }
+        
+        @keyframes energyFlow {
+            0% {
+                left: 0;
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            10% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+        }
+        
         /* Pricing Section - Enhanced */
         .pricing-grid {
             display: grid;
@@ -2028,6 +2151,7 @@
             position: relative;
             overflow: hidden;
             height: 100%;
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
         }
         
         .pricing-card::before {
@@ -2044,7 +2168,7 @@
         }
         
         .pricing-card:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-15px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
@@ -2059,7 +2183,7 @@
         }
         
         .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-15px) rotateX(5deg) rotateY(5deg);
+            transform: scale(1.05) translateY(-15px);
         }
         
         .pricing-badge {
@@ -2174,6 +2298,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
             transition: all 0.3s ease;
+            transform: perspective(1000px) rotateX(5deg);
         }
         
         .faq-question {
@@ -2742,12 +2867,12 @@
         </div>
     </section>
     
-    <!-- How It Works Section -->
-    <section class="services-section py-20">
-        <div class="container mx-auto px-4 services-content">
+    <!-- Enhanced How It Works Section -->
+    <section class="how-it-works-section py-20">
+        <div class="how-it-works-container">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">How It <span class="text-gradient">Works</span></h2>
-                <p class="section-subtitle">The journey from sunlight to electricity</p>
+                <h2 class="how-it-works-title">How It <span class="text-gradient">Works</span></h2>
+                <p class="how-it-works-subtitle">The journey from sunlight to electricity</p>
             </div>
             
             <div class="process-timeline">
@@ -2798,6 +2923,15 @@
                         After sunset or during low-sunlight periods, the bi-directional meter switches to import mode if your solar output drops below your home's demand. It draws the shortfall from the grid, using up any previously accrued credits first.
                     </p>
                 </div>
+            </div>
+            
+            <!-- Energy Flow Animation -->
+            <div class="energy-flow-container fade-in">
+                <div class="energy-flow-line"></div>
+                <div class="energy-flow-particle"></div>
+                <div class="energy-flow-particle" style="animation-delay: 2s;"></div>
+                <div class="energy-flow-particle" style="animation-delay: 4s;"></div>
+                <div class="energy-flow-particle" style="animation-delay: 6s;"></div>
             </div>
         </div>
     </section>
@@ -3445,29 +3579,6 @@
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-        
-        // 3D Card Effect
-        const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card, .component-card, .pricing-card, .solar-system-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
             });
         });
         

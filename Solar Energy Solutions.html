@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Naptico Green Energy Solars</title>
+    <title>Solar Energy Solutions - Naptico Green Energy Solars</title>
     
     <!-- Favicon and Icons -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -13,23 +13,23 @@
     <link rel="manifest" href="./images/site.webmanifest">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
-    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy company">
+    <meta name="description" content="Explore Naptico's Solar Energy Solutions - Hybrid, On-Grid, and Off-Grid solar systems designed for homes and businesses across India.">
+    <meta name="keywords" content="solar energy solutions, hybrid solar system, on-grid solar, off-grid solar, solar power systems, renewable energy">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us.html">
-    <meta property="og:title" content="About Us - Naptico Green Energy Solars">
-    <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/solar-energy-solutions.html">
+    <meta property="og:title" content="Solar Energy Solutions - Naptico Green Energy Solars">
+    <meta property="og:description" content="Discover our range of solar energy solutions including Hybrid, On-Grid, and Off-Grid systems tailored to your energy needs.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
-    <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/solar-energy-solutions.html">
+    <meta property="twitter:title" content="Solar Energy Solutions - Naptico Green Energy Solars">
+    <meta property="twitter:description" content="Discover our range of solar energy solutions including Hybrid, On-Grid, and Off-Grid systems tailored to your energy needs.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -43,11 +43,10 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Inter', sans-serif;
-            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
         
         /* Only apply custom cursor on non-touch devices */
@@ -222,7 +221,7 @@
         }
         
         .header.scrolled {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             padding: 10px 0;
@@ -518,7 +517,7 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
-        /* Premium Hero Section with Advanced Effects */
+        /* Hero Section - Enhanced */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -527,41 +526,9 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 90px; /* Add padding to prevent header overlap */
         }
         
-        /* Dynamic Background Effect */
-        .hero-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
-            animation: backgroundMove 20s ease-in-out infinite;
-            z-index: 0;
-        }
-        
-        @keyframes backgroundMove {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(-20px, -20px) scale(1.05);
-            }
-            50% {
-                transform: translate(20px, -10px) scale(1.1);
-            }
-            75% {
-                transform: translate(-10px, 20px) scale(1.05);
-            }
-        }
-        
-        /* Hero Slideshow with 3D Effect */
+        /* Hero Slideshow */
         .hero-slideshow {
             position: absolute;
             top: 0;
@@ -579,7 +546,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: all 1.8s ease-in-out;
+            transition: all 1.5s ease-in-out;
             background-size: cover;
             background-position: center;
             transform: translateZ(-100px) rotateY(90deg);
@@ -602,7 +569,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.7);
             z-index: 2;
         }
         
@@ -612,87 +579,65 @@
             transform-style: preserve-3d;
         }
         
-        /* Premium 3D Text Effects */
+        /* 3D Text Effects */
         .hero-title {
-            font-size: clamp(2.8rem, 9vw, 5.5rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             transform-style: preserve-3d;
-            animation: floatText 8s ease-in-out infinite;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: floatText 6s ease-in-out infinite;
         }
         
         @keyframes floatText {
-            0%, 100% { 
-                transform: translateY(0) rotateX(0deg); 
-            }
-            25% { 
-                transform: translateY(-15px) rotateX(3deg); 
-            }
-            50% { 
-                transform: translateY(0) rotateX(0deg); 
-            }
-            75% { 
-                transform: translateY(-10px) rotateX(-2deg); 
-            }
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
         }
         
         .text-gradient {
-            background: linear-gradient(90deg, #f59e0b, #f97316, #f59e0b);
+            background: linear-gradient(90deg, #f59e0b, #f97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: gradientShift 5s ease infinite;
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
         }
         
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Premium Button Design */
+        /* Enhanced Button Design */
         .hero-btn {
             display: inline-block;
-            padding: 18px 35px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 16px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             z-index: 1;
             text-decoration: none;
             margin: 5px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .hero-btn-primary {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: linear-gradient(90deg, #f59e0b, #f97316);
             color: white;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
         
         .hero-btn-primary:hover {
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(245, 158, 11, 0.4);
         }
         
         .hero-btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background: transparent;
             color: white;
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            backdrop-filter: blur(10px);
+            border: 2px solid #f59e0b;
         }
         
         .hero-btn-secondary:hover {
-            background: rgba(245, 158, 11, 0.2);
-            transform: translateY(-5px) rotateX(5deg);
-            border-color: #f59e0b;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-3px);
         }
         
         .hero-btn::before {
@@ -703,23 +648,85 @@
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.2);
-            transition: left 0.6s ease;
+            transition: left 0.5s ease;
             z-index: -1;
         }
         
         .hero-btn:hover::before {
-            left: 100%;
+            left : 100%;
         }
         
-        /* Premium Services Section */
-        .services-section {
+        /* 3D Cards */
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Particle Effect */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.8), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 20s infinite linear;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Solar Solutions Section */
+        .solutions-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 100px 0;
         }
         
-        .services-section::before {
+        .solutions-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -731,7 +738,7 @@
             z-index: 0;
         }
         
-        .services-content {
+        .solutions-content {
             position: relative;
             z-index: 1;
         }
@@ -751,21 +758,31 @@
             margin: 0 auto 4rem;
         }
         
-        /* Premium 3D Cards with Glass Effect */
-        .service-card {
+        /* Solar System Cards */
+        .solar-systems-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        
+        .solar-system-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 35px;
+            padding: 30px;
+            width: 320px;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
         
-        .service-card::before {
+        .solar-system-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -778,228 +795,696 @@
             z-index: -1;
         }
         
-        .service-card:hover {
-            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
+        .solar-system-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .service-card:hover::before {
+        .solar-system-card:hover::before {
             opacity: 1;
         }
         
-        .service-icon {
-            width: 90px;
-            height: 90px;
+        .solar-system-card.active {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(249, 115, 22, 0.2));
+            border-color: #f59e0b;
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
+        }
+        
+        .solar-system-icon {
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
-        .service-card:hover .service-icon {
+        .solar-system-card:hover .solar-system-icon {
             transform: scale(1.15) rotateZ(10deg);
             box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
         }
         
-        /* Animated Learn More Button */
-        .learn-more-btn {
-            display: inline-flex;
-            align-items: center;
-            color: #f59e0b;
-            font-weight: 600;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-            margin-top: 15px;
+        .solar-system-card.active .solar-system-icon {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
         }
         
-        .learn-more-btn:hover {
-            color: #f97316;
+        .solar-system-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
         }
         
-        .learn-more-btn i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-            font-size: 14px;
+        .solar-system-description {
+            color: #e2e8f0;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
-        .learn-more-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        .learn-more-btn::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            transition: width 0.3s ease;
-        }
-        
-        .learn-more-btn:hover::after {
-            width: 100%;
-        }
-        
-        /* Premium Feature Cards */
-        .feature-card {
-            background: rgba(255, 255, 255, 0.08);
+        /* Solar System Details */
+        .solar-system-details {
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            margin-top: 40px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+            scroll-margin-top: 100px;
         }
         
-        .feature-card:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        .solar-system-details.active {
+            display: block;
         }
         
-        .feature-icon {
-            width: 110px;
-            height: 110px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .details-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .details-icon {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            margin-right: 20px;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
-        .feature-card:hover .feature-icon {
-            transform: scale(1.15) rotateY(180deg);
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        .details-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
         }
         
-        /* Premium Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+        .details-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .details-left {
+            color: #e2e8f0;
+        }
+        
+        .details-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        
+        .details-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+        
+        .details-right h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        
+        .details-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        
+        .details-list li {
+            color: #e2e8f0;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .details-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #f59e0b;
+        }
+        
+        .details-applications {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .details-applications h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .applications-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .application-tag {
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            color: #f59e0b;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Detailed Sections */
+        .detailed-section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #f59e0b;
+            transition: all 0.3s ease;
+        }
+        
+        .detailed-section:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .detailed-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .detailed-section h3 i {
+            color: #f59e0b;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .detailed-section p {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .detailed-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .detailed-section ul li {
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .detailed-section ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #f59e0b;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            padding: 100px 0;
         }
         
-        .testimonials-section::before {
+        .pricing-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
-            z-index: 0;
-        }
-        
-        .testimonials-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
             z-index: -1;
         }
         
-        .testimonial-card:hover {
-            transform: translateY(-20px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #f59e0b;
         }
         
-        .testimonial-card:hover::before {
+        .pricing-card:hover::before {
             opacity: 1;
         }
         
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .testimonial-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-right: 20px;
-            border: 3px solid rgba(245, 158, 11, 0.5);
-            object-fit: cover;
-            object-position: top center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .testimonial-info h4 {
-            color: white;
+        .pricing-card h4 {
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 15px;
         }
         
-        .testimonial-info p {
-            color: #94a3b8;
+        .pricing-card .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #e2e8f0;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .pricing-card ul li {
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
             font-size: 1rem;
         }
         
-        .testimonial-rating {
+        .pricing-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
             color: #f59e0b;
+        }
+        
+        .pricing-card .package-btn {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .pricing-card .package-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .pricing-card .package-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .pricing-card .package-btn:hover::before {
+            left: 100%;
+        }
+        
+        .pricing-note {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        /* ROI Section */
+        .roi-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .roi-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .roi-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .roi-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .roi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .roi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #f59e0b;
+        }
+        
+        .roi-card:hover::before {
+            opacity: 1;
+        }
+        
+        .roi-card .roi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        
+        .roi-card .roi-label {
+            font-size: 1rem;
+            color: #e2e8f0;
+        }
+        
+        /* Advantages/Disadvantages Section */
+        .advantages-disadvantages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .advantages, .disadvantages {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .advantages:hover, .disadvantages:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .advantages h3, .disadvantages h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .advantages h3 i {
+            color: #10b981;
+            margin-right: 10px;
+        }
+        
+        .disadvantages h3 i {
+            color: #ef4444;
+            margin-right: 10px;
+        }
+        
+        .advantages ul, .disadvantages ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .advantages ul li {
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        .advantages ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #10b981;
+        }
+        
+        .disadvantages ul li {
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        .disadvantages ul li::before {
+            content: '\f00d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #ef4444;
+        }
+        
+        /* Installation Process */
+        .installation-process {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .installation-process h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .process-step {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #f59e0b;
+        }
+        
+        .process-step:hover::before {
+            opacity: 1;
+        }
+        
+        .process-step .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: 700;
+            color: white;
             font-size: 1.2rem;
         }
         
-        .testimonial-text {
-            color: #e2e8f0;
-            font-style: italic;
-            line-height: 1.7;
-            flex-grow: 1;
-            font-size: 1.1rem;
+        .process-step h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
         }
         
-        .testimonial-quote {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 3.5rem;
-            color: rgba(245, 158, 11, 0.15);
-            font-family: Georgia, serif;
+        .process-step p {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .faq-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #f59e0b;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: #f59e0b;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #e2e8f0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
         }
         
         /* Premium Footer */
@@ -1237,34 +1722,6 @@
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
-        /* Premium Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 25s infinite linear;
-            transform-style: preserve-3d;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
-                opacity: 0;
-            }
-        }
-        
         /* Premium Quote Form Modal */
         .quote-modal {
             position: fixed;
@@ -1394,23 +1851,45 @@
             letter-spacing: 1px;
         }
         
-        .form-input, .form-textarea {
+        .form-input, .form-textarea, .form-select {
             width: 100%;
             padding: 18px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 12px;
-            color: white;
+            color: white !important;
             font-size: 16px;
             outline: none;
             transition: all 0.4s ease;
             box-sizing: border-box;
         }
         
-        .form-input:focus, .form-textarea:focus {
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
             background: rgba(255, 255, 255, 0.15);
             border-color: #f59e0b;
             box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
+        }
+        
+        .form-input::placeholder, .form-textarea::placeholder, .form-select::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+        
+        /* Enhanced dropdown styling */
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f59e0b' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 12px;
+            padding-right: 45px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        
+        .form-select option {
+            background: #1e293b;
+            color: white;
+            padding: 12px;
         }
         
         .form-textarea {
@@ -1510,7 +1989,6 @@
             font-size: 17px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
-            margin-top: 35px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -1554,6 +2032,7 @@
         
         .required {
             color: #f59e0b;
+            font-weight: bold;
         }
         
         .form-message {
@@ -1610,7 +2089,7 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
-        /* Premium CTA Section */
+        /* Enhanced CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #f97316, #f59e0b);
             position: relative;
@@ -1629,6 +2108,29 @@
             z-index: 0;
         }
         
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
+            animation: ctaGlow 8s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes ctaGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(50px, 50px) scale(1.1);
+                opacity: 0.5;
+            }
+        }
+        
         .cta-content {
             position: relative;
             z-index: 1;
@@ -1639,386 +2141,70 @@
             color: #f97316;
             border: none;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-weight: 700;
+            border: 2px solid transparent;
+        }
+        
+        .cta-btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+        
+        .cta-btn-primary:hover::before {
+            transform: translateX(100%);
         }
         
         .cta-btn-primary:hover {
             transform: translateY(-5px) rotateX(5deg);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
             background: #f8fafc;
+            border-color: white;
         }
         
         .cta-btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+        
+        .cta-btn-secondary:hover::before {
+            transform: scale(1);
         }
         
         .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* New Milestones Section Styles */
-        .milestones-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .milestones-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .milestones-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .milestones-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .milestones-subtitle {
-            font-size: 1.25rem;
-            color: #e2e8f0;
-            max-width: 3xl;
-            margin: 0 auto 60px;
-            text-align: center;
-        }
-        
-        /* Milestone Carousel */
-        .milestone-carousel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .milestone-track {
-            display: flex;
-            transition: transform 0.8s ease;
-        }
-        
-        .milestone-slide {
-            min-width: 100%;
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-        }
-        
-        .milestone-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .milestone-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
-            display: flex;
-            align-items: center;
-        }
-        
-        .milestone-content {
-            padding: 0 10%;
-            max-width: 800px;
-        }
-        
-        .milestone-year {
-            font-size: 5rem;
-            font-weight: 800;
-            color: #f59e0b;
-            line-height: 1;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .milestone-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .milestone-description {
-            font-size: 1.2rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        
-        /* Carousel Navigation */
-        .milestone-nav {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 10;
-        }
-        
-        .milestone-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .milestone-dot.active {
-            background: #f59e0b;
-            transform: scale(1.2);
-        }
-        
-        .milestone-arrows {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-        
-        .milestone-arrow {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(245, 158, 11, 0.8);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 20px;
-        }
-        
-        .milestone-arrow:hover {
-            background: #f97316;
-            transform: scale(1.1);
-        }
-        
-        /* New Leadership Team Section Styles */
-        .leadership-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .leadership-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .leadership-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .leadership-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .leadership-subtitle {
-            font-size: 1.25rem;
-            color: #e2e8f0;
-            max-width: 3xl;
-            margin: 0 auto 60px;
-            text-align: center;
-        }
-        
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        
-        .leadership-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .leadership-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .leadership-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .leadership-card:hover::before {
-            opacity: 1;
-        }
-        
-        .leadership-image {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-        }
-        
-        .leadership-image img {
-            width: 100%;
-            height: 200%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .leadership-card:hover .leadership-image img {
-            transform: scale(1.1);
-        }
-        
-        .leadership-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
-            z-index: 1;
-        }
-        
-        .leadership-badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
-        }
-        
-        .leadership-content {
-            padding: 30px;
-        }
-        
-        .leadership-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .leadership-position {
-            color: #f59e0b;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .leadership-position i {
-            font-size: 1rem;
-        }
-        
-        .leadership-bio {
-            color: #e2e8f0;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        
-        .leadership-social {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .leadership-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .leadership-social a:hover {
-            background: #f59e0b;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
-        
-        /* Decorative elements */
-        .leadership-card::after {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            transition: all 0.5s ease;
-        }
-        
-        .leadership-card:hover::after {
-            transform: scale(1.5);
-            opacity: 0.5;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
         }
         
         /* Premium Responsive adjustments */
@@ -2042,7 +2228,7 @@
                 padding: 40px 25px;
             }
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             .form-grid {
                 grid-template-columns: 1fr;
@@ -2089,23 +2275,35 @@
                 padding-top: 80px; /* Adjust based on header height */
             }
             
-            .milestone-year {
-                font-size: 3rem;
+            /* Solar Systems Cards Mobile */
+            .solar-systems-container {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .milestone-title {
-                font-size: 1.8rem;
+            .solar-system-card {
+                width: 100%;
+                max-width: 400px;
             }
             
-            .milestone-description {
-                font-size: 1rem;
+            /* Solar System Details Mobile */
+            .details-content {
+                grid-template-columns: 1fr;
             }
             
-            .milestone-content {
-                padding: 0 5%;
+            .advantages-disadvantages {
+                grid-template-columns: 1fr;
             }
             
-            .leadership-grid {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .roi-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-steps {
                 grid-template-columns: 1fr;
             }
         }
@@ -2139,6 +2337,27 @@
                 font-size: 2.2rem;
                 margin-top: 20px; /* Add some space between header and title */
             }
+            
+            .details-title {
+                font-size: 2rem;
+            }
+            
+            .roi-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            /* CTA Section Mobile */
+            .cta-section {
+                padding: 60px 0;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-content p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -2170,6 +2389,7 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                    <li><a href="solar-energy-solutions.html" class="nav-link">Solutions</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
@@ -2198,6 +2418,7 @@
         <ul class="mobile-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="about-us.html">About Us</a></li>
+            <li><a href="solar-energy-solutions.html">Solutions</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="savings-calculator.html">Calculator</a></li>
@@ -2239,6 +2460,25 @@
                             <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
                         </div>
                         <div class="form-group">
+                            <label for="systemType" class="form-label">System Type <span class="required">*</span></label>
+                            <select id="systemType" name="systemType" class="form-select" required>
+                                <option value="">Select System Type</option>
+                                <option value="hybrid">Hybrid Solar System</option>
+                                <option value="on-grid">On-Grid Solar System</option>
+                                <option value="off-grid">Off-Grid Solar System</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="package" class="form-label">Package Type <span class="required">*</span></label>
+                            <select id="package" name="package" class="form-select" required>
+                                <option value="">Select Package</option>
+                                <option value="basic">Basic Package</option>
+                                <option value="standard">Standard Package</option>
+                                <option value="premium">Premium Package</option>
+                                <option value="custom">Custom Package</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
                             <div class="file-upload">
                                 <input type="file" id="bill" name="bill" class="file-upload-input" accept="image/*,.pdf" multiple required>
@@ -2276,9 +2516,9 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Premium Hero Section -->
+    <!-- Hero Section -->
     <section class="hero-gradient">
-        <!-- Hero Slideshow -->
+        <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
             <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
@@ -2289,15 +2529,14 @@
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="hero-title text-white">
-                        About <span class="text-gradient">Naptico Green Energy</span>
+                        Power Your Future with <span class="text-gradient">Naptico Energy</span>
                     </h1>
-                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering 50,000+ homes and businesses across the country.</p>
-                    <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+                    <p class="text-xl mb-8 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#solutions" class="hero-btn hero-btn-primary">Our Solar Solutions</a>
                     </div>
                 </div>
                 <div class="relative">
@@ -2307,63 +2546,868 @@
                 </div>
             </div>
         </div>
-        <!-- Premium Particle Effect -->
+        <!-- Particle Effect -->
         <div id="particles"></div>
     </section>
     
-    <!-- About Section -->
-    <section class="services-section py-20">
-        <div class="container mx-auto px-4 services-content">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title">About <span class="text-gradient">Naptico Green Energy Solars</span></h2>
-                <p class="section-subtitle">Leading the solar revolution in India since 2015</p>
+    <!-- Solar Solutions Section -->
+    <section id="solutions" class="solutions-section py-20">
+        <div class="container mx-auto px-4 solutions-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Our Solar <span class="text-gradient">Solutions</span></h2>
+                <p class="section-subtitle">Choose the perfect solar system for your energy needs</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="fade-in stagger-1">
-                    <p class="text-gray-300 mb-4">Naptico Green Energy Solars started in 2015 with the desire to escalate the mass adoption of solar in India. We're now the third-largest EPC contractor in the country, having served 25,000+ homes and 250+ housing societies.</p>
-                    <div class="bg-amber-900/20 p-6 rounded-xl border-l-4 border-amber-500 mb-6">
-                        <h3 class="font-bold text-lg text-white mb-3">Our Services Include:</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-amber-500 mt-1 mr-3"></i>
-                                <span class="text-gray-300">The installation of on-grid rooftop solar systems for homes and housing societies</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-amber-500 mt-1 mr-3"></i>
-                                <span class="text-gray-300">After-installation maintenance and after-sales care</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-amber-500 mt-1 mr-3"></i>
-                                <span class="text-gray-300">Varied EMI options for our customers</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-amber-500 mt-1 mr-3"></i>
-                                <span class="text-gray-300">Using prefabricated mounting structures for the installation of solar panels</span>
-                            </li>
+            <!-- Solar System Cards -->
+            <div class="solar-systems-container">
+                <!-- Hybrid Solar System Card -->
+                <div class="solar-system-card fade-in stagger-1" data-system="hybrid">
+                    <div class="solar-system-icon">
+                        <i class="fas fa-solar-panel text-white text-3xl"></i>
+                    </div>
+                    <h3 class="solar-system-title">Hybrid Solar System</h3>
+                    <p class="solar-system-description">Combines grid connectivity with battery storage for maximum flexibility and energy independence.</p>
+                </div>
+                
+                <!-- On-Grid Solar System Card -->
+                <div class="solar-system-card fade-in stagger-2" data-system="on-grid">
+                    <div class="solar-system-icon">
+                        <i class="fas fa-plug text-white text-3xl"></i>
+                    </div>
+                    <h3 class="solar-system-title">On-Grid Solar System</h3>
+                    <p class="solar-system-description">Connected to the utility grid, allowing you to sell excess power back and earn credits.</p>
+                </div>
+                
+                <!-- Off-Grid Solar System Card -->
+                <div class="solar-system-card fade-in stagger-3" data-system="off-grid">
+                    <div class="solar-system-icon">
+                        <i class="fas fa-battery-full text-white text-3xl"></i>
+                    </div>
+                    <h3 class="solar-system-title">Off-Grid Solar System</h3>
+                    <p class="solar-system-description">Complete energy independence with battery storage, ideal for remote locations.</p>
+                </div>
+            </div>
+            
+            <!-- Hybrid Solar System Details -->
+            <div id="hybrid-details" class="solar-system-details">
+                <div class="details-header">
+                    <div class="details-icon">
+                        <i class="fas fa-solar-panel text-white text-3xl"></i>
+                    </div>
+                    <h2 class="details-title">Hybrid Solar System</h2>
+                </div>
+                
+                <!-- About Naptico Green Energy Solars -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-building"></i> About Naptico Green Energy Solars</h3>
+                    <p>Naptico Green Energy Solars is India's most trusted solar energy provider with over a decade of experience in delivering high-quality solar solutions. With 50,000+ successful installations and 200+ MW of clean energy generated across the country, we are committed to accelerating India's transition to sustainable energy.</p>
+                    <p>Our team of 500+ certified solar experts works tirelessly to provide customized solutions that meet the unique energy needs of our residential, commercial, and industrial clients. We pride ourselves on our innovative technology, exceptional service, and unwavering commitment to customer satisfaction.</p>
+                </div>
+                
+                <!-- Overview of Hybrid Solar Systems -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-info-circle"></i> Overview of Hybrid Solar Systems</h3>
+                    <p>A hybrid solar system combines the best features of grid-tied and off-grid solar systems. It's connected to the utility grid but also includes battery storage, allowing you to store excess energy for use during power outages or at night. This system provides the ultimate flexibility and energy security.</p>
+                    <p>Hybrid systems are intelligent and can automatically switch between power sources depending on availability, cost, and your energy consumption patterns. They can draw power from the solar panels, batteries, or the grid as needed, ensuring you always have electricity when you need it.</p>
+                </div>
+                
+                <!-- Hybrid Solar System Components -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-cogs"></i> Hybrid Solar System Components</h3>
+                    <ul>
+                        <li>Solar Panels: Convert sunlight into electricity</li>
+                        <li>Hybrid Inverter: Converts DC power to AC power and manages battery charging/discharging</li>
+                        <li>Battery Storage: Stores excess energy for use when needed</li>
+                        <li>Charge Controller: Regulates the charging of batteries to prevent overcharging</li>
+                        <li>Grid Connection: Allows for two-way power flow with the utility grid</li>
+                        <li>Monitoring System: Tracks energy production and consumption</li>
+                        <li>Safety Equipment: Includes disconnect switches, surge protection, and grounding</li>
+                    </ul>
+                </div>
+                
+                <!-- How Does a Hybrid Solar System Work? -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-question-circle"></i> How Does a Hybrid Solar System Work?</h3>
+                    <p>A hybrid solar system works by intelligently managing multiple power sources to ensure optimal energy use. During the day, solar panels generate electricity that powers your home or business. Excess energy is stored in batteries for later use or fed back into the grid for credits.</p>
+                    <p>When solar production is insufficient (at night or during cloudy weather), the system first draws power from the batteries. If the batteries are depleted, it then draws power from the grid. During power outages, the system can operate independently using stored battery power, providing uninterrupted electricity.</p>
+                    <p>The hybrid inverter is the brain of the system, managing the flow of electricity between solar panels, batteries, and the grid. It optimizes energy use based on real-time conditions, utility rates, and your energy consumption patterns.</p>
+                </div>
+                
+                <!-- Solar Subsidy For Hybrid System -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Solar Subsidy For Hybrid System</h3>
+                    <p>The Indian government offers various subsidies and incentives to promote the adoption of hybrid solar systems. These financial benefits make solar energy more affordable and attractive for homeowners and businesses.</p>
+                    <ul>
+                        <li>Central Financial Assistance (CFA): Up to 40% subsidy for residential systems up to 3kW</li>
+                        <li>State-specific subsidies: Additional incentives offered by various state governments</li>
+                        <li>Tax Benefits: Accelerated depreciation for commercial and industrial installations</li>
+                        <li>Net Metering: Earn credits for excess electricity fed back to the grid</li>
+                        <li>Reduced GST: Lower tax rates on solar components and installation</li>
+                    </ul>
+                    <p>Our team at Naptico Green Energy Solars helps customers navigate the subsidy application process, ensuring they maximize available financial benefits.</p>
+                </div>
+                
+                <!-- Rooftop Solar Panel Plans & Pricing -->
+                <div class="pricing-section">
+                    <h3><i class="fas fa-tags"></i> Rooftop Solar Panel Plans & Pricing</h3>
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <h4>Basic Package</h4>
+                            <div class="price">₹1,50,000 <span>onwards</span></div>
+                            <ul>
+                                <li>1-3 kW capacity</li>
+                                <li>Monocrystalline panels</li>
+                                <li>Basic hybrid inverter</li>
+                                <li>5-10 kWh battery storage</li>
+                                <li>Standard installation</li>
+                                <li>5-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="basic">Select Package</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Standard Package</h4>
+                            <div class="price">₹2,50,000 <span>onwards</span></div>
+                            <ul>
+                                <li>3-5 kW capacity</li>
+                                <li>High-efficiency panels</li>
+                                <li>Advanced hybrid inverter</li>
+                                <li>10-15 kWh battery storage</li>
+                                <li>Premium installation</li>
+                                <li>7-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="standard">Select Package</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Premium Package</h4>
+                            <div class="price">₹4,00,000 <span>onwards</span></div>
+                            <ul>
+                                <li>5-10 kW capacity</li>
+                                <li>Top-tier monocrystalline panels</li>
+                                <li>Smart hybrid inverter with monitoring</li>
+                                <li>15-25 kWh battery storage</li>
+                                <li>Customized installation</li>
+                                <li>10-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="premium">Select Package</button>
+                        </div>
+                    </div>
+                    <p class="pricing-note">*Note: The prices mentioned above are indicative and may vary based on your specific requirements, location, and system configuration.</p>
+                </div>
+                
+                <!-- Pricing Examples Across India -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Pricing Examples Across India</h3>
+                    <p>The cost of hybrid solar systems varies across different regions in India due to factors such as local labor costs, transportation expenses, and state-specific incentives. Here are some approximate pricing examples:</p>
+                    <ul>
+                        <li><strong>North India</strong> (Delhi, Punjab, Haryana): ₹55,000 - ₹65,000 per kW</li>
+                        <li><strong>West India</strong> (Maharashtra, Gujarat): ₹50,000 - ₹60,000 per kW</li>
+                        <li><strong>South India</strong> (Karnataka, Tamil Nadu, Kerala): ₹52,000 - ₹62,000 per kW</li>
+                        <li><strong>East India</strong> (West Bengal, Odisha): ₹58,000 - ₹68,000 per kW</li>
+                        <li><strong>Northeast India</strong>: ₹65,000 - ₹75,000 per kW</li>
+                    </ul>
+                    <p>These prices are indicative and may vary based on specific requirements, brand preferences, and installation complexity. Contact us for a customized quote based on your location and energy needs.</p>
+                </div>
+                
+                <!-- Return on Investment -->
+                <div class="roi-section">
+                    <h3><i class="fas fa-chart-line"></i> Return on Investment</h3>
+                    <div class="roi-cards">
+                        <div class="roi-card">
+                            <div class="roi-value">5-7</div>
+                            <div class="roi-label">Years Payback Period</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">25%</div>
+                            <div class="roi-label">Annual Returns</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">25+</div>
+                            <div class="roi-label">Years System Life</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">90%</div>
+                            <div class="roi-label">Electricity Savings</div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; color: #e2e8f0;">Hybrid solar systems offer excellent return on investment through reduced electricity bills, government incentives, and increased property value. Most systems pay for themselves within 5-7 years and continue generating savings for over 25 years.</p>
+                </div>
+                
+                <!-- Advantages and Disadvantages -->
+                <div class="advantages-disadvantages">
+                    <div class="advantages">
+                        <h3><i class="fas fa-thumbs-up"></i> Advantages</h3>
+                        <ul>
+                            <li>Energy independence and security</li>
+                            <li>Power during grid outages</li>
+                            <li>Maximized energy savings</li>
+                            <li>Reduced electricity bills</li>
+                            <li>Net metering benefits</li>
+                            <li>Environmentally friendly</li>
+                            <li>Increased property value</li>
+                            <li>Government incentives available</li>
                         </ul>
                     </div>
-                    <p class="text-gray-300">We closely work with our customers and build a legacy that will last for as long as your solar system will last (at least 25 years).</p>
+                    <div class="disadvantages">
+                        <h3><i class="fas fa-thumbs-down"></i> Disadvantages</h3>
+                        <ul>
+                            <li>Higher initial cost compared to on-grid systems</li>
+                            <li>Battery replacement required every 5-10 years</li>
+                            <li>More complex installation and maintenance</li>
+                            <li>Requires more space for batteries</li>
+                            <li>Efficiency losses in battery charging/discharging</li>
+                            <li>Dependent on battery technology advancements</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="fade-in stagger-2">
-                    <div class="service-card">
-                        <div class="grid grid-cols-2 gap-6 p-6">
-                            <div class="text-center">
-                                <div class="text-4xl font-bold text-amber-500 mb-2">25,000+</div>
-                                <div class="text-gray-300">Happy Homes</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-4xl font-bold text-amber-500 mb-2">250+</div>
-                                <div class="text-gray-300">Housing Societies</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-4xl font-bold text-amber-500 mb-2">200+ MW</div>
-                                <div class="text-gray-300">Clean Energy</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-4xl font-bold text-amber-500 mb-2">25+</div>
-                                <div class="text-gray-300">Years Warranty</div>
-                            </div>
+                
+                <!-- Installation Process -->
+                <div class="installation-process">
+                    <h3><i class="fas fa-tools"></i> Installation Process</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Site Assessment</h4>
+                            <p>Our experts evaluate your location, energy needs, and site conditions</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>System Design</h4>
+                            <p>Customized system design based on your requirements and budget</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Permitting</h4>
+                            <p>We handle all necessary permits and paperwork</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Installation</h4>
+                            <p>Professional installation by our certified technicians</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <h4>Inspection</h4>
+                            <p>Thorough inspection and testing of the system</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">6</div>
+                            <h4>Commissioning</h4>
+                            <p>System activation and connection to the grid</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Why Choose Naptico Green Energy Solars? -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-star"></i> Why Choose Naptico Green Energy Solars?</h3>
+                    <ul>
+                        <li><strong>Experience:</strong> Over a decade of expertise in solar energy solutions</li>
+                        <li><strong>Quality:</strong> Premium components and international standards</li>
+                        <li><strong>Customization:</strong> Tailored solutions for your specific energy needs</li>
+                        <li><strong>Technology:</strong> Latest innovations in solar and battery storage</li>
+                        <li><strong>Service:</strong> End-to-end service from consultation to maintenance</li>
+                        <li><strong>Warranty:</strong> Comprehensive warranty on all products and installation</li>
+                        <li><strong>Support:</strong> 24/7 customer support and monitoring</li>
+                        <li><strong>Financing:</strong> Multiple financing options to suit your budget</li>
+                    </ul>
+                </div>
+                
+                <!-- Frequently Asked Questions -->
+                <div class="faq-section">
+                    <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What is the difference between a hybrid and on-grid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            A hybrid solar system includes battery storage and can operate independently during power outages, while an on-grid system is connected only to the utility grid and cannot provide power during outages. Hybrid systems offer more flexibility and energy security but at a higher initial cost.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long do hybrid solar batteries last?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Hybrid solar batteries typically last between 5-10 years, depending on the type, usage patterns, and maintenance. Lithium-ion batteries generally have a longer lifespan (8-10 years) compared to lead-acid batteries (5-7 years).
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I expand my hybrid solar system in the future?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, hybrid solar systems are designed to be expandable. You can add more solar panels or increase battery capacity as your energy needs grow. Our systems are modular and can be easily upgraded with minimal disruption.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What maintenance is required for a hybrid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Hybrid solar systems require minimal maintenance, including periodic cleaning of solar panels, checking battery connections, and ensuring the inverter is functioning properly. We offer comprehensive maintenance packages to keep your system operating at peak efficiency.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How much can I save with a hybrid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Savings vary based on your energy consumption, system size, and local electricity rates. Most customers save 70-90% on their electricity bills. With government incentives and net metering, the payback period is typically 5-7 years, after which you enjoy nearly free electricity for the remaining life of the system.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- On-Grid Solar System Details -->
+            <div id="on-grid-details" class="solar-system-details">
+                <div class="details-header">
+                    <div class="details-icon">
+                        <i class="fas fa-plug text-white text-3xl"></i>
+                    </div>
+                    <h2 class="details-title">On-Grid Solar System</h2>
+                </div>
+                
+                <!-- About Naptico Green Energy Solars -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-building"></i> About Naptico Green Energy Solars</h3>
+                    <p>Naptico Green Energy Solars is India's most trusted solar energy provider with over a decade of experience in delivering high-quality solar solutions. With 50,000+ successful installations and 200+ MW of clean energy generated across the country, we are committed to accelerating India's transition to sustainable energy.</p>
+                    <p>Our team of 500+ certified solar experts works tirelessly to provide customized solutions that meet the unique energy needs of our residential, commercial, and industrial clients. We pride ourselves on our innovative technology, exceptional service, and unwavering commitment to customer satisfaction.</p>
+                </div>
+                
+                <!-- Overview of On-Grid Solar Systems -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-info-circle"></i> Overview of On-Grid Solar Systems</h3>
+                    <p>An on-grid or grid-tied solar system is connected to the utility grid. It generates power when the sun is shining and feeds any excess electricity back into the grid. This system doesn't require batteries, making it more cost-effective and easier to maintain. You earn credits for the excess power you supply to the grid.</p>
+                    <p>On-grid systems are the most common type of solar installation in urban and suburban areas where grid connectivity is reliable. They offer a simple way to reduce electricity bills and carbon footprint without the complexity and cost of battery storage.</p>
+                </div>
+                
+                <!-- On-Grid Solar System Components -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-cogs"></i> On-Grid Solar System Components</h3>
+                    <ul>
+                        <li>Solar Panels: Convert sunlight into electricity</li>
+                        <li>Grid-Tied Inverter: Converts DC power to AC power for use in your home or business</li>
+                        <li>Mounting Structure: Secures solar panels to roof or ground</li>
+                        <li>Bi-Directional Meter: Measures both electricity consumption and export to the grid</li>
+                        <li>Grid Connection Equipment: Includes safety switches and disconnects</li>
+                        <li>Monitoring System: Tracks energy production and consumption</li>
+                    </ul>
+                </div>
+                
+                <!-- How Does an On-Grid Solar System Work? -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-question-circle"></i> How Does an On-Grid Solar System Work?</h3>
+                    <p>An on-grid solar system works by converting sunlight into electricity through solar panels. The DC electricity generated by the panels is converted to AC electricity by the grid-tied inverter, making it compatible with your home appliances and the utility grid.</p>
+                    <p>During the day, when your solar system produces more electricity than you consume, the excess power is fed back into the grid. Your utility company credits you for this excess power through a process called net metering. When your system produces less electricity than you need (at night or during cloudy weather), you draw power from the grid.</p>
+                    <p>The bi-directional meter tracks both the electricity you consume from the grid and the excess you export. At the end of the billing period, you're billed for the net consumption (total consumption minus exports), resulting in significant savings on your electricity bills.</p>
+                </div>
+                
+                <!-- Solar Subsidy For On-Grid System -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Solar Subsidy For On-Grid System</h3>
+                    <p>The Indian government offers substantial subsidies and incentives for on-grid solar systems to encourage renewable energy adoption. These financial benefits make solar installations more affordable and attractive for homeowners and businesses.</p>
+                    <ul>
+                        <li>Central Financial Assistance (CFA): Up to 40% subsidy for residential systems up to 3kW and 20% for systems between 3-10kW</li>
+                        <li>State-specific subsidies: Additional incentives offered by various state governments</li>
+                        <li>Net Metering: Earn credits for excess electricity fed back to the grid</li>
+                        <li>Tax Benefits: Accelerated depreciation for commercial and industrial installations</li>
+                        <li>Reduced GST: Lower tax rates on solar components and installation</li>
+                    </ul>
+                    <p>At Naptico Green Energy Solars, we assist our customers in availing all applicable subsidies and incentives, ensuring maximum financial benefits from their solar investment.</p>
+                </div>
+                
+                <!-- Rooftop Solar Panel Plans & Pricing -->
+                <div class="pricing-section">
+                    <h3><i class="fas fa-tags"></i> Rooftop Solar Panel Plans & Pricing</h3>
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <h4>Basic Package</h4>
+                            <div class="price">₹80,000 <span>onwards</span></div>
+                            <ul>
+                                <li>1-3 kW capacity</li>
+                                <li>Polycrystalline panels</li>
+                                <li>Standard grid-tied inverter</li>
+                                <li>Basic mounting structure</li>
+                                <li>Standard installation</li>
+                                <li>5-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="basic">Select Package</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Standard Package</h4>
+                            <div class="price">₹1,50,000 <span>onwards</span></div>
+                            <ul>
+                                <li>3-5 kW capacity</li>
+                                <li>Monocrystalline panels</li>
+                                <li>Advanced grid-tied inverter</li>
+                                <li>Premium mounting structure</li>
+                                <li>Premium installation</li>
+                                <li>7-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="standard">Select Package</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Premium Package</h4>
+                            <div class="price">₹2,50,000 <span>onwards</span></div>
+                            <ul>
+                                <li>5-10 kW capacity</li>
+                                <li>High-efficiency monocrystalline panels</li>
+                                <li>Smart grid-tied inverter with monitoring</li>
+                                <li>Customized mounting structure</li>
+                                <li>Customized installation</li>
+                                <li>10-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="premium">Select Package</button>
+                        </div>
+                    </div>
+                    <p class="pricing-note">*Note: The prices mentioned above are indicative and may vary based on your specific requirements, location, and system configuration.</p>
+                </div>
+                
+                <!-- Pricing Examples Across India -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Pricing Examples Across India</h3>
+                    <p>The cost of on-grid solar systems varies across different regions in India due to factors such as local labor costs, transportation expenses, and state-specific incentives. Here are some approximate pricing examples:</p>
+                    <ul>
+                        <li><strong>North India</strong> (Delhi, Punjab, Haryana): ₹45,000 - ₹55,000 per kW</li>
+                        <li><strong>West India</strong> (Maharashtra, Gujarat): ₹40,000 - ₹50,000 per kW</li>
+                        <li><strong>South India</strong> (Karnataka, Tamil Nadu, Kerala): ₹42,000 - ₹52,000 per kW</li>
+                        <li><strong>East India</strong> (West Bengal, Odisha): ₹48,000 - ₹58,000 per kW</li>
+                        <li><strong>Northeast India</strong>: ₹55,000 - ₹65,000 per kW</li>
+                    </ul>
+                    <p>These prices are indicative and may vary based on specific requirements, brand preferences, and installation complexity. Contact us for a customized quote based on your location and energy needs.</p>
+                </div>
+                
+                <!-- Return on Investment -->
+                <div class="roi-section">
+                    <h3><i class="fas fa-chart-line"></i> Return on Investment</h3>
+                    <div class="roi-cards">
+                        <div class="roi-card">
+                            <div class="roi-value">4-6</div>
+                            <div class="roi-label">Years Payback Period</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">30%</div>
+                            <div class="roi-label">Annual Returns</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">25+</div>
+                            <div class="roi-label">Years System Life</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">95%</div>
+                            <div class="roi-label">Electricity Savings</div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; color: #e2e8f0;">On-grid solar systems offer excellent return on investment through reduced electricity bills, government incentives, and net metering benefits. Most systems pay for themselves within 4-6 years and continue generating savings for over 25 years.</p>
+                </div>
+                
+                <!-- Advantages and Disadvantages -->
+                <div class="advantages-disadvantages">
+                    <div class="advantages">
+                        <h3><i class="fas fa-thumbs-up"></i> Advantages</h3>
+                        <ul>
+                            <li>Lower initial cost compared to hybrid or off-grid systems</li>
+                            <li>Minimal maintenance requirements</li>
+                            <li>Net metering benefits and credits</li>
+                            <li>Reduced electricity bills</li>
+                            <li>Environmentally friendly</li>
+                            <li>Increased property value</li>
+                            <li>Government incentives and subsidies</li>
+                            <li>Simple and reliable technology</li>
+                        </ul>
+                    </div>
+                    <div class="disadvantages">
+                        <h3><i class="fas fa-thumbs-down"></i> Disadvantages</h3>
+                        <ul>
+                            <li>No power during grid outages</li>
+                            <li>Dependent on grid availability</li>
+                            <li>Cannot store excess energy for later use</li>
+                            <li>Net metering policies vary by state and utility</li>
+                            <li>May require permission from utility company</li>
+                            <li>Less energy independence</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Installation Process -->
+                <div class="installation-process">
+                    <h3><i class="fas fa-tools"></i> Installation Process</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Site Assessment</h4>
+                            <p>Our experts evaluate your location, energy needs, and site conditions</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>System Design</h4>
+                            <p>Customized system design based on your requirements and budget</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Permitting</h4>
+                            <p>We handle all necessary permits and paperwork</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Installation</h4>
+                            <p>Professional installation by our certified technicians</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <h4>Inspection</h4>
+                            <p>Thorough inspection and testing of the system</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">6</div>
+                            <h4>Net Metering Setup</h4>
+                            <p>Installation of bi-directional meter and grid connection</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Why Choose Naptico Green Energy Solars? -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-star"></i> Why Choose Naptico Green Energy Solars?</h3>
+                    <ul>
+                        <li><strong>Experience:</strong> Over a decade of expertise in solar energy solutions</li>
+                        <li><strong>Quality:</strong> Premium components and international standards</li>
+                        <li><strong>Customization:</strong> Tailored solutions for your specific energy needs</li>
+                        <li><strong>Technology:</strong> Latest innovations in solar technology</li>
+                        <li><strong>Service:</strong> End-to-end service from consultation to maintenance</li>
+                        <li><strong>Warranty:</strong> Comprehensive warranty on all products and installation</li>
+                        <li><strong>Support:</strong> 24/7 customer support and monitoring</li>
+                        <li><strong>Financing:</strong> Multiple financing options to suit your budget</li>
+                    </ul>
+                </div>
+                
+                <!-- Frequently Asked Questions -->
+                <div class="faq-section">
+                    <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What happens to my solar system during a power outage?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            On-grid solar systems automatically shut down during power outages for safety reasons. This prevents electricity from being fed back into the grid while utility workers are repairing lines. If you need backup power during outages, consider a hybrid system with battery storage.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How does net metering work?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Net metering allows you to earn credits for excess electricity your solar system produces and feeds back into the grid. A bi-directional meter tracks both the electricity you consume from the grid and the excess you export. At the end of the billing period, you're billed for the net consumption, resulting in significant savings.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do I need battery storage with an on-grid system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            No, on-grid systems do not require battery storage. They are connected directly to the utility grid, which acts as a virtual battery. Excess electricity is fed back into the grid, and you can draw power from the grid when needed.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I expand my on-grid solar system in the future?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, on-grid solar systems are designed to be expandable. You can add more solar panels as your energy needs grow. However, you may need to upgrade your inverter if the additional capacity exceeds its rating. Our systems are modular and can be easily upgraded with minimal disruption.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How much can I save with an on-grid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Savings vary based on your energy consumption, system size, local electricity rates, and net metering policies. Most customers save 70-90% on their electricity bills. With government incentives and net metering, the payback period is typically 4-6 years, after which you enjoy nearly free electricity for the remaining life of the system.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Off-Grid Solar System Details -->
+            <div id="off-grid-details" class="solar-system-details">
+                <div class="details-header">
+                    <div class="details-icon">
+                        <i class="fas fa-battery-full text-white text-3xl"></i>
+                    </div>
+                    <h2 class="details-title">Off-Grid Solar System</h2>
+                </div>
+                
+                <!-- About Naptico Green Energy Solars -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-building"></i> About Naptico Green Energy Solars</h3>
+                    <p>Naptico Green Energy Solars is India's most trusted solar energy provider with over a decade of experience in delivering high-quality solar solutions. With 50,000+ successful installations and 200+ MW of clean energy generated across the country, we are committed to accelerating India's transition to sustainable energy.</p>
+                    <p>Our team of 500+ certified solar experts works tirelessly to provide customized solutions that meet the unique energy needs of our residential, commercial, and industrial clients. We pride ourselves on our innovative technology, exceptional service, and unwavering commitment to customer satisfaction.</p>
+                </div>
+                
+                <!-- Overview of Off-Grid Solar Systems -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-info-circle"></i> Overview of Off-Grid Solar Systems</h3>
+                    <p>An off-grid solar system is completely independent of the utility grid. It uses batteries to store energy for use when the sun isn't shining. This system is ideal for remote locations where grid connectivity is unavailable or unreliable. It provides complete energy independence and freedom from electricity bills.</p>
+                    <p>Off-grid systems are self-contained power plants that generate, store, and distribute electricity without any connection to the public utility grid. They are designed to meet all the energy needs of a home or business, regardless of grid availability.</p>
+                </div>
+                
+                <!-- Off-Grid Solar System Components -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-cogs"></i> Off-Grid Solar System Components</h3>
+                    <ul>
+                        <li>Solar Panels: Convert sunlight into electricity</li>
+                        <li>Charge Controller: Regulates the charging of batteries to prevent overcharging</li>
+                        <li>Battery Bank: Stores energy for use when the sun isn't shining</li>
+                        <li>Off-Grid Inverter: Converts DC power from batteries to AC power for use in your home</li>
+                        <li>Backup Generator (Optional): Provides additional power during extended cloudy periods</li>
+                        <li>Monitoring System: Tracks battery status and energy production/consumption</li>
+                        <li>Safety Equipment: Includes disconnect switches, surge protection, and grounding</li>
+                    </ul>
+                </div>
+                
+                <!-- How Does an Off-Grid Solar System Work? -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-question-circle"></i> How Does an Off-Grid Solar System Work?</h3>
+                    <p>An off-grid solar system works by generating electricity from solar panels during the day. The electricity is regulated by a charge controller to prevent overcharging of the batteries. The energy is stored in a battery bank for use when the sun isn't shining.</p>
+                    <p>When you need electricity, the off-grid inverter converts the DC power stored in the batteries to AC power that can be used by your home appliances. The system is designed to be completely self-sufficient, with no reliance on the utility grid.</p>
+                    <p>Proper sizing of the system is critical for off-grid installations. The system must be designed to generate enough electricity to meet your daily energy needs, even during periods of low sunlight. This often requires a larger solar array and battery bank compared to grid-connected systems.</p>
+                </div>
+                
+                <!-- Solar Subsidy For Off-Grid System -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Solar Subsidy For Off-Grid System</h3>
+                    <p>The Indian government offers various subsidies and incentives to promote the adoption of off-grid solar systems, especially in remote and rural areas where grid connectivity is challenging. These financial benefits make solar energy more accessible to underserved communities.</p>
+                    <ul>
+                        <li>Off-Grid and Decentralized Solar Applications Scheme: Financial support for off-grid solar projects</li>
+                        <li>Rural Electrification Programs: Special incentives for solar electrification in remote villages</li>
+                        <li>Tax Benefits: Accelerated depreciation for commercial and industrial installations</li>
+                        <li>Reduced GST: Lower tax rates on solar components and installation</li>
+                        <li>State-specific incentives: Additional support from various state governments</li>
+                    </ul>
+                    <p>Naptico Green Energy Solars helps customers navigate the subsidy application process, ensuring they maximize available financial benefits for their off-grid solar installations.</p>
+                </div>
+                
+                <!-- Rooftop Solar Panel Plans & Pricing -->
+                <div class="pricing-section">
+                    <h3><i class="fas fa-tags"></i> Rooftop Solar Panel Plans & Pricing</h3>
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <h4>Basic Package</h4>
+                            <div class="price">₹2,00,000 <span>onwards</span></div>
+                            <ul>
+                                <li>1-3 kW capacity</li>
+                                <li>Monocrystalline panels</li>
+                                <li>Basic off-grid inverter</li>
+                                <li>10-20 kWh battery storage</li>
+                                <li>Standard installation</li>
+                                <li>5-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="basic">Select Package</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Standard Package</h4>
+                            <div class="price">₹3,50,000 <span>onwards</span></div>
+                            <ul>
+                                <li>3-5 kW capacity</li>
+                                <li>High-efficiency panels</li>
+                                <li>Advanced off-grid inverter</li>
+                                <li>20-40 kWh battery storage</li>
+                                <li>Premium installation</li>
+                                <li>7-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="standard">Select Package</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Premium Package</h4>
+                            <div class="price">₹5,50,000 <span>onwards</span></div>
+                            <ul>
+                                <li>5-10 kW capacity</li>
+                                <li>Top-tier monocrystalline panels</li>
+                                <li>Smart off-grid inverter with monitoring</li>
+                                <li>40-80 kWh battery storage</li>
+                                <li>Customized installation</li>
+                                <li>10-year warranty</li>
+                            </ul>
+                            <button class="package-btn" data-package="premium">Select Package</button>
+                        </div>
+                    </div>
+                    <p class="pricing-note">*Note: The prices mentioned above are indicative and may vary based on your specific requirements, location, and system configuration.</p>
+                </div>
+                
+                <!-- Pricing Examples Across India -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Pricing Examples Across India</h3>
+                    <p>The cost of off-grid solar systems varies across different regions in India due to factors such as local labor costs, transportation expenses, and accessibility. Here are some approximate pricing examples:</p>
+                    <ul>
+                        <li><strong>North India</strong> (Delhi, Punjab, Haryana): ₹70,000 - ₹85,000 per kW</li>
+                        <li><strong>West India</strong> (Maharashtra, Gujarat): ₹65,000 - ₹80,000 per kW</li>
+                        <li><strong>South India</strong> (Karnataka, Tamil Nadu, Kerala): ₹68,000 - ₹82,000 per kW</li>
+                        <li><strong>East India</strong> (West Bengal, Odisha): ₹75,000 - ₹90,000 per kW</li>
+                        <li><strong>Northeast India</strong>: ₹85,000 - ₹1,00,000 per kW</li>
+                    </ul>
+                    <p>These prices are indicative and may vary based on specific requirements, brand preferences, battery capacity, and installation complexity. Contact us for a customized quote based on your location and energy needs.</p>
+                </div>
+                
+                <!-- Return on Investment -->
+                <div class="roi-section">
+                    <h3><i class="fas fa-chart-line"></i> Return on Investment</h3>
+                    <div class="roi-cards">
+                        <div class="roi-card">
+                            <div class="roi-value">6-8</div>
+                            <div class="roi-label">Years Payback Period</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">20%</div>
+                            <div class="roi-label">Annual Returns</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">25+</div>
+                            <div class="roi-label">Years System Life</div>
+                        </div>
+                        <div class="roi-card">
+                            <div class="roi-value">100%</div>
+                            <div class="roi-label">Energy Independence</div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; color: #e2e8f0;">Off-grid solar systems offer a unique value proposition of complete energy independence. While the payback period is longer compared to on-grid systems, the freedom from electricity bills and grid dependency provides significant long-term value, especially in remote areas.</p>
+                </div>
+                
+                <!-- Advantages and Disadvantages -->
+                <div class="advantages-disadvantages">
+                    <div class="advantages">
+                        <h3><i class="fas fa-thumbs-up"></i> Advantages</h3>
+                        <ul>
+                            <li>Complete energy independence</li>
+                            <li>No electricity bills</li>
+                            <li>Power availability in remote locations</li>
+                            <li>No dependency on grid infrastructure</li>
+                            <li>Environmentally friendly</li>
+                            <li>Increased property value</li>
+                            <li>Reliable power source</li>
+                            <li>Government incentives available</li>
+                        </ul>
+                    </div>
+                    <div class="disadvantages">
+                        <h3><i class="fas fa-thumbs-down"></i> Disadvantages</h3>
+                        <ul>
+                            <li>Higher initial cost compared to on-grid systems</li>
+                            <li>Battery replacement required every 5-10 years</li>
+                            <li>Limited energy storage capacity</li>
+                            <li>Requires careful energy management</li>
+                            <li>May need backup generator during extended cloudy periods</li>
+                            <li>Higher maintenance requirements</li>
+                            <li>System sizing is critical and complex</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Installation Process -->
+                <div class="installation-process">
+                    <h3><i class="fas fa-tools"></i> Installation Process</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Energy Audit</h4>
+                            <p>Comprehensive assessment of your energy needs and consumption patterns</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>System Design</h4>
+                            <p>Customized system design with proper sizing of solar array and battery bank</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Site Preparation</h4>
+                            <p>Preparing the site for installation of solar panels and battery storage</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Installation</h4>
+                            <p>Professional installation of solar panels, batteries, and balance of system</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <h4>Testing</h4>
+                            <p>Thorough testing of all components and system integration</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">6</div>
+                            <h4>Commissioning</h4>
+                            <p>System activation and user training</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Why Choose Naptico Green Energy Solars? -->
+                <div class="detailed-section">
+                    <h3><i class="fas fa-star"></i> Why Choose Naptico Green Energy Solars?</h3>
+                    <ul>
+                        <li><strong>Experience:</strong> Over a decade of expertise in solar energy solutions</li>
+                        <li><strong>Quality:</strong> Premium components and international standards</li>
+                        <li><strong>Customization:</strong> Tailored solutions for your specific energy needs</li>
+                        <li><strong>Technology:</strong> Latest innovations in solar and battery storage</li>
+                        <li><strong>Service:</strong> End-to-end service from consultation to maintenance</li>
+                        <li><strong>Warranty:</strong> Comprehensive warranty on all products and installation</li>
+                        <li><strong>Support:</strong> 24/7 customer support and monitoring</li>
+                        <li><strong>Financing:</strong> Multiple financing options to suit your budget</li>
+                    </ul>
+                </div>
+                
+                <!-- Frequently Asked Questions -->
+                <div class="faq-section">
+                    <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I determine the right size for an off-grid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Determining the right size for an off-grid solar system requires a comprehensive energy audit of your home or business. We analyze your daily energy consumption, peak power requirements, and seasonal variations to design a system that meets your needs year-round. The system must be sized to provide enough power during the lowest sunlight periods of the year.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What happens during extended cloudy periods?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            During extended cloudy periods, off-grid systems rely on battery storage. Properly designed systems include a safety margin to account for several days of low sunlight. For critical applications or areas with frequent cloudy weather, we recommend including a backup generator or oversizing the battery bank to ensure uninterrupted power supply.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long do off-grid solar batteries last?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Off-grid solar batteries typically last between 5-10 years, depending on the type, usage patterns, and maintenance. Lithium-ion batteries generally have a longer lifespan (8-10 years) compared to lead-acid batteries (5-7 years). Proper maintenance and avoiding deep discharges can extend battery life.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I run air conditioning with an off-grid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, you can run air conditioning with an off-grid solar system, but it requires careful planning and system sizing. Air conditioners are high-power appliances that significantly increase the required system size and cost. We recommend energy-efficient models and consider using them primarily during peak sun hours to minimize battery strain.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What maintenance is required for an off-grid solar system?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Off-grid solar systems require regular maintenance, including periodic cleaning of solar panels, checking battery connections and water levels (for flooded lead-acid batteries), ensuring proper ventilation of the battery enclosure, and monitoring system performance. We offer comprehensive maintenance packages to keep your system operating at peak efficiency.
                         </div>
                     </div>
                 </div>
@@ -2371,314 +3415,15 @@
         </div>
     </section>
     
-    <!-- Our Story Section -->
-    <section id="our-story" class="services-section py-20">
-        <div class="container mx-auto px-4 services-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
-                <p class="section-subtitle">From a small startup to India's leading solar energy provider</p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="fade-in stagger-1">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our Journey</h3>
-                    <p class="text-gray-300 mb-4">Founded in 2010, Naptico Green Energy Solars began with a simple vision: to make clean, renewable energy accessible to every Indian. Our founders, a team of passionate engineers and environmentalists, saw the immense potential of solar energy to transform India's energy landscape.</p>
-                    <p class="text-gray-300 mb-4">Starting with just a small office in Bangalore and a handful of dedicated employees, we focused on providing high-quality solar solutions to residential customers. Our commitment to excellence and customer satisfaction quickly earned us a reputation as a reliable solar provider.</p>
-                    <p class="text-gray-300">Today, we've grown into a national leader in the solar industry with over 500 employees, offices in 12 major cities, and a track record of 50,000+ successful installations. But our core mission remains the same: to accelerate India's transition to clean energy.</p>
-                </div>
-                <div class="fade-in stagger-2">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Our Office" class="rounded-2xl w-full h-auto">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1 fade-in stagger-3">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Installation" class="rounded-2xl w-full h-auto">
-                    </div>
-                </div>
-                <div class="order-1 lg:order-2 fade-in stagger-4">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our Mission & Vision</h3>
-                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Mission:</strong> To accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to harness the power of the sun.</p>
-                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Vision:</strong> To be the most trusted and innovative solar energy company in India, leading the country toward a future powered by 100% renewable energy and setting new standards for excellence in the industry.</p>
-                    <p class="text-gray-300">We envision a future where every home and business in India is powered by clean, renewable energy, reducing carbon emissions and creating a healthier planet for future generations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Our Milestones Section - Redesigned -->
-    <section class="milestones-section">
-        <div class="milestones-container">
-            <div class="text-center fade-in">
-                <h2 class="milestones-title">Our <span class="text-gradient">Milestones</span></h2>
-                <p class="milestones-subtitle">Key moments in our journey to becoming India's most trusted solar provider</p>
-            </div>
-            
-            <div class="milestone-carousel fade-in">
-                <div class="milestone-track">
-                    <!-- Milestone 1 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Company Founded">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2010</div>
-                                <h3 class="milestone-title">Company Founded</h3>
-                                <p class="milestone-description">Naptico Green Energy Solars was established in Bangalore with a vision to make solar energy accessible to all Indians.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 2 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="First Major Project">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2013</div>
-                                <h3 class="milestone-title">First Major Project</h3>
-                                <p class="milestone-description">Completed our first 1MW solar installation for a commercial client, marking our entry into large-scale solar projects.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 3 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="National Expansion">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2016</div>
-                                <h3 class="milestone-title">National Expansion</h3>
-                                <p class="milestone-description">Expanded operations to 5 major cities across India, establishing ourselves as a national solar provider.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 4 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2019</div>
-                                <h3 class="milestone-title">25,000 Installations</h3>
-                                <p class="milestone-description">Reached the milestone of 25,000 solar installations, generating over 100MW of clean energy.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 5 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2022</div>
-                                <h3 class="milestone-title">Industry Recognition</h3>
-                                <p class="milestone-description">Awarded "India's Best Solar Company 2022" by the Ministry of New and Renewable Energy.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Milestone 6 -->
-                    <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="50,000+ Installations">
-                        <div class="milestone-overlay">
-                            <div class="milestone-content">
-                                <div class="milestone-year">2025</div>
-                                <h3 class="milestone-title">50,000+ Installations</h3>
-                                <p class="milestone-description">Achieved our biggest milestone yet - 50,000+ installations and 200+ MW of clean energy generated across India.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Carousel Navigation -->
-                <div class="milestone-nav">
-                    <span class="milestone-dot active" data-slide="0"></span>
-                    <span class="milestone-dot" data-slide="1"></span>
-                    <span class="milestone-dot" data-slide="2"></span>
-                    <span class="milestone-dot" data-slide="3"></span>
-                    <span class="milestone-dot" data-slide="4"></span>
-                    <span class="milestone-dot" data-slide="5"></span>
-                </div>
-                
-                <div class="milestone-arrows">
-                    <button class="milestone-arrow prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="milestone-arrow next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Leadership Team Section - Redesigned -->
-    <section id="our-team" class="leadership-section">
-        <div class="leadership-container">
-            <div class="text-center fade-in">
-                <h2 class="leadership-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
-                <p class="leadership-subtitle">The visionaries driving Naptico Green Energy Solars toward a sustainable future</p>
-            </div>
-            
-            <div class="leadership-grid">
-                <!-- Team Member 1 -->
-                <div class="leadership-card fade-in stagger-1">
-                    <div class="leadership-image">
-                        <img src="images/AJ.jpg" alt="MD & CEO">
-                        <div class="leadership-badge">MD & CEO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Ajay Raju N</h3>
-                        <p class="leadership-position"><i class="fas fa-crown"></i> Managing Director & CEO</p>
-                        <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
-                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
-                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="leadership-card fade-in stagger-2">
-                    <div class="leadership-image">
-                        <img src="images/AJ.jpg" alt="CTO">
-                        <div class="leadership-badge">CTO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Priya Nair</h3>
-                        <p class="leadership-position"><i class="fas fa-microchip"></i> Chief Technology Officer</p>
-                        <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
-                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
-                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="leadership-card fade-in stagger-3">
-                    <div class="leadership-image">
-                        <img src="images/AJ.jpg" alt="CEO">
-                        <div class="leadership-badge">CEO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Amit Patel</h3>
-                        <p class="leadership-position"><i class="fas fa-cogs"></i> Chief Operating Officer</p>
-                        <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
-                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
-                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 4 -->
-                <div class="leadership-card fade-in stagger-4">
-                    <div class="leadership-image">
-                        <img src="images/AJ.jpg" alt="CFO">
-                        <div class="leadership-badge">CFO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Sneha Reddy</h3>
-                        <p class="leadership-position"><i class="fas fa-chart-line"></i> Chief Financial Officer</p>
-                        <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
-                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
-                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 5 - New -->
-                <div class="leadership-card fade-in stagger-5">
-                    <div class="leadership-image">
-                        <img src="images/AJ.jpg" alt="CMO">
-                        <div class="leadership-badge">CMO</div>
-                    </div>
-                    <div class="leadership-content">
-                        <h3 class="leadership-name">Vikram Mehta</h3>
-                        <p class="leadership-position"><i class="fas fa-bullhorn"></i> Chief Marketing Officer</p>
-                        <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
-                        <div class="leadership-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
-                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
-                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Why Choose Us -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="feature-card fade-in stagger-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-award text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
-                    <p class="text-gray-300">Recognized as India's Best Solar Company 2023 by Ministry of New and Renewable Energy</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
-                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-3">
-                    <div class="feature-icon">
-                        <i class="fas fa-users text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
-                    <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-4">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
-                    <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Premium CTA Section -->
-    <section class="cta-section py-20">
+    <!-- Enhanced CTA Section -->
+    <section class="cta-section">
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
-            <h2 class="text-4xl font-bold mb-8 text-white fade-in">Join Our Solar Revolution</h2>
-            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's sustainable future with Naptico Green Energy Solars</p>
+            <h2 class="text-4xl font-bold mb-8 text-white fade-in">Ready to Go Solar?</h2>
+            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Get in touch with our solar experts to find the perfect solution for your energy needs</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
-                <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
-                <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
+                <button id="ctaQuoteBtn" class="hero-btn hero-btn-primary cta-btn-primary">Get Free Quote</button>
+                <a href="contact.html" class="hero-btn hero-btn-secondary cta-btn-secondary">Contact Us</a>
             </div>
         </div>
     </section>
@@ -2714,6 +3459,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="solar-energy-solutions.html">Solutions</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="how-it-works.html">How It Works</a></li>
                         <li><a href="savings-calculator.html">Calculator</a></li>
@@ -2726,7 +3472,7 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="Solar Energy Solutions.html">Rooftop Solar Panels</a></li>
+                        <li><a href="solar-energy-solutions.html">Rooftop Solar Panels</a></li>
                         <li><a href="maintenance & support.html#ground-mounted">Ground-Mounted Solar</a></li>
                         <li><a href="maintenance & support.html#street-light">Solar Street Lights</a></li>
                         <li><a href="maintenance & support.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
@@ -2830,7 +3576,7 @@
             });
             
             // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .solar-system-card, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
             
             hoverElements.forEach(element => {
                 element.addEventListener('mouseenter', () => {
@@ -2916,7 +3662,7 @@
             }, 300);
         });
         
-        // Premium Hero Slideshow
+        // Hero Slideshow - Fixed to match background and foreground images
         const slides = document.querySelectorAll('.hero-slide');
         const heroImage = document.getElementById('heroImage');
         const heroImages = [
@@ -2941,28 +3687,51 @@
         // Auto-advance slides every 5 seconds
         setInterval(nextSlide, 5000);
         
-        // Premium Particle Effect
+        // Create particle effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 60;
+            const particleCount = 50;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 12 + 6;
+                const size = Math.random() * 10 + 5;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 25}s`;
-                particle.style.animationDuration = `${Math.random() * 15 + 20}s`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
                 
                 particlesContainer.appendChild(particle);
             }
         }
         
         createParticles();
+        
+        // 3D Card Effect
+        const cards = document.querySelectorAll('.service-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
         
         // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
@@ -3121,32 +3890,6 @@
                 formMessage.style.display = 'none';
                 quoteModal.classList.remove('active');
             }, 5000);
-            
-            // In a real implementation, you would send the form data to a server
-            // that would then email it to multiple addresses
-            // Example:
-            /*
-            fetch('https://your-form-endpoint.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
-                    formMessage.className = 'form-message success';
-                } else {
-                    formMessage.textContent = 'There was an error submitting your form. Please try again.';
-                    formMessage.className = 'form-message error';
-                }
-                formMessage.style.display = 'block';
-            })
-            .catch(error => {
-                formMessage.textContent = 'There was an error submitting your form. Please try again.';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-            });
-            */
         });
         
         // Smooth scrolling for anchor links
@@ -3166,7 +3909,7 @@
         // Only apply 3D card effects on non-touch devices
         if (!isTouchDevice()) {
             // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card');
+            const cards = document.querySelectorAll('.solar-system-card, .service-card, .feature-card, .testimonial-card, .leadership-card');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
@@ -3221,84 +3964,80 @@
             }
         });
         
-        // Milestone Carousel
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.milestone-track');
-            const slides = document.querySelectorAll('.milestone-slide');
-            const dots = document.querySelectorAll('.milestone-dot');
-            const prevBtn = document.querySelector('.milestone-arrow.prev');
-            const nextBtn = document.querySelector('.milestone-arrow.next');
-            
-            let currentSlide = 0;
-            const slideCount = slides.length;
-            
-            // Set initial position
-            updateSlidePosition();
-            
-            // Auto-advance slides
-            let slideInterval = setInterval(nextSlide, 5000);
-            
-            // Functions to change slides
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slideCount;
-                updateSlidePosition();
-            }
-            
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-                updateSlidePosition();
-            }
-            
-            function goToSlide(slideIndex) {
-                currentSlide = slideIndex;
-                updateSlidePosition();
-            }
-            
-            function updateSlidePosition() {
-                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // Solar System Cards Interaction
+        const solarSystemCards = document.querySelectorAll('.solar-system-card');
+        const solarSystemDetails = document.querySelectorAll('.solar-system-details');
+        
+        // Show hybrid system details by default
+        document.getElementById('hybrid-details').classList.add('active');
+        document.querySelector('[data-system="hybrid"]').classList.add('active');
+        
+        solarSystemCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const systemType = card.getAttribute('data-system');
                 
-                // Update dots
-                dots.forEach((dot, index) => {
-                    if (index === currentSlide) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
+                // Remove active class from all cards and details
+                solarSystemCards.forEach(c => c.classList.remove('active'));
+                solarSystemDetails.forEach(d => d.classList.remove('active'));
+                
+                // Add active class to clicked card and corresponding details
+                card.classList.add('active');
+                const activeDetails = document.getElementById(`${systemType}-details`);
+                activeDetails.classList.add('active');
+                
+                // Scroll to details section
+                activeDetails.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+        
+        // Package Buttons Interaction
+        const packageButtons = document.querySelectorAll('.package-btn');
+        
+        packageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const packageType = button.getAttribute('data-package');
+                const activeSystem = document.querySelector('.solar-system-card.active').getAttribute('data-system');
+                
+                // Open quote modal
+                document.getElementById('quoteModal').classList.add('active');
+                centerModal();
+                
+                // Set system type and package in the form
+                document.getElementById('systemType').value = activeSystem;
+                document.getElementById('package').value = packageType;
+                
+                // Scroll to form
+                setTimeout(() => {
+                    document.getElementById('quoteForm').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            });
+        });
+        
+        // FAQ Interaction
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Toggle active class
+                item.classList.toggle('active');
+                
+                // Close other items in the same FAQ section
+                const parentSection = item.closest('.faq-section');
+                const siblingItems = parentSection.querySelectorAll('.faq-item');
+                
+                siblingItems.forEach(sibling => {
+                    if (sibling !== item && sibling.classList.contains('active')) {
+                        sibling.classList.remove('active');
                     }
                 });
-            }
-            
-            // Event listeners
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
-            
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
-            
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                    resetInterval();
-                });
-            });
-            
-            // Reset interval on manual navigation
-            function resetInterval() {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-            
-            // Pause on hover
-            const carousel = document.querySelector('.milestone-carousel');
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            carousel.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
             });
         });
     </script>

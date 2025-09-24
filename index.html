@@ -547,7 +547,7 @@
             padding-top: 90px; /* Add padding to prevent header overlap */
         }
         
-        /* Fixed Hero Background */
+        /* Fixed Hero Background - OPTIMIZED */
         .hero-fixed-bg {
             position: fixed;
             top: 0;
@@ -555,6 +555,7 @@
             width: 100%;
             height: 100vh;
             z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1912,6 +1913,11 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -2052,8 +2058,8 @@
     
     <!-- Premium Hero Section -->
     <section class="hero-gradient">
-        <!-- Fixed Hero Background -->
-        <div id="heroFixedBg" class="hero-fixed-bg"></div>
+        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
         <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
@@ -2761,7 +2767,7 @@
             }, 300);
         });
         
-        // Fixed Hero Background with Preloaded Images
+        // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
             'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
             'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
@@ -2771,56 +2777,51 @@
         const heroFixedBg = document.getElementById('heroFixedBg');
         const heroImage = document.getElementById('heroImage');
         let currentHeroImage = 0;
+        let heroInterval;
         
-        // Preload hero images
-        function preloadImages(images, callback) {
-            let loadedCount = 0;
-            const totalImages = images.length;
-            let hasError = false;
-            
-            if (totalImages === 0) {
-                callback();
-                return;
+        // Set hero background with optimized performance
+        function setHeroBackground(index) {
+            // Create a new Image object to preload
+            const img = new Image();
+            img.onload = function() {
+                // Once loaded, update the background
+                heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                heroImage.src = heroImages[index];
+                currentHeroImage = index;
+            };
+            img.src = heroImages[index];
+        }
+        
+        // Start hero image rotation with optimized timing
+        function startHeroRotation() {
+            // Clear any existing interval
+            if (heroInterval) {
+                clearInterval(heroInterval);
             }
             
-            images.forEach(src => {
-                const img = new Image();
-                img.src = src;
-                img.onload = () => {
-                    loadedCount++;
-                    if (loadedCount === totalImages && !hasError) {
-                        callback();
-                    }
-                };
-                img.onerror = () => {
-                    hasError = true;
-                    if (loadedCount + 1 === totalImages) {
-                        callback();
-                    }
-                };
-            });
+            // Set new interval
+            heroInterval = setInterval(() => {
+                currentHeroImage = (currentHeroImage + 1) % heroImages.length;
+                setHeroBackground(currentHeroImage);
+            }, 5000);
         }
         
-        // Set initial hero background
-        function setHeroBackground(index) {
-            heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
-            heroImage.src = heroImages[index];
-            currentHeroImage = index;
-        }
+        // Initialize hero rotation after page load
+        window.addEventListener('load', () => {
+            // Start with a small delay to ensure everything is loaded
+            setTimeout(() => {
+                setHeroBackground(0);
+                startHeroRotation();
+            }, 100);
+        });
         
-        // Cycle through hero images
-        function cycleHeroImages() {
-            currentHeroImage = (currentHeroImage + 1) % heroImages.length;
-            setHeroBackground(currentHeroImage);
-        }
-        
-        // Initialize hero background after preloading
-        preloadImages(heroImages, () => {
-            // Set initial background
-            setHeroBackground(0);
-            
-            // Start cycling through images
-            setInterval(cycleHeroImages, 5000);
+        // Pause rotation when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(heroInterval);
+            } else {
+                startHeroRotation();
+            }
         });
         
         // Premium Particle Effect

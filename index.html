@@ -594,6 +594,45 @@
             }
         }
         
+        /* Premium Particle Effect - FIXED Z-INDEX */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind the content but above the background */
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 25s infinite linear;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
+                opacity: 0;
+            }
+        }
+        
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -1306,34 +1345,6 @@
         .back-to-top:hover {
             transform: translateY(-15px) rotateZ(10deg);
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Premium Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 25s infinite linear;
-            transform-style: preserve-3d;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
-                opacity: 0;
-            }
         }
         
         /* Premium Quote Form Modal */
@@ -2064,6 +2075,9 @@
         <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
         
+        <!-- Particles Container - FIXED POSITION -->
+        <div id="particles"></div>
+        
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -2083,8 +2097,6 @@
                 </div>
             </div>
         </div>
-        <!-- Premium Particle Effect -->
-        <div id="particles"></div>
     </section>
     
     <!-- Premium Services Section -->
@@ -2824,7 +2836,7 @@
             }
         });
         
-        // Premium Particle Effect
+        // Premium Particle Effect - FIXED Z-INDEX
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 60;

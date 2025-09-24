@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refund/Return Policy - Naptico Green Energy Solars</title>
+    <title>Refund & Return Policy - Naptico Green Energy Solars</title>
     
     <!-- Favicon for all devices and platforms -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -29,23 +29,23 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Naptico Green Energy Solars Refund/Return Policy - Learn about our transparent and customer-friendly refund and return policies for solar products and services.">
-    <meta name="keywords" content="refund policy, return policy, solar panel refund, solar installation return, solar energy policy">
+    <meta name="description" content="Naptico Green Energy Solars Refund & Return Policy - Learn about our transparent and fair refund process for solar energy solutions.">
+    <meta name="keywords" content="refund policy, return policy, solar panel refund, solar energy return, Naptico refund">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://napticogreenenergysolars.com/Refund/Return Policy.html">
-    <meta property="og:title" content="Refund/Return Policy - Naptico Green Energy Solars">
-    <meta property="og:description" content="Our transparent and customer-friendly refund and return policies for solar products and services.">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/Refund-Return-Policy.html">
+    <meta property="og:title" content="Refund & Return Policy - Naptico Green Energy Solars">
+    <meta property="og:description" content="Naptico Green Energy Solars Refund & Return Policy - Learn about our transparent and fair refund process for solar energy solutions.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/Refund/Return Policy.html">
-    <meta property="twitter:title" content="Refund/Return Policy - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Our transparent and customer-friendly refund and return policies for solar products and services.">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/Refund-Return-Policy.html">
+    <meta property="twitter:title" content="Refund & Return Policy - Naptico Green Energy Solars">
+    <meta property="twitter:description" content="Naptico Green Energy Solars Refund & Return Policy - Learn about our transparent and fair refund process for solar energy solutions.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -59,7 +59,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Updated Google Fonts link to use Inter instead of Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -540,11 +539,27 @@
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
             overflow: hidden;
-            min-height: 60vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             perspective: 1000px;
             padding-top: 90px; /* Add padding to prevent header overlap */
+        }
+        
+        /* Fixed Hero Background - OPTIMIZED */
+        .hero-fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            transition: background-image 1.5s ease-in-out;
         }
         
         /* Dynamic Background Effect */
@@ -575,6 +590,45 @@
             }
             75% {
                 transform: translate(-10px, 20px) scale(1.05);
+            }
+        }
+        
+        /* Premium Particle Effect - FIXED Z-INDEX */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind the content but above the background */
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 25s infinite linear;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
+                opacity: 0;
             }
         }
         
@@ -635,7 +689,7 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* Policy Content Section */
+        /* Premium Policy Section */
         .policy-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
@@ -658,9 +712,6 @@
         .policy-content {
             position: relative;
             z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
         
         .section-title {
@@ -706,7 +757,7 @@
         }
         
         .policy-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
@@ -717,12 +768,18 @@
         
         .policy-card h3 {
             font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
             color: #f59e0b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
         }
         
-        .policy-card p, .policy-card li {
+        .policy-card h3 i {
+            margin-right: 15px;
+            font-size: 2rem;
+        }
+        
+        .policy-card p {
             color: #e2e8f0;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -730,25 +787,31 @@
         }
         
         .policy-card ul {
-            padding-left: 20px;
+            color: #e2e8f0;
+            padding-left: 25px;
             margin-bottom: 15px;
         }
         
         .policy-card li {
             margin-bottom: 10px;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
         
-        .policy-highlight {
+        .policy-card li strong {
+            color: #f59e0b;
+        }
+        
+        .policy-card .highlight {
             background: rgba(245, 158, 11, 0.15);
+            padding: 15px 20px;
+            border-radius: 12px;
             border-left: 4px solid #f59e0b;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
         }
         
-        .policy-highlight p {
+        .policy-card .highlight p {
             margin-bottom: 0;
-            font-weight: 500;
         }
         
         /* Premium Footer */
@@ -987,34 +1050,6 @@
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
-        /* Premium Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 25s infinite linear;
-            transform-style: preserve-3d;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
-                opacity: 0;
-            }
-        }
-        
         /* Premium Scroll Animation */
         .fade-in {
             opacity: 0;
@@ -1136,6 +1171,9 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -1149,7 +1187,7 @@
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
-        <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <p class="loading-text">Loading Policy<span class="loading-dots"></span></p>
     </div>
     
     <!-- Premium Header -->
@@ -1208,97 +1246,102 @@
     
     <!-- Premium Hero Section -->
     <section class="hero-gradient">
+        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        
         <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
+        
+        <!-- Particles Container - FIXED POSITION -->
+        <div id="particles"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="text-center">
                 <h1 class="hero-title text-white">
                     Refund & <span class="text-gradient">Return Policy</span>
                 </h1>
-                <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">At Naptico Green Energy Solars, we are committed to providing high-quality solar products and services. Our refund and return policy is designed to be fair and transparent.</p>
+                <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">Our commitment to customer satisfaction extends beyond installation. Learn about our transparent and fair refund process.</p>
             </div>
         </div>
-        <!-- Premium Particle Effect -->
-        <div id="particles"></div>
     </section>
     
-    <!-- Policy Content Section -->
+    <!-- Premium Policy Section -->
     <section class="policy-section py-20">
-        <div class="policy-content">
-            <div class="policy-card fade-in">
-                <h3>1. General Policy</h3>
-                <p>Our refund and return policy applies to all solar products and services provided by Naptico Green Energy Solars. We strive to ensure customer satisfaction with every purchase and service.</p>
-                <p>This policy is effective from January 1, 2023, and is subject to change without prior notice. Any changes will be communicated through our official channels.</p>
+        <div class="container mx-auto px-4 policy-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Our <span class="text-gradient">Refund Policy</span></h2>
+                <p class="section-subtitle">Clear, fair, and customer-friendly refund terms for all our solar energy solutions</p>
             </div>
             
             <div class="policy-card fade-in stagger-1">
-                <h3>2. Solar Products Return Policy</h3>
-                <ul>
-                    <li><strong>Eligibility:</strong> Products can be returned within 7 days of delivery if they are in original condition, unused, and in original packaging.</li>
-                    <li><strong>Process:</strong> To initiate a return, please contact our customer service team at <li><strong>Email:</strong> <a href="mailto:support@napticogreenenergysolars.com" class="text-amber-500 hover:text-amber-400 transition-colors">support@napticogreenenergysolars.com</a></li>
-                    <li><strong>Inspection:</strong> All returned products will undergo inspection to verify their condition and eligibility for refund.</li>
-                    <li><strong>Refund:</strong> Once approved, refunds will be processed within 7-10 business days to the original payment method.</li>
-                </ul>
-                <div class="policy-highlight">
-                    <p>Please note: Customized solar products or special-order items cannot be returned unless they are defective or damaged upon delivery.</p>
-                </div>
+                <h3><i class="fas fa-info-circle"></i> Policy Overview</h3>
+                <p>At Naptico Green Energy Solars, we are committed to providing high-quality solar energy solutions and excellent customer service. We understand that circumstances may change, and we've developed a fair and transparent refund policy to address various situations that may arise after purchase.</p>
+                <p>This policy outlines the terms and conditions under which refunds may be issued for our products and services. By purchasing from Naptico Green Energy Solars, you agree to the terms outlined in this policy.</p>
             </div>
             
             <div class="policy-card fade-in stagger-2">
-                <h3>3. Solar Installation Services</h3>
+                <h3><i class="fas fa-check-circle"></i> Eligibility for Refunds</h3>
+                <p>Refunds may be considered under the following circumstances:</p>
                 <ul>
-                    <li><strong>Cancellation:</strong> Installation services can be canceled up to 48 hours before the scheduled installation date without penalty.</li>
-                    <li><strong>Post-Installation Issues:</strong> If you experience any issues with the installation, please report them within 30 days of completion for free rectification.</li>
-                    <li><strong>Service Refunds:</strong> Refunds for installation services will be considered on a case-by-case basis, depending on the stage of completion and resources utilized.</li>
+                    <li><strong>Cancellation before installation:</strong> Full refund if cancellation is made within 7 days of placing the order and before any installation work has begun.</li>
+                    <li><strong>Product defects:</strong> If any component of your solar system is found to be defective within the warranty period, we will repair or replace the defective part at no cost.</li>
+                    <li><strong>Service dissatisfaction:</strong> If you are not satisfied with our installation service, please contact us within 30 days of completion, and we will work to address your concerns.</li>
+                    <li><strong>Performance issues:</strong> If your system does not perform as guaranteed in our contract, we will take corrective measures to ensure it meets the promised specifications.</li>
                 </ul>
             </div>
             
             <div class="policy-card fade-in stagger-3">
-                <h3>4. Defective or Damaged Products</h3>
-                <p>If you receive a defective or damaged product, please contact us immediately within 48 hours of delivery. We will arrange for a replacement or repair at no additional cost.</p>
-                <p>For products that develop defects after installation, our warranty policy will apply. Please refer to the specific warranty terms provided with your product.</p>
-                <div class="policy-highlight">
-                    <p>All our solar panels come with a manufacturer's warranty of 25 years on performance and 10 years on product defects. Inverters and other components have separate warranty periods as specified by the manufacturer.</p>
+                <h3><i class="fas fa-clock"></i> Refund Process</h3>
+                <p>To request a refund, please follow these steps:</p>
+                <ul>
+                    <li><strong>Contact our customer service team:</strong> Call us at <a href="tel:080 2952 7671">080 2952 7671</a> or email <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a> to initiate your refund request.</li>
+                    <li><strong>Provide necessary documentation:</strong> You will need to provide your order number, proof of purchase, and a detailed explanation of the reason for your refund request.</li>
+                    <li><strong>Inspection and assessment:</strong> Our team may schedule a site visit to inspect the system and assess your claim.</li>
+                    <li><strong>Decision notification:</strong> We will inform you of our decision regarding your refund request within 10 business days of completing our assessment.</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Note:</strong> Refund requests must be made within the specified timeframes mentioned in the eligibility section. Requests made after these periods may not be considered.</p>
                 </div>
             </div>
             
             <div class="policy-card fade-in stagger-4">
-                <h3>5. Refund Process</h3>
+                <h3><i class="fas fa-money-bill-wave"></i> Refund Method and Timeline</h3>
+                <p>If your refund request is approved:</p>
                 <ul>
-                    <li><strong>Initiation:</strong> Contact our customer service team to initiate a refund request.</li>
-                    <li><strong>Documentation:</strong> Provide necessary documentation including proof of purchase, photos (if applicable), and a detailed description of the issue.</li>
-                    <li><strong>Review:</strong> Our team will review your request within 3-5 business days.</li>
-                    <li><strong>Approval:</strong> Once approved, we will process the refund within 7-10 business days.</li>
-                    <li><strong>Confirmation:</strong> You will receive a confirmation email once the refund has been processed.</li>
+                    <li><strong>Refund method:</strong> Refunds will be processed using the same method of payment used for the original purchase.</li>
+                    <li><strong>Processing time:</strong> Refunds will be processed within 10-15 business days after approval.</li>
+                    <li><strong>Partial refunds:</strong> In cases where services have been partially rendered or products have been partially used, a prorated refund may be issued based on the extent of services rendered or products used.</li>
+                    <li><strong>Deductions:</strong> Any applicable shipping, installation, or service fees may be deducted from the refund amount if the reason for the refund is not due to an error on our part.</li>
                 </ul>
             </div>
             
             <div class="policy-card fade-in stagger-5">
-                <h3>6. Exceptions</h3>
-                <p>The following items are not eligible for return or refund:</p>
+                <h3><i class="fas fa-exclamation-triangle"></i> Exceptions and Non-Refundable Items</h3>
+                <p>The following situations are generally not eligible for refunds:</p>
                 <ul>
-                    <li>Products that have been installed, used, or modified after delivery</li>
-                    <li>Products returned after the specified return period</li>
-                    <li>Customized or special-order products</li>
-                    <li>Services that have been fully rendered as per the agreement</li>
-                    <li>Products damaged due to improper installation, misuse, or neglect</li>
+                    <li><strong>Custom-designed systems:</strong> Solar systems that have been custom-designed to meet specific customer requirements are non-refundable once manufacturing has begun.</li>
+                    <li><strong>Change of mind after installation:</strong> If you change your mind about the solar system after installation is complete, refunds are not available.</li>
+                    <li><strong>Damage caused by customer:</strong> Any damage to the system caused by improper use, negligence, or unauthorized modifications is not covered under our refund policy.</li>
+                    <li><strong>Force majeure events:</strong> We are not responsible for delays or failures in performance due to circumstances beyond our control, including natural disasters, strikes, or government actions.</li>
                 </ul>
             </div>
             
-<div class="policy-card fade-in stagger-6">
-    <h3>7. Contact Information</h3>
-    <p>If you have any questions about our refund and return policy, please contact us:</p>
-    <ul>
-        <li><strong>Email:</strong> <a href="mailto:support@napticogreenenergysolars.com" class="text-amber-500 hover:text-amber-400 transition-colors">support@napticogreenenergysolars.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:08029527671" class="text-amber-500 hover:text-amber-400 transition-colors">080 2952 7671</a> | <a href="tel:+917019299196" class="text-amber-500 hover:text-amber-400 transition-colors">+91 70192 99196</a></li>
-        <li><strong>Address:</strong> 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
-        <li><strong>Hours:</strong> Mon-Sat: 10:00 AM - 7:00 PM</li>
-    </ul>
-    <div class="policy-highlight">
-        <p>We are committed to resolving any issues promptly and ensuring your complete satisfaction with our products and services.</p>
-    </div>
-</div>
+            <div class="policy-card fade-in stagger-6">
+                <h3><i class="fas fa-headset"></i> Contact Information</h3>
+                <p>If you have any questions about our Refund & Return Policy, please don't hesitate to contact us:</p>
+                <ul>
+                    <li><strong>Phone:</strong> <a href="tel:080 2952 7671">080 2952 7671</a> or <a href="tel:+91 70192 99196">+91 70192 99196</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a></li>
+                    <li><strong>Address:</strong> 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
+                    <li><strong>Business Hours:</strong> Monday to Saturday, 10:00 AM to 7:00 PM</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> This policy is subject to change without prior notice. The version of the policy applicable to your purchase is the one in effect at the time of your order.</p>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- Premium Footer -->
@@ -1382,18 +1425,12 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Legal Disclaimer.html">Legal Disclaimer</a> | <a href="Privacy Policy.html">Privacy Policy</a>|<a href="Terms & Conditions.html">Terms & Conditions</a>| <a href="Refund/Return Policy.html">Refund/Return Policy</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Legal Disclaimer.html">Legal Disclaimer</a> | <a href="Privacy Policy.html">Privacy Policy</a>|<a href="Terms & Conditions.html">Terms & Conditions</a>| <a href="Refund-Return-Policy.html">Refund/Return Policy</a></p>
             </div>
         </div>
     </footer>
     
     <script>
-        // URL Redirect for index.html
-        if (window.location.pathname.endsWith('index.html')) {
-            const newUrl = window.location.href.replace('index.html', '');
-            window.history.replaceState({}, document.title, newUrl);
-        }
-        
         // Function to detect if device is touch-enabled
         function isTouchDevice() {
             return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
@@ -1403,7 +1440,7 @@
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3500);
+            }, 2500);
         });
         
         // Only initialize custom cursor on non-touch devices
@@ -1548,11 +1585,13 @@
         // Mobile contact button functionality
         mobileContactBtn.addEventListener('click', () => {
             closeMobileMenu();
-            // Redirect to contact page or open quote modal
-            window.location.href = "Coming Soon.html";
+            // Open quote modal after a short delay
+            setTimeout(() => {
+                window.location.href = "Coming Soon.html";
+            }, 300);
         });
         
-        // Premium Particle Effect
+        // Premium Particle Effect - FIXED Z-INDEX
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 40;

@@ -1046,11 +1046,12 @@
             font-family: Georgia, serif;
         }
         
-        /* Testimonial Carousel Styles */
+        /* Testimonial Carousel Styles - FIXED */
         .testimonial-carousel {
             position: relative;
             overflow: hidden;
             width: 100%;
+            padding: 20px 0 70px 0; /* Added padding to prevent shadow clipping */
         }
         
         .testimonial-track {
@@ -1063,6 +1064,8 @@
             display: flex;
             justify-content: center;
             gap: 30px;
+            padding: 0 20px; /* Added padding for side spacing */
+            box-sizing: border-box;
         }
         
         .testimonial-controls {

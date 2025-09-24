@@ -983,6 +983,12 @@
             object-fit: cover;
             object-position: top center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
         }
         
         .testimonial-info h4 {
@@ -1018,6 +1024,71 @@
             font-size: 3.5rem;
             color: rgba(245, 158, 11, 0.15);
             font-family: Georgia, serif;
+        }
+        
+        /* Testimonial Carousel Styles */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .testimonial-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+        
+        .testimonial-indicators {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .testimonial-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-indicator.active {
+            background: #f59e0b;
+            transform: scale(1.2);
         }
         
         /* Premium Footer */
@@ -1085,6 +1156,7 @@
             margin-bottom: 25px;
             line-height: 1.7;
             font-size: 1.05rem;
+            text-align: justify;
         }
         
         .footer-logo {
@@ -1814,6 +1886,17 @@
             .hero-gradient {
                 padding-top: 80px; /* Adjust based on header height */
             }
+            
+            /* Testimonial Carousel Mobile Adjustments */
+            .testimonial-slide {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .testimonial-card {
+                width: 100%;
+                max-width: 350px;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -1950,7 +2033,7 @@
                             <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
                         </div>
                         <div class="form-group">
-                            <label for="bill" class="form-label">Electricity Bill <span class="#"></span></label>
+                            <label for="bill" class="form-label">Electricity Bill <span class="#">#</span></label>
                             <div class="file-upload">
                                 <input type="file" id="bill" name="billUpload" class="file-upload-input" accept="image/*,.pdf" multiple required>
                                 <label for="bill" class="file-upload-label">
@@ -1961,7 +2044,7 @@
                             <div id="fileList" class="file-list"></div>
                         </div>
                         <div class="form-group full-width">
-                            <label for="address" class="form-label">Address <span class="required">*</span></label>
+                            <label for="address" class="form-label">Comment <span class="required">*</span></label>
                             <textarea id="address" name="address" class="form-textarea" placeholder="Enter your complete address" required></textarea>
                         </div>
                     </div>
@@ -2158,65 +2241,221 @@
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join the satisfied customers who have made the switch to solar</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card fade-in stagger-1">
-                    <div class="testimonial-quote">"</div>
-                    <div class="testimonial-header">
-                        <img src="./images/Male.jpg" alt="Customer" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Sharma</h4>
-                            <p>Homeowner, Mysore</p>
+            <!-- Testimonial Carousel -->
+            <div class="testimonial-carousel fade-in">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <!-- Testimonial Slide 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Sharma</h4>
+                                    <p>Homeowner, Mysore</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Naptico Green Energy Solar installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Business Owner, Bangalore [East]</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solar. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Anita Desai</h4>
+                                    <p>Houseowner, Bangalore [South]</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Naptico Green Energy Solar's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
                         </div>
                     </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    
+                    <!-- Testimonial Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Dr. Suresh Patel</h4>
+                                    <p>Educational Institution, Hubli</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Our school installed a 25kW rooftop system with Naptico Green Energy Solar. Not only are we saving on electricity costs, but we're also teaching our students about renewable energy. The installation was seamless and the after-sales support is exceptional."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Dr. Meena Reddy</h4>
+                                    <p>Hospital Administrator, Mangalore</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"As a healthcare facility, uninterrupted power is critical. Naptico Green Energy Solar designed a hybrid system that ensures we always have power. The solar water heaters have also reduced our LPG consumption significantly. Highly recommended!"</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Vikram Singh</h4>
+                                    <p>Manufacturing Unit, Belgaum</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Our manufacturing unit's power bills were skyrocketing. After installing a 50kW system with Naptico Green Energy Solar, we've cut our electricity costs by 75%. The team's technical expertise and professionalism are unmatched."</p>
+                        </div>
                     </div>
-                    <p class="testimonial-text">"Naptico Green Energy Solar installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                    
+                    <!-- Testimonial Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Arun Fernandez</h4>
+                                    <p>Hotel Owner, Goa</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Running a beach resort in Goa means high electricity costs for AC and water heating. Naptico Green Energy Solar installed both solar panels and solar water heaters. Our guests love that we're eco-friendly, and our operational costs have dropped dramatically."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Priya Sharma</h4>
+                                    <p>Resident, Pune</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"I was skeptical about solar initially, but Naptico Green Energy Solar's team explained everything clearly. The 3kW system on my terrace generates more power than I consume, and I even sell excess back to the grid. Best investment I've made!"</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Sanjay Mehta</h4>
+                                    <p>IT Park Manager, Hyderabad</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Our IT park has a massive power requirement. Naptico Green Energy Solar installed a 100kW system with battery backup. We've achieved energy independence and reduced our carbon footprint significantly. Their maintenance team is prompt and efficient."</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card fade-in stagger-2">
-                    <div class="testimonial-quote">"</div>
-                    <div class="testimonial-header">
-                        <img src="./images/Rajesh Kumar.jpg" alt="Customer" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Rajesh Kumar</h4>
-                            <p>Business Owner, Bangalore [East]</p>
-                        </div>
+                <!-- Testimonial Controls -->
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn" id="prevTestimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-indicators">
+                        <span class="testimonial-indicator active" data-slide="0"></span>
+                        <span class="testimonial-indicator" data-slide="1"></span>
+                        <span class="testimonial-indicator" data-slide="2"></span>
                     </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solar. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card fade-in stagger-3">
-                    <div class="testimonial-quote">"</div>
-                    <div class="testimonial-header">
-                        <img src="./images/Rajesh Kumar.jpg" alt="Customer" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Anita Desai</h4>
-                            <p>Houseowner, Bangalore [South]</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Naptico Green Energy Solar's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
+                    <button class="testimonial-btn" id="nextTestimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2229,7 +2468,7 @@
             <h2 class="text-4xl font-bold mb-8 text-white fade-in">Ready to Go Solar?</h2>
             <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Join the solar revolution and start saving on your electricity bills while helping the environment</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
-                <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
+                <a href="Coming Soon.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
             </div>
         </div>
@@ -2894,6 +3133,53 @@
                 });
             });
         });
+        
+        // Testimonial Carousel Functionality
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const prevBtn = document.getElementById('prevTestimonial');
+        const nextBtn = document.getElementById('nextTestimonial');
+        const indicators = document.querySelectorAll('.testimonial-indicator');
+        let currentTestimonialSlide = 0;
+        const totalTestimonialSlides = 3;
+        
+        function showTestimonialSlide(index) {
+            // Update slide position
+            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+            });
+            indicators[index].classList.add('active');
+            
+            currentTestimonialSlide = index;
+        }
+        
+        // Next slide
+        function nextTestimonialSlide() {
+            currentTestimonialSlide = (currentTestimonialSlide + 1) % totalTestimonialSlides;
+            showTestimonialSlide(currentTestimonialSlide);
+        }
+        
+        // Previous slide
+        function prevTestimonialSlide() {
+            currentTestimonialSlide = (currentTestimonialSlide - 1 + totalTestimonialSlides) % totalTestimonialSlides;
+            showTestimonialSlide(currentTestimonialSlide);
+        }
+        
+        // Button event listeners
+        nextBtn.addEventListener('click', nextTestimonialSlide);
+        prevBtn.addEventListener('click', prevTestimonialSlide);
+        
+        // Indicator event listeners
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showTestimonialSlide(index);
+            });
+        });
+        
+        // Auto-slide for testimonials
+        setInterval(nextTestimonialSlide, 8000); // Change slide every 8 seconds
     </script>
 </body>
 </html>

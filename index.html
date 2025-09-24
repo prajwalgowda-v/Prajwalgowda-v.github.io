@@ -2613,20 +2613,23 @@
             }
         });
         
-        // File upload handling for multiple files
+        // File upload handling for multiple files - FIXED
         const fileInput = document.getElementById('bill');
         const fileLabel = document.getElementById('fileLabel');
         const fileList = document.getElementById('fileList');
         let selectedFiles = [];
         
         fileInput.addEventListener('change', function() {
-            // Get newly selected files
-            const newFiles = Array.from(this.files);
+            // Clear the existing files array
+            selectedFiles = [];
             
-            // Add to our list of selected files
-            newFiles.forEach(file => {
-                selectedFiles.push(file);
-            });
+            // Get all selected files
+            const files = this.files;
+            
+            // Add files to our array
+            for (let i = 0; i < files.length; i++) {
+                selectedFiles.push(files[i]);
+            }
             
             // Update the display
             updateFileDisplay();
@@ -2668,14 +2671,23 @@
                     selectedFiles.splice(index, 1);
                     updateFileDisplay();
                     
-                    // Update the actual input
-                    const dataTransfer = new DataTransfer();
-                    selectedFiles.forEach(file => {
-                        dataTransfer.items.add(file);
-                    });
-                    fileInput.files = dataTransfer.files;
+                    // Create a new FileList and update the input
+                    updateFileInput();
                 });
             });
+        }
+        
+        function updateFileInput() {
+            // Create a new DataTransfer object
+            const dataTransfer = new DataTransfer();
+            
+            // Add each file back to the DataTransfer
+            selectedFiles.forEach(file => {
+                dataTransfer.items.add(file);
+            });
+            
+            // Update the file input with the new FileList
+            fileInput.files = dataTransfer.files;
         }
         
         function formatFileSize(bytes) {
@@ -2705,7 +2717,7 @@
         // Add event listener for window resize to re-center modal
         window.addEventListener('resize', centerModal);
         
-        // Form submission with Formspree integration
+        // Form submission with Formspree integration - FIXED
         const quoteForm = document.getElementById('quoteForm');
         const formMessage = document.getElementById('formMessage');
         

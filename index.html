@@ -1976,6 +1976,15 @@
                 font-size: 1rem; /* Larger font size for larger screens */
             }
         }
+        
+        /* Performance optimization for slower devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -2661,7 +2670,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html"target="_blank":>Legal Disclaimer</a> | <a href="privacy-policy.html"target="_blank":>Privacy Policy</a>|<a href="Terms & Conditions.html"target="_blank":>Terms & Conditions</a>| <a href="refund & return policy.html"target="_blank":>Refund & Return Policy</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a>|<a href="Terms & Conditions.html" target="_blank">Terms & Conditions</a>| <a href="refund&return policy.html" target="_blank">Refund & Return Policy</a></p>
             </div>
         </div>
     </footer>

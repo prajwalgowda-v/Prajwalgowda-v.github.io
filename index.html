@@ -227,7 +227,7 @@
             60%, 100% { content: '...'; }
         }
         
-        /* Premium Header with Glass Effect */
+        /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
             top: 0;
@@ -236,13 +236,14 @@
             z-index: 1000;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            height: 100px; /* Fixed height to prevent wrapping */
         }
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 10px 0;
+            height: 80px; /* Smaller fixed height when scrolled */
         }
         
         .header-content {
@@ -251,6 +252,10 @@
             align-items: center;
             padding: 20px 5%;
             transition: all 0.3s ease;
+            height: 100%; /* Take full height of parent */
+            width: 100%;
+            max-width: 1400px; /* Limit max width for better alignment */
+            margin: 0 auto;
         }
         
         .header.scrolled .header-content {
@@ -261,6 +266,7 @@
             width: 220px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            flex-shrink: 0; /* Prevent logo from shrinking */
         }
         
         .logo:hover {
@@ -273,10 +279,12 @@
         
         .nav-menu {
             display: flex;
-            gap: 35px;
+            gap: 20px; /* Reduced gap to prevent wrapping */
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: nowrap; /* Prevent nav items from wrapping */
+            overflow: hidden; /* Hide overflow if needed */
         }
         
         .nav-link {
@@ -287,6 +295,8 @@
             transition: all 0.3s ease;
             transform-style: preserve-3d;
             padding: 5px 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+            font-size: 0.95rem; /* Slightly smaller font size */
         }
         
         .nav-link::before {
@@ -314,6 +324,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-shrink: 0; /* Prevent actions from shrinking */
         }
         
         .contact-btn {
@@ -329,6 +340,7 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            white-space: nowrap; /* Prevent text from wrapping */
         }
         
         .contact-btn::before {
@@ -366,6 +378,7 @@
             width: 30px;
             height: 30px;
             overflow: hidden;
+            flex-shrink: 0; /* Prevent button from shrinking */
         }
         
         .mobile-menu-btn:hover {
@@ -544,7 +557,7 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 90px; /* Add padding to prevent header overlap */
+            padding-top: 100px; /* Add padding to prevent header overlap */
         }
         
         /* Fixed Hero Background - OPTIMIZED */
@@ -1925,6 +1938,44 @@
                 margin-top: 20px; /* Add some space between header and title */
             }
         }
+        
+        /* Medium screen adjustments for header */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px; /* Reduced gap for medium screens */
+            }
+            
+            .nav-link {
+                font-size: 0.9rem; /* Smaller font size for medium screens */
+            }
+            
+            .header-content {
+                padding: 20px 3%;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+        }
+        
+        /* Large screen adjustments for header */
+        @media (min-width: 1600px) {
+            .header-content {
+                max-width: 1600px; /* Larger max width for very large screens */
+            }
+            
+            .nav-menu {
+                gap: 30px; /* Increased gap for larger screens */
+            }
+            
+            .nav-link {
+                font-size: 1rem; /* Larger font size for larger screens */
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -2636,16 +2687,23 @@
         
         // Only initialize custom cursor on non-touch devices
         if (!isTouchDevice()) {
-            // Premium Custom Cursor
+            // Premium Custom Cursor - FIXED
             const cursor = document.querySelector('.cursor');
             const cursorFollower = document.querySelector('.cursor-follower');
             
-            // Optimized cursor movement using direct position updates
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
+            // Initialize cursor position to center of screen
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let followerX = mouseX;
+            let followerY = mouseY;
             
+            // Set initial cursor position
+            cursor.style.left = mouseX - 12.5 + 'px';
+            cursor.style.top = mouseY - 12.5 + 'px';
+            cursorFollower.style.left = followerX - 25 + 'px';
+            cursorFollower.style.top = followerY - 25 + 'px';
+            
+            // Optimized cursor movement using direct position updates
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;

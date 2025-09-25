@@ -2052,6 +2052,24 @@
                 transition-duration: 0.01ms !important;
             }
         }
+        
+        /* Loading screen fix */
+        body {
+            overflow: hidden; /* Initially hide scrollbars */
+        }
+        
+        .loading-screen.hidden + body,
+        .loading-screen.hidden ~ * {
+            overflow: visible !important;
+            display: block !important;
+        }
+        
+        /* Ensure the loading screen properly disappears */
+        .loading-screen.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -2077,6 +2095,8 @@
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <!-- Skip button added -->
+        <button id="skipLoading" style="position: absolute; top: 10px; right: 10px; padding: 5px 10px; background: #f59e0b; color: white; border: none; border-radius: 4px; cursor: pointer; z-index: 10000;">Skip Loading</button>
     </div>
     
     <!-- Premium Header -->
@@ -2759,11 +2779,42 @@
             return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
         }
         
-        // Premium Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3500);
+        // Improved Loading Screen Script with better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
+            // Function to hide loading screen
+            function hideLoadingScreen() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    console.log('Loading screen hidden');
+                    // Ensure body can scroll
+                    document.body.style.overflow = 'auto';
+                } else {
+                    console.error('Loading screen element not found');
+                }
+            }
+            
+            // Try to hide loading screen after a short delay
+            setTimeout(hideLoadingScreen, 1500);
+            
+            // Also hide when window is fully loaded
+            window.addEventListener('load', function() {
+                console.log('Window fully loaded');
+                setTimeout(hideLoadingScreen, 500);
+            });
+            
+            // Fallback: Force hide after 10 seconds no matter what
+            setTimeout(hideLoadingScreen, 10000);
+            
+            // Skip button functionality
+            const skipButton = document.getElementById('skipLoading');
+            if (skipButton) {
+                skipButton.addEventListener('click', function() {
+                    hideLoadingScreen();
+                });
+            }
         });
         
         // Only initialize custom cursor on non-touch devices

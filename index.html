@@ -227,6 +227,24 @@
             60%, 100% { content: '...'; }
         }
         
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #f59e0b;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
         /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
@@ -244,6 +262,13 @@
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             height: 80px; /* Smaller fixed height when scrolled */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(20px)) {
+            .header.scrolled {
+                background: rgba(15, 23, 42, 0.95);
+            }
         }
         
         .header-content {
@@ -443,6 +468,13 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .mobile-menu-overlay {
+                background: rgba(15, 23, 42, 0.98);
+            }
         }
         
         .mobile-menu-overlay.active {
@@ -739,6 +771,13 @@
             backdrop-filter: blur(10px);
         }
         
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .hero-btn-secondary {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        
         .hero-btn-secondary:hover {
             background: rgba(245, 158, 11, 0.2);
             transform: translateY(-5px) rotateX(5deg);
@@ -814,6 +853,13 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .service-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
         .service-card::before {
@@ -914,6 +960,13 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .feature-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
         .feature-card:hover {
             transform: translateY(-20px) rotateX(10deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -977,6 +1030,13 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .testimonial-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
         .testimonial-card::before {
@@ -1381,6 +1441,13 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .quote-modal {
+                background: rgba(0, 0, 0, 0.95);
+            }
         }
         
         .quote-modal.active {
@@ -1988,6 +2055,9 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- PRELOAD HERO IMAGES -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
@@ -2014,7 +2084,7 @@
         <div class="header-content">
             <!-- Logo path updated to use relative path and made clickable -->
             <a href="./">
-                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
+                <img src="./images/White-Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
             </a>
             <nav>
                 <ul class="nav-menu">
@@ -2067,7 +2137,7 @@
                 </button>
                 <!-- Logo path updated to use relative path and made clickable -->
                 <a href="./">
-                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
+                    <img src="./images/White-Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
                 <h2 class="quote-form-title">Get Your Solar Quote</h2>
                 <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
@@ -2076,8 +2146,7 @@
             <div class="quote-form-body">
                 <!-- Formspree form integration -->
                 <form id="quoteForm" class="quote-form" action="https://formspree.io/f/mvgwoyzv" method="POST">
-                    <!-- Hidden email field to receive notifications -->
-                    <input type="hidden" name="_replyto" value="prajwal.v@napticogreenenergysolars.com">
+                    <!-- Form subject field (removed the hidden email field for security) -->
                     <input type="hidden" name="_subject" value="New Solar Quote Request from Naptico Website">
                     
                     <div class="form-grid">
@@ -2094,7 +2163,7 @@
                             <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
                         </div>
                         <div class="form-group">
-                            <label for="bill" class="form-label">Electricity Bill <span class="#"></span></label>
+                            <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
                             <div class="file-upload">
                                 <input type="file" id="bill" name="billUpload" class="file-upload-input" accept="image/*,.pdf" multiple required>
                                 <label for="bill" class="file-upload-label">
@@ -2132,7 +2201,7 @@
     </button>
     
     <!-- Premium Hero Section -->
-    <section class="hero-gradient">
+    <section id="main-content" class="hero-gradient">
         <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
         <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
@@ -2156,7 +2225,7 @@
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -2599,7 +2668,7 @@
                         <!-- Fixed filename with space issue and added proper dimensions -->
                         <img src="./images/White-Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
                              onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
-                             width="220" height="90">
+                             width="220" height="90" loading="lazy">
                     </a>
                     <p style="font-size: 12px;">We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
                     <div class="social-icons">

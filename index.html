@@ -197,6 +197,7 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -319,10 +320,6 @@
         
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
-        }
-        
-        .header.scrolled .logo {
-            width: 170px;
         }
         
         .nav-menu {
@@ -2123,10 +2120,8 @@
             overflow: hidden; /* Initially hide scrollbars */
         }
         
-        .loading-screen.hidden + body,
-        .loading-screen.hidden ~ * {
-            overflow: visible !important;
-            display: block !important;
+        body.loaded {
+            overflow: visible; /* Show scrollbars after loading */
         }
         
         /* Ensure the loading screen properly disappears */
@@ -3079,6 +3074,7 @@
                     console.log('Loading screen hidden');
                     // Ensure body can scroll
                     document.body.style.overflow = 'auto';
+                    document.body.classList.add('loaded');
                     // Enable pointer events
                     document.body.style.pointerEvents = 'auto';
                 } else {
@@ -3235,8 +3231,12 @@
         
         // Function to reset mobile menu state
         function resetMobileMenu() {
-            mobileMenuOverlay.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('active');
+            }
+            if (mobileMenuBtn) {
+                mobileMenuBtn.classList.remove('active');
+            }
             document.body.style.overflow = '';
             // Re-enable pointer events on body
             document.body.style.pointerEvents = 'auto';
@@ -3253,20 +3253,28 @@
         });
         
         // Open mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-            // Disable pointer events on content behind menu
-            document.body.style.pointerEvents = 'none';
-            mobileMenuBtn.classList.toggle('active'); // Toggle animation class
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (mobileMenuOverlay) {
+                    mobileMenuOverlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                // Disable pointer events on content behind menu
+                document.body.style.pointerEvents = 'none';
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+                }
+            });
+        }
         
         // Close mobile menu
         function closeMobileMenu() {
             resetMobileMenu();
         }
         
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
@@ -3275,14 +3283,19 @@
         });
         
         // Mobile contact button functionality
-        mobileContactBtn.addEventListener('click', () => {
-            closeMobileMenu();
-            // Open quote modal after a short delay
-            setTimeout(() => {
-                document.getElementById('quoteModal').classList.add('active');
-                centerModal();
-            }, 300);
-        });
+        if (mobileContactBtn) {
+            mobileContactBtn.addEventListener('click', () => {
+                closeMobileMenu();
+                // Open quote modal after a short delay
+                setTimeout(() => {
+                    const quoteModal = document.getElementById('quoteModal');
+                    if (quoteModal) {
+                        quoteModal.classList.add('active');
+                        centerModal();
+                    }
+                }, 300);
+            });
+        }
         
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
@@ -3302,8 +3315,12 @@
             const img = new Image();
             img.onload = function() {
                 // Once loaded, update the background
-                heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
-                heroImage.src = heroImages[index];
+                if (heroFixedBg) {
+                    heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                }
+                if (heroImage) {
+                    heroImage.src = heroImages[index];
+                }
                 currentHeroImage = index;
             };
             img.onerror = function() {
@@ -3344,7 +3361,9 @@
         // Pause rotation when page is not visible
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                clearInterval(heroInterval);
+                if (heroInterval) {
+                    clearInterval(heroInterval);
+                }
             } else {
                 startHeroRotation();
             }
@@ -3353,6 +3372,8 @@
         // Premium Particle Effect - FIXED Z-INDEX and PERFORMANCE
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
             const particleCount = 30; // Reduced particle count for better performance
             
             // Clear existing particles if any
@@ -3399,17 +3420,19 @@
         // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Premium Quote Form Modal
         const quoteModal = document.getElementById('quoteModal');
@@ -3418,23 +3441,31 @@
         
         contactBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                quoteModal.classList.add('active');
-                quoteModal.setAttribute('aria-hidden', 'false');
-                centerModal();
+                if (quoteModal) {
+                    quoteModal.classList.add('active');
+                    quoteModal.setAttribute('aria-hidden', 'false');
+                    centerModal();
+                }
             });
         });
         
-        quoteClose.addEventListener('click', () => {
-            quoteModal.classList.remove('active');
-            quoteModal.setAttribute('aria-hidden', 'true');
-        });
+        if (quoteClose) {
+            quoteClose.addEventListener('click', () => {
+                if (quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
         
-        quoteModal.addEventListener('click', (e) => {
-            if (e.target === quoteModal) {
-                quoteModal.classList.remove('active');
-                quoteModal.setAttribute('aria-hidden', 'true');
-            }
-        });
+        if (quoteModal) {
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
         
         // File upload handling for multiple files - FIXED
         const fileInput = document.getElementById('bill');
@@ -3442,23 +3473,27 @@
         const fileList = document.getElementById('fileList');
         let selectedFiles = [];
         
-        fileInput.addEventListener('change', function() {
-            // Clear the existing files array
-            selectedFiles = [];
-            
-            // Get all selected files
-            const files = this.files;
-            
-            // Add files to our array
-            for (let i = 0; i < files.length; i++) {
-                selectedFiles.push(files[i]);
-            }
-            
-            // Update the display
-            updateFileDisplay();
-        });
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                // Clear the existing files array
+                selectedFiles = [];
+                
+                // Get all selected files
+                const files = this.files;
+                
+                // Add files to our array
+                for (let i = 0; i < files.length; i++) {
+                    selectedFiles.push(files[i]);
+                }
+                
+                // Update the display
+                updateFileDisplay();
+            });
+        }
         
         function updateFileDisplay() {
+            if (!fileLabel || !fileList) return;
+            
             // Clear current display
             fileList.innerHTML = '';
             
@@ -3501,6 +3536,8 @@
         }
         
         function updateFileInput() {
+            if (!fileInput) return;
+            
             // Create a new DataTransfer object
             const dataTransfer = new DataTransfer();
             
@@ -3524,6 +3561,8 @@
         // Function to center the modal properly
         function centerModal() {
             const modalContainer = document.querySelector('.quote-form-container');
+            if (!modalContainer) return;
+            
             const windowHeight = window.innerHeight;
             const modalHeight = modalContainer.offsetHeight;
             
@@ -3544,73 +3583,85 @@
         const quoteForm = document.getElementById('quoteForm');
         const formMessage = document.getElementById('formMessage');
         
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const submitBtn = this.querySelector('.form-submit');
-            const originalBtnContent = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
-            submitBtn.disabled = true;
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Send form data to Formspree
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    return response.json().then(data => {
-                        throw new Error(data.error || 'Network response was not ok.');
-                    });
-                }
-            })
-            .then(data => {
-                // Show success message
-                formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
-                formMessage.className = 'form-message success';
-                formMessage.style.display = 'block';
-                formMessage.setAttribute('role', 'alert');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Reset form
-                this.reset();
-                selectedFiles = [];
-                updateFileDisplay();
+                // Show loading state
+                const submitBtn = this.querySelector('.form-submit');
+                const originalBtnContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+                submitBtn.disabled = true;
                 
-                // Hide message after 5 seconds and close modal
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                    quoteModal.classList.remove('active');
-                    quoteModal.setAttribute('aria-hidden', 'true');
-                }, 5000);
-            })
-            .catch(error => {
-                // Show error message with specific details
-                console.error('Error:', error);
-                formMessage.textContent = `Error: ${error.message || 'There was an error submitting your form. Please try again.'}`;
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-                formMessage.setAttribute('role', 'alert');
+                // Get form data
+                const formData = new FormData(this);
                 
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            })
-            .finally(() => {
-                // Reset button state
-                submitBtn.innerHTML = originalBtnContent;
-                submitBtn.disabled = false;
+                // Send form data to Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Network response was not ok.');
+                        });
+                    }
+                })
+                .then(data => {
+                    // Show success message
+                    if (formMessage) {
+                        formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Reset form
+                    this.reset();
+                    selectedFiles = [];
+                    updateFileDisplay();
+                    
+                    // Hide message after 5 seconds and close modal
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                        if (quoteModal) {
+                            quoteModal.classList.remove('active');
+                            quoteModal.setAttribute('aria-hidden', 'true');
+                        }
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Show error message with specific details
+                    console.error('Error:', error);
+                    if (formMessage) {
+                        formMessage.textContent = `Error: ${error.message || 'There was an error submitting your form. Please try again.'}`;
+                        formMessage.className = 'form-message error';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                    }, 5000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
             });
-        });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -3690,17 +3741,19 @@
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             
-            question.addEventListener('click', () => {
-                // Toggle active class on clicked item
-                item.classList.toggle('active');
-                
-                // Close other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
+            if (question) {
+                question.addEventListener('click', () => {
+                    // Toggle active class on clicked item
+                    item.classList.toggle('active');
+                    
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
                 });
-            });
+            }
         });
         
         // Testimonial Carousel Functionality
@@ -3712,6 +3765,8 @@
         const totalTestimonialSlides = 3;
         
         function showTestimonialSlide(index) {
+            if (!testimonialTrack) return;
+            
             // Update slide position
             testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
             
@@ -3719,7 +3774,9 @@
             indicators.forEach(indicator => {
                 indicator.classList.remove('active');
             });
-            indicators[index].classList.add('active');
+            if (indicators[index]) {
+                indicators[index].classList.add('active');
+            }
             
             currentTestimonialSlide = index;
         }
@@ -3737,8 +3794,12 @@
         }
         
         // Button event listeners
-        nextBtn.addEventListener('click', nextTestimonialSlide);
-        prevBtn.addEventListener('click', prevTestimonialSlide);
+        if (nextBtn) {
+            nextBtn.addEventListener('click', nextTestimonialSlide);
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', prevTestimonialSlide);
+        }
         
         // Indicator event listeners
         indicators.forEach((indicator, index) => {
@@ -3763,13 +3824,13 @@
             // Escape key to close modal
             if (e.key === 'Escape') {
                 const modal = document.getElementById('quoteModal');
-                if (modal.classList.contains('active')) {
+                if (modal && modal.classList.contains('active')) {
                     modal.classList.remove('active');
                     modal.setAttribute('aria-hidden', 'true');
                 }
                 
                 const mobileMenu = document.getElementById('mobileMenuOverlay');
-                if (mobileMenu.classList.contains('active')) {
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
                     mobileMenu.classList.remove('active');
                     document.body.style.overflow = '';
                     document.body.style.pointerEvents = 'auto';

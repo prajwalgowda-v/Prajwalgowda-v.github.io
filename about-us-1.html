@@ -1,0 +1,3544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Naptico Green Energy Solars</title>
+    
+    <!-- Favicon for all devices and platforms -->
+    <link rel="icon" href="./images/Icon.png" type="image/x-icon">
+
+    <!-- PNG favicons for modern browsers -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/Icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/Icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="./images/Icon.png">
+
+    <!-- Apple Touch Icons (for iOS home screen) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/Icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./images/Icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./images/Icon.png">
+
+    <!-- Android/Chrome and PWA -->
+    <link rel="manifest" href="./images/Icon.png">
+
+    <!-- Windows Tiles (Microsoft / Edge / IE) -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./images/icon.png">
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
+    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy">
+    <meta name="author" content="Naptico Green Energy Solars">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="og:title" content="About Us - Naptico Green Energy Solars">
+    <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
+    <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
+    <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Include the same CSS styles as the homepage -->
+    <style>
+        /* All the CSS styles from the homepage go here */
+        /* I've included the same styles for consistency */
+        
+        /* CSS Reset and Base Styles */
+        * {
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background-color: #f8fafc;
+            position: relative;
+        }
+        
+        /* Premium Cursor with Glowing Effect - Only for non-touch devices */
+        .cursor {
+            width: 25px;
+            height: 25px;
+            border: 2px solid #f59e0b;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999999;
+            mix-blend-mode: difference;
+            opacity: 0;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            will-change: transform;
+        }
+        
+        .cursor-follower {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999998;
+            opacity: 0;
+            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            will-change: transform;
+        }
+        
+        .cursor.hover {
+            transform: scale(2.5);
+            background: rgba(245, 158, 11, 0.15);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+        }
+        
+        .cursor-follower.hover {
+            transform: scale(3.5);
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+        }
+        
+        /* Touch indicator for mobile devices */
+        .touch-indicator {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            pointer-events: none;
+            z-index: 999997;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .touch-indicator.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        /* Premium Loading Screen with White Background */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            overflow: hidden;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        .loading-logo {
+            width: 300px;
+            height: auto;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(-2deg);
+            }
+        }
+        
+        .loading-text {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #f59e0b;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: textGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(245, 158, 11, 1);
+            }
+        }
+        
+        .loading-dots {
+            display: inline-block;
+            animation: dots 1.5s infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #f59e0b;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Premium Header with Glass Effect - FIXED */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            height: 100px; /* Fixed height to prevent wrapping */
+        }
+        
+        .header.scrolled {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 80px; /* Smaller fixed height when scrolled */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(20px)) {
+            .header.scrolled {
+                background: rgba(15, 23, 42, 0.95);
+            }
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            transition: all 0.3s ease;
+            height: 100%; /* Take full height of parent */
+            width: 100%;
+            max-width: 1400px; /* Limit max width for better alignment */
+            margin: 0 auto;
+        }
+        
+        .header.scrolled .header-content {
+            padding: 10px 5%;
+        }
+        
+        .logo {
+            width: 220px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+            display: block;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotateY(10deg);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 20px; /* Reduced gap to prevent wrapping */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap; /* Prevent nav items from wrapping */
+            overflow: hidden; /* Hide overflow if needed */
+        }
+        
+        .nav-link {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            padding: 5px 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+            font-size: 0.95rem; /* Slightly smaller font size */
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-shrink: 0; /* Prevent actions from shrinking */
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #f59e0b);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .contact-btn:hover::before {
+            width: 100%;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
+        }
+        
+        /* Mobile Menu Button - FIXED */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 5px;
+            z-index: 1002;
+            cursor: pointer;
+            position: relative;
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            flex-shrink: 0; /* Prevent button from shrinking */
+        }
+        
+        .mobile-menu-btn:hover {
+            color: #f59e0b;
+        }
+        
+        /* Mobile Menu Icon Animation - FIXED */
+        .mobile-menu-btn span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .mobile-menu-btn span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .mobile-menu-btn span:nth-child(2) {
+            top: 10px;
+        }
+        
+        .mobile-menu-btn span:nth-child(3) {
+            top: 20px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(135deg);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-135deg);
+        }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .mobile-menu-overlay {
+                background: rgba(15, 23, 42, 0.98);
+            }
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-close:hover {
+            color: #f59e0b;
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mobile-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        .mobile-nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-nav a:hover {
+            color: #f59e0b;
+            transform: translateY(-3px);
+        }
+        
+        .mobile-contact-btn {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            cursor: pointer;
+        }
+        
+        .mobile-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #f59e0b);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .mobile-contact-btn:hover::before {
+            width: 100%;
+        }
+        
+        .mobile-contact-btn:hover {
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
+        }
+        
+        /* Premium Hero Section with Advanced Effects */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            perspective: 1000px;
+            padding-top: 100px; /* Add padding to prevent header overlap */
+        }
+        
+        /* Fixed Hero Background - OPTIMIZED */
+        .hero-fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            transition: background-image 1.5s ease-in-out;
+        }
+        
+        /* Dynamic Background Effect */
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            animation: backgroundMove 20s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes backgroundMove {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(-20px, -20px) scale(1.05);
+            }
+            50% {
+                transform: translate(20px, -10px) scale(1.1);
+            }
+            75% {
+                transform: translate(-10px, 20px) scale(1.05);
+            }
+        }
+        
+        /* Premium Particle Effect - FIXED Z-INDEX */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind the content but above the background */
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 25s infinite linear;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+            will-change: transform, opacity; /* Hardware acceleration */
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) translateZ(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 5; /* Increased z-index to ensure content is above particles */
+            transform-style: preserve-3d;
+        }
+        
+        /* Premium 3D Text Effects */
+        .hero-title {
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
+            font-weight: 800;
+            margin-bottom: 30px;
+            transform-style: preserve-3d;
+            animation: floatText 8s ease-in-out infinite;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes floatText {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg); 
+            }
+            25% { 
+                transform: translateY(-15px) rotateX(3deg); 
+            }
+            50% { 
+                transform: translateY(0) rotateX(0deg); 
+            }
+            75% { 
+                transform: translateY(-10px) rotateX(-2deg); 
+            }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #f59e0b, #f97316, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Premium Button Design */
+        .hero-btn {
+            display: inline-block;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            z-index: 1;
+            text-decoration: none;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .hero-btn-primary:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+        }
+        
+        .hero-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .hero-btn-secondary {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        
+        .hero-btn-secondary:hover {
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-5px) rotateX(5deg);
+            border-color: #f59e0b;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Premium About Section */
+        .about-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 4rem;
+        }
+        
+        /* Premium 3D Cards with Glass Effect */
+        .about-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .about-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .about-card:hover::before {
+            opacity: 1;
+        }
+        
+        .about-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .about-card:hover .about-icon {
+            transform: scale(1.15) rotateZ(10deg);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12px;
+        }
+        
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        
+        /* Team Section Styles */
+        .team-member {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .team-member {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .team-member:hover {
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 4px solid rgba(245, 158, 11, 0.5);
+            object-fit: cover;
+            object-position: top center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+        
+        .team-member:hover .team-avatar {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .team-position {
+            font-size: 1.1rem;
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        
+        .team-bio {
+            color: #e2e8f0;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .team-social a:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-5px) rotateZ(360deg);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+            border-color: transparent;
+        }
+        
+        /* Values Section Styles */
+        .value-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .value-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .value-card:hover {
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            flex-shrink: 0;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.15) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        /* Premium CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: #f97316;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            background: #f8fafc;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Premium Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 50px;
+            transform-style: preserve-3d;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+        }
+        
+        .footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            color: #f59e0b;
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        .footer-section p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        
+        .footer-logo {
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            max-width: 220px;
+            height: auto;
+            display: block;
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.05) rotateY(10deg);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            font-size: 1.2rem;
+        }
+        
+        .social-icon:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-8px) rotateZ(360deg);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
+            border-color: transparent;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .footer-links li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #f59e0b;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        
+        .footer-links li a:hover {
+            color: #f59e0b;
+            transform: translateX(8px);
+        }
+        
+        .footer-links li a:hover::before {
+            width: 100%;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            color: #94a3b8;
+            font-size: 1.05rem;
+        }
+        
+        .contact-info i {
+            color: #f59e0b;
+            margin-right: 12px;
+            margin-top: 5px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-info a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #f59e0b;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            position: relative;
+            z-index: 1;
+            font-size: 1.05rem;
+        }
+        
+        .footer-bottom a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Premium Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            font-size: 1.5rem;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-8px);}
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-15px) rotateZ(10deg);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Premium Quote Form Modal */
+        .quote-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            overflow-y: auto;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .quote-modal {
+                background: rgba(0, 0, 0, 0.95);
+            }
+        }
+        
+        .quote-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .quote-form-container {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 25px;
+            padding: 0;
+            width: 90%;
+            max-width: 650px;
+            position: relative;
+            transform: translateY(40px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            margin: 20px auto;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .quote-modal.active .quote-form-container {
+            transform: translateY(0);
+        }
+        
+        .quote-form-header {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .quote-form-logo {
+            width: 140px;
+            height: auto;
+            margin: 0 auto 25px;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .quote-form-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .quote-form-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            text-align: center;
+        }
+        
+        .quote-form-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .quote-form-body {
+            padding: 50px 40px;
+        }
+        
+        .quote-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            font-size: 22px;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            z-index: 10;
+        }
+        
+        .quote-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            font-weight: 500;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.4s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .file-upload-label:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f59e0b;
+        }
+        
+        .file-upload-label i {
+            margin-right: 12px;
+            color: #f59e0b;
+            font-size: 1.2rem;
+        }
+        
+        /* File list styles for multiple files */
+        .file-list {
+            margin-top: 15px;
+            max-height: 140px;
+            overflow-y: auto;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            font-size: 15px;
+        }
+        
+        .file-name {
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 15px;
+        }
+        
+        .file-size {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-right: 15px;
+        }
+        
+        .file-remove {
+            color: #f59e0b;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .file-remove:hover {
+            color: #f97316;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            margin-top: 35px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.6s ease;
+            z-index: 0;
+        }
+        
+        .form-submit:hover::before {
+            left: 100%;
+        }
+        
+        .form-submit i {
+            font-size: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-submit span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .required {
+            color: #f59e0b;
+        }
+        
+        .form-message {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+        
+        .privacy-text {
+            color: #94a3b8;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 30px;
+            line-height: 1.7;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        /* Premium Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered animation delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        /* Premium Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .header-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .quote-form-container {
+                width: 95%;
+            }
+            .quote-form-body {
+                padding: 40px 25px;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .back-to-top {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            /* Mobile Header Adjustments */
+            .header-content {
+                padding: 15px 5%;
+                justify-content: space-between;
+                height: 70px; /* Fixed height for mobile header */
+            }
+            
+            .logo {
+                width: 140px;
+                height: auto; /* Ensure logo maintains aspect ratio */
+            }
+            
+            .header.scrolled .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .header-content {
+                padding: 10px 5%;
+                height: 60px; /* Slightly smaller when scrolled */
+            }
+            
+            .mobile-menu-btn {
+                font-size: 20px;
+                padding: 8px;
+            }
+            
+            /* Add padding-top to hero section to account for fixed header */
+            .hero-gradient {
+                padding-top: 80px; /* Adjust based on header height */
+            }
+            
+            /* Timeline Mobile Adjustments */
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-dot {
+                left: 18px !important;
+                right: auto !important;
+            }
+            
+            /* Team Cards Mobile Adjustments */
+            .team-member {
+                margin-bottom: 20px;
+            }
+            
+            /* Value Cards Mobile Adjustments */
+            .value-card {
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Additional mobile adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 12px 5%;
+                height: 60px; /* Smaller fixed height for very small screens */
+            }
+            
+            .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .logo {
+                width: 100px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 18px;
+                padding: 6px;
+            }
+            
+            /* Adjust hero section padding for smaller screens */
+            .hero-gradient {
+                padding-top: 70px; /* Slightly less padding for smaller screens */
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+                margin-top: 20px; /* Add some space between header and title */
+            }
+            
+            /* Section titles for smaller screens */
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            /* Footer adjustments for smaller screens */
+            .footer-section h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+        
+        /* Medium screen adjustments for header */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px; /* Reduced gap for medium screens */
+            }
+            
+            .nav-link {
+                font-size: 0.9rem; /* Smaller font size for medium screens */
+            }
+            
+            .header-content {
+                padding: 20px 3%;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+        }
+        
+        /* Large screen adjustments for header */
+        @media (min-width: 1600px) {
+            .header-content {
+                max-width: 1600px; /* Larger max width for very large screens */
+            }
+            
+            .nav-menu {
+                gap: 30px; /* Increased gap for larger screens */
+            }
+            
+            .nav-link {
+                font-size: 1rem; /* Larger font size for larger screens */
+            }
+        }
+        
+        /* Performance optimization for slower devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Loading screen fix */
+        body {
+            overflow: hidden; /* Initially hide scrollbars */
+        }
+        
+        body.loaded {
+            overflow: visible; /* Show scrollbars after loading */
+        }
+        
+        /* Ensure the loading screen properly disappears */
+        .loading-screen.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for better accessibility */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+        
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Container max-width for better responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Grid adjustments for better responsiveness */
+        @media (min-width: 768px) {
+            .grid {
+                display: grid;
+                gap: 30px;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        
+        /* Flex utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .gap-4 {
+            gap: 1rem;
+        }
+        
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        
+        /* Spacing utilities */
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .mb-20 {
+            margin-bottom: 5rem;
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        /* Background utilities */
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+        }
+        
+        .from-gray-900 {
+            --tw-gradient-from: #111827;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(17, 24, 39, 0));
+        }
+        
+        .to-gray-800 {
+            --tw-gradient-to: #1f2937;
+        }
+        
+        /* Z-index utilities */
+        .z-10 {
+            z-index: 10;
+        }
+        
+        /* Position utilities */
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        /* Overflow utilities */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        /* Visibility utilities */
+        .invisible {
+            visibility: hidden;
+        }
+        
+        .visible {
+            visibility: visible;
+        }
+        
+        /* Opacity utilities */
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .opacity-100 {
+            opacity: 1;
+        }
+        
+        /* Transform utilities */
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        
+        /* Transition utilities */
+        .transition {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        /* Shadow utilities */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Premium Custom Cursor (for desktop only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Touch Indicator (for mobile only) -->
+    <div class="touch-indicator"></div>
+    
+    <!-- Premium Loading Screen with White Background -->
+    <div id="loadingScreen" class="loading-screen">
+        <!-- Logo path updated to use relative path and made clickable -->
+        <a href="./">
+            <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
+        </a>
+        <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <!-- Loading progress bar -->
+        <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
+            <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
+        </div>
+    </div>
+    
+    <!-- Premium Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo path updated to use relative path and made clickable -->
+            <a href="./">
+                <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="./" class="nav-link">Home</a></li>
+                    <li><a href="about-us.html" class="nav-link active">About Us</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Stories</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Subsidies</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="contact-btn">Get Quote</button>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav">
+            <li><a href="./">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="Coming Soon.html">Services</a></li>
+            <li><a href="Coming Soon.html">How It Works</a></li>
+            <li><a href="Coming Soon.html">Calculator</a></li>
+            <li><a href="Coming Soon.html">Stories</a></li>
+            <li><a href="Coming Soon.html">Subsidies</a></li>
+            <li><a href="Coming Soon.html">Contact</a></li>
+        </ul>
+        <button class="mobile-contact-btn" id="mobileContactBtn">Get Quote</button>
+    </div>
+    
+    <!-- Premium Quote Form Modal -->
+    <div id="quoteModal" class="quote-modal" role="dialog" aria-labelledby="quoteFormTitle" aria-hidden="true">
+        <div class="quote-form-container">
+            <div class="quote-form-header">
+                <button class="quote-close" id="quoteClose" aria-label="Close quote form">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- Logo path updated to use relative path and made clickable -->
+                <a href="./">
+                    <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
+                </a>
+                <h2 class="quote-form-title" id="quoteFormTitle">Get Your Solar Quote</h2>
+                <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
+            </div>
+            
+            <div class="quote-form-body">
+                <!-- Formspree form integration -->
+                <form id="quoteForm" class="quote-form" action="https://formspree.io/f/mvgwoyzv" method="POST">
+                    <!-- Form subject field (removed the hidden email field for security) -->
+                    <input type="hidden" name="_subject" value="New Solar Quote Request from Naptico Website">
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile" class="form-label">Mobile Number <span class="required">*</span></label>
+                            <input type="tel" id="mobile" name="mobile" class="form-input" placeholder="Enter your mobile number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email ID <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" id="bill" name="billUpload" class="file-upload-input" accept="image/*,.pdf" multiple required>
+                                <label for="bill" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span id="fileLabel">Choose Files</span>
+                                </label>
+                            </div>
+                            <div id="fileList" class="file-list"></div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="inquiry" class="form-label">Inquiry <span class="required">*</span></label>
+                            <textarea id="inquiry" name="inquiry" class="form-textarea" placeholder="Enter your inquiry or message" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Submit Request</span>
+                    </button>
+                    
+                    <div id="formMessage" class="form-message" role="alert"></div>
+                    
+                    <div class="privacy-text">
+                        <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 10px;"></i>
+                        We respect your privacy and will never share your information with third parties.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Premium Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Premium Hero Section -->
+    <section id="main-content" class="hero-gradient">
+        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        
+        <!-- Hero Overlay -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Particles Container - FIXED POSITION -->
+        <div id="particles"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 hero-content">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h1 class="hero-title text-white">
+                        About <span class="text-gradient">Naptico Green Energy</span>
+                    </h1>
+                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering thousands of homes and businesses across the country.</p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
+                        <a href="#our-values" class="hero-btn hero-btn-secondary">Our Values</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="about-card">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Story Section -->
+    <section id="our-story" class="about-section py-20">
+        <div class="container mx-auto px-4 about-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
+                <p class="section-subtitle">From a humble beginning to becoming a leader in solar energy solutions</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item fade-in stagger-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3 class="timeline-title">The Beginning</h3>
+                        <p class="timeline-description">Naptico Green Energy Solars was founded with a vision to make renewable energy accessible to everyone. Starting as a small team of passionate engineers, we began our journey with a mission to transform India's energy landscape.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item fade-in stagger-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Expansion & Growth</h3>
+                        <p class="timeline-description">After five years of dedicated work, we expanded our operations across Karnataka. Our innovative approach and commitment to quality helped us establish a strong presence in the solar energy market.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item fade-in stagger-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3 class="timeline-title">Technology Innovation</h3>
+                        <p class="timeline-description">We introduced advanced solar solutions with cutting-edge technology, making our systems more efficient and affordable. This innovation positioned us as a leader in the residential and commercial solar market.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item fade-in stagger-4">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">National Recognition</h3>
+                        <p class="timeline-description">Our commitment to excellence and sustainability earned us national recognition. We were honored with the "Best Solar Energy Provider" award, acknowledging our contribution to India's renewable energy goals.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item fade-in stagger-5">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">50,000+ Installations</h3>
+                        <p class="timeline-description">Today, we proudly celebrate over 50,000 successful installations across India, generating more than 200 MW of clean energy. Our journey continues as we strive to power a sustainable future for generations to come.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Mission & Vision Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-4xl font-bold mb-5 text-white">Our <span class="text-gradient">Mission & Vision</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Driving the transition to sustainable energy through innovation and excellence</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="about-card fade-in stagger-1">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Our Mission</h3>
+                    <p class="text-gray-300">To provide affordable, reliable, and sustainable solar energy solutions to homes and businesses across India. We are committed to reducing carbon footprints and empowering communities with clean energy alternatives while maintaining the highest standards of quality and service.</p>
+                </div>
+                
+                <div class="about-card fade-in stagger-2">
+                    <div class="about-icon">
+                        <i class="fas fa-eye text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Our Vision</h3>
+                    <p class="text-gray-300">To be India's leading solar energy provider, pioneering innovative solutions that make renewable energy accessible to all. We envision a future where every home and business is powered by clean, sustainable energy, contributing to a greener planet and energy independence for India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Values Section -->
+    <section id="our-values" class="about-section py-20">
+        <div class="container mx-auto px-4 about-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Our <span class="text-gradient">Core Values</span></h2>
+                <p class="section-subtitle">The principles that guide our actions and decisions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Value 1 -->
+                <div class="value-card fade-in stagger-1">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf text-black text-3xl"></i>
+                    </div>
+                    <h3 class="value-title">Sustainability</h3>
+                    <p class="value-description">We are committed to environmental stewardship and promoting sustainable practices in all aspects of our business.</p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="value-card fade-in stagger-2">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake text-black text-3xl"></i>
+                    </div>
+                    <h3 class="value-title">Integrity</h3>
+                    <p class="value-description">We conduct our business with honesty, transparency, and ethical practices, building trust with our customers and partners.</p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="value-card fade-in stagger-3">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb text-black text-3xl"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">We continuously seek innovative solutions and technologies to improve efficiency and deliver superior solar energy systems.</p>
+                </div>
+                
+                <!-- Value 4 -->
+                <div class="value-card fade-in stagger-4">
+                    <div class="value-icon">
+                        <i class="fas fa-users text-black text-3xl"></i>
+                    </div>
+                    <h3 class="value-title">Customer Focus</h3>
+                    <p class="value-description">Our customers are at the heart of everything we do. We strive to exceed expectations and deliver exceptional service.</p>
+                </div>
+                
+                <!-- Value 5 -->
+                <div class="value-card fade-in stagger-5">
+                    <div class="value-icon">
+                        <i class="fas fa-award text-black text-3xl"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We pursue excellence in all our endeavors, from product quality to installation and after-sales support.</p>
+                </div>
+                
+                <!-- Value 6 -->
+                <div class="value-card fade-in stagger-6">
+                    <div class="value-icon">
+                        <i class="fas fa-globe text-black text-3xl"></i>
+                    </div>
+                    <h3 class="value-title">Social Responsibility</h3>
+                    <p class="value-description">We believe in giving back to society and actively participate in initiatives that promote education, health, and environmental conservation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Team Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-4xl font-bold mb-5 text-white">Meet Our <span class="text-gradient">Leadership Team</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">The passionate individuals driving our mission forward</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Team Member 1 -->
+                <div class="team-member fade-in stagger-1">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="team-name">Rajesh Kumar</h3>
+                    <p class="team-position">Founder & CEO</p>
+                    <p class="team-bio">With over 15 years of experience in the renewable energy sector, Rajesh founded Naptico Green Energy with a vision to make solar power accessible to every Indian household.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member fade-in stagger-2">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="team-name">Priya Sharma</h3>
+                    <p class="team-position">Chief Technology Officer</p>
+                    <p class="team-bio">Priya leads our technology innovation team, bringing cutting-edge solar solutions to the market. Her expertise in renewable energy systems has been instrumental in our success.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member fade-in stagger-3">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="team-name">Amit Patel</h3>
+                    <p class="team-position">Operations Director</p>
+                    <p class="team-bio">Amit oversees our installation and maintenance operations, ensuring that every project is executed with precision and excellence. His leadership has been key to our expansion.</p>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Achievements Section -->
+    <section class="about-section py-20">
+        <div class="container mx-auto px-4 about-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Our <span class="text-gradient">Achievements</span></h2>
+                <p class="section-subtitle">Milestones that mark our journey of excellence</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Achievement 1 -->
+                <div class="about-card fade-in stagger-1 text-center">
+                    <div class="about-icon mx-auto">
+                        <i class="fas fa-home text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-white">50,000+</h3>
+                    <p class="text-gray-300">Happy Customers</p>
+                </div>
+                
+                <!-- Achievement 2 -->
+                <div class="about-card fade-in stagger-2 text-center">
+                    <div class="about-icon mx-auto">
+                        <i class="fas fa-bolt text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-white">200+ MW</h3>
+                    <p class="text-gray-300">Clean Energy Generated</p>
+                </div>
+                
+                <!-- Achievement 3 -->
+                <div class="about-card fade-in stagger-3 text-center">
+                    <div class="about-icon mx-auto">
+                        <i class="fas fa-award text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-white">15+</h3>
+                    <p class="text-gray-300">Awards & Recognitions</p>
+                </div>
+                
+                <!-- Achievement 4 -->
+                <div class="about-card fade-in stagger-4 text-center">
+                    <div class="about-icon mx-auto">
+                        <i class="fas fa-tree text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-white">150,000+</h3>
+                    <p class="text-gray-300">Trees Saved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Premium CTA Section -->
+    <section class="cta-section py-20">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto px-4 text-center cta-content">
+            <h2 class="text-4xl font-bold mb-8 text-white fade-in">Join Our Solar Revolution</h2>
+            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy future with Naptico Green Energy Solars</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
+                <a href="Coming Soon.html" class="hero-btn cta-btn-primary">Explore Solutions</a>
+                <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- Logo path updated to use relative path and made clickable -->
+                    <a href="./">
+                        <!-- Fixed filename with space issue and added proper dimensions -->
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
+                             onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
+                             width="220" height="90" loading="lazy">
+                    </a>
+                    <p style="font-size: 14px;">We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon" aria-label="Visit our Facebook page">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon" aria-label="Visit our Instagram page">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon" aria-label="Visit our LinkedIn page">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon" aria-label="Visit our YouTube channel">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="Coming Soon.html">Services</a></li>
+                        <li><a href="Coming Soon.html">How It Works</a></li>
+                        <li><a href="Coming Soon.html">Calculator</a></li>
+                        <li><a href="Coming Soon.html">Customer Stories</a></li>
+                        <li><a href="Coming Soon.html">Subsidies</a></li>
+                        <li><a href="Coming Soon.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Coming Soon.html">Rooftop Solar Panels</a></li>
+                        <li><a href="Coming Soon.html">Ground-Mounted Solar</a></li>
+                        <li><a href="Coming Soon.html">Solar Street Lights</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (ETC)</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (FPC)</a></li>
+                        <li><a href="Coming Soon.html">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt text-black"></i>
+                            <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt text-black"></i>
+                            <span>
+                                <a href="tel:080 2952 7671">080 2952 7671</a> | 
+                                <a href="tel:+91 70192 99196">+91 70192 99196</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope text-black"></i>
+                            <span>
+                                <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock text-black"></i>
+                            <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="Terms & Conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund&return policy.html" target="_blank">Refund & Return Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // URL Redirect for index.html
+        if (window.location.pathname.endsWith('index.html')) {
+            const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        
+        // Improved Loading Screen Script with better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
+            // Function to hide loading screen
+            function hideLoadingScreen() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    console.log('Loading screen hidden');
+                    // Ensure body can scroll
+                    document.body.style.overflow = 'auto';
+                    document.body.classList.add('loaded');
+                    // Enable pointer events
+                    document.body.style.pointerEvents = 'auto';
+                } else {
+                    console.error('Loading screen element not found');
+                }
+            }
+            
+            // Loading progress bar animation
+            const progressBar = document.getElementById('loadingProgressBar');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += 5;
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(hideLoadingScreen, 500);
+                }
+            }, 100);
+            
+            // Try to hide loading screen after a short delay
+            setTimeout(hideLoadingScreen, 1500);
+            
+            // Also hide when window is fully loaded
+            window.addEventListener('load', function() {
+                console.log('Window fully loaded');
+                setTimeout(hideLoadingScreen, 500);
+            });
+            
+            // Fallback: Force hide after 10 seconds no matter what
+            setTimeout(hideLoadingScreen, 10000);
+        });
+        
+        // Variables to track input type and cursor state
+        let lastInputType = null; // 'touch' or 'mouse'
+        let inputDetected = false;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+        
+        // Get cursor elements
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const touchIndicator = document.querySelector('.touch-indicator');
+        
+        // Initially hide both cursors
+        if (cursor) cursor.style.opacity = '0';
+        if (cursorFollower) cursorFollower.style.opacity = '0';
+        if (touchIndicator) touchIndicator.style.opacity = '0';
+        
+        // Function to show custom cursor
+        function showCustomCursor() {
+            if (cursor) cursor.style.opacity = '1';
+            if (cursorFollower) cursorFollower.style.opacity = '1';
+            if (touchIndicator) touchIndicator.style.opacity = '0';
+        }
+        
+        // Function to show touch indicator
+        function showTouchIndicator() {
+            if (cursor) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
+            if (touchIndicator) touchIndicator.style.opacity = '1';
+        }
+        
+        // Function to set input type and show appropriate cursor
+        function setInputType(type) {
+            if (lastInputType === type) return;
+            lastInputType = type;
+            if (type === 'touch') {
+                showTouchIndicator();
+            } else if (type === 'mouse') {
+                showCustomCursor();
+            }
+        }
+        
+        // Listen for the first touch event
+        document.addEventListener('touchstart', function onFirstTouch(e) {
+            document.removeEventListener('touchstart', onFirstTouch);
+            inputDetected = true;
+            setInputType('touch');
+        }, { once: true });
+        
+        // Listen for the first mouse move event
+        document.addEventListener('mousemove', function onFirstMouseMove(e) {
+            document.removeEventListener('mousemove', onFirstMouseMove);
+            inputDetected = true;
+            setInputType('mouse');
+            
+            // Initialize cursor position to the current mouse position
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (cursor) {
+                cursor.style.left = mouseX - 12.5 + 'px';
+                cursor.style.top = mouseY - 12.5 + 'px';
+            }
+            if (cursorFollower) {
+                followerX = mouseX;
+                followerY = mouseY;
+                cursorFollower.style.left = followerX - 25 + 'px';
+                cursorFollower.style.top = followerY - 25 + 'px';
+            }
+        }, { once: true });
+        
+        // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
+        setTimeout(() => {
+            if (!inputDetected) {
+                setInputType('mouse');
+            }
+        }, 1000);
+        
+        // Mouse move handler - only update when last input was mouse
+        document.addEventListener('mousemove', (e) => {
+            // Always update input type to mouse on mouse movement
+            setInputType('mouse');
+            
+            // Only update cursor position if the last input was mouse
+            if (lastInputType === 'mouse') {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update main cursor position immediately
+                if (cursor) {
+                    cursor.style.left = mouseX - 12.5 + 'px';
+                    cursor.style.top = mouseY - 12.5 + 'px';
+                }
+            }
+        });
+        
+        // Touch event handlers
+        document.addEventListener('touchstart', (e) => {
+            setInputType('touch');
+            
+            if (lastInputType === 'touch' && touchIndicator) {
+                const touch = e.touches[0];
+                touchIndicator.style.left = touch.clientX + 'px';
+                touchIndicator.style.top = touch.clientY + 'px';
+                touchIndicator.classList.add('active');
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
+                const touch = e.touches[0];
+                touchIndicator.style.left = touch.clientX + 'px';
+                touchIndicator.style.top = touch.clientY + 'px';
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (touchIndicator) {
+                touchIndicator.classList.remove('active');
+            }
+        });
+        
+        // Cursor follower animation - only when using mouse
+        function animateFollower() {
+            if (lastInputType === 'mouse') {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                
+                if (cursorFollower) {
+                    cursorFollower.style.left = followerX - 25 + 'px';
+                    cursorFollower.style.top = followerY - 25 + 'px';
+                }
+            }
+            requestAnimationFrame(animateFollower);
+        }
+        
+        animateFollower();
+        
+        // Hover effects - only apply when using mouse
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .about-card, .team-member, .value-card, .timeline-content, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .form-submit, .back-to-top');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (lastInputType === 'mouse') {
+                    if (cursor) cursor.classList.add('hover');
+                    if (cursorFollower) cursorFollower.classList.add('hover');
+                }
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                if (lastInputType === 'mouse') {
+                    if (cursor) cursor.classList.remove('hover');
+                    if (cursorFollower) cursorFollower.classList.remove('hover');
+                }
+            });
+        });
+        
+        // Document enter/leave events for cursor - only when using mouse
+        document.addEventListener('mouseleave', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
+            }
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
+            }
+        });
+        
+        // Premium Header scroll effect
+        const header = document.querySelector('.header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu functionality - FIXED
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileContactBtn = document.getElementById('mobileContactBtn');
+        
+        // Function to reset mobile menu state
+        function resetMobileMenu() {
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('active');
+            }
+            if (mobileMenuBtn) {
+                mobileMenuBtn.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+            // Re-enable pointer events on body
+            document.body.style.pointerEvents = 'auto';
+        }
+        
+        // Reset menu on page load
+        resetMobileMenu();
+        
+        // Reset menu when navigating back to the page
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                resetMobileMenu();
+            }
+        });
+        
+        // Open mobile menu
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (mobileMenuOverlay) {
+                    mobileMenuOverlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                // Disable pointer events on content behind menu
+                document.body.style.pointerEvents = 'none';
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+                }
+            });
+        }
+        
+        // Close mobile menu
+        function closeMobileMenu() {
+            resetMobileMenu();
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Mobile contact button functionality
+        if (mobileContactBtn) {
+            mobileContactBtn.addEventListener('click', () => {
+                closeMobileMenu();
+                // Open quote modal after a short delay
+                setTimeout(() => {
+                    const quoteModal = document.getElementById('quoteModal');
+                    if (quoteModal) {
+                        quoteModal.classList.add('active');
+                        centerModal();
+                    }
+                }, 300);
+            });
+        }
+        
+        // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
+        const heroImages = [
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        ];
+        
+        const heroFixedBg = document.getElementById('heroFixedBg');
+        let currentHeroImage = 0;
+        let heroInterval;
+        
+        // Set hero background with optimized performance
+        function setHeroBackground(index) {
+            // Create a new Image object to preload
+            const img = new Image();
+            img.onload = function() {
+                // Once loaded, update the background
+                if (heroFixedBg) {
+                    heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                }
+                currentHeroImage = index;
+            };
+            img.onerror = function() {
+                // If image fails to load, use a fallback
+                console.error('Failed to load hero image:', heroImages[index]);
+                // Try next image or use a default
+                const nextIndex = (index + 1) % heroImages.length;
+                if (nextIndex !== index) {
+                    setHeroBackground(nextIndex);
+                }
+            };
+            img.src = heroImages[index];
+        }
+        
+        // Start hero image rotation with optimized timing
+        function startHeroRotation() {
+            // Clear any existing interval
+            if (heroInterval) {
+                clearInterval(heroInterval);
+            }
+            
+            // Set new interval
+            heroInterval = setInterval(() => {
+                currentHeroImage = (currentHeroImage + 1) % heroImages.length;
+                setHeroBackground(currentHeroImage);
+            }, 7000);
+        }
+        
+        // Initialize hero rotation after page load
+        window.addEventListener('load', () => {
+            // Start with a small delay to ensure everything is loaded
+            setTimeout(() => {
+                setHeroBackground(0);
+                startHeroRotation();
+            }, 100);
+        });
+        
+        // Pause rotation when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (heroInterval) {
+                    clearInterval(heroInterval);
+                }
+            } else {
+                startHeroRotation();
+            }
+        });
+        
+        // Premium Particle Effect - FIXED Z-INDEX and PERFORMANCE
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
+            const particleCount = 30; // Reduced particle count for better performance
+            
+            // Clear existing particles if any
+            particlesContainer.innerHTML = '';
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 8 + 4; // Smaller particles for better performance
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random starting position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.bottom = `-${size * 2}px`; // Start just below the viewport
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 5; // Reduced max delay
+                const duration = Math.random() * 10 + 15; // Shorter duration for faster movement
+                
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Set initial opacity
+                particle.style.opacity = Math.random() * 0.6 + 0.2; // Random opacity
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create particles immediately when DOM is loaded
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Also create particles when the page is fully loaded to ensure they're visible
+        window.addEventListener('load', () => {
+            // Check if particles exist, if not create them
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer && particlesContainer.children.length === 0) {
+                createParticles();
+            }
+        });
+        
+        // Premium Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+        
+        // Premium Quote Form Modal
+        const quoteModal = document.getElementById('quoteModal');
+        const quoteClose = document.getElementById('quoteClose');
+        const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
+        
+        contactBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (quoteModal) {
+                    quoteModal.classList.add('active');
+                    quoteModal.setAttribute('aria-hidden', 'false');
+                    centerModal();
+                }
+            });
+        });
+        
+        if (quoteClose) {
+            quoteClose.addEventListener('click', () => {
+                if (quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
+        
+        if (quoteModal) {
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
+        
+        // File upload handling for multiple files - FIXED
+        const fileInput = document.getElementById('bill');
+        const fileLabel = document.getElementById('fileLabel');
+        const fileList = document.getElementById('fileList');
+        let selectedFiles = [];
+        
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                // Clear the existing files array
+                selectedFiles = [];
+                
+                // Get all selected files
+                const files = this.files;
+                
+                // Add files to our array
+                for (let i = 0; i < files.length; i++) {
+                    selectedFiles.push(files[i]);
+                }
+                
+                // Update the display
+                updateFileDisplay();
+            });
+        }
+        
+        function updateFileDisplay() {
+            if (!fileLabel || !fileList) return;
+            
+            // Clear current display
+            fileList.innerHTML = '';
+            
+            if (selectedFiles.length === 0) {
+                fileLabel.textContent = 'Choose Files';
+                return;
+            }
+            
+            // Update label text
+            fileLabel.textContent = `${selectedFiles.length} file${selectedFiles.length > 1 ? 's' : ''} selected`;
+            
+            // Display each file
+            selectedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                // Format file size
+                const fileSize = formatFileSize(file.size);
+                
+                fileItem.innerHTML = `
+                    <span class="file-name">${file.name}</span>
+                    <span class="file-size">${fileSize}</span>
+                    <i class="fas fa-times file-remove" data-index="${index}" aria-label="Remove file"></i>
+                `;
+                
+                fileList.appendChild(fileItem);
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.file-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    selectedFiles.splice(index, 1);
+                    updateFileDisplay();
+                    
+                    // Create a new FileList and update the input
+                    updateFileInput();
+                });
+            });
+        }
+        
+        function updateFileInput() {
+            if (!fileInput) return;
+            
+            // Create a new DataTransfer object
+            const dataTransfer = new DataTransfer();
+            
+            // Add each file back to the DataTransfer
+            selectedFiles.forEach(file => {
+                dataTransfer.items.add(file);
+            });
+            
+            // Update the file input with the new FileList
+            fileInput.files = dataTransfer.files;
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // Function to center the modal properly
+        function centerModal() {
+            const modalContainer = document.querySelector('.quote-form-container');
+            if (!modalContainer) return;
+            
+            const windowHeight = window.innerHeight;
+            const modalHeight = modalContainer.offsetHeight;
+            
+            if (modalHeight > windowHeight - 40) {
+                modalContainer.style.marginTop = '20px';
+                modalContainer.style.marginBottom = '20px';
+            } else {
+                const topMargin = (windowHeight - modalHeight) / 2;
+                modalContainer.style.marginTop = `${topMargin}px`;
+                modalContainer.style.marginBottom = '0';
+            }
+        }
+        
+        // Add event listener for window resize to re-center modal
+        window.addEventListener('resize', centerModal);
+        
+        // Form submission with Formspree integration - FIXED
+        const quoteForm = document.getElementById('quoteForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitBtn = this.querySelector('.form-submit');
+                const originalBtnContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+                submitBtn.disabled = true;
+                
+                // Get form data
+                const formData = new FormData(this);
+                
+                // Send form data to Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Network response was not ok.');
+                        });
+                    }
+                })
+                .then(data => {
+                    // Show success message
+                    if (formMessage) {
+                        formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Reset form
+                    this.reset();
+                    selectedFiles = [];
+                    updateFileDisplay();
+                    
+                    // Hide message after 5 seconds and close modal
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                        if (quoteModal) {
+                            quoteModal.classList.remove('active');
+                            quoteModal.setAttribute('aria-hidden', 'true');
+                        }
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Show error message with specific details
+                    console.error('Error:', error);
+                    if (formMessage) {
+                        formMessage.textContent = `Error: ${error.message || 'There was an error submitting your form. Please try again.'}`;
+                        formMessage.className = 'form-message error';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                    }, 5000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Only apply 3D card effects on non-touch devices
+        if (!('ontouchstart' in window)) {
+            // Premium 3D Card Effect
+            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 12;
+                    const rotateY = (centerX - x) / 12;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+            });
+        }
+        
+        // Premium Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        // Use a more efficient scroll handler with passive event listener
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                cancelAnimationFrame(scrollTimeout);
+            }
+            
+            scrollTimeout = requestAnimationFrame(() => {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            });
+        }, { passive: true });
+        
+        // Initial check for elements already in view
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
+        });
+        
+        // Error handling for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.error('Image failed to load:', this.src);
+                // You could set a fallback image here if needed
+            });
+        });
+        
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // Escape key to close modal
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('quoteModal');
+                if (modal && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+                
+                const mobileMenu = document.getElementById('mobileMenuOverlay');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.pointerEvents = 'auto';
+                }
+            }
+        });
+        
+        // Performance optimization: lazy load images
+        if ('IntersectionObserver' in window) {
+            const imgOptions = {
+                threshold: 0,
+                rootMargin: '0px 0px 50px 0px'
+            };
+            
+            const imgObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imgObserver.unobserve(img);
+                    }
+                });
+            }, imgOptions);
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imgObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -81,21 +81,6 @@
             position: relative;
         }
         
-        /* Only apply custom cursor on non-touch devices */
-        @media (hover: hover) {
-            * {
-                cursor: none;
-            }
-            
-            html, body {
-                cursor: none;
-            }
-            
-            a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top {
-                cursor: none;
-            }
-        }
-        
         /* Premium Cursor with Glowing Effect - Only for non-touch devices */
         .cursor {
             width: 25px;
@@ -124,13 +109,6 @@
             transition: opacity 0.15s ease, transform 0.25s ease-out;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
-        }
-        
-        /* Only show cursor on non-touch devices */
-        @media (hover: hover) {
-            .cursor, .cursor-follower {
-                opacity: 1;
-            }
         }
         
         .cursor.hover {
@@ -162,19 +140,6 @@
         .touch-indicator.active {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
-        }
-        
-        /* Only show touch indicator on touch devices */
-        @media (hover: none) {
-            .touch-indicator {
-                display: block;
-            }
-        }
-        
-        @media (hover: hover) {
-            .touch-indicator {
-                display: none;
-            }
         }
         
         /* Premium Loading Screen with White Background */
@@ -3052,14 +3017,6 @@
             window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Function to detect if device is touch-enabled
-        function isTouchDevice() {
-            return 'ontouchstart' in window || 
-                   navigator.maxTouchPoints > 0 || 
-                   navigator.msMaxTouchPoints > 0 ||
-                   (window.matchMedia('(pointer: coarse)').matches);
-        }
-        
         // Improved Loading Screen Script with better error handling
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM Content Loaded');
@@ -3109,97 +3066,177 @@
             setTimeout(hideLoadingScreen, 10000);
         });
         
-        // Only initialize custom cursor on non-touch devices
-        if (!isTouchDevice()) {
-            // Premium Custom Cursor - FIXED
-            const cursor = document.querySelector('.cursor');
-            const cursorFollower = document.querySelector('.cursor-follower');
+        // Variables to track input type and cursor state
+        let lastInputType = null; // 'touch' or 'mouse'
+        let inputDetected = false;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+        
+        // Get cursor elements
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const touchIndicator = document.querySelector('.touch-indicator');
+        
+        // Initially hide both cursors
+        if (cursor) cursor.style.opacity = '0';
+        if (cursorFollower) cursorFollower.style.opacity = '0';
+        if (touchIndicator) touchIndicator.style.opacity = '0';
+        
+        // Function to show custom cursor
+        function showCustomCursor() {
+            if (cursor) cursor.style.opacity = '1';
+            if (cursorFollower) cursorFollower.style.opacity = '1';
+            if (touchIndicator) touchIndicator.style.opacity = '0';
+        }
+        
+        // Function to show touch indicator
+        function showTouchIndicator() {
+            if (cursor) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
+            if (touchIndicator) touchIndicator.style.opacity = '1';
+        }
+        
+        // Function to set input type and show appropriate cursor
+        function setInputType(type) {
+            if (lastInputType === type) return;
+            lastInputType = type;
+            if (type === 'touch') {
+                showTouchIndicator();
+            } else if (type === 'mouse') {
+                showCustomCursor();
+            }
+        }
+        
+        // Listen for the first touch event
+        document.addEventListener('touchstart', function onFirstTouch(e) {
+            document.removeEventListener('touchstart', onFirstTouch);
+            inputDetected = true;
+            setInputType('touch');
+        }, { once: true });
+        
+        // Listen for the first mouse move event
+        document.addEventListener('mousemove', function onFirstMouseMove(e) {
+            document.removeEventListener('mousemove', onFirstMouseMove);
+            inputDetected = true;
+            setInputType('mouse');
             
-            // Initialize cursor position to center of screen
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let followerX = mouseX;
-            let followerY = mouseY;
+            // Initialize cursor position to the current mouse position
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (cursor) {
+                cursor.style.left = mouseX - 12.5 + 'px';
+                cursor.style.top = mouseY - 12.5 + 'px';
+            }
+            if (cursorFollower) {
+                followerX = mouseX;
+                followerY = mouseY;
+                cursorFollower.style.left = followerX - 25 + 'px';
+                cursorFollower.style.top = followerY - 25 + 'px';
+            }
+        }, { once: true });
+        
+        // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
+        setTimeout(() => {
+            if (!inputDetected) {
+                setInputType('mouse');
+            }
+        }, 1000);
+        
+        // Mouse move handler - only update when last input was mouse
+        document.addEventListener('mousemove', (e) => {
+            // Always update input type to mouse on mouse movement
+            setInputType('mouse');
             
-            // Set initial cursor position
-            cursor.style.left = mouseX - 12.5 + 'px';
-            cursor.style.top = mouseY - 12.5 + 'px';
-            cursorFollower.style.left = followerX - 25 + 'px';
-            cursorFollower.style.top = followerY - 25 + 'px';
-            
-            // Optimized cursor movement using direct position updates
-            document.addEventListener('mousemove', (e) => {
+            // Only update cursor position if the last input was mouse
+            if (lastInputType === 'mouse') {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
                 
                 // Update main cursor position immediately
-                cursor.style.left = mouseX - 12.5 + 'px';
-                cursor.style.top = mouseY - 12.5 + 'px';
-            });
-            
-            // Use requestAnimationFrame for smooth follower animation
-            function animateFollower() {
-                // Simple linear interpolation for smooth following
-                followerX += (mouseX - followerX) * 0.1;
-                followerY += (mouseY - followerY) * 0.1;
-                
-                // Apply position to follower
-                cursorFollower.style.left = followerX - 25 + 'px';
-                cursorFollower.style.top = followerY - 25 + 'px';
-                
-                requestAnimationFrame(animateFollower);
+                if (cursor) {
+                    cursor.style.left = mouseX - 12.5 + 'px';
+                    cursor.style.top = mouseY - 12.5 + 'px';
+                }
             }
-            
-            animateFollower();
-            
-            // Hide cursor when leaving the window
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-                cursorFollower.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-            
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top');
-            
-            hoverElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
-        }
+        });
         
-        // Touch indicator for mobile devices
-        if (isTouchDevice()) {
-            const touchIndicator = document.querySelector('.touch-indicator');
+        // Touch event handlers
+        document.addEventListener('touchstart', (e) => {
+            setInputType('touch');
             
-            document.addEventListener('touchstart', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
                 touchIndicator.classList.add('active');
-            });
-            
-            document.addEventListener('touchmove', (e) => {
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (touchIndicator) {
+                touchIndicator.classList.remove('active');
+            }
+        });
+        
+        // Cursor follower animation - only when using mouse
+        function animateFollower() {
+            if (lastInputType === 'mouse') {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                
+                if (cursorFollower) {
+                    cursorFollower.style.left = followerX - 25 + 'px';
+                    cursorFollower.style.top = followerY - 25 + 'px';
+                }
+            }
+            requestAnimationFrame(animateFollower);
+        }
+        
+        animateFollower();
+        
+        // Hover effects - only apply when using mouse
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (lastInputType === 'mouse') {
+                    if (cursor) cursor.classList.add('hover');
+                    if (cursorFollower) cursorFollower.classList.add('hover');
+                }
             });
             
-            document.addEventListener('touchend', () => {
-                touchIndicator.classList.remove('active');
+            element.addEventListener('mouseleave', () => {
+                if (lastInputType === 'mouse') {
+                    if (cursor) cursor.classList.remove('hover');
+                    if (cursorFollower) cursorFollower.classList.remove('hover');
+                }
             });
-        }
+        });
+        
+        // Document enter/leave events for cursor - only when using mouse
+        document.addEventListener('mouseleave', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
+            }
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
+            }
+        });
         
         // Premium Header scroll effect
         const header = document.querySelector('.header');
@@ -3667,7 +3704,7 @@
         });
         
         // Only apply 3D card effects on non-touch devices
-        if (!isTouchDevice()) {
+        if (!('ontouchstart' in window)) {
             // Premium 3D Card Effect
             const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
             

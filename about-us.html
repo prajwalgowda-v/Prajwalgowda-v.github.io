@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Naptico Green Energy Solars</title>
     
-    <!-- Favicon and Icons -->
+    <!-- Favicon for all devices and platforms -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-    <link rel="manifest" href="./images/site.webmanifest">
+
+    <!-- PNG favicons for modern browsers -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/Icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/Icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="./images/Icon.png">
+
+    <!-- Apple Touch Icons (for iOS home screen) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/Icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./images/Icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./images/Icon.png">
+
+    <!-- Android/Chrome and PWA -->
+    <link rel="manifest" href="./images/Icon.png">
+
+    <!-- Windows Tiles (Microsoft / Edge / IE) -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./images/icon.png">
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
     <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
@@ -45,14 +61,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* CSS Reset and Base Styles */
         * {
             font-family: 'Inter', sans-serif;
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background-color: #f8fafc;
+            position: relative;
         }
         
         /* Only apply custom cursor on non-touch devices */
         @media (hover: hover) {
             * {
+                cursor: none;
+            }
+            
+            html, body {
+                cursor: none;
+            }
+            
+            a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot {
                 cursor: none;
             }
         }
@@ -65,7 +103,7 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 100001;
+            z-index: 999999;
             mix-blend-mode: difference;
             opacity: 0;
             transition: opacity 0.15s ease, transform 0.15s ease;
@@ -80,7 +118,7 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 100000;
+            z-index: 999998;
             opacity: 0;
             transition: opacity 0.15s ease, transform 0.25s ease-out;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
@@ -114,7 +152,7 @@
             background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
             border: 2px solid rgba(245, 158, 11, 0.5);
             pointer-events: none;
-            z-index: 100000;
+            z-index: 999997;
             transform: translate(-50%, -50%) scale(0);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -150,7 +188,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 1000000;
             transition: opacity 0.8s ease, visibility 0.8s ease;
             overflow: hidden;
         }
@@ -158,6 +196,7 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -210,7 +249,25 @@
             60%, 100% { content: '...'; }
         }
         
-        /* Premium Header with Glass Effect */
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #f59e0b;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
             top: 0;
@@ -219,13 +276,21 @@
             z-index: 1000;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            height: 100px; /* Fixed height to prevent wrapping */
         }
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 10px 0;
+            height: 80px; /* Smaller fixed height when scrolled */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(20px)) {
+            .header.scrolled {
+                background: rgba(15, 23, 42, 0.95);
+            }
         }
         
         .header-content {
@@ -234,6 +299,10 @@
             align-items: center;
             padding: 20px 5%;
             transition: all 0.3s ease;
+            height: 100%; /* Take full height of parent */
+            width: 100%;
+            max-width: 1400px; /* Limit max width for better alignment */
+            margin: 0 auto;
         }
         
         .header.scrolled .header-content {
@@ -244,22 +313,22 @@
             width: 220px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+            display: block;
         }
         
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
         }
         
-        .header.scrolled .logo {
-            width: 170px;
-        }
-        
         .nav-menu {
             display: flex;
-            gap: 35px;
+            gap: 20px; /* Reduced gap to prevent wrapping */
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: nowrap; /* Prevent nav items from wrapping */
+            overflow: hidden; /* Hide overflow if needed */
         }
         
         .nav-link {
@@ -270,6 +339,8 @@
             transition: all 0.3s ease;
             transform-style: preserve-3d;
             padding: 5px 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+            font-size: 0.95rem; /* Slightly smaller font size */
         }
         
         .nav-link::before {
@@ -297,6 +368,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-shrink: 0; /* Prevent actions from shrinking */
         }
         
         .contact-btn {
@@ -312,6 +384,7 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            white-space: nowrap; /* Prevent text from wrapping */
         }
         
         .contact-btn::before {
@@ -349,6 +422,7 @@
             width: 30px;
             height: 30px;
             overflow: hidden;
+            flex-shrink: 0; /* Prevent button from shrinking */
         }
         
         .mobile-menu-btn:hover {
@@ -413,6 +487,13 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .mobile-menu-overlay {
+                background: rgba(15, 23, 42, 0.98);
+            }
         }
         
         .mobile-menu-overlay.active {
@@ -527,7 +608,23 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 90px; /* Add padding to prevent header overlap */
+            padding-top: 100px; /* Add padding to prevent header overlap */
+        }
+        
+        /* Fixed Hero Background - OPTIMIZED */
+        .hero-fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            transition: background-image 1.5s ease-in-out;
         }
         
         /* Dynamic Background Effect */
@@ -561,39 +658,44 @@
             }
         }
         
-        /* Hero Slideshow with 3D Effect */
-        .hero-slideshow {
+        /* Premium Particle Effect - FIXED Z-INDEX */
+        #particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 1; /* Behind the content but above the background */
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 25s infinite linear;
             transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+            will-change: transform, opacity; /* Hardware acceleration */
         }
         
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: all 1.8s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            transform: translateZ(-100px) rotateY(90deg);
-        }
-        
-        .hero-slide.active {
-            opacity: 1;
-            transform: translateZ(0) rotateY(0deg);
-        }
-        
-        .hero-slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) translateZ(50px) scale(1.5);
+                opacity: 0;
+            }
         }
         
         .hero-overlay {
@@ -608,7 +710,7 @@
         
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 5; /* Increased z-index to ensure content is above particles */
             transform-style: preserve-3d;
         }
         
@@ -688,6 +790,13 @@
             backdrop-filter: blur(10px);
         }
         
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .hero-btn-secondary {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        
         .hero-btn-secondary:hover {
             background: rgba(245, 158, 11, 0.2);
             transform: translateY(-5px) rotateX(5deg);
@@ -763,6 +872,16 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .service-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
         .service-card::before {
@@ -800,6 +919,7 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            flex-shrink: 0;
         }
         
         .service-card:hover .service-icon {
@@ -818,6 +938,7 @@
             transition: all 0.3s ease;
             padding: 8px 0;
             margin-top: 15px;
+            margin-top: auto; /* Push to bottom of card */
         }
         
         .learn-more-btn:hover {
@@ -861,6 +982,17 @@
             transform-style: preserve-3d;
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .feature-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
         .feature-card:hover {
@@ -881,6 +1013,7 @@
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            flex-shrink: 0;
         }
         
         .feature-card:hover .feature-icon {
@@ -928,6 +1061,13 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .testimonial-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
         .testimonial-card::before {
             content: '';
             position: absolute;
@@ -966,6 +1106,13 @@
             object-fit: cover;
             object-position: top center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            flex-shrink: 0;
         }
         
         .testimonial-info h4 {
@@ -1001,6 +1148,74 @@
             font-size: 3.5rem;
             color: rgba(245, 158, 11, 0.15);
             font-family: Georgia, serif;
+        }
+        
+        /* Testimonial Carousel Styles - FIXED */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0 70px 0; /* Added padding to prevent shadow clipping */
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px; /* Added padding for side spacing */
+            box-sizing: border-box;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .testimonial-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+        
+        .testimonial-indicators {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .testimonial-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-indicator.active {
+            background: #f59e0b;
+            transform: scale(1.2);
         }
         
         /* Premium Footer */
@@ -1068,6 +1283,7 @@
             margin-bottom: 25px;
             line-height: 1.7;
             font-size: 1.05rem;
+            text-align: justify;
         }
         
         .footer-logo {
@@ -1075,6 +1291,7 @@
             transition: all 0.4s ease;
             max-width: 220px;
             height: auto;
+            display: block;
         }
         
         .footer-logo:hover {
@@ -1167,6 +1384,7 @@
             margin-right: 12px;
             margin-top: 5px;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
         
         .contact-info a {
@@ -1238,34 +1456,6 @@
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
-        /* Premium Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 25s infinite linear;
-            transform-style: preserve-3d;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
-                opacity: 0;
-            }
-        }
-        
         /* Premium Quote Form Modal */
         .quote-modal {
             position: fixed;
@@ -1283,6 +1473,13 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .quote-modal {
+                background: rgba(0, 0, 0, 0.95);
+            }
         }
         
         .quote-modal.active {
@@ -1657,6 +1854,76 @@
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px) rotateX(5deg);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Premium FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .faq-question:hover {
+            background: rgba(245, 158, 11, 0.15);
+        }
+        
+        .faq-icon {
+            transition: transform 0.4s ease;
+            color: #f59e0b;
+            font-size: 1.2rem;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 25px;
+            color: #e2e8f0;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding: 0 25px 25px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
         
         /* New Milestones Section Styles */
@@ -2088,6 +2355,48 @@
             .hero-gradient {
                 padding-top: 80px; /* Adjust based on header height */
             }
+            
+            /* Testimonial Carousel Mobile Adjustments */
+            .testimonial-slide {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .testimonial-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            /* Service Cards Mobile Adjustments */
+            .service-card {
+                margin-bottom: 20px;
+            }
+            
+            /* Feature Cards Mobile Adjustments */
+            .feature-card {
+                margin-bottom: 20px;
+            }
+            
+            /* Milestone Carousel Mobile Adjustments */
+            .milestone-year {
+                font-size: 3rem;
+            }
+            
+            .milestone-title {
+                font-size: 1.8rem;
+            }
+            
+            .milestone-description {
+                font-size: 1rem;
+            }
+            
+            .milestone-content {
+                padding: 0 5%;
+            }
+            
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -2120,29 +2429,315 @@
                 margin-top: 20px; /* Add some space between header and title */
             }
             
-            .milestone-year {
-                font-size: 3rem;
+            /* Section titles for smaller screens */
+            .section-title {
+                font-size: 2rem;
             }
             
-            .milestone-title {
-                font-size: 1.8rem;
+            /* FAQ section for smaller screens */
+            .faq-title {
+                font-size: 2.2rem;
             }
             
-            .milestone-description {
-                font-size: 1rem;
+            /* Footer adjustments for smaller screens */
+            .footer-section h3 {
+                font-size: 1.4rem;
             }
             
-            .milestone-content {
-                padding: 0 5%;
+            .footer-content {
+                gap: 30px;
+            }
+        }
+        
+        /* Medium screen adjustments for header */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px; /* Reduced gap for medium screens */
             }
             
-            .leadership-grid {
-                grid-template-columns: 1fr;
+            .nav-link {
+                font-size: 0.9rem; /* Smaller font size for medium screens */
             }
+            
+            .header-content {
+                padding: 20px 3%;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+        }
+        
+        /* Large screen adjustments for header */
+        @media (min-width: 1600px) {
+            .header-content {
+                max-width: 1600px; /* Larger max width for very large screens */
+            }
+            
+            .nav-menu {
+                gap: 30px; /* Increased gap for larger screens */
+            }
+            
+            .nav-link {
+                font-size: 1rem; /* Larger font size for larger screens */
+            }
+        }
+        
+        /* Performance optimization for slower devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Loading screen fix */
+        body {
+            overflow: hidden; /* Initially hide scrollbars */
+        }
+        
+        body.loaded {
+            overflow: visible; /* Show scrollbars after loading */
+        }
+        
+        /* Ensure the loading screen properly disappears */
+        .loading-screen.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for better accessibility */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+        
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Container max-width for better responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Grid adjustments for better responsiveness */
+        @media (min-width: 768px) {
+            .grid {
+                display: grid;
+                gap: 30px;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        
+        /* Flex utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .gap-4 {
+            gap: 1rem;
+        }
+        
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        
+        /* Spacing utilities */
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .mb-20 {
+            margin-bottom: 5rem;
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        /* Background utilities */
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+        }
+        
+        .from-gray-900 {
+            --tw-gradient-from: #111827;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(17, 24, 39, 0));
+        }
+        
+        .to-gray-800 {
+            --tw-gradient-to: #1f2937;
+        }
+        
+        /* Z-index utilities */
+        .z-10 {
+            z-index: 10;
+        }
+        
+        /* Position utilities */
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        /* Overflow utilities */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        /* Visibility utilities */
+        .invisible {
+            visibility: hidden;
+        }
+        
+        .visible {
+            visibility: visible;
+        }
+        
+        /* Opacity utilities */
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .opacity-100 {
+            opacity: 1;
+        }
+        
+        /* Transform utilities */
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        
+        /* Transition utilities */
+        .transition {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        /* Shadow utilities */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -2153,22 +2748,26 @@
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
-        <a href="index.html">
+        <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <!-- Loading progress bar -->
+        <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
+            <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
+        </div>
     </div>
     
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
             <!-- Logo path updated to use relative path and made clickable -->
-            <a href="index.html">
+            <a href="./">
                 <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
             </a>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="./" class="nav-link">Home</a></li>
                     <li><a href="about-us.html" class="nav-link">About Us</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
@@ -2182,7 +2781,7 @@
                 <button class="contact-btn">Get Quote</button>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2191,12 +2790,12 @@
     </header>
     
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="mobile-menu-close" id="mobileMenuClose">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
         </button>
         <ul class="mobile-nav">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="./">Home</a></li>
             <li><a href="about-us.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
@@ -2209,22 +2808,26 @@
     </div>
     
     <!-- Premium Quote Form Modal -->
-    <div id="quoteModal" class="quote-modal">
+    <div id="quoteModal" class="quote-modal" role="dialog" aria-labelledby="quoteFormTitle" aria-hidden="true">
         <div class="quote-form-container">
             <div class="quote-form-header">
-                <button class="quote-close">
+                <button class="quote-close" id="quoteClose" aria-label="Close quote form">
                     <i class="fas fa-times"></i>
                 </button>
                 <!-- Logo path updated to use relative path and made clickable -->
-                <a href="index.html">
+                <a href="./">
                     <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
-                <h2 class="quote-form-title">Get Your Solar Quote</h2>
+                <h2 class="quote-form-title" id="quoteFormTitle">Get Your Solar Quote</h2>
                 <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
             </div>
             
             <div class="quote-form-body">
-                <form id="quoteForm" class="quote-form">
+                <!-- Formspree form integration -->
+                <form id="quoteForm" class="quote-form" action="https://formspree.io/f/mvgwoyzv" method="POST">
+                    <!-- Form subject field (removed the hidden email field for security) -->
+                    <input type="hidden" name="_subject" value="New Solar Quote Request from Naptico Website">
+                    
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name" class="form-label">Full Name <span class="required">*</span></label>
@@ -2241,7 +2844,7 @@
                         <div class="form-group">
                             <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
                             <div class="file-upload">
-                                <input type="file" id="bill" name="bill" class="file-upload-input" accept="image/*,.pdf" multiple required>
+                                <input type="file" id="bill" name="billUpload" class="file-upload-input" accept="image/*,.pdf" multiple required>
                                 <label for="bill" class="file-upload-label">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <span id="fileLabel">Choose Files</span>
@@ -2250,8 +2853,8 @@
                             <div id="fileList" class="file-list"></div>
                         </div>
                         <div class="form-group full-width">
-                            <label for="address" class="form-label">Address <span class="required">*</span></label>
-                            <textarea id="address" name="address" class="form-textarea" placeholder="Enter your complete address" required></textarea>
+                            <label for="inquiry" class="form-label">Inquiry <span class="required">*</span></label>
+                            <textarea id="inquiry" name="inquiry" class="form-textarea" placeholder="Enter your inquiry or message" required></textarea>
                         </div>
                     </div>
                     
@@ -2260,7 +2863,7 @@
                         <span>Submit Request</span>
                     </button>
                     
-                    <div id="formMessage" class="form-message"></div>
+                    <div id="formMessage" class="form-message" role="alert"></div>
                     
                     <div class="privacy-text">
                         <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 10px;"></i>
@@ -2272,21 +2875,20 @@
     </div>
     
     <!-- Premium Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
     <!-- Premium Hero Section -->
-    <section class="hero-gradient">
-        <!-- Hero Slideshow -->
-        <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-        </div>
+    <section id="main-content" class="hero-gradient">
+        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
         <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
+        
+        <!-- Particles Container - FIXED POSITION -->
+        <div id="particles"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -2302,13 +2904,11 @@
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Premium Particle Effect -->
-        <div id="particles"></div>
     </section>
     
     <!-- Our Story Section -->
@@ -2629,26 +3229,25 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <!-- Logo path updated to use relative path and made clickable -->
-                    <a href="index.html">
-                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
+                    <a href="./">
+                        <!-- Fixed filename with space issue and added proper dimensions -->
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
+                             onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
+                             width="220" height="90" loading="lazy">
                     </a>
-                    <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
+                    <p style="font-size: 14px;">We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd
-" class="social-icon">
-                            <i class="fab fa-facebook text-white"></i>
+                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon" aria-label="Visit our Facebook page">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/napticogreenenergysolars/
-" class="social-icon">
-                            <i class="fab fa-instagram text-white"></i>
+                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon" aria-label="Visit our Instagram page">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/
-" class="social-icon">
-                            <i class="fab fa-linkedin text-white"></i>
+                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon" aria-label="Visit our LinkedIn page">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.youtube.com/@Napticogreenenergysolars
-" class="social-icon">
-                            <i class="fab fa-youtube text-white"></i>
+                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon" aria-label="Visit our YouTube channel">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -2656,7 +3255,7 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="./">Home</a></li>
                         <li><a href="about-us.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="how-it-works.html">How It Works</a></li>
@@ -2708,36 +3307,94 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Privacy Policy.html">Privacy Policy</a> | <a href="Terms of Service.html">Terms of Service</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="Terms & Conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund&return policy.html" target="_blank">Refund & Return Policy</a></p>
             </div>
         </div>
     </footer>
     
     <script>
-        // Function to detect if device is touch-enabled
-        function isTouchDevice() {
-            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        // URL Redirect for index.html
+        if (window.location.pathname.endsWith('index.html')) {
+            const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Premium Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3500);
+        // Function to detect if device is touch-enabled
+        function isTouchDevice() {
+            return 'ontouchstart' in window || 
+                   navigator.maxTouchPoints > 0 || 
+                   navigator.msMaxTouchPoints > 0 ||
+                   (window.matchMedia('(pointer: coarse)').matches);
+        }
+        
+        // Improved Loading Screen Script with better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
+            // Function to hide loading screen
+            function hideLoadingScreen() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    console.log('Loading screen hidden');
+                    // Ensure body can scroll
+                    document.body.style.overflow = 'auto';
+                    document.body.classList.add('loaded');
+                    // Enable pointer events
+                    document.body.style.pointerEvents = 'auto';
+                } else {
+                    console.error('Loading screen element not found');
+                }
+            }
+            
+            // Loading progress bar animation
+            const progressBar = document.getElementById('loadingProgressBar');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += 5;
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(hideLoadingScreen, 500);
+                }
+            }, 100);
+            
+            // Try to hide loading screen after a short delay
+            setTimeout(hideLoadingScreen, 1500);
+            
+            // Also hide when window is fully loaded
+            window.addEventListener('load', function() {
+                console.log('Window fully loaded');
+                setTimeout(hideLoadingScreen, 500);
+            });
+            
+            // Fallback: Force hide after 10 seconds no matter what
+            setTimeout(hideLoadingScreen, 10000);
         });
         
         // Only initialize custom cursor on non-touch devices
         if (!isTouchDevice()) {
-            // Premium Custom Cursor
+            // Premium Custom Cursor - FIXED
             const cursor = document.querySelector('.cursor');
             const cursorFollower = document.querySelector('.cursor-follower');
             
-            // Optimized cursor movement using direct position updates
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
+            // Initialize cursor position to center of screen
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let followerX = mouseX;
+            let followerY = mouseY;
             
+            // Set initial cursor position
+            cursor.style.left = mouseX - 12.5 + 'px';
+            cursor.style.top = mouseY - 12.5 + 'px';
+            cursorFollower.style.left = followerX - 25 + 'px';
+            cursorFollower.style.top = followerY - 25 + 'px';
+            
+            // Optimized cursor movement using direct position updates
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
@@ -2774,7 +3431,7 @@
             });
             
             // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot');
             
             hoverElements.forEach(element => {
                 element.addEventListener('mouseenter', () => {
@@ -2828,21 +3485,52 @@
         const mobileMenuClose = document.getElementById('mobileMenuClose');
         const mobileContactBtn = document.getElementById('mobileContactBtn');
         
-        // Open mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-            mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+        // Function to reset mobile menu state
+        function resetMobileMenu() {
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('active');
+            }
+            if (mobileMenuBtn) {
+                mobileMenuBtn.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+            // Re-enable pointer events on body
+            document.body.style.pointerEvents = 'auto';
+        }
+        
+        // Reset menu on page load
+        resetMobileMenu();
+        
+        // Reset menu when navigating back to the page
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                resetMobileMenu();
+            }
         });
+        
+        // Open mobile menu
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (mobileMenuOverlay) {
+                    mobileMenuOverlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                // Disable pointer events on content behind menu
+                document.body.style.pointerEvents = 'none';
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+                }
+            });
+        }
         
         // Close mobile menu
         function closeMobileMenu() {
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-            mobileMenuBtn.classList.remove('active'); // Remove animation class
+            resetMobileMenu();
         }
         
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
@@ -2851,120 +3539,217 @@
         });
         
         // Mobile contact button functionality
-        mobileContactBtn.addEventListener('click', () => {
-            closeMobileMenu();
-            // Open quote modal after a short delay
-            setTimeout(() => {
-                document.getElementById('quoteModal').classList.add('active');
-                centerModal();
-            }, 300);
-        });
+        if (mobileContactBtn) {
+            mobileContactBtn.addEventListener('click', () => {
+                closeMobileMenu();
+                // Open quote modal after a short delay
+                setTimeout(() => {
+                    const quoteModal = document.getElementById('quoteModal');
+                    if (quoteModal) {
+                        quoteModal.classList.add('active');
+                        centerModal();
+                    }
+                }, 300);
+            });
+        }
         
-        // Premium Hero Slideshow
-        const slides = document.querySelectorAll('.hero-slide');
-        const heroImage = document.getElementById('heroImage');
+        // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
             'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
             'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
             'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
         ];
-        let currentSlide = 0;
         
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-            heroImage.src = heroImages[index];
-            currentSlide = index;
+        const heroFixedBg = document.getElementById('heroFixedBg');
+        const heroImage = document.getElementById('heroImage');
+        let currentHeroImage = 0;
+        let heroInterval;
+        
+        // Set hero background with optimized performance
+        function setHeroBackground(index) {
+            // Create a new Image object to preload
+            const img = new Image();
+            img.onload = function() {
+                // Once loaded, update the background
+                if (heroFixedBg) {
+                    heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                }
+                if (heroImage) {
+                    heroImage.src = heroImages[index];
+                }
+                currentHeroImage = index;
+            };
+            img.onerror = function() {
+                // If image fails to load, use a fallback
+                console.error('Failed to load hero image:', heroImages[index]);
+                // Try next image or use a default
+                const nextIndex = (index + 1) % heroImages.length;
+                if (nextIndex !== index) {
+                    setHeroBackground(nextIndex);
+                }
+            };
+            img.src = heroImages[index];
         }
         
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+        // Start hero image rotation with optimized timing
+        function startHeroRotation() {
+            // Clear any existing interval
+            if (heroInterval) {
+                clearInterval(heroInterval);
+            }
+            
+            // Set new interval
+            heroInterval = setInterval(() => {
+                currentHeroImage = (currentHeroImage + 1) % heroImages.length;
+                setHeroBackground(currentHeroImage);
+            }, 5000);
         }
         
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
+        // Initialize hero rotation after page load
+        window.addEventListener('load', () => {
+            // Start with a small delay to ensure everything is loaded
+            setTimeout(() => {
+                setHeroBackground(0);
+                startHeroRotation();
+            }, 100);
+        });
         
-        // Premium Particle Effect
+        // Pause rotation when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (heroInterval) {
+                    clearInterval(heroInterval);
+                }
+            } else {
+                startHeroRotation();
+            }
+        });
+        
+        // Premium Particle Effect - FIXED Z-INDEX and PERFORMANCE
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 60;
+            if (!particlesContainer) return;
+            
+            const particleCount = 30; // Reduced particle count for better performance
+            
+            // Clear existing particles if any
+            particlesContainer.innerHTML = '';
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 12 + 6;
+                const size = Math.random() * 8 + 4; // Smaller particles for better performance
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
+                // Random starting position
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 25}s`;
-                particle.style.animationDuration = `${Math.random() * 15 + 20}s`;
+                particle.style.bottom = `-${size * 2}px`; // Start just below the viewport
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 5; // Reduced max delay
+                const duration = Math.random() * 10 + 15; // Shorter duration for faster movement
+                
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Set initial opacity
+                particle.style.opacity = Math.random() * 0.6 + 0.2; // Random opacity
                 
                 particlesContainer.appendChild(particle);
             }
         }
         
-        createParticles();
+        // Create particles immediately when DOM is loaded
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Also create particles when the page is fully loaded to ensure they're visible
+        window.addEventListener('load', () => {
+            // Check if particles exist, if not create them
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer && particlesContainer.children.length === 0) {
+                createParticles();
+            }
+        });
         
         // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Premium Quote Form Modal
         const quoteModal = document.getElementById('quoteModal');
-        const quoteClose = document.querySelector('.quote-close');
+        const quoteClose = document.getElementById('quoteClose');
         const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
         
         contactBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                quoteModal.classList.add('active');
-                centerModal();
+                if (quoteModal) {
+                    quoteModal.classList.add('active');
+                    quoteModal.setAttribute('aria-hidden', 'false');
+                    centerModal();
+                }
             });
         });
         
-        quoteClose.addEventListener('click', () => {
-            quoteModal.classList.remove('active');
-        });
+        if (quoteClose) {
+            quoteClose.addEventListener('click', () => {
+                if (quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
         
-        quoteModal.addEventListener('click', (e) => {
-            if (e.target === quoteModal) {
-                quoteModal.classList.remove('active');
-            }
-        });
+        if (quoteModal) {
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
         
-        // File upload handling for multiple files
+        // File upload handling for multiple files - FIXED
         const fileInput = document.getElementById('bill');
         const fileLabel = document.getElementById('fileLabel');
         const fileList = document.getElementById('fileList');
         let selectedFiles = [];
         
-        fileInput.addEventListener('change', function() {
-            // Get newly selected files
-            const newFiles = Array.from(this.files);
-            
-            // Add to our list of selected files
-            newFiles.forEach(file => {
-                selectedFiles.push(file);
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                // Clear the existing files array
+                selectedFiles = [];
+                
+                // Get all selected files
+                const files = this.files;
+                
+                // Add files to our array
+                for (let i = 0; i < files.length; i++) {
+                    selectedFiles.push(files[i]);
+                }
+                
+                // Update the display
+                updateFileDisplay();
             });
-            
-            // Update the display
-            updateFileDisplay();
-        });
+        }
         
         function updateFileDisplay() {
+            if (!fileLabel || !fileList) return;
+            
             // Clear current display
             fileList.innerHTML = '';
             
@@ -2987,7 +3772,7 @@
                 fileItem.innerHTML = `
                     <span class="file-name">${file.name}</span>
                     <span class="file-size">${fileSize}</span>
-                    <i class="fas fa-times file-remove" data-index="${index}"></i>
+                    <i class="fas fa-times file-remove" data-index="${index}" aria-label="Remove file"></i>
                 `;
                 
                 fileList.appendChild(fileItem);
@@ -3000,14 +3785,25 @@
                     selectedFiles.splice(index, 1);
                     updateFileDisplay();
                     
-                    // Update the actual input
-                    const dataTransfer = new DataTransfer();
-                    selectedFiles.forEach(file => {
-                        dataTransfer.items.add(file);
-                    });
-                    fileInput.files = dataTransfer.files;
+                    // Create a new FileList and update the input
+                    updateFileInput();
                 });
             });
+        }
+        
+        function updateFileInput() {
+            if (!fileInput) return;
+            
+            // Create a new DataTransfer object
+            const dataTransfer = new DataTransfer();
+            
+            // Add each file back to the DataTransfer
+            selectedFiles.forEach(file => {
+                dataTransfer.items.add(file);
+            });
+            
+            // Update the file input with the new FileList
+            fileInput.files = dataTransfer.files;
         }
         
         function formatFileSize(bytes) {
@@ -3021,6 +3817,8 @@
         // Function to center the modal properly
         function centerModal() {
             const modalContainer = document.querySelector('.quote-form-container');
+            if (!modalContainer) return;
+            
             const windowHeight = window.innerHeight;
             const modalHeight = modalContainer.offsetHeight;
             
@@ -3037,61 +3835,89 @@
         // Add event listener for window resize to re-center modal
         window.addEventListener('resize', centerModal);
         
-        // Form submission
+        // Form submission with Formspree integration - FIXED
         const quoteForm = document.getElementById('quoteForm');
         const formMessage = document.getElementById('formMessage');
         
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Here you would normally send the data to a server
-            // For demonstration, we'll just show a success message
-            
-            // Simulate form submission
-            formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            
-            // Reset form
-            this.reset();
-            selectedFiles = [];
-            updateFileDisplay();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-                quoteModal.classList.remove('active');
-            }, 5000);
-            
-            // In a real implementation, you would send the form data to a server
-            // that would then email it to multiple addresses
-            // Example:
-            /*
-            fetch('https://your-form-endpoint.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
-                    formMessage.className = 'form-message success';
-                } else {
-                    formMessage.textContent = 'There was an error submitting your form. Please try again.';
-                    formMessage.className = 'form-message error';
-                }
-                formMessage.style.display = 'block';
-            })
-            .catch(error => {
-                formMessage.textContent = 'There was an error submitting your form. Please try again.';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitBtn = this.querySelector('.form-submit');
+                const originalBtnContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+                submitBtn.disabled = true;
+                
+                // Get form data
+                const formData = new FormData(this);
+                
+                // Send form data to Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Network response was not ok.');
+                        });
+                    }
+                })
+                .then(data => {
+                    // Show success message
+                    if (formMessage) {
+                        formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Reset form
+                    this.reset();
+                    selectedFiles = [];
+                    updateFileDisplay();
+                    
+                    // Hide message after 5 seconds and close modal
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                        if (quoteModal) {
+                            quoteModal.classList.remove('active');
+                            quoteModal.setAttribute('aria-hidden', 'true');
+                        }
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Show error message with specific details
+                    console.error('Error:', error);
+                    if (formMessage) {
+                        formMessage.textContent = `Error: ${error.message || 'There was an error submitting your form. Please try again.'}`;
+                        formMessage.className = 'form-message error';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                    }, 5000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
             });
-            */
-        });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -3212,15 +4038,19 @@
             }
             
             // Event listeners
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetInterval();
+                });
+            }
             
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetInterval();
+                });
+            }
             
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
@@ -3237,14 +4067,66 @@
             
             // Pause on hover
             const carousel = document.querySelector('.milestone-carousel');
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            carousel.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            }
+        });
+        
+        // Error handling for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.error('Image failed to load:', this.src);
+                // You could set a fallback image here if needed
             });
         });
+        
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // Escape key to close modal
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('quoteModal');
+                if (modal && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+                
+                const mobileMenu = document.getElementById('mobileMenuOverlay');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.pointerEvents = 'auto';
+                }
+            }
+        });
+        
+        // Performance optimization: lazy load images
+        if ('IntersectionObserver' in window) {
+            const imgOptions = {
+                threshold: 0,
+                rootMargin: '0px 0px 50px 0px'
+            };
+            
+            const imgObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imgObserver.unobserve(img);
+                    }
+                });
+            }, imgOptions);
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imgObserver.observe(img);
+            });
+        }
     </script>
 </body>
 </html>

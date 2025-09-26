@@ -36,14 +36,14 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us">
     <meta property="og:title" content="About Us - Naptico Green Energy Solars">
     <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us">
     <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
     <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
@@ -2635,6 +2635,393 @@
         .shadow-lg {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        
+        /* Services Section Styles - Fixed background */
+        .services-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .services-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced Service Card with Box Effects */
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .service-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Decorative corner elements for service card */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .service-card:hover::after {
+            transform: scale(1.5);
+            opacity: 0.7;
+        }
+        
+        /* Image container with special effects */
+        .service-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Image overlay with box effect */
+        .service-card .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.6));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover .img-overlay {
+            opacity: 1;
+        }
+        
+        /* Animated border effect */
+        .service-card .img-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            border-radius: 15px;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: scale(0.95);
+        }
+        
+        .service-card:hover .img-border {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Corner accent elements */
+        .service-card .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card .corner-accent.top-left {
+            top: 15px;
+            left: 15px;
+            border-top: 3px solid #f59e0b;
+            border-left: 3px solid #f59e0b;
+            border-top-left-radius: 10px;
+        }
+        
+        .service-card .corner-accent.top-right {
+            top: 15px;
+            right: 15px;
+            border-top: 3px solid #f59e0b;
+            border-right: 3px solid #f59e0b;
+            border-top-right-radius: 10px;
+        }
+        
+        .service-card .corner-accent.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-bottom: 3px solid #f59e0b;
+            border-left: 3px solid #f59e0b;
+            border-bottom-left-radius: 10px;
+        }
+        
+        .service-card .corner-accent.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 3px solid #f59e0b;
+            border-right: 3px solid #f59e0b;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .service-card:hover .corner-accent {
+            opacity: 1;
+        }
+        
+        /* Animated glow effect */
+        .service-card .glow-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover .glow-effect {
+            opacity: 1;
+        }
+        
+        /* Hero banner small box effects */
+        .hero-box {
+            position: relative;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .hero-box {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .hero-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .hero-box:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .hero-box:hover::before {
+            opacity: 1;
+        }
+        
+        /* Box corner accents */
+        .hero-box .corner-accent {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 1;
+        }
+        
+        .hero-box .corner-accent.top-left {
+            top: 10px;
+            left: 10px;
+            border-top: 2px solid #f59e0b;
+            border-left: 2px solid #f59e0b;
+            border-top-left-radius: 8px;
+        }
+        
+        .hero-box .corner-accent.top-right {
+            top: 10px;
+            right: 10px;
+            border-top: 2px solid #f59e0b;
+            border-right: 2px solid #f59e0b;
+            border-top-right-radius: 8px;
+        }
+        
+        .hero-box .corner-accent.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-bottom: 2px solid #f59e0b;
+            border-left: 2px solid #f59e0b;
+            border-bottom-left-radius: 8px;
+        }
+        
+        .hero-box .corner-accent.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            border-bottom: 2px solid #f59e0b;
+            border-right: 2px solid #f59e0b;
+            border-bottom-right-radius: 8px;
+        }
+        
+        /* Box glow effect */
+        .hero-box .glow-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .hero-box:hover .glow-effect {
+            opacity: 1;
+        }
+        
+        /* Box title styling */
+        .hero-box h3 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-box h3 span {
+            color: #f59e0b;
+        }
+        
+        /* Box content styling */
+        .hero-box p {
+            color: #e2e8f0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Box image container */
+        .hero-box .img-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-box .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-box:hover .img-container img {
+            transform: scale(1.05);
+        }
+        
+        /* Box image overlay */
+        .hero-box .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.6));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .hero-box:hover .img-overlay {
+            opacity: 1;
+        }
+        
+        /* Box image border */
+        .hero-box .img-border {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            border-radius: 10px;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: scale(0.95);
+        }
+        
+        .hero-box:hover .img-border {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -2675,7 +3062,7 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
-                    <li><a href="about-us.html" class="nav-link active">About Us</a></li>
+                    <li><a href="about-us" class="nav-link active">About Us</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
@@ -2703,7 +3090,7 @@
         </button>
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
-            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="about-us">About Us</a></li>
             <li><a href="Coming Soon.html">Services</a></li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
@@ -2828,14 +3215,34 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 <div class="fade-in stagger-1">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our <span class="text-gradient">Journey</span></h3>
-                    <p class="text-gray-300 mb-4">Naptico Green Energy Solars is a Bengaluru-based company specializing in sustainable energy solutions, with a strong focus on solar technology and services. The company is committed to advancing clean, renewable energy for both residential and commercial customers, aiming to create a greener and more energy-independent future.</p>
-                    <p class="text-gray-300 mb-4">Starting with just a small office in Bangalore and a handful of dedicated employees, we focused on providing high-quality solar solutions to residential customers. Our commitment to excellence and customer satisfaction quickly earned us a reputation as a reliable solar provider.</p>
-                    <p class="text-gray-300">Naptico Green Energy Solars operates out of Bengaluru, Karnataka, India, and was incorporated in August 2025. The company excels in delivering innovative technology and energy solutions, striving to empower businesses and households to transition smoothly to solar power.</p>
+                    <div class="hero-box">
+                        <div class="corner-accent top-left"></div>
+                        <div class="corner-accent top-right"></div>
+                        <div class="corner-accent bottom-left"></div>
+                        <div class="corner-accent bottom-right"></div>
+                        <div class="glow-effect"></div>
+                        
+                        <div class="img-container">
+                            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Office">
+                            <div class="img-overlay"></div>
+                            <div class="img-border"></div>
+                        </div>
+                        
+                        <h3>Our <span>Journey</span></h3>
+                        <p>Naptico Green Energy Solars is a Bengaluru-based company specializing in sustainable energy solutions, with a strong focus on solar technology and services. The company is committed to advancing clean, renewable energy for both residential and commercial customers, aiming to create a greener and more energy-independent future.</p>
+                        <p>Starting with just a small office in Bangalore and a handful of dedicated employees, we focused on providing high-quality solar solutions to residential customers. Our commitment to excellence and customer satisfaction quickly earned us a reputation as a reliable solar provider.</p>
+                        <p>Naptico Green Energy Solars operates out of Bengaluru, Karnataka, India, and was incorporated in August 2025. The company excels in delivering innovative technology and energy solutions, striving to empower businesses and households to transition smoothly to solar power.</p>
+                    </div>
                 </div>
                 <div class="fade-in stagger-2">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Office" class="rounded-2xl w-full h-auto">
+                        <div class="corner-accent top-left"></div>
+                        <div class="corner-accent top-right"></div>
+                        <div class="corner-accent bottom-left"></div>
+                        <div class="corner-accent bottom-right"></div>
+                        <div class="glow-effect"></div>
+                        
+                        <img src="https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVuZXdhYmxlJTIwZW5lcmd5fGVufDB8fDB8fHww" alt="Solar Installation">
                     </div>
                 </div>
             </div>
@@ -2843,14 +3250,34 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1 fade-in stagger-3">
                     <div class="service-card">
-                        <img src="https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVuZXdhYmxlJTIwZW5lcmd5fGVufDB8fDB8fHww" alt="Solar Installation" class="rounded-2xl w-full h-auto">
+                        <div class="corner-accent top-left"></div>
+                        <div class="corner-accent top-right"></div>
+                        <div class="corner-accent bottom-left"></div>
+                        <div class="corner-accent bottom-right"></div>
+                        <div class="glow-effect"></div>
+                        
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Installation">
                     </div>
                 </div>
                 <div class="order-1 lg:order-2 fade-in stagger-4">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Our <span class="text-gradient">Mission & Vision</span></h3>
-                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Mission:</strong> To accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to harness the power of the sun.</p>
-                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Vision:</strong> Naptico Green Energy Solars envisions a future where every home and business can harness the power of the sun, leading the way toward energy independence and environmental stewardship.</p>
-                    <p class="text-gray-300">We envision a future where every home and business in India is powered by clean, renewable energy, reducing carbon emissions and creating a healthier planet for future generations.</p>
+                    <div class="hero-box">
+                        <div class="corner-accent top-left"></div>
+                        <div class="corner-accent top-right"></div>
+                        <div class="corner-accent bottom-left"></div>
+                        <div class="corner-accent bottom-right"></div>
+                        <div class="glow-effect"></div>
+                        
+                        <div class="img-container">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Energy">
+                            <div class="img-overlay"></div>
+                            <div class="img-border"></div>
+                        </div>
+                        
+                        <h3>Our <span>Mission & Vision</span></h3>
+                        <p><strong class="text-amber-400">Mission:</strong> To accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to harness the power of the sun.</p>
+                        <p><strong class="text-amber-400">Vision:</strong> Naptico Green Energy Solars envisions a future where every home and business can harness the power of the sun, leading the way toward energy independence and environmental stewardship.</p>
+                        <p>We envision a future where every home and business in India is powered by clean, renewable energy, reducing carbon emissions and creating a healthier planet for future generations.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2978,7 +3405,7 @@
                     </div>
                     <div class="leadership-content">
                         <h3 class="leadership-name">Ajay Raju N</h3>
-                        <p class="leadership-position"><i class="fas fa-user-tie"></i> Managing Director & CEO</p>
+                        <p class="leadership-position"><i class="fas fa-crown"></i> Managing Director & CEO</p>
                         <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -3087,7 +3514,7 @@
                         <i class="fas fa-award text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
-                    <p class="text-gray-300"></p>
+                    <p class="text-gray-300">Recognized as India's best solar company by the Ministry of New and Renewable Energy</p>
                 </div>
                 
                 <div class="feature-card fade-in stagger-2">
@@ -3163,7 +3590,7 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="./">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="about-us">About Us</a></li>
                         <li><a href="Coming Soon.html">Services</a></li>
                         <li><a href="Coming Soon.html">How It Works</a></li>
                         <li><a href="Coming Soon.html">Calculator</a></li>
@@ -3223,6 +3650,12 @@
         // URL Redirect for index.html
         if (window.location.pathname.endsWith('index.html')) {
             const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        
+        // URL Redirect for about-us.html
+        if (window.location.pathname.endsWith('about-us.html')) {
+            const newUrl = window.location.href.replace('about-us.html', 'about-us');
             window.history.replaceState({}, document.title, newUrl);
         }
         
@@ -3910,7 +4343,7 @@
         // Only apply 3D card effects on non-touch devices
         if (!('ontouchstart' in window)) {
             // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card');
+            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card, .service-card, .hero-box');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {

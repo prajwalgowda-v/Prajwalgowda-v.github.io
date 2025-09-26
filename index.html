@@ -330,6 +330,16 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
+        /* Active navigation link styles */
+        .nav-link.active {
+            color: #f59e0b !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active::before {
+            width: 100% !important;
+        }
+        
         .header-actions {
             display: flex;
             gap: 20px;
@@ -436,6 +446,11 @@
             transform: rotate(-135deg);
         }
         
+        /* Active state for mobile menu button */
+        .mobile-menu-btn.active span {
+            background: #f59e0b;
+        }
+        
         /* Mobile Menu Overlay */
         .mobile-menu-overlay {
             position: fixed;
@@ -524,6 +539,16 @@
         .mobile-nav a:hover {
             color: #f59e0b;
             transform: translateY(-3px);
+        }
+        
+        /* Active mobile navigation link styles */
+        .mobile-nav a.active {
+            color: #f59e0b !important;
+            font-weight: 600;
+        }
+        
+        .mobile-nav a.active::after {
+            width: 100% !important;
         }
         
         .mobile-contact-btn {
@@ -2496,7 +2521,7 @@
     </section>
     
     <!-- Premium Services Section -->
-    <section class="services-section py-20">
+    <section class="services-section py-20" id="services-section">
         <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-20 fade-in">
                 <h2 class="section-title">Our <span class="text-gradient">Solar Services</span></h2>
@@ -3886,6 +3911,54 @@
                 imgObserver.observe(img);
             });
         }
+        
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page URL
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop().replace('.html', '') || 'index';
+            
+            // Set active navigation link for desktop
+            const desktopLinks = document.querySelectorAll('.nav-menu .nav-link');
+            desktopLinks.forEach(link => {
+                const linkPath = link.getAttribute('href').replace('./', '').replace('.html', '') || 'index';
+                if (linkPath === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Set active navigation link for mobile
+            const mobileLinks = document.querySelectorAll('.mobile-nav a');
+            mobileLinks.forEach(link => {
+                const linkPath = link.getAttribute('href').replace('./', '').replace('.html', '') || 'index';
+                if (linkPath === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Set active state for mobile menu button when menu is open
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            if (mobileMenuBtn && mobileMenuOverlay) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+                
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === this || e.target.id === 'mobileMenuClose') {
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+                
+                // Close mobile menu when a link is clicked
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuBtn.classList.remove('active');
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>

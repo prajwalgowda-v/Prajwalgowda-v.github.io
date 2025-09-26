@@ -259,6 +259,14 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
+        .nav-link.active {
+            color: #f59e0b;
+        }
+        
+        .nav-link.active::before {
+            width: 100%;
+        }
+        
         .header-actions {
             display: flex;
             gap: 20px;
@@ -451,6 +459,14 @@
         .mobile-nav a:hover {
             color: #f59e0b;
             transform: translateY(-3px);
+        }
+        
+        .mobile-nav a.active {
+            color: #f59e0b;
+        }
+        
+        .mobile-nav a.active::after {
+            width: 100%;
         }
         
         .mobile-contact-btn {
@@ -2578,7 +2594,7 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
-                    <li><a href="about-us" class="nav-link active">About Us</a></li>
+                    <li><a href="about-us" class="nav-link">About Us</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
@@ -3140,16 +3156,61 @@
     </footer>
     
     <script>
-        // URL Redirect for index.html
-        if (window.location.pathname.endsWith('index.html')) {
-            const newUrl = window.location.href.replace('index.html', '');
+        // Remove .html from URL if present
+        if (window.location.pathname.endsWith('.html')) {
+            const newUrl = window.location.pathname.replace('.html', '');
             window.history.replaceState({}, document.title, newUrl);
         }
         
-        // URL Redirect for about-us.html
-        if (window.location.pathname.endsWith('about-us.html')) {
-            const newUrl = window.location.href.replace('about-us.html', 'about-us');
-            window.history.replaceState({}, document.title, newUrl);
+        // Function to set active navigation link
+        function setActiveNavLink() {
+            // Get the current pathname
+            let currentPath = window.location.pathname;
+            
+            // Normalize the current path
+            currentPath = currentPath.replace(/^\/|\/$/g, ''); // Remove leading and trailing slashes
+            currentPath = currentPath.replace(/\.html$/, ''); // Remove .html extension
+            
+            // If currentPath is empty, it's the home page
+            if (currentPath === '') {
+                currentPath = 'home';
+            }
+            
+            // For the desktop menu
+            const desktopLinks = document.querySelectorAll('.nav-menu .nav-link');
+            desktopLinks.forEach(link => {
+                let href = link.getAttribute('href');
+                // Normalize href
+                href = href.replace(/^\.\//, ''); // Remove leading './'
+                href = href.replace(/\.html$/, ''); // Remove .html extension
+                if (href === '') {
+                    href = 'home';
+                }
+                
+                if (href === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // For the mobile menu
+            const mobileLinks = document.querySelectorAll('.mobile-nav a');
+            mobileLinks.forEach(link => {
+                let href = link.getAttribute('href');
+                // Normalize href
+                href = href.replace(/^\.\//, ''); // Remove leading './'
+                href = href.replace(/\.html$/, ''); // Remove .html extension
+                if (href === '') {
+                    href = 'home';
+                }
+                
+                if (href === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
         }
         
         // Improved Loading Screen Script with better error handling
@@ -3199,6 +3260,9 @@
             
             // Fallback: Force hide after 10 seconds no matter what
             setTimeout(hideLoadingScreen, 10000);
+            
+            // Set active navigation link
+            setActiveNavLink();
         });
         
         // Simple, direct approach to hide loading screen
@@ -3249,7 +3313,7 @@
         // Function to show touch indicator
         function showTouchIndicator() {
             if (cursor) cursor.style.opacity = '0';
-            if (cursorFollower) cursorFollower.style.opacity = '0';
+            if (cursorFollower) cursor.style.opacity = '0';
             if (touchIndicator) touchIndicator.style.opacity = '1';
         }
         

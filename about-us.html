@@ -7,25 +7,15 @@
     
     <!-- Favicon for all devices and platforms -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
-
-    <!-- PNG favicons for modern browsers -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/Icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/Icon.png">
     <link rel="icon" type="image/png" sizes="48x48" href="./images/Icon.png">
-
-    <!-- Apple Touch Icons (for iOS home screen) -->
     <link rel="apple-touch-icon" sizes="180x180" href="./images/Icon.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./images/Icon.png">
     <link rel="apple-touch-icon" sizes="120x120" href="./images/Icon.png">
-
-    <!-- Android/Chrome and PWA -->
     <link rel="manifest" href="./images/Icon.png">
-
-    <!-- Windows Tiles (Microsoft / Edge / IE) -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./images/icon.png">
-
-    <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
@@ -61,11 +51,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Include the same CSS styles as the homepage -->
     <style>
-        /* All the CSS styles from the homepage go here */
-        /* I've included the same styles for consistency */
-        
         /* CSS Reset and Base Styles */
         * {
             font-family: 'Inter', sans-serif;
@@ -83,67 +69,6 @@
             overflow-x: hidden;
             background-color: #f8fafc;
             position: relative;
-        }
-        
-        /* Premium Cursor with Glowing Effect - Only for non-touch devices */
-        .cursor {
-            width: 25px;
-            height: 25px;
-            border: 2px solid #f59e0b;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 999999;
-            mix-blend-mode: difference;
-            opacity: 0;
-            transition: opacity 0.15s ease, transform 0.15s ease;
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
-            will-change: transform;
-        }
-        
-        .cursor-follower {
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 999998;
-            opacity: 0;
-            transition: opacity 0.15s ease, transform 0.25s ease-out;
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
-            will-change: transform;
-        }
-        
-        .cursor.hover {
-            transform: scale(2.5);
-            background: rgba(245, 158, 11, 0.15);
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
-        }
-        
-        .cursor-follower.hover {
-            transform: scale(3.5);
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
-        }
-        
-        /* Touch indicator for mobile devices */
-        .touch-indicator {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            pointer-events: none;
-            z-index: 999997;
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .touch-indicator.active {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
         }
         
         /* Premium Loading Screen with White Background */
@@ -164,9 +89,10 @@
         }
         
         .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            display: none !important;
         }
         
         .loading-logo {
@@ -246,17 +172,16 @@
             z-index: 1000;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
-            height: 100px; /* Fixed height to prevent wrapping */
+            height: 100px;
         }
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            height: 80px; /* Smaller fixed height when scrolled */
+            height: 80px;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(20px)) {
             .header.scrolled {
                 background: rgba(15, 23, 42, 0.95);
@@ -269,9 +194,9 @@
             align-items: center;
             padding: 20px 5%;
             transition: all 0.3s ease;
-            height: 100%; /* Take full height of parent */
+            height: 100%;
             width: 100%;
-            max-width: 1400px; /* Limit max width for better alignment */
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -283,7 +208,7 @@
             width: 220px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
-            flex-shrink: 0; /* Prevent logo from shrinking */
+            flex-shrink: 0;
             display: block;
         }
         
@@ -293,12 +218,12 @@
         
         .nav-menu {
             display: flex;
-            gap: 20px; /* Reduced gap to prevent wrapping */
+            gap: 20px;
             list-style: none;
             margin: 0;
             padding: 0;
-            flex-wrap: nowrap; /* Prevent nav items from wrapping */
-            overflow: hidden; /* Hide overflow if needed */
+            flex-wrap: nowrap;
+            overflow: hidden;
         }
         
         .nav-link {
@@ -309,8 +234,8 @@
             transition: all 0.3s ease;
             transform-style: preserve-3d;
             padding: 5px 0;
-            white-space: nowrap; /* Prevent text from wrapping */
-            font-size: 0.95rem; /* Slightly smaller font size */
+            white-space: nowrap;
+            font-size: 0.95rem;
         }
         
         .nav-link::before {
@@ -338,7 +263,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
-            flex-shrink: 0; /* Prevent actions from shrinking */
+            flex-shrink: 0;
         }
         
         .contact-btn {
@@ -354,7 +279,7 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-            white-space: nowrap; /* Prevent text from wrapping */
+            white-space: nowrap;
         }
         
         .contact-btn::before {
@@ -392,14 +317,13 @@
             width: 30px;
             height: 30px;
             overflow: hidden;
-            flex-shrink: 0; /* Prevent button from shrinking */
+            flex-shrink: 0;
         }
         
         .mobile-menu-btn:hover {
             color: #f59e0b;
         }
         
-        /* Mobile Menu Icon Animation - FIXED */
         .mobile-menu-btn span {
             display: block;
             position: absolute;
@@ -459,7 +383,6 @@
             transition: all 0.4s ease;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .mobile-menu-overlay {
                 background: rgba(15, 23, 42, 0.98);
@@ -578,10 +501,9 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 100px; /* Add padding to prevent header overlap */
+            padding-top: 100px;
         }
         
-        /* Fixed Hero Background - OPTIMIZED */
         .hero-fixed-bg {
             position: fixed;
             top: 0;
@@ -597,7 +519,6 @@
             transition: background-image 1.5s ease-in-out;
         }
         
-        /* Dynamic Background Effect */
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -628,14 +549,13 @@
             }
         }
         
-        /* Premium Particle Effect - FIXED Z-INDEX */
         #particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Behind the content but above the background */
+            z-index: 1;
             pointer-events: none;
             overflow: hidden;
         }
@@ -648,7 +568,7 @@
             animation: particleFloat 25s infinite linear;
             transform-style: preserve-3d;
             box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-            will-change: transform, opacity; /* Hardware acceleration */
+            will-change: transform, opacity;
         }
         
         @keyframes particleFloat {
@@ -680,11 +600,10 @@
         
         .hero-content {
             position: relative;
-            z-index: 5; /* Increased z-index to ensure content is above particles */
+            z-index: 5;
             transform-style: preserve-3d;
         }
         
-        /* Premium 3D Text Effects */
         .hero-title {
             font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 800;
@@ -725,7 +644,6 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* Premium Button Design */
         .hero-btn {
             display: inline-block;
             padding: 18px 35px;
@@ -760,7 +678,6 @@
             backdrop-filter: blur(10px);
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .hero-btn-secondary {
                 background: rgba(255, 255, 255, 0.2);
@@ -790,15 +707,15 @@
             left: 100%;
         }
         
-        /* Premium About Section */
-        .about-section {
+        /* Services Section Styles */
+        .services-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 100px 0;
         }
         
-        .about-section::before {
+        .services-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -810,7 +727,7 @@
             z-index: 0;
         }
         
-        .about-content {
+        .services-content {
             position: relative;
             z-index: 1;
         }
@@ -830,31 +747,27 @@
             margin: 0 auto 4rem;
         }
         
-        /* Premium 3D Cards with Glass Effect */
-        .about-card {
+        .hero-box {
+            position: relative;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 35px;
+            overflow: hidden;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 30px;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(15px)) {
-            .about-card {
+            .hero-box {
                 background: rgba(255, 255, 255, 0.15);
             }
         }
         
-        .about-card::before {
+        .hero-box::before {
             content: '';
             position: absolute;
             top: 0;
@@ -867,284 +780,319 @@
             z-index: -1;
         }
         
-        .about-card:hover {
+        .hero-box:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .hero-box:hover::before {
+            opacity: 1;
+        }
+        
+        .hero-box .corner-accent {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 1;
+        }
+        
+        .hero-box .corner-accent.top-left {
+            top: 10px;
+            left: 10px;
+            border-top: 2px solid #f59e0b;
+            border-left: 2px solid #f59e0b;
+            border-top-left-radius: 8px;
+        }
+        
+        .hero-box .corner-accent.top-right {
+            top: 10px;
+            right: 10px;
+            border-top: 2px solid #f59e0b;
+            border-right: 2px solid #f59e0b;
+            border-top-right-radius: 8px;
+        }
+        
+        .hero-box .corner-accent.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-bottom: 2px solid #f59e0b;
+            border-left: 2px solid #f59e0b;
+            border-bottom-left-radius: 8px;
+        }
+        
+        .hero-box .corner-accent.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            border-bottom: 2px solid #f59e0b;
+            border-right: 2px solid #f59e0b;
+            border-bottom-right-radius: 8px;
+        }
+        
+        .hero-box .glow-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .hero-box:hover .glow-effect {
+            opacity: 1;
+        }
+        
+        .hero-box h3 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-box h3 span {
+            color: #f59e0b;
+        }
+        
+        .hero-box p {
+            color: #e2e8f0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-box .img-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-box .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-box:hover .img-container img {
+            transform: scale(1.05);
+        }
+        
+        .hero-box .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.6));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .hero-box:hover .img-overlay {
+            opacity: 1;
+        }
+        
+        .hero-box .img-border {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            border-radius: 10px;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: scale(0.95);
+        }
+        
+        .hero-box:hover .img-border {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @supports not (backdrop-filter: blur(15px)) {
+            .service-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
             transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .about-card:hover::before {
+        .service-card:hover::before {
             opacity: 1;
         }
         
-        .about-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-            flex-shrink: 0;
-        }
-        
-        .about-card:hover .about-icon {
-            transform: scale(1.15) rotateZ(10deg);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Timeline Styles */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .timeline::before {
+        .service-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #f59e0b, #f97316);
-            border-radius: 2px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            padding-right: 50%;
-            text-align: right;
-        }
-        
-        .timeline-item:nth-child(even) {
-            padding-left: 50%;
-            text-align: left;
-        }
-        
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 30px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            top: 30px;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
-            z-index: 2;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -12px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -12px;
-        }
-        
-        .timeline-year {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #f59e0b;
-            margin-bottom: 15px;
-        }
-        
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .timeline-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-        }
-        
-        /* Team Section Styles */
-        .team-member {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .team-member {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .team-member:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .team-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 4px solid rgba(245, 158, 11, 0.5);
-            object-fit: cover;
-            object-position: top center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            flex-shrink: 0;
-        }
-        
-        .team-member:hover .team-avatar {
-            transform: scale(1.1) rotateY(180deg);
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
-        }
-        
-        .team-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 10px;
-        }
-        
-        .team-position {
-            font-size: 1.1rem;
-            color: #f59e0b;
-            margin-bottom: 20px;
-        }
-        
-        .team-bio {
-            color: #e2e8f0;
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-        
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .team-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .team-social a:hover {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            transform: translateY(-5px) rotateZ(360deg);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
-            border-color: transparent;
-        }
-        
-        /* Values Section Styles */
-        .value-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .value-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .value-card:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .value-icon {
+            top: -20px;
+            right: -20px;
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), transparent 70%);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
+            z-index: -1;
             transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
-            flex-shrink: 0;
         }
         
-        .value-card:hover .value-icon {
-            transform: scale(1.15) rotateY(180deg);
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        .service-card:hover::after {
+            transform: scale(1.5);
+            opacity: 0.7;
         }
         
-        .value-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
+        .service-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            position: relative;
         }
         
-        .value-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-            flex-grow: 1;
+        .service-card:hover img {
+            transform: scale(1.05);
         }
         
-        /* New Milestones Section Styles */
+        .service-card .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.6));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover .img-overlay {
+            opacity: 1;
+        }
+        
+        .service-card .img-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            border-radius: 15px;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: scale(0.95);
+        }
+        
+        .service-card:hover .img-border {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        }
+        
+        .service-card .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card .corner-accent.top-left {
+            top: 15px;
+            left: 15px;
+            border-top: 3px solid #f59e0b;
+            border-left: 3px solid #f59e0b;
+            border-top-left-radius: 10px;
+        }
+        
+        .service-card .corner-accent.top-right {
+            top: 15px;
+            right: 15px;
+            border-top: 3px solid #f59e0b;
+            border-right: 3px solid #f59e0b;
+            border-top-right-radius: 10px;
+        }
+        
+        .service-card .corner-accent.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-bottom: 3px solid #f59e0b;
+            border-left: 3px solid #f59e0b;
+            border-bottom-left-radius: 10px;
+        }
+        
+        .service-card .corner-accent.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 3px solid #f59e0b;
+            border-right: 3px solid #f59e0b;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .service-card:hover .corner-accent {
+            opacity: 1;
+        }
+        
+        .service-card .glow-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover .glow-effect {
+            opacity: 1;
+        }
+        
+        /* Milestones Section Styles */
         .milestones-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             padding: 80px 0;
@@ -1187,7 +1135,6 @@
             text-align: center;
         }
         
-        /* Milestone Carousel */
         .milestone-carousel {
             position: relative;
             overflow: hidden;
@@ -1251,7 +1198,6 @@
             line-height: 1.6;
         }
         
-        /* Carousel Navigation */
         .milestone-nav {
             position: absolute;
             bottom: 30px;
@@ -1306,7 +1252,7 @@
             transform: scale(1.1);
         }
         
-        /* New Leadership Team Section Styles */
+        /* Leadership Team Section Styles */
         .leadership-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 80px 0;
@@ -1487,7 +1433,6 @@
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
         
-        /* Decorative elements */
         .leadership-card::after {
             content: '';
             position: absolute;
@@ -1506,7 +1451,7 @@
             opacity: 0.5;
         }
         
-        /* Premium Feature Cards */
+        /* Feature Cards Styles */
         .feature-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
@@ -1524,7 +1469,6 @@
             align-items: center;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(15px)) {
             .feature-card {
                 background: rgba(255, 255, 255, 0.15);
@@ -1557,7 +1501,20 @@
             box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
-        /* Premium CTA Section */
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        /* CTA Section Styles */
         .cta-section {
             background: linear-gradient(135deg, #f97316, #f59e0b);
             position: relative;
@@ -1606,7 +1563,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
-        /* Premium Footer */
+        /* Footer Styles */
         .footer {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
@@ -1805,7 +1762,7 @@
             color: #f59e0b;
         }
         
-        /* Premium Back to Top Button */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 40px;
@@ -1844,7 +1801,7 @@
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
-        /* Premium Quote Form Modal */
+        /* Quote Form Modal */
         .quote-modal {
             position: fixed;
             top: 0;
@@ -1863,7 +1820,6 @@
             overflow-y: auto;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .quote-modal {
                 background: rgba(0, 0, 0, 0.95);
@@ -2042,7 +1998,6 @@
             font-size: 1.2rem;
         }
         
-        /* File list styles for multiple files */
         .file-list {
             margin-top: 15px;
             max-height: 140px;
@@ -2176,7 +2131,7 @@
             border-left: 4px solid #f59e0b;
         }
         
-        /* Premium Scroll Animation */
+        /* Scroll Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
@@ -2188,7 +2143,6 @@
             transform: translateY(0);
         }
         
-        /* Staggered animation delays */
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
         .stagger-3 { transition-delay: 0.3s; }
@@ -2196,7 +2150,7 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
-        /* Premium Responsive adjustments */
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -2233,16 +2187,15 @@
                 right: 20px;
             }
             
-            /* Mobile Header Adjustments */
             .header-content {
                 padding: 15px 5%;
                 justify-content: space-between;
-                height: 70px; /* Fixed height for mobile header */
+                height: 70px;
             }
             
             .logo {
                 width: 140px;
-                height: auto; /* Ensure logo maintains aspect ratio */
+                height: auto;
             }
             
             .header.scrolled .logo {
@@ -2251,7 +2204,7 @@
             
             .header.scrolled .header-content {
                 padding: 10px 5%;
-                height: 60px; /* Slightly smaller when scrolled */
+                height: 60px;
             }
             
             .mobile-menu-btn {
@@ -2259,12 +2212,10 @@
                 padding: 8px;
             }
             
-            /* Add padding-top to hero section to account for fixed header */
             .hero-gradient {
-                padding-top: 80px; /* Adjust based on header height */
+                padding-top: 80px;
             }
             
-            /* Timeline Mobile Adjustments */
             .timeline::before {
                 left: 30px;
             }
@@ -2280,17 +2231,14 @@
                 right: auto !important;
             }
             
-            /* Team Cards Mobile Adjustments */
             .team-member {
                 margin-bottom: 20px;
             }
             
-            /* Value Cards Mobile Adjustments */
             .value-card {
                 margin-bottom: 20px;
             }
             
-            /* Milestone Carousel Mobile Adjustments */
             .milestone-year {
                 font-size: 3rem;
             }
@@ -2312,11 +2260,10 @@
             }
         }
         
-        /* Additional mobile adjustments for smaller screens */
         @media (max-width: 480px) {
             .header-content {
                 padding: 12px 5%;
-                height: 60px; /* Smaller fixed height for very small screens */
+                height: 60px;
             }
             
             .logo {
@@ -2332,22 +2279,19 @@
                 padding: 6px;
             }
             
-            /* Adjust hero section padding for smaller screens */
             .hero-gradient {
-                padding-top: 70px; /* Slightly less padding for smaller screens */
+                padding-top: 70px;
             }
             
             .hero-title {
                 font-size: 2.2rem;
-                margin-top: 20px; /* Add some space between header and title */
+                margin-top: 20px;
             }
             
-            /* Section titles for smaller screens */
             .section-title {
                 font-size: 2rem;
             }
             
-            /* Footer adjustments for smaller screens */
             .footer-section h3 {
                 font-size: 1.4rem;
             }
@@ -2357,14 +2301,13 @@
             }
         }
         
-        /* Medium screen adjustments for header */
         @media (min-width: 769px) and (max-width: 1024px) {
             .nav-menu {
-                gap: 15px; /* Reduced gap for medium screens */
+                gap: 15px;
             }
             
             .nav-link {
-                font-size: 0.9rem; /* Smaller font size for medium screens */
+                font-size: 0.9rem;
             }
             
             .header-content {
@@ -2380,22 +2323,20 @@
             }
         }
         
-        /* Large screen adjustments for header */
         @media (min-width: 1600px) {
             .header-content {
-                max-width: 1600px; /* Larger max width for very large screens */
+                max-width: 1600px;
             }
             
             .nav-menu {
-                gap: 30px; /* Increased gap for larger screens */
+                gap: 30px;
             }
             
             .nav-link {
-                font-size: 1rem; /* Larger font size for larger screens */
+                font-size: 1rem;
             }
         }
         
-        /* Performance optimization for slower devices */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -2404,23 +2345,14 @@
             }
         }
         
-        /* Loading screen fix */
         body {
-            overflow: hidden; /* Initially hide scrollbars */
+            overflow: hidden;
         }
         
         body.loaded {
-            overflow: visible; /* Show scrollbars after loading */
+            overflow: visible;
         }
         
-        /* Ensure the loading screen properly disappears */
-        .loading-screen.hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
-        
-        /* Accessibility improvements */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -2433,55 +2365,47 @@
             border-width: 0;
         }
         
-        /* Focus styles for better accessibility */
         a:focus, button:focus, input:focus, textarea:focus, select:focus {
             outline: 2px solid #f59e0b;
             outline-offset: 2px;
         }
         
-        /* Image loading optimization */
         img {
             max-width: 100%;
             height: auto;
         }
         
-        /* Smooth scrolling for the entire page */
         html {
             scroll-behavior: smooth;
         }
         
-        /* Container max-width for better responsiveness */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Grid adjustments for better responsiveness */
-        @media (min-width: 768px) {
-            .grid {
-                display: grid;
-                gap: 30px;
-            }
-            
-            .grid-cols-1 {
-                grid-template-columns: repeat(1, minmax(0, 1fr));
-            }
-            
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            
-            .grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-            
-            .grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
+        .grid {
+            display: grid;
+            gap: 30px;
         }
         
-        /* Flex utilities */
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        
         .flex {
             display: flex;
         }
@@ -2514,7 +2438,6 @@
             gap: 1.5rem;
         }
         
-        /* Spacing utilities */
         .py-10 {
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
@@ -2537,7 +2460,6 @@
             margin-bottom: 5rem;
         }
         
-        /* Text utilities */
         .text-center {
             text-align: center;
         }
@@ -2564,7 +2486,6 @@
             font-weight: 600;
         }
         
-        /* Background utilities */
         .bg-gradient-to-br {
             background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
         }
@@ -2578,12 +2499,10 @@
             --tw-gradient-to: #1f2937;
         }
         
-        /* Z-index utilities */
         .z-10 {
             z-index: 10;
         }
         
-        /* Position utilities */
         .relative {
             position: relative;
         }
@@ -2596,12 +2515,10 @@
             position: fixed;
         }
         
-        /* Overflow utilities */
         .overflow-hidden {
             overflow: hidden;
         }
         
-        /* Visibility utilities */
         .invisible {
             visibility: hidden;
         }
@@ -2610,7 +2527,6 @@
             visibility: visible;
         }
         
-        /* Opacity utilities */
         .opacity-0 {
             opacity: 0;
         }
@@ -2619,408 +2535,18 @@
             opacity: 1;
         }
         
-        /* Transform utilities */
         .transform {
             transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
         }
         
-        /* Transition utilities */
         .transition {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, backdrop-filter;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 150ms;
         }
         
-        /* Shadow utilities */
         .shadow-lg {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Services Section Styles - Fixed background */
-        .services-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .services-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.03;
-            z-index: 0;
-        }
-        
-        .services-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Enhanced Service Card with Box Effects */
-        .service-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .service-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        /* Decorative corner elements for service card */
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            transition: all 0.5s ease;
-        }
-        
-        .service-card:hover::after {
-            transform: scale(1.5);
-            opacity: 0.7;
-        }
-        
-        /* Image container with special effects */
-        .service-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: all 0.5s ease;
-            position: relative;
-        }
-        
-        .service-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Image overlay with box effect */
-        .service-card .img-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.6));
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .service-card:hover .img-overlay {
-            opacity: 1;
-        }
-        
-        /* Animated border effect */
-        .service-card .img-border {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            border-radius: 15px;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            transform: scale(0.95);
-        }
-        
-        .service-card:hover .img-border {
-            opacity: 1;
-            transform: scale(1);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Corner accent elements */
-        .service-card .corner-accent {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            z-index: 3;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .service-card .corner-accent.top-left {
-            top: 15px;
-            left: 15px;
-            border-top: 3px solid #f59e0b;
-            border-left: 3px solid #f59e0b;
-            border-top-left-radius: 10px;
-        }
-        
-        .service-card .corner-accent.top-right {
-            top: 15px;
-            right: 15px;
-            border-top: 3px solid #f59e0b;
-            border-right: 3px solid #f59e0b;
-            border-top-right-radius: 10px;
-        }
-        
-        .service-card .corner-accent.bottom-left {
-            bottom: 15px;
-            left: 15px;
-            border-bottom: 3px solid #f59e0b;
-            border-left: 3px solid #f59e0b;
-            border-bottom-left-radius: 10px;
-        }
-        
-        .service-card .corner-accent.bottom-right {
-            bottom: 15px;
-            right: 15px;
-            border-bottom: 3px solid #f59e0b;
-            border-right: 3px solid #f59e0b;
-            border-bottom-right-radius: 10px;
-        }
-        
-        .service-card:hover .corner-accent {
-            opacity: 1;
-        }
-        
-        /* Animated glow effect */
-        .service-card .glow-effect {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .service-card:hover .glow-effect {
-            opacity: 1;
-        }
-        
-        /* Hero banner small box effects */
-        .hero-box {
-            position: relative;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .hero-box {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .hero-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-        
-        .hero-box:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .hero-box:hover::before {
-            opacity: 1;
-        }
-        
-        /* Box corner accents */
-        .hero-box .corner-accent {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            z-index: 1;
-        }
-        
-        .hero-box .corner-accent.top-left {
-            top: 10px;
-            left: 10px;
-            border-top: 2px solid #f59e0b;
-            border-left: 2px solid #f59e0b;
-            border-top-left-radius: 8px;
-        }
-        
-        .hero-box .corner-accent.top-right {
-            top: 10px;
-            right: 10px;
-            border-top: 2px solid #f59e0b;
-            border-right: 2px solid #f59e0b;
-            border-top-right-radius: 8px;
-        }
-        
-        .hero-box .corner-accent.bottom-left {
-            bottom: 10px;
-            left: 10px;
-            border-bottom: 2px solid #f59e0b;
-            border-left: 2px solid #f59e0b;
-            border-bottom-left-radius: 8px;
-        }
-        
-        .hero-box .corner-accent.bottom-right {
-            bottom: 10px;
-            right: 10px;
-            border-bottom: 2px solid #f59e0b;
-            border-right: 2px solid #f59e0b;
-            border-bottom-right-radius: 8px;
-        }
-        
-        /* Box glow effect */
-        .hero-box .glow-effect {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .hero-box:hover .glow-effect {
-            opacity: 1;
-        }
-        
-        /* Box title styling */
-        .hero-box h3 {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-box h3 span {
-            color: #f59e0b;
-        }
-        
-        /* Box content styling */
-        .hero-box p {
-            color: #e2e8f0;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Box image container */
-        .hero-box .img-container {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .hero-box .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .hero-box:hover .img-container img {
-            transform: scale(1.05);
-        }
-        
-        /* Box image overlay */
-        .hero-box .img-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.6));
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .hero-box:hover .img-overlay {
-            opacity: 1;
-        }
-        
-        /* Box image border */
-        .hero-box .img-border {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            border-radius: 10px;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            transform: scale(0.95);
-        }
-        
-        .hero-box:hover .img-border {
-            opacity: 1;
-            transform: scale(1);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
         }
     </style>
 </head>
@@ -3032,21 +2558,12 @@
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
-    <!-- Premium Custom Cursor (for desktop only) -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    
-    <!-- Touch Indicator (for mobile only) -->
-    <div class="touch-indicator"></div>
-    
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
-        <!-- Logo path updated to use relative path and made clickable -->
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
-        <!-- Loading progress bar -->
         <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
             <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
         </div>
@@ -3055,7 +2572,6 @@
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
-            <!-- Logo path updated to use relative path and made clickable -->
             <a href="./">
                 <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
             </a>
@@ -3074,7 +2590,6 @@
             <div class="header-actions">
                 <button class="contact-btn">Get Quote</button>
             </div>
-            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
@@ -3108,7 +2623,6 @@
                 <button class="quote-close" id="quoteClose" aria-label="Close quote form">
                     <i class="fas fa-times"></i>
                 </button>
-                <!-- Logo path updated to use relative path and made clickable -->
                 <a href="./">
                     <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
@@ -3117,9 +2631,7 @@
             </div>
             
             <div class="quote-form-body">
-                <!-- Formspree form integration -->
                 <form id="quoteForm" class="quote-form" action="https://formspree.io/f/mvgwoyzv" method="POST">
-                    <!-- Form subject field (removed the hidden email field for security) -->
                     <input type="hidden" name="_subject" value="New Solar Quote Request from Naptico Website">
                     
                     <div class="form-grid">
@@ -3175,13 +2687,8 @@
     
     <!-- Premium Hero Section -->
     <section id="main-content" class="hero-gradient">
-        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
         <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-        
-        <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
-        
-        <!-- Particles Container - FIXED POSITION -->
         <div id="particles"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
@@ -3366,7 +2873,6 @@
                     </div>
                 </div>
                 
-                <!-- Carousel Navigation -->
                 <div class="milestone-nav">
                     <span class="milestone-dot active" data-slide="0"></span>
                     <span class="milestone-dot" data-slide="1"></span>
@@ -3409,9 +2915,7 @@
                         <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
                             <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
                             <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
@@ -3429,9 +2933,7 @@
                         <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
                             <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
                             <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
@@ -3449,9 +2951,7 @@
                         <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
                             <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
                             <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
@@ -3469,15 +2969,13 @@
                         <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
                             <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
                             <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Team Member 5 - New -->
+                <!-- Team Member 5 -->
                 <div class="leadership-card fade-in stagger-5">
                     <div class="leadership-image">
                         <img src="images/AJ.jpg" alt="MD">
@@ -3489,9 +2987,7 @@
                         <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
                         <div class="leadership-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <!-- Phone icon-->
                             <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
-                            <!-- Email icon-->
                             <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
@@ -3562,9 +3058,7 @@
         <div class="container mx-auto px-4">
             <div class="footer-content">
                 <div class="footer-section">
-                    <!-- Logo path updated to use relative path and made clickable -->
                     <a href="./">
-                        <!-- Fixed filename with space issue and added proper dimensions -->
                         <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
                              onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
                              width="220" height="90" loading="lazy">
@@ -3708,8 +3202,28 @@
             setTimeout(hideLoadingScreen, 10000);
         });
         
+        // Simple, direct approach to hide loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }, 1000);
+        });
+        
+        // Fallback - hide after 3 seconds regardless
+        setTimeout(function() {
+            var loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }, 3000);
+        
         // Variables to track input type and cursor state
-        let lastInputType = null; // 'touch' or 'mouse'
+        let lastInputType = null;
         let inputDetected = false;
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -3926,11 +3440,11 @@
                 if (mobileMenuOverlay) {
                     mobileMenuOverlay.classList.add('active');
                 }
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                document.body.style.overflow = 'hidden';
                 // Disable pointer events on content behind menu
                 document.body.style.pointerEvents = 'none';
                 if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+                    mobileMenuBtn.classList.toggle('active');
                 }
             });
         }
@@ -4037,7 +3551,7 @@
             const particlesContainer = document.getElementById('particles');
             if (!particlesContainer) return;
             
-            const particleCount = 30; // Reduced particle count for better performance
+            const particleCount = 30;
             
             // Clear existing particles if any
             particlesContainer.innerHTML = '';
@@ -4046,23 +3560,23 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 8 + 4; // Smaller particles for better performance
+                const size = Math.random() * 8 + 4;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
                 // Random starting position
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.bottom = `-${size * 2}px`; // Start just below the viewport
+                particle.style.bottom = `-${size * 2}px`;
                 
                 // Random animation delay and duration
-                const delay = Math.random() * 5; // Reduced max delay
-                const duration = Math.random() * 10 + 15; // Shorter duration for faster movement
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 15;
                 
                 particle.style.animationDelay = `${delay}s`;
                 particle.style.animationDuration = `${duration}s`;
                 
                 // Set initial opacity
-                particle.style.opacity = Math.random() * 0.6 + 0.2; // Random opacity
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
                 
                 particlesContainer.appendChild(particle);
             }
@@ -4489,7 +4003,6 @@
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', function() {
                 console.error('Image failed to load:', this.src);
-                // You could set a fallback image here if needed
             });
         });
         

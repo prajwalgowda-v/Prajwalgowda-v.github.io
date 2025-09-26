@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Naptico Green Energy Solars">
+    <title>About Us - Naptico Green Energy Solars</title>
     
     <!-- Favicon for all devices and platforms -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
@@ -30,7 +30,7 @@
     
     <!-- SEO and Social Media Meta Tags -->
     <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
-    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy company">
+    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -60,7 +60,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Include the same CSS styles as the homepage -->
     <style>
+        /* All the CSS styles from the homepage go here */
+        /* I've included the same styles for consistency */
+        
         /* CSS Reset and Base Styles */
         * {
             font-family: 'Inter', sans-serif;
@@ -78,22 +83,6 @@
             overflow-x: hidden;
             background-color: #f8fafc;
             position: relative;
-            overflow-y: auto; /* Ensure vertical scrolling is enabled */
-        }
-        
-        /* Only apply custom cursor on non-touch devices */
-        @media (hover: hover) {
-            * {
-                cursor: none;
-            }
-            
-            html, body {
-                cursor: none;
-            }
-            
-            a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot {
-                cursor: none;
-            }
         }
         
         /* Premium Cursor with Glowing Effect - Only for non-touch devices */
@@ -126,13 +115,6 @@
             will-change: transform;
         }
         
-        /* Only show cursor on non-touch devices */
-        @media (hover: hover) {
-            .cursor, .cursor-follower {
-                opacity: 1;
-            }
-        }
-        
         .cursor.hover {
             transform: scale(2.5);
             background: rgba(245, 158, 11, 0.15);
@@ -162,19 +144,6 @@
         .touch-indicator.active {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
-        }
-        
-        /* Only show touch indicator on touch devices */
-        @media (hover: none) {
-            .touch-indicator {
-                display: block;
-            }
-        }
-        
-        @media (hover: hover) {
-            .touch-indicator {
-                display: none;
-            }
         }
         
         /* Premium Loading Screen with White Background */
@@ -620,7 +589,7 @@
             width: 100%;
             height: 100vh;
             z-index: -1;
-            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -821,15 +790,15 @@
             left: 100%;
         }
         
-        /* Premium Services Section */
-        .services-section {
+        /* Premium About Section */
+        .about-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 100px 0;
         }
         
-        .services-section::before {
+        .about-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -841,7 +810,7 @@
             z-index: 0;
         }
         
-        .services-content {
+        .about-content {
             position: relative;
             z-index: 1;
         }
@@ -862,7 +831,7 @@
         }
         
         /* Premium 3D Cards with Glass Effect */
-        .service-card {
+        .about-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -880,12 +849,12 @@
         
         /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(15px)) {
-            .service-card {
+            .about-card {
                 background: rgba(255, 255, 255, 0.15);
             }
         }
         
-        .service-card::before {
+        .about-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -898,17 +867,17 @@
             z-index: -1;
         }
         
-        .service-card:hover {
+        .about-card:hover {
             transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .service-card:hover::before {
+        .about-card:hover::before {
             opacity: 1;
         }
         
-        .service-icon {
+        .about-icon {
             width: 90px;
             height: 90px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
@@ -923,52 +892,618 @@
             flex-shrink: 0;
         }
         
-        .service-card:hover .service-icon {
+        .about-card:hover .about-icon {
             transform: scale(1.15) rotateZ(10deg);
             box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
         }
         
-        /* Animated Learn More Button */
-        .learn-more-btn {
-            display: inline-flex;
-            align-items: center;
-            color: #f59e0b;
-            font-weight: 600;
-            text-decoration: none;
+        /* Timeline Styles */
+        .timeline {
             position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12px;
+        }
+        
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        
+        /* Team Section Styles */
+        .team-member {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .team-member {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .team-member:hover {
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 4px solid rgba(245, 158, 11, 0.5);
+            object-fit: cover;
+            object-position: top center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+        
+        .team-member:hover .team-avatar {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .team-position {
+            font-size: 1.1rem;
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        
+        .team-bio {
+            color: #e2e8f0;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .team-social a:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-5px) rotateZ(360deg);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+            border-color: transparent;
+        }
+        
+        /* Values Section Styles */
+        .value-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .value-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .value-card:hover {
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            flex-shrink: 0;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.15) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        /* New Milestones Section Styles */
+        .milestones-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .milestones-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .milestones-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .milestones-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .milestones-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        /* Milestone Carousel */
+        .milestone-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .milestone-track {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .milestone-slide {
+            min-width: 100%;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .milestone-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .milestone-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+            display: flex;
+            align-items: center;
+        }
+        
+        .milestone-content {
+            padding: 0 10%;
+            max-width: 800px;
+        }
+        
+        .milestone-year {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #f59e0b;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .milestone-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .milestone-description {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        /* Carousel Navigation */
+        .milestone-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .milestone-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
             transition: all 0.3s ease;
-            padding: 8px 0;
-            margin-top: 15px;
-            margin-top: auto; /* Push to bottom of card */
         }
         
-        .learn-more-btn:hover {
-            color: #f97316;
+        .milestone-dot.active {
+            background: #f59e0b;
+            transform: scale(1.2);
         }
         
-        .learn-more-btn i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-            font-size: 14px;
+        .milestone-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
         }
         
-        .learn-more-btn:hover i {
-            transform: translateX(5px);
+        .milestone-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
         }
         
-        .learn-more-btn::after {
+        .milestone-arrow:hover {
+            background: #f97316;
+            transform: scale(1.1);
+        }
+        
+        /* New Leadership Team Section Styles */
+        .leadership-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leadership-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .leadership-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .leadership-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .leadership-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+        
+        .leadership-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .leadership-card:hover::before {
+            opacity: 1;
+        }
+        
+        .leadership-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .leadership-image img {
+            width: 100%;
+            height: 200%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .leadership-card:hover .leadership-image img {
+            transform: scale(1.1);
+        }
+        
+        .leadership-image::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            transition: width 0.3s ease;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            z-index: 1;
         }
         
-        .learn-more-btn:hover::after {
-            width: 100%;
+        .leadership-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .leadership-content {
+            padding: 30px;
+        }
+        
+        .leadership-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .leadership-position {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .leadership-position i {
+            font-size: 1rem;
+        }
+        
+        .leadership-bio {
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .leadership-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .leadership-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .leadership-social a:hover {
+            background: #f59e0b;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Decorative elements */
+        .leadership-card::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .leadership-card:hover::after {
+            transform: scale(1.5);
+            opacity: 0.5;
         }
         
         /* Premium Feature Cards */
@@ -1022,201 +1557,53 @@
             box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
-        /* Premium Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+        /* Premium CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
             position: relative;
             overflow: hidden;
             padding: 100px 0;
         }
         
-        .testimonials-section::before {
+        .cta-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
+            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
             z-index: 0;
         }
         
-        .testimonials-content {
+        .cta-content {
             position: relative;
             z-index: 1;
         }
         
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        .cta-btn-primary {
+            background: white;
+            color: #f97316;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .testimonial-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
+        .cta-btn-primary:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            background: #f8fafc;
         }
         
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-20px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .testimonial-card:hover::before {
-            opacity: 1;
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .testimonial-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-right: 20px;
-            border: 3px solid rgba(245, 158, 11, 0.5);
-            object-fit: cover;
-            object-position: top center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .cta-btn-secondary {
+            background: transparent;
             color: white;
-            font-size: 2.5rem;
-            flex-shrink: 0;
+            border: 2px solid white;
         }
         
-        .testimonial-info h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-info p {
-            color: #94a3b8;
-            font-size: 1rem;
-        }
-        
-        .testimonial-rating {
-            color: #f59e0b;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-text {
-            color: #e2e8f0;
-            font-style: italic;
-            line-height: 1.7;
-            flex-grow: 1;
-            font-size: 1.1rem;
-        }
-        
-        .testimonial-quote {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 3.5rem;
-            color: rgba(245, 158, 11, 0.15);
-            font-family: Georgia, serif;
-        }
-        
-        /* Testimonial Carousel Styles - FIXED */
-        .testimonial-carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 20px 0 70px 0; /* Added padding to prevent shadow clipping */
-        }
-        
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial-slide {
-            min-width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0 20px; /* Added padding for side spacing */
-            box-sizing: border-box;
-        }
-        
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-        }
-        
-        .testimonial-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-btn:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: #f59e0b;
-        }
-        
-        .testimonial-indicators {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .testimonial-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-indicator.active {
-            background: #f59e0b;
-            transform: scale(1.2);
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         /* Premium Footer */
@@ -1709,6 +2096,7 @@
             font-size: 17px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            margin-top: 35px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -1808,487 +2196,6 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
-        /* Premium CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #f97316, #f59e0b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
-            z-index: 0;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-btn-primary {
-            background: white;
-            color: #f97316;
-            border: none;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-        }
-        
-        .cta-btn-primary:hover {
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-            background: #f8fafc;
-        }
-        
-        .cta-btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Premium FAQ Section */
-        .faq-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 80px 0;
-            position: relative;
-        }
-        
-        .faq-container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .faq-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            text-align: center;
-            color: white;
-        }
-        
-        .faq-item {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .faq-question {
-            padding: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-        
-        .faq-question:hover {
-            background: rgba(245, 158, 11, 0.15);
-        }
-        
-        .faq-icon {
-            transition: transform 0.4s ease;
-            color: #f59e0b;
-            font-size: 1.2rem;
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            padding: 0 25px;
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 400px;
-            padding: 0 25px 25px;
-        }
-        
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-        
-        /* New Milestones Section Styles */
-        .milestones-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .milestones-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .milestones-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .milestones-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .milestones-subtitle {
-            font-size: 1.25rem;
-            color: #e2e8f0;
-            max-width: 3xl;
-            margin: 0 auto 60px;
-            text-align: center;
-        }
-        
-        /* Milestone Carousel */
-        .milestone-carousel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .milestone-track {
-            display: flex;
-            transition: transform 0.8s ease;
-        }
-        
-        .milestone-slide {
-            min-width: 100%;
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-        }
-        
-        .milestone-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .milestone-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
-            display: flex;
-            align-items: center;
-        }
-        
-        .milestone-content {
-            padding: 0 10%;
-            max-width: 800px;
-        }
-        
-        .milestone-year {
-            font-size: 5rem;
-            font-weight: 800;
-            color: #f59e0b;
-            line-height: 1;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .milestone-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .milestone-description {
-            font-size: 1.2rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        
-        /* Carousel Navigation */
-        .milestone-nav {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 10;
-        }
-        
-        .milestone-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .milestone-dot.active {
-            background: #f59e0b;
-            transform: scale(1.2);
-        }
-        
-        .milestone-arrows {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-        
-        .milestone-arrow {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(245, 158, 11, 0.8);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 20px;
-        }
-        
-        .milestone-arrow:hover {
-            background: #f97316;
-            transform: scale(1.1);
-        }
-        
-        /* New Leadership Team Section Styles */
-        .leadership-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .leadership-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .leadership-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .leadership-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .leadership-subtitle {
-            font-size: 1.25rem;
-            color: #e2e8f0;
-            max-width: 3xl;
-            margin: 0 auto 60px;
-            text-align: center;
-        }
-        
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        
-        .leadership-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .leadership-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .leadership-card:hover {
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .leadership-card:hover::before {
-            opacity: 1;
-        }
-        
-        .leadership-image {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-        }
-        
-        .leadership-image img {
-            width: 100%;
-            height: 200%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .leadership-card:hover .leadership-image img {
-            transform: scale(1.1);
-        }
-        
-        .leadership-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
-            z-index: 1;
-        }
-        
-        .leadership-badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
-        }
-        
-        .leadership-content {
-            padding: 30px;
-        }
-        
-        .leadership-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .leadership-position {
-            color: #f59e0b;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .leadership-position i {
-            font-size: 1rem;
-        }
-        
-        .leadership-bio {
-            color: #e2e8f0;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        
-        .leadership-social {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .leadership-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .leadership-social a:hover {
-            background: #f59e0b;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
-        
-        /* Decorative elements */
-        .leadership-card::after {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            transition: all 0.5s ease;
-        }
-        
-        .leadership-card:hover::after {
-            transform: scale(1.5);
-            opacity: 0.5;
-        }
-        
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -2357,24 +2264,29 @@
                 padding-top: 80px; /* Adjust based on header height */
             }
             
-            /* Testimonial Carousel Mobile Adjustments */
-            .testimonial-slide {
-                flex-direction: column;
-                align-items: center;
+            /* Timeline Mobile Adjustments */
+            .timeline::before {
+                left: 30px;
             }
             
-            .testimonial-card {
-                width: 100%;
-                max-width: 350px;
+            .timeline-item {
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
             }
             
-            /* Service Cards Mobile Adjustments */
-            .service-card {
+            .timeline-dot {
+                left: 18px !important;
+                right: auto !important;
+            }
+            
+            /* Team Cards Mobile Adjustments */
+            .team-member {
                 margin-bottom: 20px;
             }
             
-            /* Feature Cards Mobile Adjustments */
-            .feature-card {
+            /* Value Cards Mobile Adjustments */
+            .value-card {
                 margin-bottom: 20px;
             }
             
@@ -2433,11 +2345,6 @@
             /* Section titles for smaller screens */
             .section-title {
                 font-size: 2rem;
-            }
-            
-            /* FAQ section for smaller screens */
-            .faq-title {
-                font-size: 2.2rem;
             }
             
             /* Footer adjustments for smaller screens */
@@ -2735,9 +2642,8 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- PRELOAD HERO IMAGES -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
@@ -2769,13 +2675,13 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
-                    <li><a href="about-us.html" class="nav-link">About Us</a></li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
-                    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-                    <li><a href="savings-calculator.html" class="nav-link">Calculator</a></li>
-                    <li><a href="customer-stories.html" class="nav-link">Stories</a></li>
-                    <li><a href="subsidies.html" class="nav-link">Subsidies</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="about-us.html" class="nav-link active">About Us</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Stories</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Subsidies</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -2798,12 +2704,12 @@
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
             <li><a href="about-us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="how-it-works.html">How It Works</a></li>
-            <li><a href="savings-calculator.html">Calculator</a></li>
-            <li><a href="customer-stories.html">Stories</a></li>
-            <li><a href="subsidies.html">Subsidies</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="Coming Soon.html">Services</a></li>
+            <li><a href="Coming Soon.html">How It Works</a></li>
+            <li><a href="Coming Soon.html">Calculator</a></li>
+            <li><a href="Coming Soon.html">Stories</a></li>
+            <li><a href="Coming Soon.html">Subsidies</a></li>
+            <li><a href="Coming Soon.html">Contact</a></li>
         </ul>
         <button class="mobile-contact-btn" id="mobileContactBtn">Get Quote</button>
     </div>
@@ -2883,7 +2789,7 @@
     <!-- Premium Hero Section -->
     <section id="main-content" class="hero-gradient">
         <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
-        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
         <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
@@ -2897,15 +2803,15 @@
                     <h1 class="hero-title text-white">
                         About <span class="text-gradient">Naptico Green Energy</span>
                     </h1>
-                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering 50,000+ homes and businesses across the country.</p>
+                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering thousands of homes and businesses across the country.</p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+                        <a href="#our-values" class="hero-btn hero-btn-secondary">Our Values</a>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="service-card">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto" loading="lazy">
+                    <div class="about-card">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -2950,7 +2856,7 @@
         </div>
     </section>
     
-    <!-- Our Milestones Section - Redesigned -->
+    <!-- Our Milestones Section -->
     <section class="milestones-section">
         <div class="milestones-container">
             <div class="text-center fade-in">
@@ -3055,7 +2961,7 @@
         </div>
     </section>
     
-    <!-- Leadership Team Section - Redesigned -->
+    <!-- Leadership Team Section -->
     <section id="our-team" class="leadership-section">
         <div class="leadership-container">
             <div class="text-center fade-in">
@@ -3216,9 +3122,9 @@
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
             <h2 class="text-4xl font-bold mb-8 text-white fade-in">Join Our Solar Revolution</h2>
-            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's sustainable future with Naptico Green Energy Solars</p>
+            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy future with Naptico Green Energy Solars</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
-                <a href="savings-calculator.html" class="hero-btn cta-btn-primary">Calculate Savings</a>
+                <a href="Coming Soon.html" class="hero-btn cta-btn-primary">Explore Solutions</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
             </div>
         </div>
@@ -3258,24 +3164,24 @@
                     <ul class="footer-links">
                         <li><a href="./">Home</a></li>
                         <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="how-it-works.html">How It Works</a></li>
-                        <li><a href="savings-calculator.html">Calculator</a></li>
-                        <li><a href="customer-stories.html">Customer Stories</a></li>
-                        <li><a href="subsidies.html">Subsidies</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="Coming Soon.html">Services</a></li>
+                        <li><a href="Coming Soon.html">How It Works</a></li>
+                        <li><a href="Coming Soon.html">Calculator</a></li>
+                        <li><a href="Coming Soon.html">Customer Stories</a></li>
+                        <li><a href="Coming Soon.html">Subsidies</a></li>
+                        <li><a href="Coming Soon.html">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="Solar Energy Solutions.html">Rooftop Solar Panels</a></li>
-                        <li><a href="maintenance & support.html#ground-mounted">Ground-Mounted Solar</a></li>
-                        <li><a href="maintenance & support.html#street-light">Solar Street Lights</a></li>
-                        <li><a href="maintenance & support.html#water-heater-etc">Solar Water Heater (ETC)</a></li>
-                        <li><a href="maintenance & support.html#water-heater-fpc">Solar Water Heater (FPC)</a></li>
-                        <li><a href="maintenance & support.html">Maintenance & Support</a></li>
+                        <li><a href="Coming Soon.html">Rooftop Solar Panels</a></li>
+                        <li><a href="Coming Soon.html">Ground-Mounted Solar</a></li>
+                        <li><a href="Coming Soon.html">Solar Street Lights</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (ETC)</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (FPC)</a></li>
+                        <li><a href="Coming Soon.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -3320,38 +3226,25 @@
             window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Function to detect if device is touch-enabled
-        function isTouchDevice() {
-            return 'ontouchstart' in window || 
-                   navigator.maxTouchPoints > 0 || 
-                   navigator.msMaxTouchPoints > 0 ||
-                   (window.matchMedia('(pointer: coarse)').matches);
-        }
-        
-        // Function to hide loading screen
-        function hideLoadingScreen() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen) {
-                loadingScreen.classList.add('hidden');
-                console.log('Loading screen hidden');
-                // Ensure body can scroll
-                document.body.style.overflow = 'auto';
-                document.body.classList.add('loaded');
-                // Enable pointer events
-                document.body.style.pointerEvents = 'auto';
-            } else {
-                console.error('Loading screen element not found');
-            }
-        }
-        
-        // Force hide loading screen after 2 seconds if it hasn't been hidden already
-        setTimeout(() => {
-            hideLoadingScreen();
-        }, 2000);
-        
         // Improved Loading Screen Script with better error handling
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM Content Loaded');
+            
+            // Function to hide loading screen
+            function hideLoadingScreen() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    console.log('Loading screen hidden');
+                    // Ensure body can scroll
+                    document.body.style.overflow = 'auto';
+                    document.body.classList.add('loaded');
+                    // Enable pointer events
+                    document.body.style.pointerEvents = 'auto';
+                } else {
+                    console.error('Loading screen element not found');
+                }
+            }
             
             // Loading progress bar animation
             const progressBar = document.getElementById('loadingProgressBar');
@@ -3371,105 +3264,188 @@
             
             // Try to hide loading screen after a short delay
             setTimeout(hideLoadingScreen, 1500);
+            
+            // Also hide when window is fully loaded
+            window.addEventListener('load', function() {
+                console.log('Window fully loaded');
+                setTimeout(hideLoadingScreen, 500);
+            });
+            
+            // Fallback: Force hide after 10 seconds no matter what
+            setTimeout(hideLoadingScreen, 10000);
         });
         
-        // Also hide when window is fully loaded
-        window.addEventListener('load', function() {
-            console.log('Window fully loaded');
-            setTimeout(hideLoadingScreen, 500);
-        });
+        // Variables to track input type and cursor state
+        let lastInputType = null; // 'touch' or 'mouse'
+        let inputDetected = false;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
         
-        // Only initialize custom cursor on non-touch devices
-        if (!isTouchDevice()) {
-            // Premium Custom Cursor - FIXED
-            const cursor = document.querySelector('.cursor');
-            const cursorFollower = document.querySelector('.cursor-follower');
+        // Get cursor elements
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const touchIndicator = document.querySelector('.touch-indicator');
+        
+        // Initially hide both cursors
+        if (cursor) cursor.style.opacity = '0';
+        if (cursorFollower) cursorFollower.style.opacity = '0';
+        if (touchIndicator) touchIndicator.style.opacity = '0';
+        
+        // Function to show custom cursor
+        function showCustomCursor() {
+            if (cursor) cursor.style.opacity = '1';
+            if (cursorFollower) cursorFollower.style.opacity = '1';
+            if (touchIndicator) touchIndicator.style.opacity = '0';
+        }
+        
+        // Function to show touch indicator
+        function showTouchIndicator() {
+            if (cursor) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
+            if (touchIndicator) touchIndicator.style.opacity = '1';
+        }
+        
+        // Function to set input type and show appropriate cursor
+        function setInputType(type) {
+            if (lastInputType === type) return;
+            lastInputType = type;
+            if (type === 'touch') {
+                showTouchIndicator();
+            } else if (type === 'mouse') {
+                showCustomCursor();
+            }
+        }
+        
+        // Listen for the first touch event
+        document.addEventListener('touchstart', function onFirstTouch(e) {
+            document.removeEventListener('touchstart', onFirstTouch);
+            inputDetected = true;
+            setInputType('touch');
+        }, { once: true });
+        
+        // Listen for the first mouse move event
+        document.addEventListener('mousemove', function onFirstMouseMove(e) {
+            document.removeEventListener('mousemove', onFirstMouseMove);
+            inputDetected = true;
+            setInputType('mouse');
             
-            // Initialize cursor position to center of screen
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let followerX = mouseX;
-            let followerY = mouseY;
+            // Initialize cursor position to the current mouse position
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (cursor) {
+                cursor.style.left = mouseX - 12.5 + 'px';
+                cursor.style.top = mouseY - 12.5 + 'px';
+            }
+            if (cursorFollower) {
+                followerX = mouseX;
+                followerY = mouseY;
+                cursorFollower.style.left = followerX - 25 + 'px';
+                cursorFollower.style.top = followerY - 25 + 'px';
+            }
+        }, { once: true });
+        
+        // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
+        setTimeout(() => {
+            if (!inputDetected) {
+                setInputType('mouse');
+            }
+        }, 1000);
+        
+        // Mouse move handler - only update when last input was mouse
+        document.addEventListener('mousemove', (e) => {
+            // Always update input type to mouse on mouse movement
+            setInputType('mouse');
             
-            // Set initial cursor position
-            cursor.style.left = mouseX - 12.5 + 'px';
-            cursor.style.top = mouseY - 12.5 + 'px';
-            cursorFollower.style.left = followerX - 25 + 'px';
-            cursorFollower.style.top = followerY - 25 + 'px';
-            
-            // Optimized cursor movement using direct position updates
-            document.addEventListener('mousemove', (e) => {
+            // Only update cursor position if the last input was mouse
+            if (lastInputType === 'mouse') {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
                 
                 // Update main cursor position immediately
-                cursor.style.left = mouseX - 12.5 + 'px';
-                cursor.style.top = mouseY - 12.5 + 'px';
-            });
-            
-            // Use requestAnimationFrame for smooth follower animation
-            function animateFollower() {
-                // Simple linear interpolation for smooth following
-                followerX += (mouseX - followerX) * 0.1;
-                followerY += (mouseY - followerY) * 0.1;
-                
-                // Apply position to follower
-                cursorFollower.style.left = followerX - 25 + 'px';
-                cursorFollower.style.top = followerY - 25 + 'px';
-                
-                requestAnimationFrame(animateFollower);
+                if (cursor) {
+                    cursor.style.left = mouseX - 12.5 + 'px';
+                    cursor.style.top = mouseY - 12.5 + 'px';
+                }
             }
-            
-            animateFollower();
-            
-            // Hide cursor when leaving the window
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-                cursorFollower.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-            
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot');
-            
-            hoverElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
-        }
+        });
         
-        // Touch indicator for mobile devices
-        if (isTouchDevice()) {
-            const touchIndicator = document.querySelector('.touch-indicator');
+        // Touch event handlers
+        document.addEventListener('touchstart', (e) => {
+            setInputType('touch');
             
-            document.addEventListener('touchstart', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
                 touchIndicator.classList.add('active');
-            });
-            
-            document.addEventListener('touchmove', (e) => {
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (touchIndicator) {
+                touchIndicator.classList.remove('active');
+            }
+        });
+        
+        // Cursor follower animation - only when using mouse
+        function animateFollower() {
+            if (lastInputType === 'mouse') {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                
+                if (cursorFollower) {
+                    cursorFollower.style.left = followerX - 25 + 'px';
+                    cursorFollower.style.top = followerY - 25 + 'px';
+                }
+            }
+            requestAnimationFrame(animateFollower);
+        }
+        
+        animateFollower();
+        
+        // Hover effects - only apply when using mouse
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .about-card, .team-member, .value-card, .timeline-content, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot');
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (lastInputType === 'mouse') {
+                    if (cursor) cursor.classList.add('hover');
+                    if (cursorFollower) cursorFollower.classList.add('hover');
+                }
             });
             
-            document.addEventListener('touchend', () => {
-                touchIndicator.classList.remove('active');
+            element.addEventListener('mouseleave', () => {
+                if (lastInputType === 'mouse') {
+                    if (cursor) cursor.classList.remove('hover');
+                    if (cursorFollower) cursorFollower.classList.remove('hover');
+                }
             });
-        }
+        });
+        
+        // Document enter/leave events for cursor - only when using mouse
+        document.addEventListener('mouseleave', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
+            }
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
+            }
+        });
         
         // Premium Header scroll effect
         const header = document.querySelector('.header');
@@ -3558,13 +3534,11 @@
         
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
-            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
         ];
         
         const heroFixedBg = document.getElementById('heroFixedBg');
-        const heroImage = document.getElementById('heroImage');
         let currentHeroImage = 0;
         let heroInterval;
         
@@ -3576,9 +3550,6 @@
                 // Once loaded, update the background
                 if (heroFixedBg) {
                     heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
-                }
-                if (heroImage) {
-                    heroImage.src = heroImages[index];
                 }
                 currentHeroImage = index;
             };
@@ -3605,7 +3576,7 @@
             heroInterval = setInterval(() => {
                 currentHeroImage = (currentHeroImage + 1) % heroImages.length;
                 setHeroBackground(currentHeroImage);
-            }, 5000);
+            }, 7000);
         }
         
         // Initialize hero rotation after page load
@@ -3937,9 +3908,9 @@
         });
         
         // Only apply 3D card effects on non-touch devices
-        if (!isTouchDevice()) {
+        if (!('ontouchstart' in window)) {
             // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card');
+            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {

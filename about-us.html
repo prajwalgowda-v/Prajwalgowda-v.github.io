@@ -29,21 +29,21 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with over a decade of experience in delivering sustainable energy solutions.">
-    <meta name="keywords" content="about Naptico, solar energy company, renewable energy provider, solar solutions, green energy">
+    <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
+    <meta name="keywords" content="about naptico, solar energy company, renewable energy provider, solar solutions, clean energy">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/about-us">
     <meta property="og:title" content="About Us - Naptico Green Energy Solars">
     <meta property="og:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us.html">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/about-us">
     <meta property="twitter:title" content="About Us - Naptico Green Energy Solars">
     <meta property="twitter:description" content="Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
@@ -59,8 +59,9 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Updated Google Fonts link to use Inter instead of Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Include the same CSS styles as the homepage -->
     <style>
         /* CSS Reset and Base Styles */
         * {
@@ -330,16 +331,6 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
-        /* Active navigation link styles */
-        .nav-link.active {
-            color: #f59e0b !important;
-            font-weight: 600;
-        }
-        
-        .nav-link.active::before {
-            width: 100% !important;
-        }
-        
         .header-actions {
             display: flex;
             gap: 20px;
@@ -446,12 +437,7 @@
             transform: rotate(-135deg);
         }
         
-        /* Active state for mobile menu button */
-        .mobile-menu-btn.active span {
-            background: #f59e0b;
-        }
-        
-        /* Mobile Menu Overlay - FIXED */
+        /* Mobile Menu Overlay */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -468,7 +454,6 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
-            pointer-events: none; /* Initially disable pointer events */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -481,7 +466,6 @@
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .mobile-menu-close {
@@ -494,8 +478,6 @@
             font-size: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 1003; /* Higher z-index to ensure it's clickable */
-            pointer-events: auto; /* Always enable pointer events for close button */
         }
         
         .mobile-menu-close:hover {
@@ -508,7 +490,6 @@
             padding: 0;
             margin: 0;
             text-align: center;
-            pointer-events: auto; /* Enable pointer events for navigation */
         }
         
         .mobile-nav li {
@@ -523,7 +504,6 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
-            pointer-events: auto; /* Enable pointer events for links */
         }
         
         .mobile-nav a::after {
@@ -547,16 +527,6 @@
             transform: translateY(-3px);
         }
         
-        /* Active mobile navigation link styles */
-        .mobile-nav a.active {
-            color: #f59e0b !important;
-            font-weight: 600;
-        }
-        
-        .mobile-nav a.active::after {
-            width: 100% !important;
-        }
-        
         .mobile-contact-btn {
             margin-top: 30px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
@@ -573,7 +543,6 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             cursor: pointer;
-            pointer-events: auto; /* Enable pointer events for button */
         }
         
         .mobile-contact-btn::before {
@@ -598,7 +567,7 @@
         }
         
         /* Premium Hero Section with Advanced Effects */
-        .about-hero-gradient {
+        .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
             overflow: hidden;
@@ -610,14 +579,14 @@
         }
         
         /* Fixed Hero Background - OPTIMIZED */
-        .about-hero-fixed-bg {
+        .hero-fixed-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
             z-index: -1;
-            background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -626,7 +595,7 @@
         }
         
         /* Dynamic Background Effect */
-        .about-hero-gradient::before {
+        .hero-gradient::before {
             content: '';
             position: absolute;
             top: 0;
@@ -657,7 +626,7 @@
         }
         
         /* Premium Particle Effect - FIXED Z-INDEX */
-        #about-particles {
+        #particles {
             position: absolute;
             top: 0;
             left: 0;
@@ -696,7 +665,7 @@
             }
         }
         
-        .about-hero-overlay {
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -706,14 +675,14 @@
             z-index: 2;
         }
         
-        .about-hero-content {
+        .hero-content {
             position: relative;
             z-index: 5; /* Increased z-index to ensure content is above particles */
             transform-style: preserve-3d;
         }
         
         /* Premium 3D Text Effects */
-        .about-hero-title {
+        .hero-title {
             font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 800;
             margin-bottom: 30px;
@@ -818,7 +787,7 @@
             left: 100%;
         }
         
-        /* About Us Section Styles */
+        /* Premium About Section */
         .about-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
@@ -858,6 +827,138 @@
             margin: 0 auto 4rem;
         }
         
+        /* Services Section - Fixed background color */
+        .services-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .services-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Service Card */
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .service-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Image with hero banner effects */
+        .hero-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(249, 115, 22, 0.2));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .hero-image:hover::before {
+            opacity: 1;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            border-radius: 15px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .hero-image:hover::after {
+            opacity: 1;
+            transform: translate(-10px, -10px);
+        }
+        
+        /* Premium 3D Cards with Glass Effect */
         .about-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
@@ -924,41 +1025,94 @@
             box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
         }
         
-        .about-text {
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
-        
-        .team-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+        /* Timeline Styles */
+        .timeline {
             position: relative;
-            overflow: hidden;
-            padding: 100px 0;
+            padding: 20px 0;
         }
         
-        .team-section::before {
+        .timeline::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
-            z-index: 0;
+            background: linear-gradient(to bottom, #f59e0b, #f97316);
+            border-radius: 2px;
         }
         
-        .team-content {
+        .timeline-item {
             position: relative;
-            z-index: 1;
+            margin-bottom: 50px;
         }
         
-        .team-card {
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-content {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 35px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12px;
+        }
+        
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        
+        /* Team Section Styles */
+        .team-member {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
@@ -972,12 +1126,12 @@
         
         /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(15px)) {
-            .team-card {
+            .team-member {
                 background: rgba(255, 255, 255, 0.15);
             }
         }
         
-        .team-card:hover {
+        .team-member:hover {
             transform: translateY(-20px) rotateX(10deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
@@ -988,7 +1142,7 @@
             height: 150px;
             border-radius: 50%;
             margin: 0 auto 25px;
-            border: 3px solid rgba(245, 158, 11, 0.5);
+            border: 4px solid rgba(245, 158, 11, 0.5);
             object-fit: cover;
             object-position: top center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -1001,23 +1155,27 @@
             flex-shrink: 0;
         }
         
-        .team-info h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.5rem;
+        .team-member:hover .team-avatar {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
-        .team-info p {
-            color: #94a3b8;
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .team-position {
             font-size: 1.1rem;
-            margin-bottom: 15px;
+            color: #f59e0b;
+            margin-bottom: 20px;
         }
         
         .team-bio {
             color: #e2e8f0;
-            line-height: 1.6;
-            font-size: 1rem;
+            line-height: 1.7;
             flex-grow: 1;
         }
         
@@ -1039,40 +1197,19 @@
             justify-content: center;
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
         }
         
         .team-social a:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: #f59e0b;
-            transform: translateY(-5px);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-5px) rotateZ(360deg);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+            border-color: transparent;
         }
         
-        .milestone-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .milestone-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.03;
-            z-index: 0;
-        }
-        
-        .milestone-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .milestone-card {
+        /* Values Section Styles */
+        .value-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1091,132 +1228,461 @@
         
         /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(15px)) {
-            .milestone-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .milestone-card:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .milestone-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #f59e0b;
-            margin-bottom: 15px;
-            line-height: 1;
-        }
-        
-        .milestone-text {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .values-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .values-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.15), transparent 70%);
-            z-index: 0;
-        }
-        
-        .values-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .value-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
             .value-card {
                 background: rgba(255, 255, 255, 0.15);
             }
         }
         
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
         .value-card:hover {
-            transform: translateY(-20px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .value-card:hover::before {
-            opacity: 1;
-        }
-        
         .value-icon {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 20px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            transition: all 0.4s ease;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
             transform-style: preserve-3d;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
             flex-shrink: 0;
         }
         
         .value-card:hover .value-icon {
-            transform: scale(1.15) rotateZ(10deg);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
+            transform: scale(1.15) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
         .value-title {
-            color: white;
             font-size: 1.5rem;
             font-weight: 700;
+            color: white;
             margin-bottom: 15px;
         }
         
         .value-description {
             color: #e2e8f0;
             line-height: 1.7;
-            font-size: 1.1rem;
             flex-grow: 1;
+        }
+        
+        /* New Milestones Section Styles */
+        .milestones-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .milestones-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .milestones-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .milestones-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .milestones-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        /* Milestone Carousel */
+        .milestone-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .milestone-track {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .milestone-slide {
+            min-width: 100%;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .milestone-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .milestone-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+            display: flex;
+            align-items: center;
+        }
+        
+        .milestone-content {
+            padding: 0 10%;
+            max-width: 800px;
+        }
+        
+        .milestone-year {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #f59e0b;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .milestone-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .milestone-description {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        /* Carousel Navigation */
+        .milestone-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .milestone-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-dot.active {
+            background: #f59e0b;
+            transform: scale(1.2);
+        }
+        
+        .milestone-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .milestone-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+        
+        .milestone-arrow:hover {
+            background: #f97316;
+            transform: scale(1.1);
+        }
+        
+        /* New Leadership Team Section Styles */
+        .leadership-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leadership-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .leadership-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .leadership-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .leadership-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+        
+        .leadership-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .leadership-card:hover::before {
+            opacity: 1;
+        }
+        
+        .leadership-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .leadership-image img {
+            width: 100%;
+            height: 200%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .leadership-card:hover .leadership-image img {
+            transform: scale(1.1);
+        }
+        
+        .leadership-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            z-index: 1;
+        }
+        
+        .leadership-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .leadership-content {
+            padding: 30px;
+        }
+        
+        .leadership-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .leadership-position {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .leadership-position i {
+            font-size: 1rem;
+        }
+        
+        .leadership-bio {
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .leadership-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .leadership-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .leadership-social a:hover {
+            background: #f59e0b;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Decorative elements */
+        .leadership-card::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .leadership-card:hover::after {
+            transform: scale(1.5);
+            opacity: 0.5;
+        }
+        
+        /* Premium Feature Cards */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .feature-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-20px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .feature-icon {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            flex-shrink: 0;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.15) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
         /* Premium CTA Section */
@@ -1523,7 +1989,6 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
-            pointer-events: none; /* Initially disable pointer events */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1536,7 +2001,6 @@
         .quote-modal.active {
             opacity: 1;
             visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .quote-form-container {
@@ -1554,7 +2018,6 @@
             margin: 20px auto;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
-            pointer-events: auto; /* Always enable pointer events for form container */
         }
         
         .quote-modal.active .quote-form-container {
@@ -1614,7 +2077,6 @@
             justify-content: center;
             transition: all 0.4s ease;
             z-index: 10;
-            pointer-events: auto; /* Always enable pointer events for close button */
         }
         
         .quote-close:hover {
@@ -1862,238 +2324,6 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
-        /* Cookie Consent Banner Styles */
-        .cookie-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none; /* Initially disable pointer events */
-        }
-        
-        .cookie-banner.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
-        }
-        
-        .cookie-content {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            position: relative;
-            overflow: hidden;
-            transform: translateY(30px);
-            transition: transform 0.4s ease;
-            pointer-events: auto; /* Always enable pointer events for content */
-        }
-        
-        .cookie-banner.active .cookie-content {
-            transform: translateY(0);
-        }
-        
-        .cookie-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
-        }
-        
-        .cookie-logo {
-            width: 120px;
-            height: auto;
-            margin: 0 auto 25px;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        
-        .cookie-logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .cookie-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: white;
-            text-align: center;
-        }
-        
-        .cookie-text {
-            color: #e2e8f0;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            text-align: center;
-            font-size: 1rem;
-        }
-        
-        .cookie-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .cookie-accept {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border: none;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-            cursor: pointer;
-        }
-        
-        .cookie-accept:hover {
-            transform: translateY(-4px) rotateX(5deg);
-            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
-        }
-        
-        .cookie-accept::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.6s ease;
-            z-index: -1;
-        }
-        
-        .cookie-accept:hover::before {
-            left: 100%;
-        }
-        
-        .cookie-settings {
-            background: transparent;
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            color: #f59e0b;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        
-        .cookie-settings:hover {
-            background: rgba(245, 158, 11, 0.1);
-            border-color: #f59e0b;
-            transform: translateY(-4px);
-        }
-        
-        /* Cookie Settings Panel */
-        .cookie-settings-panel {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cookie-settings-panel.active {
-            display: block;
-        }
-        
-        .cookie-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cookie-option:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        
-        .cookie-option-label {
-            color: #e2e8f0;
-            font-size: 0.95rem;
-        }
-        
-        .cookie-option-description {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-        
-        .cookie-toggle {
-            position: relative;
-            width: 50px;
-            height: 26px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 13px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .cookie-toggle.active {
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-        }
-        
-        .cookie-toggle-slider {
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .cookie-toggle.active .cookie-toggle-slider {
-            transform: translateX(24px);
-        }
-        
-        .cookie-save-settings {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border: none;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.4s ease;
-            margin-top: 15px;
-            width: 100%;
-            cursor: pointer;
-        }
-        
-        .cookie-save-settings:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-        }
-        
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -2114,7 +2344,7 @@
             .quote-form-body {
                 padding: 40px 25px;
             }
-            .about-hero-title {
+            .hero-title {
                 font-size: 2.8rem;
             }
             .form-grid {
@@ -2158,22 +2388,28 @@
             }
             
             /* Add padding-top to hero section to account for fixed header */
-            .about-hero-gradient {
+            .hero-gradient {
                 padding-top: 80px; /* Adjust based on header height */
             }
             
-            /* Service Cards Mobile Adjustments */
-            .about-card {
-                margin-bottom: 20px;
+            /* Timeline Mobile Adjustments */
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-dot {
+                left: 18px !important;
+                right: auto !important;
             }
             
             /* Team Cards Mobile Adjustments */
-            .team-card {
-                margin-bottom: 20px;
-            }
-            
-            /* Milestone Cards Mobile Adjustments */
-            .milestone-card {
+            .team-member {
                 margin-bottom: 20px;
             }
             
@@ -2182,17 +2418,25 @@
                 margin-bottom: 20px;
             }
             
-            /* Cookie Banner Mobile Adjustments */
-            .cookie-content {
-                padding: 30px 20px;
+            /* Milestone Carousel Mobile Adjustments */
+            .milestone-year {
+                font-size: 3rem;
             }
             
-            .cookie-title {
-                font-size: 1.5rem;
+            .milestone-title {
+                font-size: 1.8rem;
             }
             
-            .cookie-text {
-                font-size: 0.9rem;
+            .milestone-description {
+                font-size: 1rem;
+            }
+            
+            .milestone-content {
+                padding: 0 5%;
+            }
+            
+            .leadership-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -2217,11 +2461,11 @@
             }
             
             /* Adjust hero section padding for smaller screens */
-            .about-hero-gradient {
+            .hero-gradient {
                 padding-top: 70px; /* Slightly less padding for smaller screens */
             }
             
-            .about-hero-title {
+            .hero-title {
                 font-size: 2.2rem;
                 margin-top: 20px; /* Add some space between header and title */
             }
@@ -2526,9 +2770,8 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- PRELOAD HERO IMAGES -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
@@ -2550,55 +2793,6 @@
         </div>
     </div>
     
-    <!-- Cookie Consent Banner -->
-    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-hidden="true">
-        <div class="cookie-content">
-            <!-- Logo path updated to use relative path -->
-            <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="cookie-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
-            <h3 class="cookie-title" id="cookieTitle">We Value Your Privacy</h3>
-            <p class="cookie-text">We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All Cookies", you consent to our use of cookies.</p>
-            
-            <div class="cookie-buttons">
-                <button id="cookieAccept" class="cookie-accept">Accept All Cookies</button>
-                <button id="cookieSettings" class="cookie-settings">Cookie Settings</button>
-            </div>
-            
-            <div id="cookieSettingsPanel" class="cookie-settings-panel">
-                <div class="cookie-option">
-                    <div>
-                        <div class="cookie-option-label">Essential Cookies</div>
-                        <div class="cookie-option-description">Necessary for the website to function properly</div>
-                    </div>
-                    <div class="cookie-toggle active" data-cookie="essential">
-                        <div class="cookie-toggle-slider"></div>
-                    </div>
-                </div>
-                
-                <div class="cookie-option">
-                    <div>
-                        <div class="cookie-option-label">Analytics Cookies</div>
-                        <div class="cookie-option-description">Help us understand how visitors interact with our website</div>
-                    </div>
-                    <div class="cookie-toggle" data-cookie="analytics">
-                        <div class="cookie-toggle-slider"></div>
-                    </div>
-                </div>
-                
-                <div class="cookie-option">
-                    <div>
-                        <div class="cookie-option-label">Marketing Cookies</div>
-                        <div class="cookie-option-description">Used to track visitors across websites to display relevant ads</div>
-                    </div>
-                    <div class="cookie-toggle" data-cookie="marketing">
-                        <div class="cookie-toggle-slider"></div>
-                    </div>
-                </div>
-                
-                <button id="cookieSaveSettings" class="cookie-save-settings">Save Preferences</button>
-            </div>
-        </div>
-    </div>
-    
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
@@ -2609,7 +2803,7 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
-                    <li><a href="about-us.html" class="nav-link active">About Us</a></li>
+                    <li><a href="about-us" class="nav-link active">About Us</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
@@ -2637,7 +2831,7 @@
         </button>
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
-            <li><a href="about-us.html" class="active">About Us</a></li>
+            <li><a href="about-us">About Us</a></li>
             <li><a href="Coming Soon.html">Services</a></li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
@@ -2721,31 +2915,31 @@
     </button>
     
     <!-- Premium Hero Section -->
-    <section id="main-content" class="about-hero-gradient">
+    <section id="main-content" class="hero-gradient">
         <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
-        <div id="aboutHeroFixedBg" class="about-hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
         <!-- Hero Overlay -->
-        <div class="about-hero-overlay"></div>
+        <div class="hero-overlay"></div>
         
         <!-- Particles Container - FIXED POSITION -->
-        <div id="about-particles"></div>
+        <div id="particles"></div>
         
-        <div class="container mx-auto px-4 relative z-10 about-hero-content">
+        <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h1 class="about-hero-title text-white">
+                    <h1 class="hero-title text-white">
                         About <span class="text-gradient">Naptico Green Energy</span>
                     </h1>
-                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, delivering innovative and reliable solar solutions to homes and businesses across the country.</p>
+                    <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider, powering thousands of homes and businesses across the country.</p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#our-story" class="hero-btn hero-btn-primary">Our Story</a>
-                        <a href="#team-section" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+                        <a href="#our-team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
                     </div>
                 </div>
                 <div class="relative">
                     <div class="about-card">
-                        <img id="aboutHeroImage" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -2753,197 +2947,299 @@
     </section>
     
     <!-- Our Story Section -->
-    <section class="about-section py-20" id="our-story">
-        <div class="container mx-auto px-4 about-content">
+    <section id="our-story" class="services-section py-20">
+        <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-20 fade-in">
                 <h2 class="section-title">Our <span class="text-gradient">Story</span></h2>
-                <p class="section-subtitle">From humble beginnings to industry leaders in solar energy</p>
+                <p class="section-subtitle">From a small startup to India's leading solar energy provider</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 <div class="fade-in stagger-1">
-                    <div class="about-card">
-                        <div class="about-icon">
-                            <i class="fas fa-history text-black text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Our Journey</h3>
-                        <p class="about-text mb-5">Founded in 2010, Naptico Green Energy Solars began with a simple vision: to make clean, renewable energy accessible to everyone. What started as a small team of passionate engineers has grown into one of India's most trusted solar energy providers, with over 50,000 successful installations and counting.</p>
-                        <p class="about-text mb-5">Our journey has been marked by continuous innovation, unwavering commitment to quality, and a deep understanding of our customers' needs. We've weathered challenges, celebrated milestones, and remained steadfast in our mission to accelerate India's transition to sustainable energy.</p>
-                        <p class="about-text">Today, we stand proud as a company that not only delivers exceptional solar solutions but also contributes to a greener planet and a sustainable future for generations to come.</p>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Our <span class="text-gradient">Journey</span></h3>
+                    <p class="text-gray-300 mb-4">Naptico Green Energy Solars is a Bengaluru-based company specializing in sustainable energy solutions, with a strong focus on solar technology and services. The company is committed to advancing clean, renewable energy for both residential and commercial customers, aiming to create a greener and more energy-independent future.</p>
+                    <p class="text-gray-300 mb-4">Starting with just a small office in Bangalore and a handful of dedicated employees, we focused on providing high-quality solar solutions to residential customers. Our commitment to excellence and customer satisfaction quickly earned us a reputation as a reliable solar provider.</p>
+                    <p class="text-gray-300">Naptico Green Energy Solars operates out of Bengaluru, Karnataka, India, and was incorporated in August 2025. The company excels in delivering innovative technology and energy solutions, striving to empower businesses and households to transition smoothly to solar power.</p>
+                </div>
+                <div class="fade-in stagger-2">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Office" class="rounded-2xl w-full h-auto">
                     </div>
                 </div>
-                
-                <div class="fade-in stagger-2">
-                    <div class="about-card">
-                        <div class="about-icon">
-                            <i class="fas fa-bullseye text-black text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Our Mission & Vision</h3>
-                        <p class="about-text mb-5"><strong>Mission:</strong> To provide innovative, reliable, and affordable solar energy solutions that empower individuals and businesses to harness the power of the sun, reduce their carbon footprint, and contribute to a sustainable future.</p>
-                        <p class="about-text"><strong>Vision:</strong> To be India's leading solar energy company, driving the country's transition to renewable energy and creating a world where clean energy is accessible to all, ensuring a healthier planet for future generations.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 fade-in stagger-3">
+                    <div class="hero-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVuZXdhYmxlJTIwZW5lcmd5fGVufDB8fDB8fHww" alt="Solar Installation" class="rounded-2xl w-full h-auto">
                     </div>
+                </div>
+                <div class="order-1 lg:order-2 fade-in stagger-4">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Our <span class="text-gradient">Mission & Vision</span></h3>
+                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Mission:</strong> To accelerate India's transition to sustainable energy by providing innovative, reliable, and affordable solar solutions that empower individuals, businesses, and communities to harness the power of the sun.</p>
+                    <p class="text-gray-300 mb-4"><strong class="text-amber-400">Vision:</strong> Naptico Green Energy Solars envisions a future where every home and business can harness the power of the sun, leading the way toward energy independence and environmental stewardship.</p>
+                    <p class="text-gray-300">We envision a future where every home and business in India is powered by clean, renewable energy, reducing carbon emissions and creating a healthier planet for future generations.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Our Team Section -->
-    <section class="team-section py-20" id="team-section">
-        <div class="container mx-auto px-4 team-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="section-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
-                <p class="section-subtitle">The passionate individuals driving our mission forward</p>
+    <!-- Our Milestones Section -->
+    <section class="milestones-section">
+        <div class="milestones-container">
+            <div class="text-center fade-in">
+                <h2 class="milestones-title">Our <span class="text-gradient">Milestones</span></h2>
+                <p class="milestones-subtitle">Key moments in our journey to becoming India's most trusted solar provider</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="milestone-carousel fade-in">
+                <div class="milestone-track">
+                    <!-- Milestone 1 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Company Founded">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2010</div>
+                                <h3 class="milestone-title">Company Founded</h3>
+                                <p class="milestone-description">Naptico Green Energy Solars was established in Bangalore with a vision to make solar energy accessible to all Indians.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 2 -->
+                    <div class="milestone-slide">
+                        <img src="images/solar-panel-installing.webp" alt="First Major Project">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2013</div>
+                                <h3 class="milestone-title">First Major Project</h3>
+                                <p class="milestone-description">Completed our first 1MW solar installation for a commercial client, marking our entry into large-scale solar projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 3 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="National Expansion">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2016</div>
+                                <h3 class="milestone-title">National Expansion</h3>
+                                <p class="milestone-description">Expanded operations to 5 major cities across India, establishing ourselves as a national solar provider.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 4 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2019</div>
+                                <h3 class="milestone-title">25,000 Installations</h3>
+                                <p class="milestone-description">Reached the milestone of 25,000 solar installations, generating over 100MW of clean energy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 5 -->
+                    <div class="milestone-slide">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2022</div>
+                                <h3 class="milestone-title">Industry Recognition</h3>
+                                <p class="milestone-description">Awarded "India's Best Solar Company 2022" by the Ministry of New and Renewable Energy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 6 -->
+                    <div class="milestone-slide">
+                        <img src="images/utility-scale-battery-storage.jpg" alt="50,000+ Installations">
+                        <div class="milestone-overlay">
+                            <div class="milestone-content">
+                                <div class="milestone-year">2025</div>
+                                <h3 class="milestone-title">50,000+ Installations</h3>
+                                <p class="milestone-description">Achieved our biggest milestone yet - 50,000+ installations and 200+ MW of clean energy generated across India.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation -->
+                <div class="milestone-nav">
+                    <span class="milestone-dot active" data-slide="0"></span>
+                    <span class="milestone-dot" data-slide="1"></span>
+                    <span class="milestone-dot" data-slide="2"></span>
+                    <span class="milestone-dot" data-slide="3"></span>
+                    <span class="milestone-dot" data-slide="4"></span>
+                    <span class="milestone-dot" data-slide="5"></span>
+                </div>
+                
+                <div class="milestone-arrows">
+                    <button class="milestone-arrow prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="milestone-arrow next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Leadership Team Section -->
+    <section id="our-team" class="leadership-section">
+        <div class="leadership-container">
+            <div class="text-center fade-in">
+                <h2 class="leadership-title">Meet Our <span class="text-gradient">Leadership Team</span></h2>
+                <p class="leadership-subtitle">The visionaries driving Naptico Green Energy Solars toward a sustainable future</p>
+            </div>
+            
+            <div class="leadership-grid">
                 <!-- Team Member 1 -->
-                <div class="team-card fade-in stagger-1">
-                    <div class="team-avatar">
-                        <i class="fas fa-user"></i>
+                <div class="leadership-card fade-in stagger-1">
+                    <div class="leadership-image">
+                        <img src="images/AJ.jpg" alt="MD & CEO">
+                        <div class="leadership-badge">MD & CEO</div>
                     </div>
-                    <div class="team-info">
-                        <h4>Rajesh Kumar</h4>
-                        <p>Founder & CEO</p>
-                    </div>
-                    <p class="team-bio">With over 15 years of experience in the renewable energy sector, Rajesh founded Naptico Green Energy with a vision to make solar power accessible to every Indian home and business. His leadership and innovative approach have been instrumental in the company's growth and success.</p>
-                    <div class="team-social">
-                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Ajay Raju N</h3>
+                        <p class="leadership-position"><i class="fas fa-crown"></i> Managing Director & CEO</p>
+                        <p class="leadership-bio">With over 20 years of experience in renewable energy, Rajiv founded Naptico with a vision to transform India's energy landscape. He holds a Master's degree in Renewable Energy Engineering from IIT Delhi.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Team Member 2 -->
-                <div class="team-card fade-in stagger-2">
-                    <div class="team-avatar">
-                        <i class="fas fa-user"></i>
+                <div class="leadership-card fade-in stagger-2">
+                    <div class="leadership-image">
+                        <img src="images/AJ.jpg" alt="ED">
+                        <div class="leadership-badge">ED</div>
                     </div>
-                    <div class="team-info">
-                        <h4>Priya Sharma</h4>
-                        <p>Chief Technology Officer</p>
-                    </div>
-                    <p class="team-bio">Priya brings a wealth of technical expertise in solar energy systems and innovation. With a background in electrical engineering and renewable energy technologies, she leads our R&D efforts to develop cutting-edge solar solutions that set industry benchmarks.</p>
-                    <div class="team-social">
-                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Nagamani S</h3>
+                        <p class="leadership-position"><i class="fas fa-lightbulb"></i> Executive Director</p>
+                        <p class="leadership-bio">Priya leads our technology and innovation initiatives, bringing 15 years of experience in solar technology development. She has a Ph.D. in Solar Energy Systems and has published numerous research papers.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Team Member 3 -->
-                <div class="team-card fade-in stagger-3">
-                    <div class="team-avatar">
-                        <i class="fas fa-user"></i>
+                <div class="leadership-card fade-in stagger-3">
+                    <div class="leadership-image">
+                        <img src="images/AJ.jpg" alt="MD">
+                        <div class="leadership-badge">MD</div>
                     </div>
-                    <div class="team-info">
-                        <h4>Amit Patel</h4>
-                        <p>Head of Operations</p>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Jayesh R</h3>
+                        <p class="leadership-position"><i class="fas fa-cogs"></i> Managing Director</p>
+                        <p class="leadership-bio">Amit oversees our day-to-day operations and ensures seamless execution of projects across India. With an MBA from IIM Ahmedabad and 12 years in operations management, he brings efficiency and excellence to our processes.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
-                    <p class="team-bio">Amit oversees our end-to-end operations, ensuring seamless project execution and customer satisfaction. His extensive experience in project management and operational excellence has been key to delivering over 50,000 successful installations across India.</p>
-                    <div class="team-social">
-                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="leadership-card fade-in stagger-4">
+                    <div class="leadership-image">
+                        <img src="images/AJ.jpg" alt="MD">
+                        <div class="leadership-badge">MD</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Sridevi L</h3>
+                        <p class="leadership-position"><i class="fas fa-chart-line"></i> Managing Director</p>
+                        <p class="leadership-bio">Sneha manages our financial strategy and sustainability initiatives. She has a background in finance from Harvard Business School and 14 years of experience in renewable energy finance.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 - New -->
+                <div class="leadership-card fade-in stagger-5">
+                    <div class="leadership-image">
+                        <img src="images/AJ.jpg" alt="MD">
+                        <div class="leadership-badge">MD</div>
+                    </div>
+                    <div class="leadership-content">
+                        <h3 class="leadership-name">Praveen B S</h3>
+                        <p class="leadership-position"><i class="fas fa-bullhorn"></i> Managing Director</p>
+                        <p class="leadership-bio">Vikram leads our marketing and brand strategy, bringing 16 years of experience in renewable energy marketing. He has successfully launched several award-winning campaigns that have positioned Naptico as a market leader.</p>
+                        <div class="leadership-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <!-- Phone icon-->
+                            <a href="tel:+91 81475 38570"><i class="fas fa-phone"></i></a>
+                            <!-- Email icon-->
+                            <a href="mailto:ajay@napticogreenenergysolars.com"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Milestones Section -->
-    <section class="milestone-section py-20">
-        <div class="container mx-auto px-4 milestone-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Milestones</span></h2>
-                <p class="section-subtitle">Key achievements in our journey of excellence</p>
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Milestone 1 -->
-                <div class="milestone-card fade-in stagger-1">
-                    <div class="milestone-number">50K+</div>
-                    <div class="milestone-text">Solar Installations</div>
-                </div>
-                
-                <!-- Milestone 2 -->
-                <div class="milestone-card fade-in stagger-2">
-                    <div class="milestone-number">200+</div>
-                    <div class="milestone-text">MW Clean Energy</div>
-                </div>
-                
-                <!-- Milestone 3 -->
-                <div class="milestone-card fade-in stagger-3">
-                    <div class="milestone-number">13+</div>
-                    <div class="milestone-text">Years of Excellence</div>
-                </div>
-                
-                <!-- Milestone 4 -->
-                <div class="milestone-card fade-in stagger-4">
-                    <div class="milestone-number">25+</div>
-                    <div class="milestone-text">Cities Served</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Our Values Section -->
-    <section class="values-section py-20">
-        <div class="container mx-auto px-4 values-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Core Values</span></h2>
-                <p class="section-subtitle">The principles that guide everything we do</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Value 1 -->
-                <div class="value-card fade-in stagger-1">
-                    <div class="value-icon">
-                        <i class="fas fa-leaf text-black text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Sustainability</h3>
-                    <p class="value-description">We are committed to promoting environmental sustainability through our products, services, and business practices. Every decision we make is guided by its impact on our planet.</p>
-                </div>
-                
-                <!-- Value 2 -->
-                <div class="value-card fade-in stagger-2">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake text-black text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Integrity</h3>
-                    <p class="value-description">We conduct our business with the highest standards of honesty, transparency, and ethical behavior. Our customers trust us because we always do what's right.</p>
-                </div>
-                
-                <!-- Value 3 -->
-                <div class="value-card fade-in stagger-3">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb text-black text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Innovation</h3>
-                    <p class="value-description">We continuously push the boundaries of what's possible in solar technology. Our commitment to innovation ensures we deliver the most advanced and efficient solutions to our customers.</p>
-                </div>
-                
-                <!-- Value 4 -->
-                <div class="value-card fade-in stagger-4">
-                    <div class="value-icon">
-                        <i class="fas fa-users text-black text-3xl"></i>
-                    </div>
-                    <h3 class="value-title">Customer-Centricity</h3>
-                    <p class="value-description">Our customers are at the heart of everything we do. We listen to their needs, understand their challenges, and deliver solutions that exceed their expectations.</p>
-                </div>
-                
-                <!-- Value 5 -->
-                <div class="value-card fade-in stagger-5">
-                    <div class="value-icon">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card fade-in stagger-1">
+                    <div class="feature-icon">
                         <i class="fas fa-award text-black text-3xl"></i>
                     </div>
-                    <h3 class="value-title">Excellence</h3>
-                    <p class="value-description">We strive for excellence in every aspect of our business – from product quality to customer service. Our commitment to excellence has made us a trusted name in the industry.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
+                    <p class="text-gray-300"></p>
                 </div>
                 
-                <!-- Value 6 -->
-                <div class="value-card fade-in stagger-6">
-                    <div class="value-icon">
-                        <i class="fas fa-globe text-black text-3xl"></i>
+                <div class="feature-card fade-in stagger-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt text-black text-3xl"></i>
                     </div>
-                    <h3 class="value-title">Social Responsibility</h3>
-                    <p class="value-description">We believe in giving back to society and making a positive impact beyond business. Through various initiatives, we support education, healthcare, and community development.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">5-Year Warranty</h3>
+                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-users text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Expert Team</h3>
+                    <p class="text-gray-300">500+ certified solar experts with 10+ years of experience</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Quick Installation</h3>
+                    <p class="text-gray-300">Complete installation within 3-7 days from site survey</p>
                 </div>
             </div>
         </div>
@@ -2953,8 +3249,8 @@
     <section class="cta-section py-20">
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
-            <h2 class="text-4xl font-bold mb-8 text-white fade-in">Join Us in Powering a Sustainable Future</h2>
-            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Together, we can make a difference. Let's harness the power of the sun to create a cleaner, greener tomorrow for generations to come.</p>
+            <h2 class="text-4xl font-bold mb-8 text-white fade-in">Join Our Solar Revolution</h2>
+            <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Be part of India's clean energy future with Naptico Green Energy Solars</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
                 <a href="Coming Soon.html" class="hero-btn cta-btn-primary">Explore Solutions</a>
                 <button id="ctaQuoteBtn" class="hero-btn cta-btn-secondary">Get Free Consultation</button>
@@ -2995,7 +3291,7 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="./">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="about-us">About Us</a></li>
                         <li><a href="Coming Soon.html">Services</a></li>
                         <li><a href="Coming Soon.html">How It Works</a></li>
                         <li><a href="Coming Soon.html">Calculator</a></li>
@@ -3246,7 +3542,7 @@
         animateFollower();
         
         // Hover effects - only apply when using mouse
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .about-card, .team-card, .milestone-card, .value-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .back-to-top');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .about-card, .team-member, .value-card, .timeline-content, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -3321,17 +3617,15 @@
         
         // Open mobile menu
         if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default behavior
-                e.stopPropagation(); // Stop event propagation
-                
+            mobileMenuBtn.addEventListener('click', () => {
                 if (mobileMenuOverlay) {
                     mobileMenuOverlay.classList.add('active');
                 }
                 document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-                // Don't disable pointer events on body as it prevents interaction with menu
+                // Disable pointer events on content behind menu
+                document.body.style.pointerEvents = 'none';
                 if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.add('active'); // Add animation class
+                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
                 }
             });
         }
@@ -3342,32 +3636,18 @@
         }
         
         if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default behavior
-                e.stopPropagation(); // Stop event propagation
-                closeMobileMenu();
-            });
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
         }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default behavior
-                const href = link.getAttribute('href');
-                closeMobileMenu();
-                // Navigate to the link after a short delay
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
         
         // Mobile contact button functionality
         if (mobileContactBtn) {
-            mobileContactBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default behavior
-                e.stopPropagation(); // Stop event propagation
+            mobileContactBtn.addEventListener('click', () => {
                 closeMobileMenu();
                 // Open quote modal after a short delay
                 setTimeout(() => {
@@ -3380,91 +3660,76 @@
             });
         }
         
-        // Also close mobile menu when clicking outside the menu
-        document.addEventListener('click', (e) => {
-            if (mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
-                // Check if the click is outside the mobile menu
-                if (!mobileMenuOverlay.contains(e.target) && e.target !== mobileMenuBtn) {
-                    closeMobileMenu();
-                }
-            }
-        });
-        
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
-        const aboutHeroImages = [
-            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        const heroImages = [
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
         ];
         
-        const aboutHeroFixedBg = document.getElementById('aboutHeroFixedBg');
-        const aboutHeroImage = document.getElementById('aboutHeroImage');
-        let currentAboutHeroImage = 0;
-        let aboutHeroInterval;
+        const heroFixedBg = document.getElementById('heroFixedBg');
+        let currentHeroImage = 0;
+        let heroInterval;
         
         // Set hero background with optimized performance
-        function setAboutHeroBackground(index) {
+        function setHeroBackground(index) {
             // Create a new Image object to preload
             const img = new Image();
             img.onload = function() {
                 // Once loaded, update the background
-                if (aboutHeroFixedBg) {
-                    aboutHeroFixedBg.style.backgroundImage = `url('${aboutHeroImages[index]}')`;
+                if (heroFixedBg) {
+                    heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
                 }
-                if (aboutHeroImage) {
-                    aboutHeroImage.src = aboutHeroImages[index];
-                }
-                currentAboutHeroImage = index;
+                currentHeroImage = index;
             };
             img.onerror = function() {
                 // If image fails to load, use a fallback
-                console.error('Failed to load hero image:', aboutHeroImages[index]);
+                console.error('Failed to load hero image:', heroImages[index]);
                 // Try next image or use a default
-                const nextIndex = (index + 1) % aboutHeroImages.length;
+                const nextIndex = (index + 1) % heroImages.length;
                 if (nextIndex !== index) {
-                    setAboutHeroBackground(nextIndex);
+                    setHeroBackground(nextIndex);
                 }
             };
-            img.src = aboutHeroImages[index];
+            img.src = heroImages[index];
         }
         
         // Start hero image rotation with optimized timing
-        function startAboutHeroRotation() {
+        function startHeroRotation() {
             // Clear any existing interval
-            if (aboutHeroInterval) {
-                clearInterval(aboutHeroInterval);
+            if (heroInterval) {
+                clearInterval(heroInterval);
             }
             
             // Set new interval
-            aboutHeroInterval = setInterval(() => {
-                currentAboutHeroImage = (currentAboutHeroImage + 1) % aboutHeroImages.length;
-                setAboutHeroBackground(currentAboutHeroImage);
-            }, 5000);
+            heroInterval = setInterval(() => {
+                currentHeroImage = (currentHeroImage + 1) % heroImages.length;
+                setHeroBackground(currentHeroImage);
+            }, 7000);
         }
         
         // Initialize hero rotation after page load
         window.addEventListener('load', () => {
             // Start with a small delay to ensure everything is loaded
             setTimeout(() => {
-                setAboutHeroBackground(0);
-                startAboutHeroRotation();
+                setHeroBackground(0);
+                startHeroRotation();
             }, 100);
         });
         
         // Pause rotation when page is not visible
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                if (aboutHeroInterval) {
-                    clearInterval(aboutHeroInterval);
+                if (heroInterval) {
+                    clearInterval(heroInterval);
                 }
             } else {
-                startAboutHeroRotation();
+                startHeroRotation();
             }
         });
         
         // Premium Particle Effect - FIXED Z-INDEX and PERFORMANCE
-        function createAboutParticles() {
-            const particlesContainer = document.getElementById('about-particles');
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
             if (!particlesContainer) return;
             
             const particleCount = 30; // Reduced particle count for better performance
@@ -3499,14 +3764,14 @@
         }
         
         // Create particles immediately when DOM is loaded
-        document.addEventListener('DOMContentLoaded', createAboutParticles);
+        document.addEventListener('DOMContentLoaded', createParticles);
         
         // Also create particles when the page is fully loaded to ensure they're visible
         window.addEventListener('load', () => {
             // Check if particles exist, if not create them
-            const particlesContainer = document.getElementById('about-particles');
+            const particlesContainer = document.getElementById('particles');
             if (particlesContainer && particlesContainer.children.length === 0) {
-                createAboutParticles();
+                createParticles();
             }
         });
         
@@ -3773,7 +4038,7 @@
         // Only apply 3D card effects on non-touch devices
         if (!('ontouchstart' in window)) {
             // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.about-card, .team-card, .milestone-card, .value-card');
+            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card, .hero-image');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
@@ -3828,6 +4093,93 @@
             }
         });
         
+        // Milestone Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.milestone-track');
+            const slides = document.querySelectorAll('.milestone-slide');
+            const dots = document.querySelectorAll('.milestone-dot');
+            const prevBtn = document.querySelector('.milestone-arrow.prev');
+            const nextBtn = document.querySelector('.milestone-arrow.next');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Set initial position
+            updateSlidePosition();
+            
+            // Auto-advance slides
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // Functions to change slides
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlidePosition();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlidePosition();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateSlidePosition();
+            }
+            
+            function updateSlidePosition() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Event listeners
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetInterval();
+                });
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetInterval();
+                });
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // Reset interval on manual navigation
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Pause on hover
+            const carousel = document.querySelector('.milestone-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            }
+        });
+        
         // Error handling for images
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', function() {
@@ -3877,279 +4229,6 @@
                 imgObserver.observe(img);
             });
         }
-        
-        // Highlight active navigation link
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get current page URL
-            const currentPath = window.location.pathname;
-            const currentPage = currentPath.split('/').pop().replace('.html', '') || 'index';
-            
-            // Set active navigation link for desktop
-            const desktopLinks = document.querySelectorAll('.nav-menu .nav-link');
-            desktopLinks.forEach(link => {
-                const linkPath = link.getAttribute('href').replace('./', '').replace('.html', '') || 'index';
-                if (linkPath === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Set active navigation link for mobile
-            const mobileLinks = document.querySelectorAll('.mobile-nav a');
-            mobileLinks.forEach(link => {
-                const linkPath = link.getAttribute('href').replace('./', '').replace('.html', '') || 'index';
-                if (linkPath === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Set active state for mobile menu button when menu is open
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-            
-            if (mobileMenuBtn && mobileMenuOverlay) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                });
-                
-                mobileMenuOverlay.addEventListener('click', function(e) {
-                    if (e.target === this || e.target.id === 'mobileMenuClose') {
-                        mobileMenuBtn.classList.remove('active');
-                    }
-                });
-                
-                // Close mobile menu when a link is clicked
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenuBtn.classList.remove('active');
-                    });
-                });
-            }
-        });
-        
-        // Cookie utility functions
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
-        }
-        
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
-            }
-            return null;
-        }
-        
-        // Inject CSS styles
-        const cookieStyles = `
-        @media (max-width: 768px) {
-          #cookie-banner {
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-radius: 0;
-            max-height: 80vh;
-            overflow-y: auto;
-          }
-        }
-        `;
-        
-        const styleElement = document.createElement('style');
-        styleElement.textContent = cookieStyles;
-        document.head.appendChild(styleElement);
-        
-        // Initialize cookie banner
-        document.addEventListener('DOMContentLoaded', () => {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const cookieAccept = document.getElementById('cookie-accept');
-            const cookieSettings = document.getElementById('cookie-settings');
-            const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
-            const cookieSaveSettings = document.getElementById('cookie-save-settings');
-            const cookieToggles = document.querySelectorAll('.cookie-toggle');
-        
-            // Check if consent has been given
-            const consent = getCookie('cookieConsent');
-            if (!consent && cookieBanner) {
-                cookieBanner.classList.add('active');
-                cookieBanner.setAttribute('aria-hidden', 'false');
-            } else {
-                cookieBanner.classList.remove('active');
-                cookieBanner.setAttribute('aria-hidden', 'true');
-            }
-        
-            // Accept all cookies
-            if (cookieAccept) {
-                cookieAccept.addEventListener('click', () => {
-                    setCookie('cookieConsent', 'all', 365);
-                    setCookie('essentialCookies', 'true', 365);
-                    setCookie('analyticsCookies', 'true', 365);
-                    setCookie('marketingCookies', 'true', 365);
-                    
-                    if (cookieBanner) {
-                        cookieBanner.classList.remove('active');
-                        cookieBanner.setAttribute('aria-hidden', 'true');
-                    }
-                });
-            }
-        
-            // Toggle settings panel
-            if (cookieSettings) {
-                cookieSettings.addEventListener('click', () => {
-                    if (cookieSettingsPanel) {
-                        cookieSettingsPanel.classList.toggle('active');
-                    }
-                });
-            }
-        
-            // Toggle individual cookie options
-            cookieToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    toggle.classList.toggle('active');
-                });
-            });
-        
-            // Save custom settings
-            if (cookieSaveSettings) {
-                cookieSaveSettings.addEventListener('click', () => {
-                    const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
-                    const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
-                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
-        
-                    // Essential cookies are always enabled
-                    setCookie('essentialCookies', 'true', 365);
-        
-                    // Set other cookies based on toggle state
-                    setCookie('analyticsCookies', analyticsToggle?.classList.contains('active') ? 'true' : 'false', 365);
-                    setCookie('marketingCookies', marketingToggle?.classList.contains('active') ? 'true' : 'false', 365);
-        
-                    // Set overall consent
-                    setCookie('cookieConsent', 'custom', 365);
-        
-                    if (cookieBanner) {
-                        cookieBanner.classList.remove('active');
-                        cookieBanner.setAttribute('aria-hidden', 'true');
-                    }
-                });
-            }
-        });
-        
-        // Check cookie consent on page load
-        function checkCookieConsent() {
-            const consent = getCookie('cookieConsent');
-            if (!consent) {
-                const cookieBanner = document.getElementById('cookie-banner');
-                if (cookieBanner) {
-                    cookieBanner.classList.add('active');
-                    cookieBanner.setAttribute('aria-hidden', 'false');
-                }
-            }
-        }
-        
-        // Disable right-click context menu
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable image dragging
-        document.addEventListener('dragstart', function(e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Disable keyboard shortcuts for copying
-        document.addEventListener('keydown', function(e) {
-            // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable F12 (Developer Tools)
-            if (e.keyCode === 123) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+I (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+J (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Additional protection for images
-        document.querySelectorAll('img').forEach(function(img) {
-            img.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-                return false;
-            });
-            
-            img.addEventListener('dragstart', function(e) {
-                e.preventDefault();
-                return false;
-            });
-            
-            // Add transparent overlay to prevent screenshots
-            img.style.pointerEvents = 'none';
-            img.style.userSelect = 'none';
-            img.style.webkitUserSelect = 'none';
-            img.style.mozUserSelect = 'none';
-            img.style.msUserSelect = 'none';
-        });
-        
-        // Add CSS to disable text selection
-        document.head.insertAdjacentHTML('beforeend', `
-            <style>
-                body {
-                    -webkit-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
-                    -webkit-touch-callout: none;
-                    -khtml-user-select: none;
-                }
-                
-                img {
-                    -webkit-user-drag: none;
-                    -khtml-user-drag: none;
-                    -moz-user-drag: none;
-                    -o-user-drag: none;
-                    user-drag: none;
-                    pointer-events: none;
-                }
-                
-                a, button, input, textarea, select {
-                    -webkit-user-select: auto;
-                    -moz-user-select: auto;
-                    -ms-user-select: auto;
-                    user-select: auto;
-                    pointer-events: auto;
-                }
-            </style>
-        `);
     </script>
 </body>
 </html>

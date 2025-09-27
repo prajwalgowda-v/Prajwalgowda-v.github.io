@@ -586,7 +586,7 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 100px;
+            padding-top: 100px; /* Add padding to prevent header overlap */
         }
         
         /* Fixed Hero Background - OPTIMIZED */
@@ -2660,6 +2660,11 @@
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -2669,6 +2674,7 @@
     
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
+        <!-- Logo path updated to use relative path and made clickable -->
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
@@ -2811,7 +2817,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h1 class="hero-title text-white">
-                        About <span class="text-gradient">Naptico Energy</span>
+                        About <span class="text-gradient">Naptico Green Energy Solars</span>
                     </h1>
                     <p class="text-xl mb-10 text-gray-300">Pioneering sustainable energy solutions for a brighter tomorrow. With over a decade of experience, we've become India's most trusted solar energy provider.</p>
                     <div class="flex flex-col sm:flex-row gap-6">
@@ -3644,8 +3650,9 @@
         
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
-            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
         ];
         
         const heroFixedBg = document.getElementById('heroFixedBg');
@@ -3690,7 +3697,7 @@
             heroInterval = setInterval(() => {
                 currentHeroImage = (currentHeroImage + 1) % heroImages.length;
                 setHeroBackground(currentHeroImage);
-            }, 7000);
+            }, 5000);
         }
         
         // Initialize hero rotation after page load

@@ -4251,108 +4251,120 @@
             }
         });
         
-        // Cookie Banner Functionality
-        const cookieBanner = document.getElementById('cookieBanner');
-        const cookieAccept = document.getElementById('cookieAccept');
-        const cookieSettings = document.getElementById('cookieSettings');
-        const cookieSettingsPanel = document.getElementById('cookieSettingsPanel');
-        const cookieSaveSettings = document.getElementById('cookieSaveSettings');
-        const cookieToggles = document.querySelectorAll('.cookie-toggle');
-        
-        // Check if user has already made a cookie choice
-        function checkCookieConsent() {
-            const cookieConsent = getCookie('cookieConsent');
-            if (cookieConsent) {
-                // User has already made a choice, don't show banner
-                return;
-            }
+        // Cookie utility functions
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+    return null;
+}
+
+// Inject CSS styles
+const cookieStyles = `
+@media (max-width: 768px) {
+  #cookie-banner {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+`;
+
+const styleElement = document.createElement('style');
+styleElement.textContent = cookieStyles;
+document.head.appendChild(styleElement);
+
+// Initialize cookie banner
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieSettings = document.getElementById('cookie-settings');
+    const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
+    const cookieSaveSettings = document.getElementById('cookie-save-settings');
+    const cookieToggles = document.querySelectorAll('.cookie-toggle');
+
+    // Check if consent has been given
+    const consent = getCookie('cookieConsent');
+    if (!consent && cookieBanner) {
+        cookieBanner.classList.add('active');
+        cookieBanner.setAttribute('aria-hidden', 'false');
+    } else {
+        cookieBanner.classList.remove('active');
+        cookieBanner.setAttribute('aria-hidden', 'true');
+    }
+
+    // Accept all cookies
+    if (cookieAccept) {
+        cookieAccept.addEventListener('click', () => {
+            setCookie('cookieConsent', 'all', 365);
+            setCookie('essentialCookies', 'true', 365);
+            setCookie('analyticsCookies', 'true', 365);
+            setCookie('marketingCookies', 'true', 365);
             
-            // Show cookie banner after a short delay
-            setTimeout(() => {
-                if (cookieBanner) {
-                    cookieBanner.classList.add('active');
-                    cookieBanner.setAttribute('aria-hidden', 'false');
-                }
-            }, 2000);
-        }
-        
-        // Get cookie value
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            if (cookieBanner) {
+                cookieBanner.classList.remove('active');
+                cookieBanner.setAttribute('aria-hidden', 'true');
             }
-            return null;
-        }
-        
-        // Set cookie value
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-        
-        // Accept all cookies
-        if (cookieAccept) {
-            cookieAccept.addEventListener('click', () => {
-                setCookie('cookieConsent', 'all', 365);
-                setCookie('essentialCookies', 'true', 365);
-                setCookie('analyticsCookies', 'true', 365);
-                setCookie('marketingCookies', 'true', 365);
-                
-                if (cookieBanner) {
-                    cookieBanner.classList.remove('active');
-                    cookieBanner.setAttribute('aria-hidden', 'true');
-                }
-            });
-        }
-        
-        // Toggle cookie settings panel
-        if (cookieSettings) {
-            cookieSettings.addEventListener('click', () => {
-                if (cookieSettingsPanel) {
-                    cookieSettingsPanel.classList.toggle('active');
-                }
-            });
-        }
-        
-        // Toggle cookie options
-        cookieToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                toggle.classList.toggle('active');
-            });
         });
-        
-        // Save cookie settings
-        if (cookieSaveSettings) {
-            cookieSaveSettings.addEventListener('click', () => {
-                const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
-                const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
-                const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
-                
-                // Essential cookies are always enabled
-                setCookie('essentialCookies', 'true', 365);
-                
-                // Set other cookies based on toggle state
-                setCookie('analyticsCookies', analyticsToggle.classList.contains('active') ? 'true' : 'false', 365);
-                setCookie('marketingCookies', marketingToggle.classList.contains('active') ? 'true' : 'false', 365);
-                
-                // Set overall consent
-                setCookie('cookieConsent', 'custom', 365);
-                
-                if (cookieBanner) {
-                    cookieBanner.classList.remove('active');
-                    cookieBanner.setAttribute('aria-hidden', 'true');
-                }
-            });
-        }
+    }
+
+    // Toggle settings panel
+    if (cookieSettings) {
+        cookieSettings.addEventListener('click', () => {
+            if (cookieSettingsPanel) {
+                cookieSettingsPanel.classList.toggle('active');
+            }
+        });
+    }
+
+    // Toggle individual cookie options
+    cookieToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+        });
+    });
+
+    // Save custom settings
+    if (cookieSaveSettings) {
+        cookieSaveSettings.addEventListener('click', () => {
+            const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
+            const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
+            const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
+
+            // Essential cookies are always enabled
+            setCookie('essentialCookies', 'true', 365);
+
+            // Set other cookies based on toggle state
+            setCookie('analyticsCookies', analyticsToggle?.classList.contains('active') ? 'true' : 'false', 365);
+            setCookie('marketingCookies', marketingToggle?.classList.contains('active') ? 'true' : 'false', 365);
+
+            // Set overall consent
+            setCookie('cookieConsent', 'custom', 365);
+
+            if (cookieBanner) {
+                cookieBanner.classList.remove('active');
+                cookieBanner.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+});
         
         // Check cookie consent on page load
         checkCookieConsent();

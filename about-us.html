@@ -4235,6 +4235,98 @@
             e.preventDefault();
             return false;
         });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable image dragging
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable keyboard shortcuts for copying
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable F12 (Developer Tools)
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable Ctrl+Shift+I (Developer Tools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable Ctrl+Shift+J (Developer Tools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Additional protection for images
+        document.querySelectorAll('img').forEach(function(img) {
+            img.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            img.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Add transparent overlay to prevent screenshots
+            img.style.pointerEvents = 'none';
+            img.style.userSelect = 'none';
+            img.style.webkitUserSelect = 'none';
+            img.style.mozUserSelect = 'none';
+            img.style.msUserSelect = 'none';
+        });
+        
+        // Add CSS to disable text selection
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                body {
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    -webkit-touch-callout: none;
+                    -khtml-user-select: none;
+                }
+                
+                img {
+                    -webkit-user-drag: none;
+                    -khtml-user-drag: none;
+                    -moz-user-drag: none;
+                    -o-user-drag: none;
+                    user-drag: none;
+                    pointer-events: none;
+                }
+                
+                a, button, input, textarea, select {
+                    -webkit-user-select: auto;
+                    -moz-user-select: auto;
+                    -ms-user-select: auto;
+                    user-select: auto;
+                    pointer-events: auto;
+                }
+            </style>
+        `);
     </script>
 </body>
 </html>

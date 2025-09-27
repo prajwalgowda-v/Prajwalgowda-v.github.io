@@ -451,7 +451,7 @@
             background: #f59e0b;
         }
         
-        /* Mobile Menu Overlay */
+        /* Mobile Menu Overlay - FIXED */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -468,6 +468,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+            pointer-events: none; /* Initially disable pointer events */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -480,6 +481,7 @@
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .mobile-menu-close {
@@ -492,6 +494,8 @@
             font-size: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 1003; /* Higher z-index to ensure it's clickable */
+            pointer-events: auto; /* Always enable pointer events for close button */
         }
         
         .mobile-menu-close:hover {
@@ -504,6 +508,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            pointer-events: auto; /* Enable pointer events for navigation */
         }
         
         .mobile-nav li {
@@ -518,6 +523,7 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
+            pointer-events: auto; /* Enable pointer events for links */
         }
         
         .mobile-nav a::after {
@@ -567,6 +573,7 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             cursor: pointer;
+            pointer-events: auto; /* Enable pointer events for button */
         }
         
         .mobile-contact-btn::before {
@@ -1464,6 +1471,7 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
+            pointer-events: none; /* Initially disable pointer events */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1476,6 +1484,7 @@
         .quote-modal.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .quote-form-container {
@@ -1493,6 +1502,7 @@
             margin: 20px auto;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
+            pointer-events: auto; /* Always enable pointer events for form container */
         }
         
         .quote-modal.active .quote-form-container {
@@ -1552,6 +1562,7 @@
             justify-content: center;
             transition: all 0.4s ease;
             z-index: 10;
+            pointer-events: auto; /* Always enable pointer events for close button */
         }
         
         .quote-close:hover {
@@ -1933,11 +1944,13 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            pointer-events: none; /* Initially disable pointer events */
         }
         
         .cookie-banner.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .cookie-content {
@@ -1952,6 +1965,7 @@
             overflow: hidden;
             transform: translateY(30px);
             transition: transform 0.4s ease;
+            pointer-events: auto; /* Always enable pointer events for content */
         }
         
         .cookie-banner.active .cookie-content {
@@ -3596,15 +3610,17 @@
         
         // Open mobile menu
         if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                
                 if (mobileMenuOverlay) {
                     mobileMenuOverlay.classList.add('active');
                 }
                 document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-                // Disable pointer events on content behind menu
-                document.body.style.pointerEvents = 'none';
+                // Don't disable pointer events on body as it prevents interaction with menu
                 if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+                    mobileMenuBtn.classList.add('active'); // Add animation class
                 }
             });
         }
@@ -3615,18 +3631,32 @@
         }
         
         if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuClose.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                closeMobileMenu();
+            });
         }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                const href = link.getAttribute('href');
+                closeMobileMenu();
+                // Navigate to the link after a short delay
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
         });
         
         // Mobile contact button functionality
         if (mobileContactBtn) {
-            mobileContactBtn.addEventListener('click', () => {
+            mobileContactBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
                 closeMobileMenu();
                 // Open quote modal after a short delay
                 setTimeout(() => {
@@ -3638,6 +3668,16 @@
                 }, 300);
             });
         }
+        
+        // Also close mobile menu when clicking outside the menu
+        document.addEventListener('click', (e) => {
+            if (mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
+                // Check if the click is outside the mobile menu
+                if (!mobileMenuOverlay.contains(e.target) && e.target !== mobileMenuBtn) {
+                    closeMobileMenu();
+                }
+            }
+        });
         
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
@@ -4252,122 +4292,131 @@
         });
         
         // Cookie utility functions
-function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
-}
-
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
-    }
-    return null;
-}
-
-// Inject CSS styles
-const cookieStyles = `
-@media (max-width: 768px) {
-  #cookie-banner {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-}
-`;
-
-const styleElement = document.createElement('style');
-styleElement.textContent = cookieStyles;
-document.head.appendChild(styleElement);
-
-// Initialize cookie banner
-document.addEventListener('DOMContentLoaded', () => {
-    const cookieBanner = document.getElementById('cookie-banner');
-    const cookieAccept = document.getElementById('cookie-accept');
-    const cookieSettings = document.getElementById('cookie-settings');
-    const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
-    const cookieSaveSettings = document.getElementById('cookie-save-settings');
-    const cookieToggles = document.querySelectorAll('.cookie-toggle');
-
-    // Check if consent has been given
-    const consent = getCookie('cookieConsent');
-    if (!consent && cookieBanner) {
-        cookieBanner.classList.add('active');
-        cookieBanner.setAttribute('aria-hidden', 'false');
-    } else {
-        cookieBanner.classList.remove('active');
-        cookieBanner.setAttribute('aria-hidden', 'true');
-    }
-
-    // Accept all cookies
-    if (cookieAccept) {
-        cookieAccept.addEventListener('click', () => {
-            setCookie('cookieConsent', 'all', 365);
-            setCookie('essentialCookies', 'true', 365);
-            setCookie('analyticsCookies', 'true', 365);
-            setCookie('marketingCookies', 'true', 365);
-            
-            if (cookieBanner) {
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+            }
+            return null;
+        }
+        
+        // Inject CSS styles
+        const cookieStyles = `
+        @media (max-width: 768px) {
+          #cookie-banner {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0;
+            max-height: 80vh;
+            overflow-y: auto;
+          }
+        }
+        `;
+        
+        const styleElement = document.createElement('style');
+        styleElement.textContent = cookieStyles;
+        document.head.appendChild(styleElement);
+        
+        // Initialize cookie banner
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieAccept = document.getElementById('cookie-accept');
+            const cookieSettings = document.getElementById('cookie-settings');
+            const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
+            const cookieSaveSettings = document.getElementById('cookie-save-settings');
+            const cookieToggles = document.querySelectorAll('.cookie-toggle');
+        
+            // Check if consent has been given
+            const consent = getCookie('cookieConsent');
+            if (!consent && cookieBanner) {
+                cookieBanner.classList.add('active');
+                cookieBanner.setAttribute('aria-hidden', 'false');
+            } else {
                 cookieBanner.classList.remove('active');
                 cookieBanner.setAttribute('aria-hidden', 'true');
             }
-        });
-    }
-
-    // Toggle settings panel
-    if (cookieSettings) {
-        cookieSettings.addEventListener('click', () => {
-            if (cookieSettingsPanel) {
-                cookieSettingsPanel.classList.toggle('active');
+        
+            // Accept all cookies
+            if (cookieAccept) {
+                cookieAccept.addEventListener('click', () => {
+                    setCookie('cookieConsent', 'all', 365);
+                    setCookie('essentialCookies', 'true', 365);
+                    setCookie('analyticsCookies', 'true', 365);
+                    setCookie('marketingCookies', 'true', 365);
+                    
+                    if (cookieBanner) {
+                        cookieBanner.classList.remove('active');
+                        cookieBanner.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        
+            // Toggle settings panel
+            if (cookieSettings) {
+                cookieSettings.addEventListener('click', () => {
+                    if (cookieSettingsPanel) {
+                        cookieSettingsPanel.classList.toggle('active');
+                    }
+                });
+            }
+        
+            // Toggle individual cookie options
+            cookieToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.classList.toggle('active');
+                });
+            });
+        
+            // Save custom settings
+            if (cookieSaveSettings) {
+                cookieSaveSettings.addEventListener('click', () => {
+                    const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
+                    const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
+                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
+        
+                    // Essential cookies are always enabled
+                    setCookie('essentialCookies', 'true', 365);
+        
+                    // Set other cookies based on toggle state
+                    setCookie('analyticsCookies', analyticsToggle?.classList.contains('active') ? 'true' : 'false', 365);
+                    setCookie('marketingCookies', marketingToggle?.classList.contains('active') ? 'true' : 'false', 365);
+        
+                    // Set overall consent
+                    setCookie('cookieConsent', 'custom', 365);
+        
+                    if (cookieBanner) {
+                        cookieBanner.classList.remove('active');
+                        cookieBanner.setAttribute('aria-hidden', 'true');
+                    }
+                });
             }
         });
-    }
-
-    // Toggle individual cookie options
-    cookieToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-        });
-    });
-
-    // Save custom settings
-    if (cookieSaveSettings) {
-        cookieSaveSettings.addEventListener('click', () => {
-            const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
-            const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
-            const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
-
-            // Essential cookies are always enabled
-            setCookie('essentialCookies', 'true', 365);
-
-            // Set other cookies based on toggle state
-            setCookie('analyticsCookies', analyticsToggle?.classList.contains('active') ? 'true' : 'false', 365);
-            setCookie('marketingCookies', marketingToggle?.classList.contains('active') ? 'true' : 'false', 365);
-
-            // Set overall consent
-            setCookie('cookieConsent', 'custom', 365);
-
-            if (cookieBanner) {
-                cookieBanner.classList.remove('active');
-                cookieBanner.setAttribute('aria-hidden', 'true');
-            }
-        });
-    }
-});
         
         // Check cookie consent on page load
-        checkCookieConsent();
+        function checkCookieConsent() {
+            const consent = getCookie('cookieConsent');
+            if (!consent) {
+                const cookieBanner = document.getElementById('cookie-banner');
+                if (cookieBanner) {
+                    cookieBanner.classList.add('active');
+                    cookieBanner.setAttribute('aria-hidden', 'false');
+                }
+            }
+        }
         
         // Disable right-click context menu
         document.addEventListener('contextmenu', function(e) {

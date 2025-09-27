@@ -163,6 +163,67 @@
             top: 0;
         }
         
+        /* Premium Custom Cursor (for desktop only) */
+        .cursor {
+            width: 25px;
+            height: 25px;
+            border: 2px solid #f59e0b;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999999;
+            mix-blend-mode: difference;
+            opacity: 0;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+            will-change: transform;
+        }
+        
+        .cursor-follower {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999998;
+            opacity: 0;
+            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            will-change: transform;
+        }
+        
+        .cursor.hover {
+            transform: scale(2.5);
+            background: rgba(245, 158, 11, 0.15);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+        }
+        
+        .cursor-follower.hover {
+            transform: scale(3.5);
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+        }
+        
+        /* Touch indicator for mobile devices */
+        .touch-indicator {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            pointer-events: none;
+            z-index: 999997;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .touch-indicator.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
         /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
@@ -261,6 +322,7 @@
         
         .nav-link.active {
             color: #f59e0b;
+            font-weight: 600;
         }
         
         .nav-link.active::before {
@@ -372,6 +434,11 @@
             transform: rotate(-135deg);
         }
         
+        /* Active state for mobile menu button */
+        .mobile-menu-btn.active span {
+            background: #f59e0b;
+        }
+        
         /* Mobile Menu Overlay */
         .mobile-menu-overlay {
             position: fixed;
@@ -461,12 +528,14 @@
             transform: translateY(-3px);
         }
         
+        /* Active mobile navigation link styles */
         .mobile-nav a.active {
-            color: #f59e0b;
+            color: #f59e0b !important;
+            font-weight: 600;
         }
         
         .mobile-nav a.active::after {
-            width: 100%;
+            width: 100% !important;
         }
         
         .mobile-contact-btn {
@@ -520,6 +589,7 @@
             padding-top: 100px;
         }
         
+        /* Fixed Hero Background - OPTIMIZED */
         .hero-fixed-bg {
             position: fixed;
             top: 0;
@@ -527,7 +597,7 @@
             width: 100%;
             height: 100vh;
             z-index: -1;
-            background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -535,6 +605,7 @@
             transition: background-image 1.5s ease-in-out;
         }
         
+        /* Dynamic Background Effect */
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -565,6 +636,7 @@
             }
         }
         
+        /* Premium Particle Effect - FIXED Z-INDEX */
         #particles {
             position: absolute;
             top: 0;
@@ -620,6 +692,7 @@
             transform-style: preserve-3d;
         }
         
+        /* Premium 3D Text Effects */
         .hero-title {
             font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 800;
@@ -660,6 +733,7 @@
             100% { background-position: 0% 50%; }
         }
         
+        /* Premium Button Design */
         .hero-btn {
             display: inline-block;
             padding: 18px 35px;
@@ -694,6 +768,7 @@
             backdrop-filter: blur(10px);
         }
         
+        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .hero-btn-secondary {
                 background: rgba(255, 255, 255, 0.2);
@@ -771,7 +846,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             transform-style: preserve-3d;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
@@ -797,8 +872,8 @@
         }
         
         .hero-box:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
@@ -2274,6 +2349,17 @@
             .leadership-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Testimonial Carousel Mobile Adjustments */
+            .testimonial-slide {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .testimonial-card {
+                width: 100%;
+                max-width: 350px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -2574,12 +2660,20 @@
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
+    <!-- Premium Custom Cursor (for desktop only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Touch Indicator (for mobile only) -->
+    <div class="touch-indicator"></div>
+    
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <!-- Loading progress bar -->
         <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
             <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
         </div>
@@ -2606,6 +2700,7 @@
             <div class="header-actions">
                 <button class="contact-btn">Get Quote</button>
             </div>
+            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
@@ -2703,8 +2798,13 @@
     
     <!-- Premium Hero Section -->
     <section id="main-content" class="hero-gradient">
+        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
         <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        
+        <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
+        
+        <!-- Particles Container - FIXED POSITION -->
         <div id="particles"></div>
         
         <div class="container mx-auto px-4 relative z-10 hero-content">
@@ -2720,8 +2820,8 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="about-card">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
+                    <div class="service-card">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -2854,7 +2954,7 @@
                     
                     <!-- Milestone 4 -->
                     <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="25,000 Installations">
                         <div class="milestone-overlay">
                             <div class="milestone-content">
                                 <div class="milestone-year">2019</div>
@@ -3025,7 +3125,7 @@
                         <i class="fas fa-award text-black text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">Award Winning</h3>
-                    <p class="text-gray-300">Recognized as India's best solar company by the Ministry of New and Renewable Energy</p>
+                    <p class="text-gray-300">Recognized for excellence in renewable energy solutions and customer service</p>
                 </div>
                 
                 <div class="feature-card fade-in stagger-2">
@@ -3156,9 +3256,9 @@
     </footer>
     
     <script>
-        // Remove .html from URL if present
-        if (window.location.pathname.endsWith('.html')) {
-            const newUrl = window.location.pathname.replace('.html', '');
+        // URL Redirect for index.html
+        if (window.location.pathname.endsWith('index.html')) {
+            const newUrl = window.location.href.replace('index.html', '');
             window.history.replaceState({}, document.title, newUrl);
         }
         
@@ -3286,7 +3386,7 @@
         }, 3000);
         
         // Variables to track input type and cursor state
-        let lastInputType = null;
+        let lastInputType = null; // 'touch' or 'mouse'
         let inputDetected = false;
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -3313,7 +3413,7 @@
         // Function to show touch indicator
         function showTouchIndicator() {
             if (cursor) cursor.style.opacity = '0';
-            if (cursorFollower) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
             if (touchIndicator) touchIndicator.style.opacity = '1';
         }
         
@@ -3424,7 +3524,7 @@
         animateFollower();
         
         // Hover effects - only apply when using mouse
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .about-card, .team-member, .value-card, .timeline-content, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .about-card, .team-member, .value-card, .timeline-content, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .form-submit, .back-to-top, .leadership-card, .milestone-arrow, .milestone-dot, .testimonial-btn, .testimonial-indicator, .service-card, .feature-card, .hero-box');
         
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
@@ -3549,6 +3649,7 @@
         ];
         
         const heroFixedBg = document.getElementById('heroFixedBg');
+        const heroImage = document.getElementById('heroImage');
         let currentHeroImage = 0;
         let heroInterval;
         
@@ -3560,6 +3661,9 @@
                 // Once loaded, update the background
                 if (heroFixedBg) {
                     heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                }
+                if (heroImage) {
+                    heroImage.src = heroImages[index];
                 }
                 currentHeroImage = index;
             };
@@ -3614,7 +3718,7 @@
             const particlesContainer = document.getElementById('particles');
             if (!particlesContainer) return;
             
-            const particleCount = 30;
+            const particleCount = 30; // Reduced particle count for better performance
             
             // Clear existing particles if any
             particlesContainer.innerHTML = '';
@@ -3623,23 +3727,23 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 8 + 4;
+                const size = Math.random() * 8 + 4; // Smaller particles for better performance
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
                 // Random starting position
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.bottom = `-${size * 2}px`;
+                particle.style.bottom = `-${size * 2}px`; // Start just below the viewport
                 
                 // Random animation delay and duration
-                const delay = Math.random() * 5;
-                const duration = Math.random() * 10 + 15;
+                const delay = Math.random() * 5; // Reduced max delay
+                const duration = Math.random() * 10 + 15; // Shorter duration for faster movement
                 
                 particle.style.animationDelay = `${delay}s`;
                 particle.style.animationDuration = `${duration}s`;
                 
                 // Set initial opacity
-                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                particle.style.opacity = Math.random() * 0.6 + 0.2; // Random opacity
                 
                 particlesContainer.appendChild(particle);
             }
@@ -3919,8 +4023,8 @@
         
         // Only apply 3D card effects on non-touch devices
         if (!('ontouchstart' in window)) {
-            // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card, .service-card, .hero-box');
+            // Premium 3D Card Effect - REDUCED ANIMATION
+            const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card, .service-card');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
@@ -3931,10 +4035,11 @@
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    const rotateX = (y - centerY) / 12;
-                    const rotateY = (centerX - x) / 12;
+                    // Reduced rotation values for less "dancing" effect
+                    const rotateX = (y - centerY) / 25; // Reduced from 12 to 25
+                    const rotateY = (centerX - x) / 25; // Reduced from 12 to 25
                     
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`; // Reduced translateZ from 15 to 10
                 });
                 
                 card.addEventListener('mouseleave', () => {
@@ -4066,6 +4171,7 @@
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', function() {
                 console.error('Image failed to load:', this.src);
+                // You could set a fallback image here if needed
             });
         });
         
@@ -4110,6 +4216,104 @@
                 imgObserver.observe(img);
             });
         }
+        
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable image dragging
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable keyboard shortcuts for copying
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable F12 (Developer Tools)
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable Ctrl+Shift+I (Developer Tools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable Ctrl+Shift+J (Developer Tools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Additional protection for images
+        document.querySelectorAll('img').forEach(function(img) {
+            img.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            img.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Add transparent overlay to prevent screenshots
+            img.style.pointerEvents = 'none';
+            img.style.userSelect = 'none';
+            img.style.webkitUserSelect = 'none';
+            img.style.mozUserSelect = 'none';
+            img.style.msUserSelect = 'none';
+        });
+        
+        // Add CSS to disable text selection
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                body {
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    -webkit-touch-callout: none;
+                    -khtml-user-select: none;
+                }
+                
+                img {
+                    -webkit-user-drag: none;
+                    -khtml-user-drag: none;
+                    -moz-user-drag: none;
+                    -o-user-drag: none;
+                    user-drag: none;
+                    pointer-events: none;
+                }
+                
+                a, button, input, textarea, select {
+                    -webkit-user-select: auto;
+                    -moz-user-select: auto;
+                    -ms-user-select: auto;
+                    user-select: auto;
+                    pointer-events: auto;
+                }
+            </style>
+        `);
     </script>
 </body>
 </html>

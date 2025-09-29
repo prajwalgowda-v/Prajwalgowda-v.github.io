@@ -81,6 +81,15 @@
             position: relative;
         }
         
+        /* Hide custom cursor on mobile devices */
+        @media (max-width: 1024px) {
+            .cursor, .cursor-follower {
+                display: none !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+            }
+        }
+        
         /* Premium Cursor with Glowing Effect - Only for non-touch devices */
         .cursor {
             width: 25px;
@@ -3396,6 +3405,15 @@
             setTimeout(hideLoadingScreen, 10000);
         });
         
+        // Check if the device supports touch
+        function isTouchDevice() {
+            return 'ontouchstart' in window || 
+                   navigator.maxTouchPoints > 0 || 
+                   navigator.msMaxTouchPoints > 0 || 
+                   // For some browsers that don't properly report touch support
+                   (window.DocumentTouch && document instanceof DocumentTouch);
+        }
+        
         // Variables to track input type and cursor state
         let lastInputType = null; // 'touch' or 'mouse'
         let inputDetected = false;
@@ -3439,6 +3457,25 @@
             }
         }
         
+        // If it's a touch device, immediately set the input type to touch
+        if (isTouchDevice()) {
+            setInputType('touch');
+            inputDetected = true;
+            
+            // Also add CSS to completely hide cursor elements on touch devices
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 1024px) {
+                    .cursor, .cursor-follower {
+                        display: none !important;
+                        opacity: 0 !important;
+                        pointer-events: none !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
         // Listen for the first touch event
         document.addEventListener('touchstart', function onFirstTouch(e) {
             document.removeEventListener('touchstart', onFirstTouch);
@@ -3469,7 +3506,7 @@
         
         // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
         setTimeout(() => {
-            if (!inputDetected) {
+            if (!inputDetected && !isTouchDevice()) {
                 setInputType('mouse');
             }
         }, 1000);

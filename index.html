@@ -101,9 +101,10 @@
             z-index: 999999;
             mix-blend-mode: difference;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.15s ease;
+            transition: opacity 0.15s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
             will-change: transform;
+            transform: translate(-50%, -50%) scale(1);
         }
         
         .cursor-follower {
@@ -118,16 +119,15 @@
             transition: opacity 0.15s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
+            transform: translate(-50%, -50%) scale(1.4);
         }
         
         .cursor.hover {
-            transform: scale(2.5);
             background: rgba(245, 158, 11, 0.15);
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
         }
         
         .cursor-follower.hover {
-            transform: scale(3.5);
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
         }
         
@@ -2720,7 +2720,7 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
-                    <li><a href="Coming Soon.html" class="nav-link">About Us</a></li>
+                    <li><a href="about-us" class="nav-link">About Us</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
@@ -3383,7 +3383,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms & conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund & return policy.html" target="_blank">Refund & Return Policy</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="Terms & Conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund&return policy.html" target="_blank">Refund & Return Policy</a></p>
             </div>
         </div>
     </footer>
@@ -3532,14 +3532,14 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             if (cursor) {
-                cursor.style.left = mouseX - 12.5 + 'px';
-                cursor.style.top = mouseY - 12.5 + 'px';
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
             }
             if (cursorFollower) {
                 followerX = mouseX;
                 followerY = mouseY;
-                cursorFollower.style.left = followerX - 25 + 'px';
-                cursorFollower.style.top = followerY - 25 + 'px';
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
             }
         }, { once: true });
         
@@ -3562,8 +3562,8 @@
                 
                 // Update main cursor position immediately
                 if (cursor) {
-                    cursor.style.left = mouseX - 12.5 + 'px';
-                    cursor.style.top = mouseY - 12.5 + 'px';
+                    cursor.style.left = mouseX + 'px';
+                    cursor.style.top = mouseY + 'px';
                 }
             }
         });
@@ -3601,8 +3601,8 @@
                 followerY += (mouseY - followerY) * 0.1;
                 
                 if (cursorFollower) {
-                    cursorFollower.style.left = followerX - 25 + 'px';
-                    cursorFollower.style.top = followerY - 25 + 'px';
+                    cursorFollower.style.left = followerX + 'px';
+                    cursorFollower.style.top = followerY + 'px';
                 }
             }
             requestAnimationFrame(animateFollower);

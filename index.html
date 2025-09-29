@@ -115,7 +115,7 @@
             pointer-events: none;
             z-index: 999998;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            transition: opacity 0.15s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
         }
@@ -3320,8 +3320,17 @@
                     <ul class="contact-info">
                         <li>
                             <i class="fas fa-map-marker-alt text-black"></i>
-                            <span class="text-gradient">Corporation Office:<span> 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085
-                            <span class="text-gradient">Registered Office:<span> 10, Pavanasuta, 7th Cross, 30th Main, Near Balaji Kalyana Mantapa, Banashankari 3rd Stage, Bengaluru-560085
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 16px; display: block; margin-bottom: 5px;">Corporation Office:</strong>
+                                <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt text-black"></i>
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 16px; display: block; margin-bottom: 5px;">Registered Office:</strong>
+                                <span>10, Pavanasuta, 7th Cross, 30th Main, Near Balaji Kalyana Mantapa, Banashankari 3rd Stage, Bengaluru-560085</span>
+                            </div>
                         </li>
                         <li>
                             <i class="fas fa-phone-alt text-black"></i>
@@ -3575,9 +3584,22 @@
         // Hover effects - only apply when using mouse
         const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top');
         
+        // Store the original cursor size to prevent jumping
+        let originalCursorSize = 25;
+        let originalFollowerSize = 50;
+        
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
                 if (lastInputType === 'mouse') {
+                    // Store original sizes if not already stored
+                    if (!originalCursorSize && cursor) {
+                        originalCursorSize = parseInt(cursor.style.width) || 25;
+                    }
+                    if (!originalFollowerSize && cursorFollower) {
+                        originalFollowerSize = parseInt(cursorFollower.style.width) || 50;
+                    }
+                    
+                    // Apply hover effect
                     if (cursor) cursor.classList.add('hover');
                     if (cursorFollower) cursorFollower.classList.add('hover');
                 }
@@ -3585,6 +3607,7 @@
             
             element.addEventListener('mouseleave', () => {
                 if (lastInputType === 'mouse') {
+                    // Remove hover effect
                     if (cursor) cursor.classList.remove('hover');
                     if (cursorFollower) cursorFollower.classList.remove('hover');
                 }

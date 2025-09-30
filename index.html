@@ -79,6 +79,7 @@
             overflow-x: hidden;
             background-color: #f8fafc;
             position: relative;
+            cursor: none; /* Hide default cursor */
         }
         
         /* Hide custom cursor on mobile devices */
@@ -87,6 +88,10 @@
                 display: none !important;
                 opacity: 0 !important;
                 pointer-events: none !important;
+            }
+            
+            body {
+                cursor: auto; /* Show default cursor on mobile */
             }
         }
         
@@ -101,7 +106,7 @@
             z-index: 999999;
             mix-blend-mode: difference;
             opacity: 0;
-            transition: opacity 0.15s ease;
+            transition: opacity 0.15s ease, transform 0.15s ease, width 0.15s ease, height 0.15s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
             will-change: transform;
             transform: translate(-50%, -50%) scale(1);
@@ -116,7 +121,7 @@
             pointer-events: none;
             z-index: 999998;
             opacity: 0;
-            transition: opacity 0.15s ease;
+            transition: opacity 0.15s ease, transform 0.25s ease, width 0.25s ease, height 0.25s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
             transform: translate(-50%, -50%) scale(1.4);
@@ -125,10 +130,12 @@
         .cursor.hover {
             background: rgba(245, 158, 11, 0.15);
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+            transform: translate(-50%, -50%) scale(1.2);
         }
         
         .cursor-follower.hover {
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+            transform: translate(-50%, -50%) scale(1.6);
         }
         
         /* Touch indicator for mobile devices */
@@ -292,6 +299,7 @@
             display: block;
             outline: none; /* Remove focus outline */
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor on logo */
         }
         
         .logo:hover {
@@ -373,6 +381,7 @@
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             white-space: nowrap; /* Prevent text from wrapping */
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .contact-btn::before {
@@ -785,6 +794,7 @@
             margin: 5px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .hero-btn-primary {
@@ -955,6 +965,7 @@
             margin-top: 15px;
             margin-top: auto; /* Push to bottom of card */
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .learn-more-btn:hover {
@@ -1312,6 +1323,7 @@
             display: block;
             outline: none; /* Remove focus outline */
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .footer-logo:hover {
@@ -1339,6 +1351,7 @@
             transform-style: preserve-3d;
             font-size: 1.2rem;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .social-icon:hover {
@@ -1365,6 +1378,7 @@
             position: relative;
             font-size: 1.05rem;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .footer-links li a::before {
@@ -1414,6 +1428,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .contact-info a:hover {
@@ -1435,6 +1450,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .footer-bottom a:hover {
@@ -1462,6 +1478,7 @@
             transform-style: preserve-3d;
             font-size: 1.5rem;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .back-to-top.visible {
@@ -1550,6 +1567,7 @@
             display: block;
             transition: transform 0.4s ease;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .quote-form-logo:hover {
@@ -1592,6 +1610,7 @@
             z-index: 10;
             pointer-events: auto; /* Always enable pointer events for close button */
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .quote-close:hover {
@@ -1750,6 +1769,7 @@
             gap: 12px;
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .form-submit:hover {
@@ -2023,6 +2043,7 @@
             display: block;
             transition: transform 0.4s ease;
             outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .cookie-logo:hover {

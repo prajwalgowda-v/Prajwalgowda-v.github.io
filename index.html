@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add these meta tags for screenshot protection -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naptico Green Energy Solars - Premium Solar Solutions</title>
@@ -80,6 +86,74 @@
             background-color: #f8fafc;
             position: relative;
             cursor: none; /* Hide default cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+        
+        /* Prevent printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            body::after {
+                content: "Printing is disabled for this content.";
+                display: block;
+                visibility: visible;
+                text-align: center;
+                font-size: 24px;
+                margin-top: 50px;
+            }
+        }
+        
+        /* Screenshot Protection Overlay */
+        .screenshot-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: none;
+            z-index: 9999999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .screenshot-protection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .screenshot-protection p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot-protection button {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .screenshot-protection button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
         }
         
         /* Hide custom cursor on mobile devices */
@@ -300,6 +374,12 @@
             outline: none; /* Remove focus outline */
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
             cursor: pointer; /* Show pointer cursor on logo */
+            /* Prevent logo from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none;
         }
         
         .logo:hover {
@@ -326,6 +406,11 @@
             padding: 5px 0;
             white-space: nowrap; /* Prevent text from wrapping */
             font-size: 0.95rem; /* Slightly smaller font size */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .nav-link::before {
@@ -382,6 +467,11 @@
             white-space: nowrap; /* Prevent text from wrapping */
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-btn::before {
@@ -421,6 +511,11 @@
             overflow: hidden;
             flex-shrink: 0; /* Prevent button from shrinking */
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-btn:hover {
@@ -519,6 +614,11 @@
             z-index: 1003; /* Higher z-index to ensure it's clickable */
             pointer-events: auto; /* Always enable pointer events for close button */
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-close:hover {
@@ -548,6 +648,11 @@
             display: inline-block;
             pointer-events: auto; /* Enable pointer events for links */
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-nav a::after {
@@ -599,6 +704,11 @@
             cursor: pointer;
             pointer-events: auto; /* Enable pointer events for button */
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-contact-btn::before {
@@ -632,6 +742,11 @@
             align-items: center;
             perspective: 1000px;
             padding-top: 100px; /* Add padding to prevent header overlap */
+            /* Prevent screenshot of hero section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fixed Hero Background - OPTIMIZED */
@@ -648,6 +763,8 @@
             background-attachment: fixed;
             will-change: transform;
             transition: background-image 1.5s ease-in-out;
+            /* Prevent background image from being saved */
+            pointer-events: none;
         }
         
         /* Dynamic Background Effect */
@@ -745,6 +862,11 @@
             transform-style: preserve-3d;
             animation: floatText 8s ease-in-out infinite;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes floatText {
@@ -770,6 +892,11 @@
             text-fill-color: transparent;
             background-size: 200% auto;
             animation: gradientShift 5s ease infinite;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes gradientShift {
@@ -795,6 +922,11 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .hero-btn-primary {
@@ -851,6 +983,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of services section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .services-section::before {
@@ -876,6 +1013,11 @@
             margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .section-subtitle {
@@ -883,6 +1025,11 @@
             color: #e2e8f0;
             max-width: 3xl;
             margin: 0 auto 4rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Premium 3D Cards with Glass Effect */
@@ -900,6 +1047,11 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            /* Prevent screenshot of service cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -945,6 +1097,8 @@
             transform-style: preserve-3d;
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
             flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .service-card:hover .service-icon {
@@ -966,6 +1120,11 @@
             margin-top: auto; /* Push to bottom of card */
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .learn-more-btn:hover {
@@ -1013,6 +1172,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* Prevent screenshot of feature cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1041,6 +1205,8 @@
             transform-style: preserve-3d;
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
             flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .feature-card:hover .feature-icon {
@@ -1054,6 +1220,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of testimonials section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonials-section::before {
@@ -1086,6 +1257,11 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Prevent screenshot of testimonial cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1140,6 +1316,8 @@
             color: white;
             font-size: 2.5rem;
             flex-shrink: 0;
+            /* Prevent avatar from being screenshotted */
+            pointer-events: none;
         }
         
         .testimonial-info h4 {
@@ -1147,17 +1325,32 @@
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 1.2rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonial-info p {
             color: #94a3b8;
             font-size: 1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonial-rating {
             color: #f59e0b;
             margin-bottom: 20px;
             font-size: 1.2rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonial-text {
@@ -1166,6 +1359,11 @@
             line-height: 1.7;
             flex-grow: 1;
             font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonial-quote {
@@ -1175,6 +1373,11 @@
             font-size: 3.5rem;
             color: rgba(245, 158, 11, 0.15);
             font-family: Georgia, serif;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Testimonial Carousel Styles - FIXED */
@@ -1220,6 +1423,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonial-btn:hover {
@@ -1240,6 +1448,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .testimonial-indicator.active {
@@ -1254,6 +1467,11 @@
             overflow: hidden;
             padding: 100px 0 50px;
             transform-style: preserve-3d;
+            /* Prevent screenshot of footer */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer::before {
@@ -1294,6 +1512,11 @@
             margin-bottom: 25px;
             position: relative;
             display: inline-block;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-section h3::after {
@@ -1313,6 +1536,11 @@
             line-height: 1.7;
             font-size: 1.05rem;
             text-align: justify;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-logo {
@@ -1324,6 +1552,8 @@
             outline: none; /* Remove focus outline */
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent logo from being screenshotted */
+            pointer-events: none;
         }
         
         .footer-logo:hover {
@@ -1352,6 +1582,8 @@
             font-size: 1.2rem;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent social icons from being screenshotted */
+            pointer-events: none;
         }
         
         .social-icon:hover {
@@ -1379,6 +1611,11 @@
             font-size: 1.05rem;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-links li a::before {
@@ -1413,6 +1650,11 @@
             margin-bottom: 20px;
             color: #94a3b8;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info i {
@@ -1429,6 +1671,11 @@
             transition: all 0.3s ease;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info a:hover {
@@ -1443,6 +1690,11 @@
             position: relative;
             z-index: 1;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a {
@@ -1451,6 +1703,11 @@
             transition: all 0.3s ease;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a:hover {
@@ -1479,6 +1736,8 @@
             font-size: 1.5rem;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent button from being screenshotted */
+            pointer-events: none;
         }
         
         .back-to-top.visible {
@@ -1516,6 +1775,11 @@
             transition: all 0.4s ease;
             overflow-y: auto;
             pointer-events: none; /* Initially disable pointer events */
+            /* Prevent modal from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1547,6 +1811,11 @@
             max-height: calc(100vh - 40px);
             overflow-y: auto;
             pointer-events: auto; /* Always enable pointer events for form container */
+            /* Prevent form from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-modal.active .quote-form-container {
@@ -1568,6 +1837,8 @@
             transition: transform 0.4s ease;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent logo from being screenshotted */
+            pointer-events: none;
         }
         
         .quote-form-logo:hover {
@@ -1580,12 +1851,22 @@
             margin-bottom: 15px;
             color: white;
             text-align: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-form-subtitle {
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
             font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-form-body {
@@ -1611,6 +1892,11 @@
             pointer-events: auto; /* Always enable pointer events for close button */
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-close:hover {
@@ -1640,6 +1926,11 @@
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-input, .form-textarea {
@@ -1653,6 +1944,11 @@
             outline: none;
             transition: all 0.4s ease;
             box-sizing: border-box;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-input:focus, .form-textarea:focus {
@@ -1678,6 +1974,8 @@
             width: 100%;
             height: 100%;
             cursor: pointer;
+            /* Prevent file input from being screenshotted */
+            pointer-events: none;
         }
         
         .file-upload-label {
@@ -1692,6 +1990,11 @@
             cursor: pointer;
             transition: all 0.4s ease;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-upload-label:hover {
@@ -1722,6 +2025,11 @@
             margin-bottom: 10px;
             color: #e2e8f0;
             font-size: 15px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-name {
@@ -1743,6 +2051,11 @@
             cursor: pointer;
             transition: color 0.3s;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-remove:hover {
@@ -1770,6 +2083,11 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-submit:hover {
@@ -1816,6 +2134,11 @@
             display: none;
             font-weight: 500;
             font-size: 16px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-message.success {
@@ -1840,6 +2163,11 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border-left: 4px solid #f59e0b;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Premium Scroll Animation */
@@ -1868,6 +2196,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of CTA section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cta-section::before {
@@ -1916,6 +2249,11 @@
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 80px 0;
             position: relative;
+            /* Prevent screenshot of FAQ section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .faq-container {
@@ -1930,6 +2268,11 @@
             margin-bottom: 50px;
             text-align: center;
             color: white;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .faq-item {
@@ -1939,6 +2282,11 @@
             overflow: hidden;
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Prevent screenshot of FAQ items */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .faq-question {
@@ -1951,6 +2299,11 @@
             align-items: center;
             font-size: 1.1rem;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .faq-question:hover {
@@ -1971,6 +2324,11 @@
             color: #e2e8f0;
             line-height: 1.7;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .faq-item.active .faq-answer {
@@ -1998,6 +2356,11 @@
             visibility: hidden;
             transition: all 0.3s ease;
             pointer-events: none; /* Initially disable pointer events */
+            /* Prevent banner from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-banner.active {
@@ -2019,6 +2382,11 @@
             transform: translateY(30px);
             transition: transform 0.4s ease;
             pointer-events: auto; /* Always enable pointer events for content */
+            /* Prevent content from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-banner.active .cookie-content {
@@ -2044,6 +2412,8 @@
             transition: transform 0.4s ease;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            /* Prevent logo from being screenshotted */
+            pointer-events: none;
         }
         
         .cookie-logo:hover {
@@ -2056,6 +2426,11 @@
             margin-bottom: 15px;
             color: white;
             text-align: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-text {
@@ -2064,6 +2439,11 @@
             line-height: 1.6;
             text-align: center;
             font-size: 1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-buttons {
@@ -2088,6 +2468,11 @@
             box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
             cursor: pointer;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-accept:hover {
@@ -2122,6 +2507,11 @@
             transition: all 0.4s ease;
             cursor: pointer;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-settings:hover {
@@ -2138,6 +2528,11 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Prevent panel from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-settings-panel.active {
@@ -2151,6 +2546,11 @@
             margin-bottom: 15px;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* Prevent option from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-option:last-child {
@@ -2161,12 +2561,22 @@
         .cookie-option-label {
             color: #e2e8f0;
             font-size: 0.95rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-option-description {
             color: #94a3b8;
             font-size: 0.85rem;
             margin-top: 5px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-toggle {
@@ -2178,6 +2588,11 @@
             cursor: pointer;
             transition: background 0.3s ease;
             outline: none; /* Remove focus outline */
+            /* Prevent toggle from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-toggle.active {
@@ -2213,6 +2628,11 @@
             width: 100%;
             cursor: pointer;
             outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cookie-save-settings:hover {
@@ -2459,6 +2879,13 @@
         img {
             max-width: 100%;
             height: auto;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
         
         /* Smooth scrolling for the entire page */
@@ -2729,6 +3156,13 @@
                 <button id="cookieSaveSettings" class="cookie-save-settings">Save Preferences</button>
             </div>
         </div>
+    </div>
+    
+    <!-- Screenshot Protection Overlay -->
+    <div id="screenshotProtection" class="screenshot-protection">
+        <h2>Screenshot Protection</h2>
+        <p>Screenshots are not allowed on this website. Please close this overlay to continue browsing.</p>
+        <button id="closeScreenshotProtection">Continue Browsing</button>
     </div>
     
     <!-- Premium Header -->
@@ -4444,7 +4878,7 @@
         
         // Initialize cookie banner
         document.addEventListener('DOMContentLoaded', () => {
-            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieBanner = document.getElementById('cookieBanner');
             const cookieAccept = document.getElementById('cookie-accept');
             const cookieSettings = document.getElementById('cookie-settings');
             const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
@@ -4529,103 +4963,160 @@
             }
         }
         
-        // Disable right-click context menu
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable image dragging
-        document.addEventListener('dragstart', function(e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Disable keyboard shortcuts for copying
-        document.addEventListener('keydown', function(e) {
-            // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
+        // Screenshot Protection
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshotProtection = document.getElementById('screenshotProtection');
+            const closeScreenshotProtection = document.getElementById('closeScreenshotProtection');
+            
+            // Show screenshot protection overlay when page is hidden
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'flex';
+                    }
+                } else {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Close screenshot protection overlay
+            if (closeScreenshotProtection) {
+                closeScreenshotProtection.addEventListener('click', function() {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                });
             }
             
-            // Disable F12 (Developer Tools)
-            if (e.keyCode === 123) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+I (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+J (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Additional protection for images
-        document.querySelectorAll('img').forEach(function(img) {
-            img.addEventListener('contextmenu', function(e) {
+            // Prevent context menu (right-click)
+            document.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
                 return false;
             });
             
-            img.addEventListener('dragstart', function(e) {
+            // Prevent text selection
+            document.addEventListener('selectstart', function(e) {
                 e.preventDefault();
                 return false;
             });
             
-            // Add transparent overlay to prevent screenshots
-            img.style.pointerEvents = 'none';
-            img.style.userSelect = 'none';
-            img.style.webkitUserSelect = 'none';
-            img.style.mozUserSelect = 'none';
-            img.style.msUserSelect = 'none';
+            // Prevent image dragging
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Disable keyboard shortcuts for copying
+            document.addEventListener('keydown', function(e) {
+                // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+                if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable F12 (Developer Tools)
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+J (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Print Screen
+                if (e.keyCode === 44) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Additional protection for images
+            document.querySelectorAll('img').forEach(function(img) {
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+            
+            // iOS specific protections
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+                // Prevent double-tap to zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Prevent pinch to zoom
+                document.addEventListener('gesturestart', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gesturechange', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gestureend', function(e) {
+                    e.preventDefault();
+                });
+            }
+            
+            // Android specific protections
+            if (navigator.userAgent.match(/Android/i)) {
+                // Prevent long press to save image
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Prevent long press to select text
+                document.addEventListener('touchstart', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                });
+            }
+            
+            // Add watermark for screenshots
+            function addWatermark() {
+                const watermark = document.createElement('div');
+                watermark.style.position = 'fixed';
+                watermark.style.top = '0';
+                watermark.style.left = '0';
+                watermark.style.width = '100%';
+                watermark.style.height = '100%';
+                watermark.style.pointerEvents = 'none';
+                watermark.style.zIndex = '9999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.backgroundRepeat = 'repeat';
+                watermark.style.backgroundSize = '200px 200px';
+                watermark.style.opacity = '0.1';
+                document.body.appendChild(watermark);
+            }
+            
+            addWatermark();
         });
-        
-        // Add CSS to disable text selection
-        document.head.insertAdjacentHTML('beforeend', `
-            <style>
-                body {
-                    -webkit-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
-                    -webkit-touch-callout: none;
-                    -khtml-user-select: none;
-                }
-                
-                img {
-                    -webkit-user-drag: none;
-                    -khtml-user-drag: none;
-                    -moz-user-drag: none;
-                    -o-user-drag: none;
-                    user-drag: none;
-                    pointer-events: none;
-                }
-                
-                a, button, input, textarea, select {
-                    -webkit-user-select: auto;
-                    -moz-user-select: auto;
-                    -ms-user-select: auto;
-                    user-select: auto;
-                    pointer-events: auto;
-                }
-            </style>
-        `);
     </script>
 </body>
 </html>

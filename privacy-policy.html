@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add these meta tags for screenshot protection -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Naptico Green Energy Solars</title>
@@ -29,23 +35,23 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Naptico Green Energy Solars Privacy Policy - Learn how we collect, use, and protect your personal information when you use our solar energy solutions.">
-    <meta name="keywords" content="privacy policy, data protection, personal information, solar energy privacy, Naptico privacy">
+    <meta name="description" content="Privacy Policy for Naptico Green Energy Solars. Learn how we collect, use, and protect your personal information.">
+    <meta name="keywords" content="privacy policy, data protection, personal information, solar energy privacy">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://napticogreenenergysolars.com/Privacy-Policy.html">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/privacy-policy.html">
     <meta property="og:title" content="Privacy Policy - Naptico Green Energy Solars">
-    <meta property="og:description" content="Naptico Green Energy Solars Privacy Policy - Learn how we collect, use, and protect your personal information when you use our solar energy solutions.">
+    <meta property="og:description" content="Privacy Policy for Naptico Green Energy Solars. Learn how we collect, use, and protect your personal information.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/Privacy-Policy.html">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/privacy-policy.html">
     <meta property="twitter:title" content="Privacy Policy - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Naptico Green Energy Solars Privacy Policy - Learn how we collect, use, and protect your personal information when you use our solar energy solutions.">
+    <meta property="twitter:description" content="Privacy Policy for Naptico Green Energy Solars. Learn how we collect, use, and protect your personal information.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -59,17 +65,107 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Updated Google Fonts link to use Inter instead of Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* CSS Reset and Base Styles */
         * {
             font-family: 'Inter', sans-serif;
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
-        /* Only apply custom cursor on non-touch devices */
-        @media (hover: hover) {
-            * {
-                cursor: none;
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background-color: #f8fafc;
+            position: relative;
+            cursor: none; /* Hide default cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+        
+        /* Prevent printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            body::after {
+                content: "Printing is disabled for this content.";
+                display: block;
+                visibility: visible;
+                text-align: center;
+                font-size: 24px;
+                margin-top: 50px;
+            }
+        }
+        
+        /* Screenshot Protection Overlay */
+        .screenshot-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: none;
+            z-index: 9999999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .screenshot-protection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .screenshot-protection p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot-protection button {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .screenshot-protection button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Hide custom cursor on mobile devices */
+        @media (max-width: 1024px) {
+            .cursor, .cursor-follower {
+                display: none !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+            }
+            
+            body {
+                cursor: auto; /* Show default cursor on mobile */
             }
         }
         
@@ -81,12 +177,13 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 100001;
+            z-index: 999999;
             mix-blend-mode: difference;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.15s ease;
+            transition: opacity 0.15s ease, transform 0.15s ease, width 0.15s ease, height 0.15s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
             will-change: transform;
+            transform: translate(-50%, -50%) scale(1);
         }
         
         .cursor-follower {
@@ -96,29 +193,23 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 100000;
+            z-index: 999998;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            transition: opacity 0.15s ease, transform 0.25s ease, width 0.25s ease, height 0.25s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
-        }
-        
-        /* Only show cursor on non-touch devices */
-        @media (hover: hover) {
-            .cursor, .cursor-follower {
-                opacity: 1;
-            }
+            transform: translate(-50%, -50%) scale(1.4);
         }
         
         .cursor.hover {
-            transform: scale(2.5);
             background: rgba(245, 158, 11, 0.15);
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+            transform: translate(-50%, -50%) scale(1.2);
         }
         
         .cursor-follower.hover {
-            transform: scale(3.5);
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+            transform: translate(-50%, -50%) scale(1.6);
         }
         
         /* Touch indicator for mobile devices */
@@ -130,7 +221,7 @@
             background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
             border: 2px solid rgba(245, 158, 11, 0.5);
             pointer-events: none;
-            z-index: 100000;
+            z-index: 999997;
             transform: translate(-50%, -50%) scale(0);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -139,19 +230,6 @@
         .touch-indicator.active {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
-        }
-        
-        /* Only show touch indicator on touch devices */
-        @media (hover: none) {
-            .touch-indicator {
-                display: block;
-            }
-        }
-        
-        @media (hover: hover) {
-            .touch-indicator {
-                display: none;
-            }
         }
         
         /* Premium Loading Screen with White Background */
@@ -166,7 +244,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 1000000;
             transition: opacity 0.8s ease, visibility 0.8s ease;
             overflow: hidden;
         }
@@ -174,6 +252,7 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -226,7 +305,25 @@
             60%, 100% { content: '...'; }
         }
         
-        /* Premium Header with Glass Effect */
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #f59e0b;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
             top: 0;
@@ -235,13 +332,21 @@
             z-index: 1000;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            height: 100px; /* Fixed height to prevent wrapping */
         }
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 10px 0;
+            height: 80px; /* Smaller fixed height when scrolled */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(20px)) {
+            .header.scrolled {
+                background: rgba(15, 23, 42, 0.95);
+            }
         }
         
         .header-content {
@@ -250,6 +355,10 @@
             align-items: center;
             padding: 20px 5%;
             transition: all 0.3s ease;
+            height: 100%; /* Take full height of parent */
+            width: 100%;
+            max-width: 1400px; /* Limit max width for better alignment */
+            margin: 0 auto;
         }
         
         .header.scrolled .header-content {
@@ -260,22 +369,30 @@
             width: 220px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+            display: block;
+            outline: none; /* Remove focus outline */
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor on logo */
+            /* Prevent logo from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
         }
         
-        .header.scrolled .logo {
-            width: 170px;
-        }
-        
         .nav-menu {
             display: flex;
-            gap: 35px;
+            gap: 20px; /* Reduced gap to prevent wrapping */
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: nowrap; /* Prevent nav items from wrapping */
+            overflow: hidden; /* Hide overflow if needed */
         }
         
         .nav-link {
@@ -286,6 +403,13 @@
             transition: all 0.3s ease;
             transform-style: preserve-3d;
             padding: 5px 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+            font-size: 0.95rem; /* Slightly smaller font size */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .nav-link::before {
@@ -309,10 +433,21 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
+        /* Active navigation link styles */
+        .nav-link.active {
+            color: #f59e0b !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active::before {
+            width: 100% !important;
+        }
+        
         .header-actions {
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-shrink: 0; /* Prevent actions from shrinking */
         }
         
         .contact-btn {
@@ -328,6 +463,14 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            white-space: nowrap; /* Prevent text from wrapping */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-btn::before {
@@ -365,6 +508,13 @@
             width: 30px;
             height: 30px;
             overflow: hidden;
+            flex-shrink: 0; /* Prevent button from shrinking */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-btn:hover {
@@ -412,7 +562,12 @@
             transform: rotate(-135deg);
         }
         
-        /* Mobile Menu Overlay */
+        /* Active state for mobile menu button */
+        .mobile-menu-btn.active span {
+            background: #f59e0b;
+        }
+        
+        /* Mobile Menu Overlay - FIXED */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -429,11 +584,20 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+            pointer-events: none; /* Initially disable pointer events */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .mobile-menu-overlay {
+                background: rgba(15, 23, 42, 0.98);
+            }
         }
         
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .mobile-menu-close {
@@ -446,6 +610,14 @@
             font-size: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 1003; /* Higher z-index to ensure it's clickable */
+            pointer-events: auto; /* Always enable pointer events for close button */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-close:hover {
@@ -458,6 +630,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            pointer-events: auto; /* Enable pointer events for navigation */
         }
         
         .mobile-nav li {
@@ -472,6 +645,13 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
+            pointer-events: auto; /* Enable pointer events for links */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-nav a::after {
@@ -495,6 +675,16 @@
             transform: translateY(-3px);
         }
         
+        /* Active mobile navigation link styles */
+        .mobile-nav a.active {
+            color: #f59e0b !important;
+            font-weight: 600;
+        }
+        
+        .mobile-nav a.active::after {
+            width: 100% !important;
+        }
+        
         .mobile-contact-btn {
             margin-top: 30px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
@@ -511,6 +701,13 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             cursor: pointer;
+            pointer-events: auto; /* Enable pointer events for button */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-contact-btn::before {
@@ -539,11 +736,16 @@
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
             overflow: hidden;
-            min-height: 50vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 90px; /* Add padding to prevent header overlap */
+            padding-top: 100px; /* Add padding to prevent header overlap */
+            /* Prevent screenshot of hero section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fixed Hero Background - OPTIMIZED */
@@ -560,6 +762,8 @@
             background-attachment: fixed;
             will-change: transform;
             transition: background-image 1.5s ease-in-out;
+            /* Prevent background image from being saved */
+            pointer-events: none;
         }
         
         /* Dynamic Background Effect */
@@ -613,21 +817,22 @@
             animation: particleFloat 25s infinite linear;
             transform-style: preserve-3d;
             box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+            will-change: transform, opacity; /* Hardware acceleration */
         }
         
         @keyframes particleFloat {
             0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
+                transform: translateY(0) translateX(0) translateZ(0) scale(0);
                 opacity: 0;
             }
             10% {
-                opacity: 1;
+                opacity: 0.8;
             }
             90% {
-                opacity: 1;
+                opacity: 0.8;
             }
             100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
+                transform: translateY(-100vh) translateX(50px) translateZ(50px) scale(1.5);
                 opacity: 0;
             }
         }
@@ -644,7 +849,7 @@
         
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 5; /* Increased z-index to ensure content is above particles */
             transform-style: preserve-3d;
         }
         
@@ -656,6 +861,11 @@
             transform-style: preserve-3d;
             animation: floatText 8s ease-in-out infinite;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes floatText {
@@ -681,6 +891,11 @@
             text-fill-color: transparent;
             background-size: 200% auto;
             animation: gradientShift 5s ease infinite;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes gradientShift {
@@ -689,15 +904,20 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* Premium Policy Section */
-        .policy-section {
+        /* Privacy Policy Content Section */
+        .privacy-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 80px 0;
+            /* Prevent screenshot of privacy section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-section::before {
+        .privacy-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -709,9 +929,12 @@
             z-index: 0;
         }
         
-        .policy-content {
+        .privacy-content {
             position: relative;
             z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .section-title {
@@ -720,6 +943,11 @@
             margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .section-subtitle {
@@ -727,91 +955,99 @@
             color: #e2e8f0;
             max-width: 3xl;
             margin: 0 auto 4rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-card {
+        .privacy-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 40px;
+            padding: 35px;
             margin-bottom: 30px;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Prevent screenshot of privacy card */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .privacy-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
-        .policy-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        .privacy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .policy-card:hover::before {
-            opacity: 1;
-        }
-        
-        .policy-card h3 {
+        .privacy-card h3 {
+            color: #f59e0b;
             font-size: 1.8rem;
-            color: #f59e0b;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-card h3 i {
-            margin-right: 15px;
-            font-size: 2rem;
-        }
-        
-        .policy-card p {
+        .privacy-card p {
             color: #e2e8f0;
             line-height: 1.7;
             margin-bottom: 15px;
             font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-card ul {
+        .privacy-card ul {
             color: #e2e8f0;
-            padding-left: 25px;
+            line-height: 1.7;
             margin-bottom: 15px;
+            padding-left: 20px;
+            font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-card li {
+        .privacy-card li {
             margin-bottom: 10px;
-            line-height: 1.7;
-            font-size: 1.1rem;
         }
         
-        .policy-card li strong {
+        .privacy-card a {
             color: #f59e0b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .policy-card .highlight {
-            background: rgba(245, 158, 11, 0.15);
-            padding: 15px 20px;
-            border-radius: 12px;
-            border-left: 4px solid #f59e0b;
-            margin: 20px 0;
-        }
-        
-        .policy-card .highlight p {
-            margin-bottom: 0;
+        .privacy-card a:hover {
+            color: #f97316;
+            text-decoration: underline;
         }
         
         /* Premium Footer */
@@ -821,6 +1057,11 @@
             overflow: hidden;
             padding: 100px 0 50px;
             transform-style: preserve-3d;
+            /* Prevent screenshot of footer */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer::before {
@@ -861,6 +1102,11 @@
             margin-bottom: 25px;
             position: relative;
             display: inline-block;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-section h3::after {
@@ -880,6 +1126,11 @@
             line-height: 1.7;
             font-size: 1.05rem;
             text-align: justify;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-logo {
@@ -887,6 +1138,10 @@
             transition: all 0.4s ease;
             max-width: 220px;
             height: auto;
+            display: block;
+            outline: none; /* Remove focus outline */
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .footer-logo:hover {
@@ -913,6 +1168,8 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             font-size: 1.2rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .social-icon:hover {
@@ -938,6 +1195,13 @@
             display: inline-block;
             position: relative;
             font-size: 1.05rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-links li a::before {
@@ -972,6 +1236,11 @@
             margin-bottom: 20px;
             color: #94a3b8;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info i {
@@ -979,12 +1248,20 @@
             margin-right: 12px;
             margin-top: 5px;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
         
         .contact-info a {
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info a:hover {
@@ -999,12 +1276,24 @@
             position: relative;
             z-index: 1;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a {
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a:hover {
@@ -1031,6 +1320,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
             font-size: 1.5rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .back-to-top.visible {
@@ -1128,6 +1419,11 @@
             .hero-gradient {
                 padding-top: 80px; /* Adjust based on header height */
             }
+            
+            /* Privacy Cards Mobile Adjustments */
+            .privacy-card {
+                margin-bottom: 20px;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -1160,17 +1456,312 @@
                 margin-top: 20px; /* Add some space between header and title */
             }
             
-            .policy-card {
-                padding: 25px;
+            /* Section titles for smaller screens */
+            .section-title {
+                font-size: 2rem;
             }
             
-            .policy-card h3 {
-                font-size: 1.5rem;
+            /* Footer adjustments for smaller screens */
+            .footer-section h3 {
+                font-size: 1.4rem;
             }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+        
+        /* Medium screen adjustments for header */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px; /* Reduced gap for medium screens */
+            }
+            
+            .nav-link {
+                font-size: 0.9rem; /* Smaller font size for medium screens */
+            }
+            
+            .header-content {
+                padding: 20px 3%;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+        }
+        
+        /* Large screen adjustments for header */
+        @media (min-width: 1600px) {
+            .header-content {
+                max-width: 1600px; /* Larger max width for very large screens */
+            }
+            
+            .nav-menu {
+                gap: 30px; /* Increased gap for larger screens */
+            }
+            
+            .nav-link {
+                font-size: 1rem; /* Larger font size for larger screens */
+            }
+        }
+        
+        /* Performance optimization for slower devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Loading screen fix */
+        body {
+            overflow: hidden; /* Initially hide scrollbars */
+        }
+        
+        body.loaded {
+            overflow: visible; /* Show scrollbars after loading */
+        }
+        
+        /* Ensure the loading screen properly disappears */
+        .loading-screen.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for better accessibility - but not for logo */
+        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+        
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Container max-width for better responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Grid adjustments for better responsiveness */
+        @media (min-width: 768px) {
+            .grid {
+                display: grid;
+                gap: 30px;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        
+        /* Flex utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .gap-4 {
+            gap: 1rem;
+        }
+        
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        
+        /* Spacing utilities */
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .mb-20 {
+            margin-bottom: 5rem;
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        /* Background utilities */
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+        }
+        
+        .from-gray-900 {
+            --tw-gradient-from: #111827;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(17, 24, 39, 0));
+        }
+        
+        .to-gray-800 {
+            --tw-gradient-to: #1f2937;
+        }
+        
+        /* Z-index utilities */
+        .z-10 {
+            z-index: 10;
+        }
+        
+        /* Position utilities */
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        /* Overflow utilities */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        /* Visibility utilities */
+        .invisible {
+            visibility: hidden;
+        }
+        
+        .visible {
+            visibility: visible;
+        }
+        
+        /* Opacity utilities */
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .opacity-100 {
+            opacity: 1;
+        }
+        
+        /* Transform utilities */
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        
+        /* Transition utilities */
+        .transition {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        /* Shadow utilities */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- PRELOAD HERO IMAGES -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
@@ -1187,7 +1778,18 @@
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
-        <p class="loading-text">Loading Policy<span class="loading-dots"></span></p>
+        <p class="loading-text">Loading Privacy Policy<span class="loading-dots"></span></p>
+        <!-- Loading progress bar -->
+        <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
+            <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
+        </div>
+    </div>
+    
+    <!-- Screenshot Protection Overlay -->
+    <div id="screenshotProtection" class="screenshot-protection">
+        <h2>Screenshot Protection</h2>
+        <p>Screenshots are not allowed on this website. Please close this overlay to continue browsing.</p>
+        <button id="closeScreenshotProtection">Continue Browsing</button>
     </div>
     
     <!-- Premium Header -->
@@ -1213,7 +1815,7 @@
                 <button class="contact-btn">Get Quote</button>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1222,8 +1824,8 @@
     </header>
     
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="mobile-menu-close" id="mobileMenuClose">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
         </button>
         <ul class="mobile-nav">
@@ -1240,12 +1842,12 @@
     </div>
     
     <!-- Premium Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
     <!-- Premium Hero Section -->
-    <section class="hero-gradient">
+    <section id="main-content" class="hero-gradient">
         <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
         <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
@@ -1260,149 +1862,115 @@
                 <h1 class="hero-title text-white">
                     Privacy <span class="text-gradient">Policy</span>
                 </h1>
-                <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">At Naptico Green Energy Solars, we value your privacy and are committed to protecting your personal information. This policy outlines how we collect, use, and safeguard your data.</p>
+                <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">At Naptico Green Energy Solars, we are committed to protecting your privacy and ensuring the security of your personal information.</p>
             </div>
         </div>
     </section>
     
-    <!-- Premium Policy Section -->
-    <section class="policy-section py-20">
-        <div class="container mx-auto px-4 policy-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Privacy Policy</span></h2>
-                <p class="section-subtitle">How we collect, use, and protect your personal information when you use our solar energy solutions</p>
-            </div>
-            
-            <div class="policy-card fade-in stagger-1">
-                <h3><i class="fas fa-shield-alt"></i> Information We Collect</h3>
-                <p>At Naptico Green Energy Solars, we collect various types of information to provide you with the best possible service. This information helps us understand your needs and deliver personalized solar energy solutions.</p>
-                <p>The types of information we may collect include:</p>
+    <!-- Privacy Policy Content Section -->
+    <section class="privacy-section py-20">
+        <div class="privacy-content">
+            <div class="privacy-card fade-in">
+                <h3>Information We Collect</h3>
+                <p>We collect information to provide better services to all our users. This includes:</p>
                 <ul>
-                    <li><strong>Personal identification information:</strong> Name, email address, phone number, and physical address.</li>
-                    <li><strong>Property information:</strong> Details about your property, including location, roof characteristics, and energy consumption patterns.</li>
-                    <li><strong>Technical information:</strong> Information about your current electrical system and energy usage history.</li>
-                    <li><strong>Financial information:</strong> Payment details and financing information for solar installations.</li>
-                    <li><strong>Communication data:</strong> Records of our interactions with you, including phone calls, emails, and meeting notes.</li>
+                    <li>Personal identification information (Name, email address, phone number, etc.)</li>
+                    <li>Device information (IP address, browser type, operating system)</li>
+                    <li>Information collected through cookies and similar technologies</li>
+                    <li>Information you provide when filling out forms on our website</li>
+                    <li>Information related to your solar energy needs and requirements</li>
                 </ul>
             </div>
             
-            <div class="policy-card fade-in stagger-2">
-                <h3><i class="fas fa-database"></i> How We Collect Your Information</h3>
-                <p>We collect information through various channels when you interact with our company:</p>
+            <div class="privacy-card fade-in stagger-1">
+                <h3>How We Use Your Information</h3>
+                <p>We use the information we collect for various purposes, including:</p>
                 <ul>
-                    <li><strong>Direct interactions:</strong> When you contact us via phone, email, or in person.</li>
-                    <li><strong>Website forms:</strong> When you fill out contact forms, quote requests, or other forms on our website.</li>
-                    <li><strong>Site visits:</strong> When our technicians visit your property to assess your solar installation needs.</li>
-                    <li><strong>Automatic collection:</strong> Our website may automatically collect certain information through cookies and similar technologies.</li>
-                    <li><strong>Third parties:</strong> With your consent, we may receive information from credit agencies, government entities, or other service providers.</li>
-                </ul>
-                
-                <div class="highlight">
-                    <p><strong>Note:</strong> We only collect information that is necessary for providing our solar energy services and improving our customer experience.</p>
-                </div>
-            </div>
-            
-            <div class="policy-card fade-in stagger-3">
-                <h3><i class="fas fa-user-cog"></i> How We Use Your Information</h3>
-                <p>We use the information we collect for various purposes related to our business operations and service delivery:</p>
-                <ul>
-                    <li><strong>Service provision:</strong> To design, install, and maintain solar energy systems tailored to your needs.</li>
-                    <li><strong>Communication:</strong> To respond to your inquiries, provide updates, and send relevant information about our services.</li>
-                    <li><strong>Administrative purposes:</strong> To process payments, manage warranties, and maintain customer records.</li>
-                    <li><strong>Service improvement:</strong> To analyze usage patterns and feedback to enhance our products and services.</li>
-                    <li><strong>Marketing:</strong> With your consent, to inform you about new products, services, and special offers.</li>
-                    <li><strong>Legal compliance:</strong> To comply with applicable laws, regulations, and industry standards.</li>
+                    <li>To provide and maintain our services</li>
+                    <li>To process and fulfill your requests for solar energy solutions</li>
+                    <li>To communicate with you about our products, services, and promotional offers</li>
+                    <li>To improve our website and services based on your feedback</li>
+                    <li>To monitor and analyze usage patterns and trends</li>
+                    <li>To comply with legal obligations and protect our rights</li>
                 </ul>
             </div>
             
-            <div class="policy-card fade-in stagger-4">
-                <h3><i class="fas fa-lock"></i> Information Sharing and Disclosure</h3>
-                <p>We respect your privacy and do not sell your personal information to third parties. We may share your information only under specific circumstances:</p>
+            <div class="privacy-card fade-in stagger-2">
+                <h3>Information Sharing and Disclosure</h3>
+                <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:</p>
                 <ul>
-                    <li><strong>Service providers:</strong> With trusted third-party companies who assist us in operating our business, such as installation partners, financing institutions, and payment processors.</li>
-                    <li><strong>Legal requirements:</strong> When required by law, regulation, or government request.</li>
-                    <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of company assets.</li>
-                    <li><strong>Protection of rights:</strong> To protect our rights, privacy, safety, or property, or that of our customers or the public.</li>
-                    <li><strong>With your consent:</strong> When you have given us explicit permission to share your information for specific purposes.</li>
+                    <li>To trusted service providers who assist us in operating our website and services</li>
+                    <li>When required by law or to protect our rights, property, or safety</li>
+                    <li>In connection with a business transfer, merger, or acquisition</li>
+                    <li>With your explicit consent</li>
                 </ul>
+                <p>All third parties with whom we share your information are obligated to protect its confidentiality and security.</p>
             </div>
             
-            <div class="policy-card fade-in stagger-5">
-                <h3><i class="fas fa-shield-virus"></i> Data Security</h3>
-                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction:</p>
+            <div class="privacy-card fade-in stagger-3">
+                <h3>Data Security</h3>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
                 <ul>
-                    <li><strong>Encryption:</strong> We use industry-standard encryption to protect sensitive data during transmission and storage.</li>
-                    <li><strong>Access controls:</strong> We restrict access to personal information to authorized employees who need it to perform their job functions.</li>
-                    <li><strong>Employee training:</strong> We provide regular training to our employees on data protection best practices.</li>
-                    <li><strong>Security assessments:</strong> We conduct periodic security assessments to identify and address potential vulnerabilities.</li>
-                    <li><strong>Physical security:</strong> We maintain physical security measures at our facilities to protect paper records and electronic systems.</li>
+                    <li>Encryption of sensitive data during transmission</li>
+                    <li>Secure storage of personal information</li>
+                    <li>Regular security assessments and updates</li>
+                    <li>Employee training on data protection practices</li>
                 </ul>
-                
-                <div class="highlight">
-                    <p><strong>Important:</strong> While we take reasonable measures to protect your information, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
-                </div>
+                <p>However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
             </div>
             
-            <div class="policy-card fade-in stagger-6">
-                <h3><i class="fas fa-user-check"></i> Your Privacy Rights</h3>
-                <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+            <div class="privacy-card fade-in stagger-4">
+                <h3>Your Rights and Choices</h3>
+                <p>You have certain rights regarding your personal information, including:</p>
                 <ul>
-                    <li><strong>Access:</strong> You have the right to request a copy of the personal information we hold about you.</li>
-                    <li><strong>Correction:</strong> You can request that we correct inaccurate or incomplete information.</li>
-                    <li><strong>Deletion:</strong> You may request that we delete your personal information, subject to certain legal exceptions.</li>
-                    <li><strong>Portability:</strong> You can request to receive your personal information in a portable format.</li>
-                    <li><strong>Objection:</strong> You can object to the processing of your personal information for certain purposes.</li>
-                    <li><strong>Withdrawal of consent:</strong> If we rely on your consent, you can withdraw it at any time.</li>
+                    <li>The right to access, update, or correct your personal information</li>
+                    <li>The right to request deletion of your personal information</li>
+                    <li>The right to object to or restrict the processing of your personal information</li>
+                    <li>The right to data portability</li>
+                    <li>The right to withdraw consent at any time</li>
                 </ul>
-                
-                <p>To exercise these rights, please contact us at <a href="mailto:privacy@napticogreenenergysolars.com" class="text-amber-500 hover:text-amber-400 transition-colors">privacy@napticogreenenergysolars.com</a> or call us at <a href="tel:08029527671" class="text-amber-500 hover:text-amber-400 transition-colors">080 2952 7671</a>.</p>
+                <p>To exercise these rights, please contact us using the information provided at the bottom of this page.</p>
             </div>
             
-            <div class="policy-card fade-in stagger-6">
-                <h3><i class="fas fa-cookie-bite"></i> Cookies and Tracking Technologies</h3>
-                <p>Our website uses cookies and similar tracking technologies to enhance your browsing experience and analyze website traffic:</p>
+            <div class="privacy-card fade-in stagger-5">
+                <h3>Cookies and Tracking Technologies</h3>
+                <p>We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small files stored on your device that contain information about your browsing activities.</p>
+                <p>Our website uses the following types of cookies:</p>
                 <ul>
-                    <li><strong>Essential cookies:</strong> Necessary for the website to function properly and cannot be disabled.</li>
-                    <li><strong>Analytical cookies:</strong> Help us understand how visitors interact with our website by collecting anonymous information.</li>
-                    <li><strong>Functional cookies:</strong> Remember your preferences and personalize your experience on our website.</li>
-                    <li><strong>Advertising cookies:</strong> Used to deliver relevant advertisements and track marketing campaign effectiveness.</li>
+                    <li><strong>Essential Cookies:</strong> Necessary for the website to function properly</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our website</li>
+                    <li><strong>Marketing Cookies:</strong> Used to track visitors across websites to display relevant ads</li>
                 </ul>
-                
-                <p>You can manage your cookie preferences through your browser settings or by using the cookie consent banner on our website. Disabling certain cookies may affect the functionality of our website.</p>
+                <p>You can manage your cookie preferences through your browser settings or through our cookie consent banner.</p>
             </div>
             
-            <div class="policy-card fade-in stagger-6">
-                <h3><i class="fas fa-child"></i> Children's Privacy</h3>
-                <p>Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected personal information from a child, we will take steps to delete such information promptly.</p>
-                
-                <p>If you are a parent or guardian and believe that your child has provided us with personal information, please contact us immediately so that we can take appropriate action.</p>
+            <div class="privacy-card fade-in stagger-6">
+                <h3>Third-Party Links</h3>
+                <p>Our website may contain links to third-party websites that are not owned or controlled by Naptico Green Energy Solars. This Privacy Policy does not apply to those third-party websites. We recommend reviewing the privacy policies of any third-party websites you visit.</p>
+                <p>We are not responsible for the privacy practices of such third-party websites and encourage you to be aware when you leave our site.</p>
             </div>
             
-            <div class="policy-card fade-in stagger-6">
-                <h3><i class="fas fa-sync-alt"></i> Changes to This Privacy Policy</h3>
-                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, services, or for operational, legal, or regulatory reasons. When we make changes, we will:</p>
-                <ul>
-                    <li>Update the "Last Updated" date at the top of this policy.</li>
-                    <li>Post the revised policy on our website.</li>
-                    <li>Notify you of significant changes through email or other communication channels.</li>
-                </ul>
-                
-                <p>We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.</p>
+            <div class="privacy-card fade-in">
+                <h3>Children's Privacy</h3>
+                <p>Our website is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13 without parental consent, we will take steps to remove that information.</p>
+                <p>If you are a parent or guardian and believe that your child has provided us with personal information, please contact us so that we can take appropriate actions.</p>
             </div>
             
-            <div class="policy-card fade-in stagger-6">
-                <h3><i class="fas fa-headset"></i> Contact Information</h3>
-                <p>If you have any questions about our Privacy Policy, please don't hesitate to contact us:</p>
+            <div class="privacy-card fade-in">
+                <h3>Changes to This Privacy Policy</h3>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy.</p>
+                <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+            </div>
+            
+            <div class="privacy-card fade-in">
+                <h3>Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
                 <ul>
-                    <li><strong>Phone:</strong> <a href="tel:08029527671" class="text-amber-500 hover:text-amber-400 transition-colors">080 2952 7671</a> | <a href="tel:+917019299196" class="text-amber-500 hover:text-amber-400 transition-colors">+91 70192 99196</a></li>
-                    <li><strong>Email:</strong> <a href="mailto:privacy@napticogreenenergysolars.com" class="text-amber-500 hover:text-amber-400 transition-colors">privacy@napticogreenenergysolars.com</a></li>
-                    <li><strong>Address:</strong> 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
-                    <li><strong>Business Hours:</strong> Monday to Saturday, 10:00 AM to 7:00 PM</li>
+                    <li>By email: <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a></li>
+                    <li>By phone: <a href="tel:080 2952 7671">080 2952 7671</a> or <a href="tel:+91 70192 99196">+91 70192 99196</a></li>
+                    <li>By visiting this page on our website: <a href="./">Naptico Green Energy Solars</a></li>
+                    <li>By mail: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
                 </ul>
-                
-                <div class="highlight">
-                    <p><strong>Important:</strong> This privacy policy is effective as of the date of publication and will remain in effect until replaced by a new version.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -1414,21 +1982,24 @@
                 <div class="footer-section">
                     <!-- Logo path updated to use relative path and made clickable -->
                     <a href="./">
-                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
+                        <!-- Fixed filename with space issue and added proper dimensions -->
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
+                             onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
+                             width="220" height="90" loading="lazy">
                     </a>
-                    <p>We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
+                    <p style="font-size: 14px;">We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon">
-                            <i class="fab fa-facebook text-white"></i>
+                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon" aria-label="Visit our Facebook page">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon">
-                            <i class="fab fa-instagram text-white"></i>
+                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon" aria-label="Visit our Instagram page">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon">
-                            <i class="fab fa-linkedin text-white"></i>
+                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon" aria-label="Visit our LinkedIn page">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon">
-                            <i class="fab fa-youtube text-white"></i>
+                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon" aria-label="Visit our YouTube channel">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -1464,7 +2035,17 @@
                     <ul class="contact-info">
                         <li>
                             <i class="fas fa-map-marker-alt text-black"></i>
-                            <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 16px; display: block; margin-bottom: 5px;">Corporation Office:</strong>
+                                <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt text-black"></i>
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 16px; display: block; margin-bottom: 5px;">Registered Office:</strong>
+                                <span>10, Pavanasuta, 7th Cross, 30th Main, Near Balaji Kalyana Mantapa, Banashankari 3rd Stage, Bengaluru-560085</span>
+                            </div>
                         </li>
                         <li>
                             <i class="fas fa-phone-alt text-black"></i>
@@ -1488,108 +2069,280 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Legal Disclaimer.html">Legal Disclaimer</a> | <a href="Privacy Policy.html">Privacy Policy</a>|<a href="Terms & Conditions.html">Terms & Conditions</a>| <a href="Refund-Return-Policy.html">Refund/Return Policy</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
             </div>
         </div>
     </footer>
     
     <script>
-        // Function to detect if device is touch-enabled
-        function isTouchDevice() {
-            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        // URL Redirect for index.html
+        if (window.location.pathname.endsWith('index.html')) {
+            const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Premium Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 2500);
+        // Improved Loading Screen Script with better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
+            // Function to hide loading screen
+            function hideLoadingScreen() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    console.log('Loading screen hidden');
+                    // Ensure body can scroll
+                    document.body.style.overflow = 'auto';
+                    document.body.classList.add('loaded');
+                    // Enable pointer events
+                    document.body.style.pointerEvents = 'auto';
+                } else {
+                    console.error('Loading screen element not found');
+                }
+            }
+            
+            // Loading progress bar animation
+            const progressBar = document.getElementById('loadingProgressBar');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += 5;
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(hideLoadingScreen, 500);
+                }
+            }, 100);
+            
+            // Try to hide loading screen after a short delay
+            setTimeout(hideLoadingScreen, 1500);
+            
+            // Also hide when window is fully loaded
+            window.addEventListener('load', function() {
+                console.log('Window fully loaded');
+                setTimeout(hideLoadingScreen, 500);
+            });
+            
+            // Fallback: Force hide after 10 seconds no matter what
+            setTimeout(hideLoadingScreen, 10000);
         });
         
-        // Only initialize custom cursor on non-touch devices
-        if (!isTouchDevice()) {
-            // Premium Custom Cursor
-            const cursor = document.querySelector('.cursor');
-            const cursorFollower = document.querySelector('.cursor-follower');
+        // Check if the device supports touch
+        function isTouchDevice() {
+            return 'ontouchstart' in window || 
+                   navigator.maxTouchPoints > 0 || 
+                   navigator.msMaxTouchPoints > 0 || 
+                   // For some browsers that don't properly report touch support
+                   (window.DocumentTouch && document instanceof DocumentTouch);
+        }
+        
+        // Variables to track input type and cursor state
+        let lastInputType = null; // 'touch' or 'mouse'
+        let inputDetected = false;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+        
+        // Get cursor elements
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const touchIndicator = document.querySelector('.touch-indicator');
+        
+        // Initially hide both cursors
+        if (cursor) cursor.style.opacity = '0';
+        if (cursorFollower) cursorFollower.style.opacity = '0';
+        if (touchIndicator) touchIndicator.style.opacity = '0';
+        
+        // Function to show custom cursor
+        function showCustomCursor() {
+            if (cursor) cursor.style.opacity = '1';
+            if (cursorFollower) cursorFollower.style.opacity = '1';
+            if (touchIndicator) touchIndicator.style.opacity = '0';
+        }
+        
+        // Function to show touch indicator
+        function showTouchIndicator() {
+            if (cursor) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
+            if (touchIndicator) touchIndicator.style.opacity = '1';
+        }
+        
+        // Function to set input type and show appropriate cursor
+        function setInputType(type) {
+            if (lastInputType === type) return;
+            lastInputType = type;
+            if (type === 'touch') {
+                showTouchIndicator();
+            } else if (type === 'mouse') {
+                showCustomCursor();
+            }
+        }
+        
+        // If it's a touch device, immediately set the input type to touch
+        if (isTouchDevice()) {
+            setInputType('touch');
+            inputDetected = true;
             
-            // Optimized cursor movement using direct position updates
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
+            // Also add CSS to completely hide cursor elements on touch devices
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 1024px) {
+                    .cursor, .cursor-follower {
+                        display: none !important;
+                        opacity: 0 !important;
+                        pointer-events: none !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Listen for the first touch event
+        document.addEventListener('touchstart', function onFirstTouch(e) {
+            document.removeEventListener('touchstart', onFirstTouch);
+            inputDetected = true;
+            setInputType('touch');
+        }, { once: true });
+        
+        // Listen for the first mouse move event
+        document.addEventListener('mousemove', function onFirstMouseMove(e) {
+            document.removeEventListener('mousemove', onFirstMouseMove);
+            inputDetected = true;
+            setInputType('mouse');
             
-            document.addEventListener('mousemove', (e) => {
+            // Initialize cursor position to the current mouse position
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (cursor) {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            }
+            if (cursorFollower) {
+                followerX = mouseX;
+                followerY = mouseY;
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
+            }
+        }, { once: true });
+        
+        // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
+        setTimeout(() => {
+            if (!inputDetected && !isTouchDevice()) {
+                setInputType('mouse');
+            }
+        }, 1000);
+        
+        // Mouse move handler - only update when last input was mouse
+        document.addEventListener('mousemove', (e) => {
+            // Always update input type to mouse on mouse movement
+            setInputType('mouse');
+            
+            // Only update cursor position if the last input was mouse
+            if (lastInputType === 'mouse') {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
                 
                 // Update main cursor position immediately
-                cursor.style.left = mouseX - 12.5 + 'px';
-                cursor.style.top = mouseY - 12.5 + 'px';
-            });
-            
-            // Use requestAnimationFrame for smooth follower animation
-            function animateFollower() {
-                // Simple linear interpolation for smooth following
-                followerX += (mouseX - followerX) * 0.1;
-                followerY += (mouseY - followerY) * 0.1;
-                
-                // Apply position to follower
-                cursorFollower.style.left = followerX - 25 + 'px';
-                cursorFollower.style.top = followerY - 25 + 'px';
-                
-                requestAnimationFrame(animateFollower);
+                if (cursor) {
+                    cursor.style.left = mouseX + 'px';
+                    cursor.style.top = mouseY + 'px';
+                }
             }
-            
-            animateFollower();
-            
-            // Hide cursor when leaving the window
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-                cursorFollower.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-            
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .policy-card');
-            
-            hoverElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
-        }
+        });
         
-        // Touch indicator for mobile devices
-        if (isTouchDevice()) {
-            const touchIndicator = document.querySelector('.touch-indicator');
+        // Touch event handlers
+        document.addEventListener('touchstart', (e) => {
+            setInputType('touch');
             
-            document.addEventListener('touchstart', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
                 touchIndicator.classList.add('active');
-            });
-            
-            document.addEventListener('touchmove', (e) => {
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (touchIndicator) {
+                touchIndicator.classList.remove('active');
+            }
+        });
+        
+        // Cursor follower animation - only when using mouse
+        function animateFollower() {
+            if (lastInputType === 'mouse') {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                
+                if (cursorFollower) {
+                    cursorFollower.style.left = followerX + 'px';
+                    cursorFollower.style.top = followerY + 'px';
+                }
+            }
+            requestAnimationFrame(animateFollower);
+        }
+        
+        animateFollower();
+        
+        // Hover effects - only apply when using mouse
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .privacy-card, .nav-link, .contact-btn, .mobile-contact-btn, .social-icon, .back-to-top');
+        
+        // Store the original cursor size to prevent jumping
+        let originalCursorSize = 25;
+        let originalFollowerSize = 50;
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (lastInputType === 'mouse') {
+                    // Store original sizes if not already stored
+                    if (!originalCursorSize && cursor) {
+                        originalCursorSize = parseInt(cursor.style.width) || 25;
+                    }
+                    if (!originalFollowerSize && cursorFollower) {
+                        originalFollowerSize = parseInt(cursorFollower.style.width) || 50;
+                    }
+                    
+                    // Apply hover effect
+                    if (cursor) cursor.classList.add('hover');
+                    if (cursorFollower) cursorFollower.classList.add('hover');
+                }
             });
             
-            document.addEventListener('touchend', () => {
-                touchIndicator.classList.remove('active');
+            element.addEventListener('mouseleave', () => {
+                if (lastInputType === 'mouse') {
+                    // Remove hover effect
+                    if (cursor) cursor.classList.remove('hover');
+                    if (cursorFollower) cursorFollower.classList.remove('hover');
+                }
             });
-        }
+        });
+        
+        // Document enter/leave events for cursor - only when using mouse
+        document.addEventListener('mouseleave', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
+            }
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
+            }
+        });
         
         // Premium Header scroll effect
         const header = document.querySelector('.header');
@@ -1610,9 +2363,15 @@
         
         // Function to reset mobile menu state
         function resetMobileMenu() {
-            mobileMenuOverlay.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('active');
+            }
+            if (mobileMenuBtn) {
+                mobileMenuBtn.classList.remove('active');
+            }
             document.body.style.overflow = '';
+            // Re-enable pointer events on body
+            document.body.style.pointerEvents = 'auto';
         }
         
         // Reset menu on page load
@@ -1626,71 +2385,136 @@
         });
         
         // Open mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-            mobileMenuBtn.classList.toggle('active'); // Toggle animation class
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                
+                if (mobileMenuOverlay) {
+                    mobileMenuOverlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                // Don't disable pointer events on body as it prevents interaction with menu
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.add('active'); // Add animation class
+                }
+            });
+        }
         
         // Close mobile menu
         function closeMobileMenu() {
             resetMobileMenu();
         }
         
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                closeMobileMenu();
+            });
+        }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                const href = link.getAttribute('href');
+                closeMobileMenu();
+                // Navigate to the link after a short delay
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
         });
         
         // Mobile contact button functionality
-        mobileContactBtn.addEventListener('click', () => {
-            closeMobileMenu();
-            // Open quote modal after a short delay
-            setTimeout(() => {
-                window.location.href = "Coming Soon.html";
-            }, 300);
+        if (mobileContactBtn) {
+            mobileContactBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                closeMobileMenu();
+                // Open quote modal after a short delay
+                setTimeout(() => {
+                    window.location.href = 'Coming Soon.html';
+                }, 300);
+            });
+        }
+        
+        // Also close mobile menu when clicking outside the menu
+        document.addEventListener('click', (e) => {
+            if (mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
+                // Check if the click is outside the mobile menu
+                if (!mobileMenuOverlay.contains(e.target) && e.target !== mobileMenuBtn) {
+                    closeMobileMenu();
+                }
+            }
         });
         
-        // Premium Particle Effect - FIXED Z-INDEX
+        // Premium Particle Effect - FIXED Z-INDEX and PERFORMANCE
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 40;
+            if (!particlesContainer) return;
+            
+            const particleCount = 30; // Reduced particle count for better performance
+            
+            // Clear existing particles if any
+            particlesContainer.innerHTML = '';
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 12 + 6;
+                const size = Math.random() * 8 + 4; // Smaller particles for better performance
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
+                // Random starting position
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 25}s`;
-                particle.style.animationDuration = `${Math.random() * 15 + 20}s`;
+                particle.style.bottom = `-${size * 2}px`; // Start just below the viewport
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 5; // Reduced max delay
+                const duration = Math.random() * 10 + 15; // Shorter duration for faster movement
+                
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Set initial opacity
+                particle.style.opacity = Math.random() * 0.6 + 0.2; // Random opacity
                 
                 particlesContainer.appendChild(particle);
             }
         }
         
-        createParticles();
+        // Create particles immediately when DOM is loaded
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Also create particles when the page is fully loaded to ensure they're visible
+        window.addEventListener('load', () => {
+            // Check if particles exist, if not create them
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer && particlesContainer.children.length === 0) {
+                createParticles();
+            }
+        });
         
         // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Premium Scroll Animation
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -1722,6 +2546,253 @@
             if (elementTop < window.innerHeight - elementVisible) {
                 element.classList.add('visible');
             }
+        });
+        
+        // Error handling for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.error('Image failed to load:', this.src);
+                // You could set a fallback image here if needed
+            });
+        });
+        
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // Escape key to close modal
+            if (e.key === 'Escape') {
+                const mobileMenu = document.getElementById('mobileMenuOverlay');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.pointerEvents = 'auto';
+                }
+            }
+        });
+        
+        // Performance optimization: lazy load images
+        if ('IntersectionObserver' in window) {
+            const imgOptions = {
+                threshold: 0,
+                rootMargin: '0px 0px 50px 0px'
+            };
+            
+            const imgObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imgObserver.unobserve(img);
+                    }
+                });
+            }, imgOptions);
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imgObserver.observe(img);
+            });
+        }
+        
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page URL
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop().replace('.html', '') || 'index';
+            
+            // Set active navigation link for desktop
+            const desktopLinks = document.querySelectorAll('.nav-menu .nav-link');
+            desktopLinks.forEach(link => {
+                const linkPath = link.getAttribute('href').replace('./', '').replace('.html', '') || 'index';
+                if (linkPath === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Set active navigation link for mobile
+            const mobileLinks = document.querySelectorAll('.mobile-nav a');
+            mobileLinks.forEach(link => {
+                const linkPath = link.getAttribute('href').replace('./', '').replace('.html', '') || 'index';
+                if (linkPath === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Set active state for mobile menu button when menu is open
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            if (mobileMenuBtn && mobileMenuOverlay) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+                
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === this || e.target.id === 'mobileMenuClose') {
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+                
+                // Close mobile menu when a link is clicked
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuBtn.classList.remove('active');
+                    });
+                });
+            }
+        });
+        
+        // Screenshot Protection
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshotProtection = document.getElementById('screenshotProtection');
+            const closeScreenshotProtection = document.getElementById('closeScreenshotProtection');
+            
+            // Show screenshot protection overlay when page is hidden
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'flex';
+                    }
+                } else {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Close screenshot protection overlay
+            if (closeScreenshotProtection) {
+                closeScreenshotProtection.addEventListener('click', function() {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Prevent context menu (right-click)
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent text selection
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent image dragging
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Disable keyboard shortcuts for copying
+            document.addEventListener('keydown', function(e) {
+                // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+                if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable F12 (Developer Tools)
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+J (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Print Screen
+                if (e.keyCode === 44) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Additional protection for images
+            document.querySelectorAll('img').forEach(function(img) {
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+            
+            // iOS specific protections
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+                // Prevent double-tap to zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Prevent pinch to zoom
+                document.addEventListener('gesturestart', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gesturechange', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gestureend', function(e) {
+                    e.preventDefault();
+                });
+            }
+            
+            // Android specific protections
+            if (navigator.userAgent.match(/Android/i)) {
+                // Prevent long press to save image
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Prevent long press to select text
+                document.addEventListener('touchstart', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                });
+            }
+            
+            // Add watermark for screenshots
+            function addWatermark() {
+                const watermark = document.createElement('div');
+                watermark.style.position = 'fixed';
+                watermark.style.top = '0';
+                watermark.style.left = '0';
+                watermark.style.width = '100%';
+                watermark.style.height = '100%';
+                watermark.style.pointerEvents = 'none';
+                watermark.style.zIndex = '9999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.backgroundRepeat = 'repeat';
+                watermark.style.backgroundSize = '200px 200px';
+                watermark.style.opacity = '0.1';
+                document.body.appendChild(watermark);
+            }
+            
+            addWatermark();
         });
     </script>
 </body>

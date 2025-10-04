@@ -2640,6 +2640,18 @@
             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
         }
         
+        /* Media query for mobile cookie banner */
+        @media (max-width: 768px) {
+            #cookieBanner {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-radius: 0;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+        }
+        
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -4858,24 +4870,6 @@
             return null;
         }
         
-        // Inject CSS styles
-        const cookieStyles = `
-        @media (max-width: 768px) {
-          #cookie-banner {
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-radius: 0;
-            max-height: 80vh;
-            overflow-y: auto;
-          }
-        }
-        `;
-        
-        const styleElement = document.createElement('style');
-        styleElement.textContent = cookieStyles;
-        document.head.appendChild(styleElement);
-        
         // Initialize cookie banner
         document.addEventListener('DOMContentLoaded', () => {
             const cookieBanner = document.getElementById('cookieBanner');
@@ -4955,7 +4949,7 @@
         function checkCookieConsent() {
             const consent = getCookie('cookieConsent');
             if (!consent) {
-                const cookieBanner = document.getElementById('cookie-banner');
+                const cookieBanner = document.getElementById('cookieBanner');
                 if (cookieBanner) {
                     cookieBanner.classList.add('active');
                     cookieBanner.setAttribute('aria-hidden', 'false');

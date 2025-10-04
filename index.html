@@ -2640,18 +2640,6 @@
             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
         }
         
-        /* Media query for mobile cookie banner */
-        @media (max-width: 768px) {
-            #cookieBanner {
-                bottom: 0;
-                left: 0;
-                right: 0;
-                border-radius: 0;
-                max-height: 80vh;
-                overflow-y: auto;
-            }
-        }
-        
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -4870,13 +4858,31 @@
             return null;
         }
         
+        // Inject CSS styles
+        const cookieStyles = `
+        @media (max-width: 768px) {
+          #cookieBanner {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0;
+            max-height: 80vh;
+            overflow-y: auto;
+          }
+        }
+        `;
+        
+        const styleElement = document.createElement('style');
+        styleElement.textContent = cookieStyles;
+        document.head.appendChild(styleElement);
+        
         // Initialize cookie banner
         document.addEventListener('DOMContentLoaded', () => {
             const cookieBanner = document.getElementById('cookieBanner');
-            const cookieAccept = document.getElementById('cookie-accept');
-            const cookieSettings = document.getElementById('cookie-settings');
-            const cookieSettingsPanel = document.getElementById('cookie-settings-panel');
-            const cookieSaveSettings = document.getElementById('cookie-save-settings');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieSettings = document.getElementById('cookieSettings');
+            const cookieSettingsPanel = document.getElementById('cookieSettingsPanel');
+            const cookieSaveSettings = document.getElementById('cookieSaveSettings');
             const cookieToggles = document.querySelectorAll('.cookie-toggle');
         
             // Check if consent has been given

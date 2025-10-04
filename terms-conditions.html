@@ -998,11 +998,18 @@
             color: #f59e0b;
             font-size: 1.8rem;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
             /* Prevent text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+        }
+        
+        .terms-card h3 i {
+            margin-right: 15px;
+            font-size: 1.5rem;
         }
         
         .terms-card p {
@@ -1048,6 +1055,114 @@
         .terms-card a:hover {
             color: #f97316;
             text-decoration: underline;
+        }
+        
+        /* Note styles */
+        .note {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #f59e0b;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .note i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #ef4444;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .warning i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #3b82f6;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* Last Updated Section */
+        .last-updated {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .last-updated-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .last-updated-left i {
+            font-size: 2rem;
+            color: #f59e0b;
+            margin-right: 15px;
+        }
+        
+        .last-updated-text h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .last-updated-text p {
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+        
+        .last-updated-date {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .last-updated-date i {
+            margin-right: 8px;
         }
         
         /* Premium Footer */
@@ -1424,6 +1539,45 @@
             .terms-card {
                 margin-bottom: 20px;
             }
+            
+            /* Note styles for mobile */
+            .note, .warning, .info {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            
+            .note i, .warning i, .info i {
+                margin-right: 8px;
+                font-size: 1rem;
+            }
+            
+            /* Last Updated Section Mobile */
+            .last-updated {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            
+            .last-updated-left {
+                margin-bottom: 10px;
+            }
+            
+            .last-updated-left i {
+                font-size: 1.5rem;
+            }
+            
+            .last-updated-text h4 {
+                font-size: 1.1rem;
+            }
+            
+            .last-updated-text p {
+                font-size: 0.9rem;
+            }
+            
+            .last-updated-date {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -1468,6 +1622,35 @@
             
             .footer-content {
                 gap: 30px;
+            }
+            
+            /* Note styles for very small screens */
+            .note, .warning, .info {
+                font-size: 0.85rem;
+                padding: 8px 10px;
+            }
+            
+            .note i, .warning i, .info i {
+                margin-right: 6px;
+                font-size: 0.9rem;
+            }
+            
+            /* Last Updated Section for very small screens */
+            .last-updated-left i {
+                font-size: 1.3rem;
+            }
+            
+            .last-updated-text h4 {
+                font-size: 1rem;
+            }
+            
+            .last-updated-text p {
+                font-size: 0.85rem;
+            }
+            
+            .last-updated-date {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
         
@@ -1870,20 +2053,43 @@
     <!-- Terms & Conditions Content Section -->
     <section class="terms-section py-20">
         <div class="terms-content">
+            <!-- Last Updated Section -->
+            <div class="last-updated fade-in">
+                <div class="last-updated-left">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="last-updated-text">
+                        <h4>Terms & Conditions</h4>
+                        <p>These terms were last updated on the date shown below</p>
+                    </div>
+                </div>
+                <div class="last-updated-date">
+                    <i class="fas fa-clock"></i>
+                    <span id="lastUpdatedDate">January 1, 2025</span>
+                </div>
+            </div>
+            
             <div class="terms-card fade-in">
-                <h3>Introduction</h3>
+                <h3><i class="fas fa-info-circle"></i> Introduction</h3>
                 <p>Welcome to Naptico Green Energy Solars. These terms and conditions outline the rules and regulations for the use of our website and services. By accessing this website, we assume you accept these terms and conditions in their entirety. Do not continue to use Naptico Green Energy Solars' website if you do not accept all of the terms and conditions stated on this page.</p>
                 <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person accessing this website and accepting the Company's terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. Any use of the above terminology or other words in the singular, plural, capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>By using our website, you agree to be bound by these terms and conditions. If you do not agree to these terms, please do not use our website.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in stagger-1">
-                <h3>Cookies</h3>
+                <h3><i class="fas fa-cookie-bite"></i> Cookies</h3>
                 <p>We employ the use of cookies. By accessing Naptico Green Energy Solars, you agreed to use cookies in agreement with our privacy policy.</p>
                 <p>Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>You can choose to disable cookies through your browser settings, but this may affect the functionality of our website.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in stagger-2">
-                <h3>License</h3>
+                <h3><i class="fas fa-file-contract"></i> License</h3>
                 <p>Unless otherwise stated, Naptico Green Energy Solars and/or its licensors own the intellectual property rights for all material on Naptico Green Energy Solars. All intellectual property rights are reserved. You may access this from Naptico Green Energy Solars for your own personal use subjected to restrictions set in these terms and conditions.</p>
                 <p>You must not:</p>
                 <ul>
@@ -1892,10 +2098,14 @@
                     <li>Reproduce, duplicate or copy material from Naptico Green Energy Solars</li>
                     <li>Redistribute content from Naptico Green Energy Solars</li>
                 </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in stagger-3">
-                <h3>Hyperlinking to our Content</h3>
+                <h3><i class="fas fa-link"></i> Hyperlinking to our Content</h3>
                 <p>The following organizations may link to our Website without prior written approval:</p>
                 <ul>
                     <li>Government agencies</li>
@@ -1908,23 +2118,31 @@
             </div>
             
             <div class="terms-card fade-in stagger-4">
-                <h3>Content Liability</h3>
+                <h3><i class="fas fa-exclamation-triangle"></i> Content Liability</h3>
                 <p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that are rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of any third party rights.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>You are solely responsible for the content on your website and any legal consequences arising from it.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in stagger-5">
-                <h3>Reservation of Rights</h3>
+                <h3><i class="fas fa-balance-scale"></i> Reservation of Rights</h3>
                 <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it's linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
             </div>
             
             <div class="terms-card fade-in stagger-6">
-                <h3>Removal of links from our website</h3>
+                <h3><i class="fas fa-unlink"></i> Removal of links from our website</h3>
                 <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
                 <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>While we strive to provide accurate information, we make no warranties about the completeness, reliability, or accuracy of this information.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Disclaimer</h3>
+                <h3><i class="fas fa-shield-alt"></i> Disclaimer</h3>
                 <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
                 <ul>
                     <li>limit or exclude our or your liability for death or personal injury</li>
@@ -1933,10 +2151,14 @@
                     <li>exclude any of our or your liabilities that may not be excluded under applicable law</li>
                 </ul>
                 <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>This website is provided "as is" without any representations or warranties, express or implied. We make no representations or warranties in relation to this website or the information and materials provided on this website.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Service Terms</h3>
+                <h3><i class="fas fa-cogs"></i> Service Terms</h3>
                 <p>By using our website and services, you agree to the following service terms:</p>
                 <ul>
                     <li>You must provide accurate and complete information when using our services</li>
@@ -1946,10 +2168,14 @@
                     <li>You will not attempt to gain unauthorized access to any part of our services</li>
                     <li>You will not use our services to transmit any viruses, worms, or malicious code</li>
                 </ul>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>Violation of these service terms may result in immediate termination of your access to our services.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Payment Terms</h3>
+                <h3><i class="fas fa-credit-card"></i> Payment Terms</h3>
                 <p>For products and services purchased through our website, you agree to the following payment terms:</p>
                 <ul>
                     <li>All prices are listed in Indian Rupees (INR) and are inclusive of all applicable taxes</li>
@@ -1958,16 +2184,24 @@
                     <li>Any payment processing fees charged by third-party payment processors are your responsibility</li>
                     <li>In case of payment failure, you will be notified and given the option to retry the payment</li>
                 </ul>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>All transactions are secured with industry-standard encryption to protect your financial information.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Intellectual Property Rights</h3>
+                <h3><i class="fas fa-copyright"></i> Intellectual Property Rights</h3>
                 <p>All content on this website, including text, graphics, logos, images, and software, is the property of Naptico Green Energy Solars or its content suppliers and is protected by international copyright laws. The compilation of all content on this site is the exclusive property of Naptico Green Energy Solars and is protected by copyright laws.</p>
                 <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our website without prior written consent from Naptico Green Energy Solars.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Unauthorized use of any material on this website may violate copyright laws, trademark laws, the laws of privacy and publicity, and civil and criminal statutes.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Limitation of Liability</h3>
+                <h3><i class="fas fa-hand-paper"></i> Limitation of Liability</h3>
                 <p>In no event shall Naptico Green Energy Solars, its affiliates, or their respective directors, officers, employees, or agents be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, resulting from:</p>
                 <ul>
                     <li>The use or the inability to use our services</li>
@@ -1975,10 +2209,14 @@
                     <li>Statements or conduct of any third party on the service</li>
                     <li>Any other matter relating to the service</li>
                 </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Our total liability for any claims arising under these terms shall not exceed the amount paid by you, if any, for accessing our services.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Indemnification</h3>
+                <h3><i class="fas fa-handshake"></i> Indemnification</h3>
                 <p>You agree to indemnify, defend, and hold harmless Naptico Green Energy Solars and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including, without limitation, reasonable legal and accounting fees, arising out of or in connection with:</p>
                 <ul>
                     <li>Your use of or access to our website or services</li>
@@ -1986,27 +2224,43 @@
                     <li>Your violation of the rights of a third party, including but not limited to intellectual property rights</li>
                     <li>Your violation of any applicable law, rule, or regulation</li>
                 </ul>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>This indemnification obligation will survive the termination of these terms and conditions and your use of the service.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Termination</h3>
+                <h3><i class="fas fa-ban"></i> Termination</h3>
                 <p>We may terminate or suspend your access to our website and services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the terms and conditions.</p>
                 <p>Upon termination, your right to use the service will cease immediately. If you wish to terminate your account, you may simply discontinue using the service. All provisions of the terms and conditions which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Upon termination, all provisions of these terms which by their nature should survive termination shall survive, including without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Governing Law</h3>
+                <h3><i class="fas fa-gavel"></i> Governing Law</h3>
                 <p>These terms and conditions are governed by and construed in accordance with the laws of India and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>Any disputes arising under these terms and conditions shall be resolved in accordance with the laws of India.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Changes to Terms and Conditions</h3>
+                <h3><i class="fas fa-sync-alt"></i> Changes to Terms and Conditions</h3>
                 <p>We reserve the right, at our sole discretion, to modify or replace these Terms and Conditions by posting the updated version on our website. If we make material changes to these terms, we will notify you by email or by posting a notice on our website prior to the change becoming effective.</p>
                 <p>It is your responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes constitutes acceptance of those changes.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>We recommend that you review these terms and conditions periodically for any changes.</div>
+                </div>
             </div>
             
             <div class="terms-card fade-in">
-                <h3>Contact Us</h3>
+                <h3><i class="fas fa-envelope"></i> Contact Us</h3>
                 <p>If you have any questions about these terms and conditions, please contact us:</p>
                 <ul>
                     <li>By email: <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a></li>
@@ -2014,6 +2268,10 @@
                     <li>By visiting this page on our website: <a href="./">Naptico Green Energy Solars</a></li>
                     <li>By mail: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
                 </ul>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>Our customer service team is available Monday to Saturday, 10:00 AM to 7:00 PM IST.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -2113,6 +2371,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
+                <p style="margin-top: 8px; font-size: 0.9rem;">Last Updated: <span id="footerLastUpdated">January 1, 2025</span></p>
             </div>
         </div>
     </footer>
@@ -2210,7 +2469,7 @@
         // Function to show touch indicator
         function showTouchIndicator() {
             if (cursor) cursor.style.opacity = '0';
-            if (cursorFollower) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
             if (touchIndicator) touchIndicator.style.opacity = '1';
         }
         

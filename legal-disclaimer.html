@@ -35,8 +35,8 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Legal Disclaimer for Naptico Green Energy Solars. Please read our legal terms and conditions before using our services.">
-    <meta name="keywords" content="legal disclaimer, terms, solar energy legal, liability disclaimer">
+    <meta name="description" content="Legal Disclaimer for Naptico Green Energy Solars. Read our legal notices, disclaimers, and important information about our services.">
+    <meta name="keywords" content="legal disclaimer, legal notice, disclaimer, solar energy disclaimer, legal information">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -44,14 +44,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://napticogreenenergysolars.com/legal-disclaimer.html">
     <meta property="og:title" content="Legal Disclaimer - Naptico Green Energy Solars">
-    <meta property="og:description" content="Legal Disclaimer for Naptico Green Energy Solars. Please read our legal terms and conditions before using our services.">
+    <meta property="og:description" content="Legal Disclaimer for Naptico Green Energy Solars. Read our legal notices, disclaimers, and important information about our services.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://napticogreenenergysolars.com/legal-disclaimer.html">
     <meta property="twitter:title" content="Legal Disclaimer - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Legal Disclaimer for Naptico Green Energy Solars. Please read our legal terms and conditions before using our services.">
+    <meta property="twitter:description" content="Legal Disclaimer for Naptico Green Energy Solars. Read our legal notices, disclaimers, and important information about our services.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -905,19 +905,19 @@
         }
         
         /* Legal Disclaimer Content Section */
-        .legal-section {
+        .disclaimer-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             position: relative;
             overflow: hidden;
             padding: 80px 0;
-            /* Prevent screenshot of legal section */
+            /* Prevent screenshot of disclaimer section */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
         }
         
-        .legal-section::before {
+        .disclaimer-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -929,7 +929,7 @@
             z-index: 0;
         }
         
-        .legal-content {
+        .disclaimer-content {
             position: relative;
             z-index: 1;
             max-width: 1000px;
@@ -962,7 +962,7 @@
             user-select: none;
         }
         
-        .legal-card {
+        .disclaimer-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -974,7 +974,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            /* Prevent screenshot of legal card */
+            /* Prevent screenshot of disclaimer card */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -983,21 +983,23 @@
         
         /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(15px)) {
-            .legal-card {
+            .disclaimer-card {
                 background: rgba(255, 255, 255, 0.15);
             }
         }
         
-        .legal-card:hover {
+        .disclaimer-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-color: rgba(245, 158, 11, 0.5);
         }
         
-        .legal-card h3 {
+        .disclaimer-card h3 {
             color: #f59e0b;
             font-size: 1.8rem;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
             /* Prevent text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -1005,7 +1007,12 @@
             user-select: none;
         }
         
-        .legal-card p {
+        .disclaimer-card h3 i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .disclaimer-card p {
             color: #e2e8f0;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -1017,7 +1024,7 @@
             user-select: none;
         }
         
-        .legal-card ul {
+        .disclaimer-card ul {
             color: #e2e8f0;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -1030,11 +1037,11 @@
             user-select: none;
         }
         
-        .legal-card li {
+        .disclaimer-card li {
             margin-bottom: 10px;
         }
         
-        .legal-card a {
+        .disclaimer-card a {
             color: #f59e0b;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -1045,9 +1052,117 @@
             user-select: none;
         }
         
-        .legal-card a:hover {
+        .disclaimer-card a:hover {
             color: #f97316;
             text-decoration: underline;
+        }
+        
+        /* Note styles */
+        .note {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #f59e0b;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .note i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #ef4444;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .warning i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #3b82f6;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* Last Updated Section */
+        .last-updated {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .last-updated-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .last-updated-left i {
+            font-size: 2rem;
+            color: #f59e0b;
+            margin-right: 15px;
+        }
+        
+        .last-updated-text h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .last-updated-text p {
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+        
+        .last-updated-date {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .last-updated-date i {
+            margin-right: 8px;
         }
         
         /* Premium Footer */
@@ -1420,9 +1535,48 @@
                 padding-top: 80px; /* Adjust based on header height */
             }
             
-            /* Legal Cards Mobile Adjustments */
-            .legal-card {
+            /* Disclaimer Cards Mobile Adjustments */
+            .disclaimer-card {
                 margin-bottom: 20px;
+            }
+            
+            /* Note styles for mobile */
+            .note, .warning, .info {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            
+            .note i, .warning i, .info i {
+                margin-right: 8px;
+                font-size: 1rem;
+            }
+            
+            /* Last Updated Section Mobile */
+            .last-updated {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            
+            .last-updated-left {
+                margin-bottom: 10px;
+            }
+            
+            .last-updated-left i {
+                font-size: 1.5rem;
+            }
+            
+            .last-updated-text h4 {
+                font-size: 1.1rem;
+            }
+            
+            .last-updated-text p {
+                font-size: 0.9rem;
+            }
+            
+            .last-updated-date {
+                font-size: 0.9rem;
+                padding: 8px 15px;
             }
         }
         
@@ -1468,6 +1622,35 @@
             
             .footer-content {
                 gap: 30px;
+            }
+            
+            /* Note styles for very small screens */
+            .note, .warning, .info {
+                font-size: 0.85rem;
+                padding: 8px 10px;
+            }
+            
+            .note i, .warning i, .info i {
+                margin-right: 6px;
+                font-size: 0.9rem;
+            }
+            
+            /* Last Updated Section for very small screens */
+            .last-updated-left i {
+                font-size: 1.3rem;
+            }
+            
+            .last-updated-text h4 {
+                font-size: 1rem;
+            }
+            
+            .last-updated-text p {
+                font-size: 0.85rem;
+            }
+            
+            .last-updated-date {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
         
@@ -1862,79 +2045,168 @@
                 <h1 class="hero-title text-white">
                     Legal <span class="text-gradient">Disclaimer</span>
                 </h1>
-                <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">Please read our legal disclaimer carefully before using our website or services.</p>
+                <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">Please read our legal disclaimer carefully before using our website and services.</p>
             </div>
         </div>
     </section>
     
     <!-- Legal Disclaimer Content Section -->
-    <section class="legal-section py-20">
-        <div class="legal-content">
-            <div class="legal-card fade-in">
-                <h3>General Information</h3>
-                <p>The information provided by Naptico Green Energy Solars ("we," "us," or "our") on this website is for general informational purposes only. All information on the Site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information on the Site.</p>
+    <section class="disclaimer-section py-20">
+        <div class="disclaimer-content">
+            <!-- Last Updated Section -->
+            <div class="last-updated fade-in">
+                <div class="last-updated-left">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="last-updated-text">
+                        <h4>Legal Disclaimer</h4>
+                        <p>This legal disclaimer was last updated on the date shown below</p>
+                    </div>
+                </div>
+                <div class="last-updated-date">
+                    <i class="fas fa-clock"></i>
+                    <span id="lastUpdatedDate">October 1, 2025</span>
+                </div>
             </div>
             
-            <div class="legal-card fade-in stagger-1">
-                <h3>External Links Disclaimer</h3>
-                <p>Our website may contain links to third-party websites that are not owned or controlled by Naptico Green Energy Solars. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party websites that you visit.</p>
+            <div class="disclaimer-card fade-in">
+                <h3><i class="fas fa-exclamation-triangle"></i> General Disclaimer</h3>
+                <p>The information provided by Naptico Green Energy Solars ("we," "us," or "our") on this website is for general informational purposes only. All information on the Site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Site.</p>
+                <p>Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the Site or reliance on any information provided on the Site. Your use of the Site and your reliance on any information on the Site is solely at your own risk.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>The information on this website does not constitute professional advice. Always consult with a qualified professional before making any decisions based on the information provided.</div>
+                </div>
             </div>
             
-            <div class="legal-card fade-in stagger-2">
-                <h3>Professional Advice Disclaimer</h3>
-                <p>The Site cannot and does not contain professional advice. The information is provided for general informational and educational purposes only and is not a substitute for professional advice. Accordingly, before taking any actions based upon such information, we encourage you to consult with the appropriate professionals.</p>
-                <p>We do not provide any kind of professional advice. The use or reliance of any information contained on this site is solely at your own risk.</p>
-            </div>
-            
-            <div class="legal-card fade-in stagger-3">
-                <h3>Product and Service Information</h3>
-                <p>While we strive to provide accurate and up-to-date information about our solar energy products and services, we make no warranties or representations as to the accuracy, completeness, or suitability of such information. Product specifications, pricing, and availability are subject to change without notice.</p>
-                <p>Any reliance you place on such information is therefore strictly at your own risk. We recommend contacting us directly for the most current information about our products and services.</p>
-            </div>
-            
-            <div class="legal-card fade-in stagger-4">
-                <h3>Financial and Savings Estimates</h3>
-                <p>Any financial savings, energy production estimates, or return on investment calculations provided on our website are estimates only and are not guaranteed. Actual savings and energy production may vary based on numerous factors including but not limited to location, weather patterns, system maintenance, energy consumption habits, and changes in utility rates.</p>
-                <p>We recommend consulting with a qualified financial advisor before making any investment decisions based on information provided on this website.</p>
-            </div>
-            
-            <div class="legal-card fade-in stagger-5">
-                <h3>Limitation of Liability</h3>
-                <p>In no event shall Naptico Green Energy Solars, its directors, employees, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+            <div class="disclaimer-card fade-in stagger-1">
+                <h3><i class="fas fa-solar-panel"></i> Solar Energy Information</h3>
+                <p>The information provided regarding solar energy systems, including but not limited to performance estimates, savings calculations, and technical specifications, is based on industry standards and typical conditions. Actual performance may vary based on numerous factors including but not limited to:</p>
                 <ul>
-                    <li>Your access to or use of or inability to access or use the Service</li>
-                    <li>Any conduct or content of any third party on the Service</li>
-                    <li>Any content obtained from the Service</li>
-                    <li>Unauthorized access, use or alteration of your transmissions or content</li>
+                    <li>Geographic location and local climate conditions</li>
+                    <li>Orientation and tilt of solar panels</li>
+                    <li>Shading from trees, buildings, or other obstructions</li>
+                    <li>System design and component quality</li>
+                    <li>Installation quality and maintenance practices</li>
+                    <li>Local utility rates and net metering policies</li>
                 </ul>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>Performance estimates are not guarantees. We recommend consulting with one of our solar experts for a personalized assessment of your specific situation.</div>
+                </div>
             </div>
             
-            <div class="legal-card fade-in stagger-6">
-                <h3>Indemnification</h3>
-                <p>You agree to indemnify and hold Naptico Green Energy Solars and its parent, subsidiaries, affiliates, officers, agents, employees, partners, and licensors harmless from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of your breach of these Terms of Service or your violation of any law or the rights of a third party.</p>
+            <div class="disclaimer-card fade-in stagger-2">
+                <h3><i class="fas fa-calculator"></i> Savings Calculator</h3>
+                <p>Our solar savings calculator provides estimates based on available data and assumptions. These estimates are for informational purposes only and should not be considered as financial advice or a guarantee of actual savings. Actual savings will depend on numerous factors including:</p>
+                <ul>
+                    <li>Your specific energy consumption patterns</li>
+                    <li>Future changes in utility rates</li>
+                    <li>Government incentives and tax credits (which may change)</li>
+                    <li>System performance and degradation over time</li>
+                    <li>Maintenance costs and equipment replacement</li>
+                </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Financial decisions should not be made solely based on calculator results. We recommend consulting with a financial advisor before making any investment decisions.</div>
+                </div>
             </div>
             
-            <div class="legal-card fade-in">
-                <h3>Governing Law</h3>
-                <p>These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
-                <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+            <div class="disclaimer-card fade-in stagger-3">
+                <h3><i class="fas fa-coins"></i> Government Incentives and Subsidies</h3>
+                <p>Information regarding government incentives, tax credits, rebates, and subsidies is provided based on current programs and policies. These programs are subject to change without notice, and we cannot guarantee their availability, amount, or eligibility requirements.</p>
+                <p>We make no representations or warranties regarding the availability or amount of any incentives or subsidies. It is your responsibility to verify the current status of any programs and to understand the eligibility requirements and application processes.</p>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>We recommend checking with relevant government agencies or consulting with a tax professional for the most current information on available incentives.</div>
+                </div>
             </div>
             
-            <div class="legal-card fade-in">
-                <h3>Changes to This Disclaimer</h3>
-                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
-                <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+            <div class="disclaimer-card fade-in stagger-4">
+                <h3><i class="fas fa-tools"></i> Product and Service Information</h3>
+                <p>While we strive to provide accurate and up-to-date information about our products and services, specifications, features, and availability are subject to change without notice. Product images are for illustrative purposes only and may not exactly represent the actual products.</p>
+                <p>We reserve the right to modify, discontinue, or improve products and services at any time without prior notice. We are not responsible for typographical errors, inaccuracies, or omissions in product descriptions or pricing.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>For the most current product information and pricing, please contact our customer service team directly.</div>
+                </div>
             </div>
             
-            <div class="legal-card fade-in">
-                <h3>Contact Us</h3>
-                <p>If you have any questions about this Legal Disclaimer, please contact us:</p>
+            <div class="disclaimer-card fade-in stagger-5">
+                <h3><i class="fas fa-link"></i> External Links Disclaimer</h3>
+                <p>Our website may contain links to third-party websites that are not owned or controlled by Naptico Green Energy Solars. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.</p>
+                <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party websites that you visit. We do not warrant or endorse any products or services offered through third-party websites.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>When you leave our website to visit a third-party site, you do so at your own risk and are subject to the policies and terms of that site.</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer-card fade-in stagger-6">
+                <h3><i class="fas fa-user-shield"></i> Professional Advice</h3>
+                <p>The information provided on this website does not constitute professional advice. You should not rely on the information as an alternative to professional advice from qualified professionals in relevant fields, including but not limited to:</p>
+                <ul>
+                    <li>Financial advisors for investment decisions</li>
+                    <li>Tax professionals for tax-related matters</li>
+                    <li>Legal professionals for legal matters</li>
+                    <li>Electrical engineers or contractors for technical matters</li>
+                    <li>Roofing professionals for structural assessments</li>
+                </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Always seek the advice of qualified professionals with any questions you may have regarding your specific situation.</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer-card fade-in">
+                <h3><i class="fas fa-globe"></i> Geographic Limitations</h3>
+                <p>Naptico Green Energy Solars operates primarily in India. While we provide information that may be relevant to users in other regions, our products, services, and information are primarily intended for the Indian market.</p>
+                <p>Laws, regulations, incentives, and market conditions vary significantly by geographic region. Information provided on this website may not be applicable or accurate for users outside of our primary service area.</p>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>If you are located outside of India, please verify the applicability of any information to your specific location and local regulations.</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer-card fade-in">
+                <h3><i class="fas fa-shield-alt"></i> Limitation of Liability</h3>
+                <p>In no event shall Naptico Green Energy Solars, its affiliates, or their respective directors, officers, employees, or agents be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, resulting from:</p>
+                <ul>
+                    <li>Your use of or inability to use our website or services</li>
+                    <li>Unauthorized access to or alteration of your transmissions or data</li>
+                    <li>Statements or conduct of any third party on the service</li>
+                    <li>Any reliance on information provided on our website</li>
+                    <li>Any errors, omissions, or inaccuracies in the information</li>
+                    <li>Any damage to your computer system or mobile device</li>
+                </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Our total liability for any claims arising under this disclaimer shall not exceed the amount paid by you, if any, for accessing our services.</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer-card fade-in">
+                <h3><i class="fas fa-sync-alt"></i> Changes to This Disclaimer</h3>
+                <p>We reserve the right, at our sole discretion, to modify or replace this disclaimer at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                <p>By continuing to access or use our website after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the website.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>We recommend that you check this page periodically for any changes. Your continued use of this website constitutes acceptance of those changes.</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer-card fade-in">
+                <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+                <p>If you have any questions about this legal disclaimer, please contact us:</p>
                 <ul>
                     <li>By email: <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a></li>
                     <li>By phone: <a href="tel:080 2952 7671">080 2952 7671</a> or <a href="tel:+91 70192 99196">+91 70192 99196</a></li>
                     <li>By visiting this page on our website: <a href="./">Naptico Green Energy Solars</a></li>
-                    <li>By mail: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
+                    <li>By Address: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
                 </ul>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>Our customer service team is available Monday to Saturday, 10:00 AM to 7:00 PM IST.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -2034,6 +2306,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
+                <p style="margin-top: 8px; font-size: 0.9rem;">Last Updated: <span id="footerLastUpdated">January 1, 2025</span></p>
             </div>
         </div>
     </footer>
@@ -2261,7 +2534,7 @@
         animateFollower();
         
         // Hover effects - only apply when using mouse
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .legal-card, .nav-link, .contact-btn, .mobile-contact-btn, .social-icon, .back-to-top');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .disclaimer-card, .nav-link, .contact-btn, .mobile-contact-btn, .social-icon, .back-to-top');
         
         // Store the original cursor size to prevent jumping
         let originalCursorSize = 25;

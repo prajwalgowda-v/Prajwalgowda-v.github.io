@@ -35,8 +35,8 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Refund & Return Policy for Naptico Green Energy Solars. Learn about our refund process, return conditions, and customer satisfaction guarantees.">
-    <meta name="keywords" content="refund policy, return policy, solar energy refund, customer satisfaction, money back guarantee">
+    <meta name="description" content="Refund & Return Policy for Naptico Green Energy Solars. Read our refund procedures, return guidelines, and customer satisfaction guarantees.">
+    <meta name="keywords" content="refund policy, return policy, money back guarantee, solar panel returns, customer satisfaction">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -44,14 +44,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://napticogreenenergysolars.com/refund-return-policy.html">
     <meta property="og:title" content="Refund & Return Policy - Naptico Green Energy Solars">
-    <meta property="og:description" content="Refund & Return Policy for Naptico Green Energy Solars. Learn about our refund process, return conditions, and customer satisfaction guarantees.">
+    <meta property="og:description" content="Refund & Return Policy for Naptico Green Energy Solars. Read our refund procedures, return guidelines, and customer satisfaction guarantees.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://napticogreenenergysolars.com/refund-return-policy.html">
     <meta property="twitter:title" content="Refund & Return Policy - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Refund & Return Policy for Naptico Green Energy Solars. Learn about our refund process, return conditions, and customer satisfaction guarantees.">
+    <meta property="twitter:description" content="Refund & Return Policy for Naptico Green Energy Solars. Read our refund procedures, return guidelines, and customer satisfaction guarantees.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -998,11 +998,18 @@
             color: #f59e0b;
             font-size: 1.8rem;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
             /* Prevent text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+        }
+        
+        .refund-card h3 i {
+            margin-right: 15px;
+            font-size: 1.5rem;
         }
         
         .refund-card p {
@@ -1048,6 +1055,114 @@
         .refund-card a:hover {
             color: #f97316;
             text-decoration: underline;
+        }
+        
+        /* Note styles */
+        .note {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #f59e0b;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .note i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #ef4444;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .warning i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            color: #3b82f6;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info i {
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* Last Updated Section */
+        .last-updated {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .last-updated-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .last-updated-left i {
+            font-size: 2rem;
+            color: #f59e0b;
+            margin-right: 15px;
+        }
+        
+        .last-updated-text h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .last-updated-text p {
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+        
+        .last-updated-date {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .last-updated-date i {
+            margin-right: 8px;
         }
         
         /* Premium Footer */
@@ -1424,6 +1539,45 @@
             .refund-card {
                 margin-bottom: 20px;
             }
+            
+            /* Note styles for mobile */
+            .note, .warning, .info {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            
+            .note i, .warning i, .info i {
+                margin-right: 8px;
+                font-size: 1rem;
+            }
+            
+            /* Last Updated Section Mobile */
+            .last-updated {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            
+            .last-updated-left {
+                margin-bottom: 10px;
+            }
+            
+            .last-updated-left i {
+                font-size: 1.5rem;
+            }
+            
+            .last-updated-text h4 {
+                font-size: 1.1rem;
+            }
+            
+            .last-updated-text p {
+                font-size: 0.9rem;
+            }
+            
+            .last-updated-date {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -1468,6 +1622,35 @@
             
             .footer-content {
                 gap: 30px;
+            }
+            
+            /* Note styles for very small screens */
+            .note, .warning, .info {
+                font-size: 0.85rem;
+                padding: 8px 10px;
+            }
+            
+            .note i, .warning i, .info i {
+                margin-right: 6px;
+                font-size: 0.9rem;
+            }
+            
+            /* Last Updated Section for very small screens */
+            .last-updated-left i {
+                font-size: 1.3rem;
+            }
+            
+            .last-updated-text h4 {
+                font-size: 1rem;
+            }
+            
+            .last-updated-text p {
+                font-size: 0.85rem;
+            }
+            
+            .last-updated-date {
+                font-size: 0.85rem;
+                padding: 6px 12px;
             }
         }
         
@@ -1860,7 +2043,7 @@
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="text-center">
                 <h1 class="hero-title text-white">
-                    Refund & Return <span class="text-gradient">Policy</span>
+                    Refund & <span class="text-gradient">Return Policy</span>
                 </h1>
                 <p class="text-xl mb-10 text-gray-300 max-w-3xl mx-auto">Our commitment to customer satisfaction with clear and fair refund and return policies.</p>
             </div>
@@ -1870,98 +2053,234 @@
     <!-- Refund & Return Policy Content Section -->
     <section class="refund-section py-20">
         <div class="refund-content">
+            <!-- Last Updated Section -->
+            <div class="last-updated fade-in">
+                <div class="last-updated-left">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="last-updated-text">
+                        <h4>Refund & Return Policy</h4>
+                        <p>This policy was last updated on the date shown below</p>
+                    </div>
+                </div>
+                <div class="last-updated-date">
+                    <i class="fas fa-clock"></i>
+                    <span id="lastUpdatedDate">October 01, 2025</span>
+                </div>
+            </div>
+            
             <div class="refund-card fade-in">
-                <h3>General Policy</h3>
-                <p>At Naptico Green Energy Solars, we are committed to providing high-quality solar energy products and services to our customers. We understand that sometimes you may need to return a product or request a refund. This policy outlines our procedures for returns and refunds to ensure a fair and transparent process.</p>
-                <p>Our refund and return policy is designed to protect both you, our valued customer, and our business. By purchasing from us, you agree to the terms outlined in this policy.</p>
+                <h3><i class="fas fa-info-circle"></i> Introduction</h3>
+                <p>At Naptico Green Energy Solars, we are committed to providing high-quality solar energy products and services to our customers. We understand that sometimes you may need to return a product or request a refund. This Refund & Return Policy outlines the conditions and procedures for returns and refunds to ensure a fair and transparent process for all our customers.</p>
+                <p>Our policy is designed to be customer-friendly while maintaining the integrity of our products and services. Please read this policy carefully before making a purchase or requesting a return.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>By purchasing from Naptico Green Energy Solars, you agree to abide by the terms and conditions outlined in this Refund & Return Policy.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in stagger-1">
-                <h3>Eligibility for Returns</h3>
+                <h3><i class="fas fa-check-circle"></i> Eligibility for Returns</h3>
                 <p>To be eligible for a return, the following conditions must be met:</p>
                 <ul>
-                    <li>The product must be unused and in the same condition that you received it</li>
-                    <li>The product must be in the original packaging</li>
-                    <li>The return request must be initiated within 7 days of delivery</li>
-                    <li>A valid proof of purchase is required</li>
-                    <li>Customized or special-order products are not eligible for return unless defective</li>
+                    <li>The product must be unused, in its original packaging, and in the same condition as when you received it</li>
+                    <li>The return request must be initiated within 30 days of the delivery date</li>
+                    <li>The product must not be damaged due to improper installation or misuse</li>
+                    <li>Customized or special-order products may not be eligible for return unless defective</li>
+                    <li>Installation services are non-refundable once completed</li>
                 </ul>
-                <p>Products that have been installed, modified, or damaged by the customer are not eligible for return.</p>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>Products that show signs of use, installation, or damage not covered under warranty may not be eligible for return.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in stagger-2">
-                <h3>Return Process</h3>
+                <h3><i class="fas fa-undo"></i> Return Process</h3>
                 <p>To initiate a return, please follow these steps:</p>
                 <ul>
                     <li>Contact our customer service team at <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a> or call <a href="tel:080 2952 7671">080 2952 7671</a></li>
-                    <li>Provide your order number, product details, and reason for return</li>
-                    <li>Our customer service team will review your request and provide a return authorization if eligible</li>
-                    <li>Pack the product securely in its original packaging</li>
+                    <li>Provide your order number, product details, and reason for the return</li>
+                    <li>Our customer service team will review your request and provide a Return Authorization (RA) number if approved</li>
+                    <li>Pack the product securely in its original packaging with all accessories and documentation</li>
+                    <li>Write the RA number clearly on the outside of the package</li>
                     <li>Ship the product to the address provided by our customer service team</li>
                 </ul>
-                <p>Once we receive and inspect the returned product, we will notify you of the approval or rejection of your refund. If approved, your refund will be processed, and a credit will be applied to your original method of payment within 10-14 business days.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Returns without a valid RA number will not be accepted. Customers are responsible for return shipping costs unless the return is due to a defect or error on our part.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in stagger-3">
-                <h3>Refund Policy</h3>
-                <p>Refunds will be processed according to the following guidelines:</p>
+                <h3><i class="fas fa-money-bill-wave"></i> Refund Processing</h3>
+                <p>Once we receive and inspect the returned product, we will process your refund according to the following guidelines:</p>
                 <ul>
-                    <li>Full refunds will be issued for products that are returned in unused condition with all original packaging and accessories</li>
-                    <li>A restocking fee of 15% may apply to returns that are not in perfect condition or have missing packaging</li>
-                    <li>Shipping costs are non-refundable unless the return is due to our error or a defective product</li>
-                    <li>Refunds for installation services are evaluated on a case-by-case basis</li>
+                    <li>Refunds will be processed within 7-10 business days after we receive the returned product</li>
+                    <li>Refunds will be issued to the original payment method used for the purchase</li>
+                    <li>Shipping and handling charges are non-refundable unless the return is due to a defect or error on our part</li>
+                    <li>If the product is damaged or not in its original condition, we may deduct a restocking fee from the refund amount</li>
+                    <li>For orders paid by cash or check, refunds will be issued via check or bank transfer</li>
                 </ul>
-                <p>Please note that it may take some time for your refund to be posted to your account, depending on your credit card company's policies.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>You will receive a confirmation email once your refund has been processed. Please allow additional time for the refund to appear in your account, depending on your bank or payment provider.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in stagger-4">
-                <h3>Exchanges</h3>
-                <p>If you need to exchange a product for a different model or size, please follow the return process and indicate that you would like an exchange. Once your return is received and inspected, we will send you the replacement product.</p>
-                <p>Exchanges are subject to product availability. If the product you wish to exchange for is not available, we will offer you the option of a refund or a similar product of equal value.</p>
-                <p>Additional shipping charges may apply for exchanges if the new product has a different value than the original purchase.</p>
+                <h3><i class="fas fa-ban"></i> Non-Refundable Items</h3>
+                <p>The following items are generally not eligible for return or refund:</p>
+                <ul>
+                    <li>Products that have been installed, modified, or altered in any way</li>
+                    <li>Customized or special-order products manufactured to your specifications</li>
+                    <li>Products returned after the 30-day return window</li>
+                    <li>Products damaged due to improper installation, misuse, or negligence</li>
+                    <li>Services that have been fully rendered</li>
+                    <li>Products purchased from third-party retailers or resellers</li>
+                    <li>Software or digital products that have been downloaded or activated</li>
+                </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>If you have questions about whether a specific product is eligible for return, please contact our customer service team before making a purchase.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in stagger-5">
-                <h3>Defective Products</h3>
-                <p>If you receive a defective product, please contact us immediately at <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a> or call <a href="tel:080 2952 7671">080 2952 7671</a>. We will arrange for the return of the defective product and either provide a replacement or issue a full refund, including shipping costs.</p>
-                <p>Our solar panels and related products come with a manufacturer's warranty that covers defects in materials and workmanship. Please refer to the specific warranty information included with your product for details on coverage and claim procedures.</p>
+                <h3><i class="fas fa-times-circle"></i> Cancellation Policy</h3>
+                <p>If you need to cancel an order, please follow these guidelines:</p>
+                <ul>
+                    <li>Orders can be cancelled without penalty if the cancellation request is received before the product has been shipped</li>
+                    <li>For orders that have already been shipped, you will need to follow the return process once you receive the product</li>
+                    <li>Customized or special-order products may not be eligible for cancellation once production has begun</li>
+                    <li>Installation services scheduled more than 48 hours in advance can be cancelled with a full refund</li>
+                    <li>Cancellations within 48 hours of scheduled installation may be subject to a cancellation fee</li>
+                </ul>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>To cancel an order, please contact our customer service team as soon as possible with your order number and cancellation request.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in stagger-6">
-                <h3>Installation Services</h3>
-                <p>Refunds for installation services are evaluated on a case-by-case basis. If you are not satisfied with our installation services, please contact us within 7 days of completion to discuss your concerns.</p>
-                <p>We will work with you to address any issues and ensure your satisfaction. If we are unable to resolve the issues to your satisfaction, we may offer a partial or full refund based on the specific circumstances.</p>
-                <p>Cancellations of scheduled installations must be made at least 48 hours in advance to avoid cancellation fees.</p>
-            </div>
-            
-            <div class="refund-card fade-in">
-                <h3>Non-Returnable Items</h3>
-                <p>The following items are not eligible for return or refund:</p>
+                <h3><i class="fas fa-truck"></i> Shipping Costs for Returns</h3>
+                <p>Our policy on shipping costs for returns is as follows:</p>
                 <ul>
-                    <li>Customized or special-order products</li>
-                    <li>Products that have been installed or modified</li>
-                    <li>Products damaged after delivery due to improper handling or installation</li>
-                    <li>Software or digital products that have been downloaded or activated</li>
-                    <li>Gift cards</li>
-                    <li>Products marked as "final sale" or "non-returnable"</li>
+                    <li>Customers are responsible for return shipping costs unless the return is due to a defect or error on our part</li>
+                    <li>We recommend using a trackable shipping service for returns, as we cannot be responsible for lost or damaged return shipments</li>
+                    <li>If the return is due to a defect or error on our part, we will provide a prepaid shipping label or reimburse reasonable shipping costs</li>
+                    <li>Original shipping costs are non-refundable unless the return is due to a defect or error on our part</li>
+                    <li>For large items such as solar panels, special shipping arrangements may be required. Please contact our customer service team for assistance</li>
                 </ul>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>For high-value items, we recommend purchasing shipping insurance to protect against loss or damage during transit.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in">
-                <h3>Changes to This Policy</h3>
-                <p>We reserve the right to modify this refund and return policy at any time. Any changes will be effective immediately upon posting the updated policy on our website. We encourage you to review this policy periodically for any changes.</p>
-                <p>Continued use of our website and services after any changes to this policy constitutes acceptance of those changes.</p>
+                <h3><i class="fas fa-tools"></i> Damaged or Defective Products</h3>
+                <p>If you receive a product that is damaged or defective, please follow these steps:</p>
+                <ul>
+                    <li>Inspect all products upon delivery and note any visible damage on the delivery receipt</li>
+                    <li>Contact our customer service team within 48 hours of delivery to report any damage or defects</li>
+                    <li>Provide photos of the damage or defect along with your order number</li>
+                    <li>Our customer service team will guide you through the return or replacement process</li>
+                    <li>For products damaged during shipping, we will file a claim with the shipping carrier and arrange for a replacement or refund</li>
+                    <li>For defective products, we will arrange for repair, replacement, or refund in accordance with the product warranty</li>
+                </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Failure to report damage or defects within 48 hours of delivery may affect your eligibility for a replacement or refund.</div>
+                </div>
             </div>
             
             <div class="refund-card fade-in">
-                <h3>Contact Us</h3>
-                <p>If you have any questions about our refund and return policy, please contact us:</p>
+                <h3><i class="fas fa-shield-alt"></i> Warranty Claims</h3>
+                <p>Our products come with manufacturer warranties that cover defects in materials and workmanship. For warranty claims:</p>
+                <ul>
+                    <li>Warranty periods vary by product and manufacturer. Please refer to the product documentation for specific warranty information</li>
+                    <li>To initiate a warranty claim, please contact our customer service team with your proof of purchase and product details</li>
+                    <li>Our team will guide you through the warranty claim process and coordinate with the manufacturer if necessary</li>
+                    <li>Warranty claims may result in repair, replacement, or refund at the discretion of the manufacturer</li>
+                    <li>Warranties do not cover damage due to improper installation, misuse, neglect, or unauthorized modifications</li>
+                </ul>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>For warranty service, you may be required to return the product to an authorized service center. Our customer service team can provide you with the nearest location.</div>
+                </div>
+            </div>
+            
+            <div class="refund-card fade-in">
+                <h3><i class="fas fa-exchange-alt"></i> Exchanges</h3>
+                <p>If you wish to exchange a product for a different model or size, please follow these guidelines:</p>
+                <ul>
+                    <li>Exchange requests must be initiated within 30 days of the delivery date</li>
+                    <li>The product must be unused, in its original packaging, and in the same condition as when you received it</li>
+                    <li>You will be responsible for any price difference between the original and new product</li>
+                    <li>Shipping costs for the new product will apply unless the exchange is due to a defect or error on our part</li>
+                    <li>Customized or special-order products may not be eligible for exchange</li>
+                </ul>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>To request an exchange, please contact our customer service team with your order number and details of the product you would like to receive instead.</div>
+                </div>
+            </div>
+            
+            <div class="refund-card fade-in">
+                <h3><i class="fas fa-clipboard-check"></i> Restocking Fees</h3>
+                <p>In certain circumstances, a restocking fee may apply to returned products:</p>
+                <ul>
+                    <li>A restocking fee of up to 20% may apply to products that are returned in used condition or with damaged packaging</li>
+                    <li>Customized or special-order products may be subject to higher restocking fees or may not be eligible for return</li>
+                    <li>Large items such as solar panels may be subject to special restocking fees due to handling and storage requirements</li>
+                    <li>No restocking fee will apply to returns due to defects or errors on our part</li>
+                    <li>The restocking fee will be deducted from the refund amount before processing</li>
+                </ul>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>To avoid restocking fees, please ensure that products are returned in their original condition with all packaging and accessories intact.</div>
+                </div>
+            </div>
+            
+            <div class="refund-card fade-in">
+                <h3><i class="fas fa-headset"></i> Customer Service Support</h3>
+                <p>Our customer service team is available to assist you with any questions or concerns regarding returns and refunds:</p>
+                <ul>
+                    <li>Email: <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a></li>
+                    <li>Phone: <a href="tel:080 2952 7671">080 2952 7671</a> or <a href="tel:+91 70192 99196">+91 70192 99196</a></li>
+                    <li>Hours: Monday to Saturday, 10:00 AM to 7:00 PM IST</li>
+                    <li>Address: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
+                </ul>
+                <p>Our team is committed to providing prompt and courteous service to ensure your complete satisfaction with our products and services.</p>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>For faster assistance, please have your order number and product details ready when contacting our customer service team.</div>
+                </div>
+            </div>
+            
+            <div class="refund-card fade-in">
+                <h3><i class="fas fa-sync-alt"></i> Policy Changes</h3>
+                <p>Naptico Green Energy Solars reserves the right to modify this Refund & Return Policy at any time. Any changes will be effective immediately upon posting the revised policy on our website.</p>
+                <p>We encourage customers to review this policy periodically to stay informed about any updates. Continued use of our website or services after any changes to this policy constitutes acceptance of those changes.</p>
+                <div class="note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>The policy in effect at the time of your purchase will govern the return and refund terms for that specific purchase.</div>
+                </div>
+            </div>
+            
+            <div class="refund-card fade-in">
+                <h3><i class="fas fa-envelope"></i> Contact Information</h3>
+                <p>If you have any questions about our Refund & Return Policy, please contact us:</p>
                 <ul>
                     <li>By email: <a href="mailto:support@napticogreenenergysolars.com">support@napticogreenenergysolars.com</a></li>
                     <li>By phone: <a href="tel:080 2952 7671">080 2952 7671</a> or <a href="tel:+91 70192 99196">+91 70192 99196</a></li>
                     <li>By visiting this page on our website: <a href="./">Naptico Green Energy Solars</a></li>
-                    <li>By mail: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
+                    <li>By Address: 150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</li>
                 </ul>
+                <div class="info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>Our customer service team is available Monday to Saturday, 10:00 AM to 7:00 PM IST.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -2061,6 +2380,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
+                <p style="margin-top: 8px; font-size: 0.9rem;">Last Updated: <span id="footerLastUpdated">October 15, 2025</span></p>
             </div>
         </div>
     </footer>

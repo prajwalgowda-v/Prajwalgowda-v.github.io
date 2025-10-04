@@ -972,121 +972,6 @@
             box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
         }
         
-        /* Premium Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-        }
-        
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
-            z-index: 0;
-        }
-        
-        .testimonials-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-20px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .testimonial-card:hover::before {
-            opacity: 1;
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .testimonial-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-right: 20px;
-            border: 3px solid rgba(245, 158, 11, 0.5);
-            object-fit: cover;
-            object-position: top center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .testimonial-info h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-info p {
-            color: #94a3b8;
-            font-size: 1rem;
-        }
-        
-        .testimonial-rating {
-            color: #f59e0b;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-text {
-            color: #e2e8f0;
-            font-style: italic;
-            line-height: 1.7;
-            flex-grow: 1;
-            font-size: 1.1rem;
-        }
-        
-        .testimonial-quote {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 3.5rem;
-            color: rgba(245, 158, 11, 0.15);
-            font-family: Georgia, serif;
-        }
-        
         /* Premium Footer */
         .footer {
             background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -2274,9 +2159,6 @@
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h1 class="hero-title text-white">
-                        Our Solar <span class="text-gradient">Services</span>
-                    </h1>
                     <p class="text-xl mb-10 text-gray-300">Comprehensive solar energy solutions tailored to meet your specific needs. From residential to commercial, we have the perfect solution for everyone.</p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#hybrid" class="hero-btn hero-btn-primary">Explore Services</a>
@@ -2839,6 +2721,50 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Premium Why Choose Us Section (Added from first code) -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-4xl font-bold mb-5 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="feature-card fade-in stagger-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-award text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Award Winning</h3>
+                    <p class="text-gray-300">Recognized for excellence in solar energy solutions</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">5-10 Year Warranty</h3>
+                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-users text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Expert Team</h3>
+                    <p class="text-gray-300">100+ certified solar experts with 5+ years of experience</p>
+                </div>
+                
+                <div class="feature-card fade-in stagger-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock text-black text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Quick Installation</h3>
+                    <p class="text-gray-300">Complete installation within 1-2 weeks from site survey</p>
+                </div>
             </div>
         </div>
     </section>

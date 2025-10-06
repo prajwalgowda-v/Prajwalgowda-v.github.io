@@ -969,7 +969,7 @@
             left: 0;
             width: 100%;
             z-index: 99; /* Reduced z-index to be below header but above content */
-            padding: 15px 0;
+            padding: 12px 0; /* Reduced padding */
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             transition: top 0.3s ease; /* Smooth transition when header size changes */
         }
@@ -989,7 +989,7 @@
             display: flex;
             flex-wrap: nowrap; /* Prevent wrapping */
             justify-content: center;
-            gap: 10px; /* Reduced gap for better fit */
+            gap: 8px; /* Reduced gap for better fit */
             overflow-x: auto; /* Add horizontal scroll for small screens */
             -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
             padding-bottom: 5px; /* Space for scrollbar */
@@ -1011,7 +1011,7 @@
         
         .services-nav-link {
             display: inline-block;
-            padding: 8px 16px; /* Reduced padding for better fit */
+            padding: 10px 14px; /* Adjusted padding for better text visibility */
             border-radius: 30px;
             font-weight: 500;
             text-decoration: none;
@@ -1023,13 +1023,14 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
-            font-size: 0.9rem; /* Slightly smaller font for better fit */
+            font-size: 0.85rem; /* Reduced font size for better fit */
             white-space: nowrap; /* Prevent text from wrapping */
             /* Prevent text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            min-width: fit-content; /* Ensure button size fits content */
         }
         
         .services-nav-link::before {
@@ -3509,7 +3510,9 @@
                 </div>
                 
                 <div class="relative floating">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Maintenance & Support" class="rounded-2xl shadow-xl w-full">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Maintenance & Support" class="rounded-2xl w-full h-auto">
+                    </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-green-600">99%</div>
                         <div class="service-stats-label">Customer Satisfaction</div>

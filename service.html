@@ -546,6 +546,22 @@
             padding-top: 90px; /* Add padding to prevent header overlap */
         }
         
+        /* Fixed Hero Background - OPTIMIZED */
+        .hero-fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            transition: background-image 1.5s ease-in-out;
+        }
+        
         /* Dynamic Background Effect */
         .hero-gradient::before {
             content: '';
@@ -577,39 +593,44 @@
             }
         }
         
-        /* Hero Slideshow with 3D Effect */
-        .hero-slideshow {
+        /* Premium Particle Effect - FIXED Z-INDEX */
+        #particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 1; /* Behind the content but above the background */
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 25s infinite linear;
             transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+            will-change: transform, opacity; /* Hardware acceleration */
         }
         
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: all 1.8s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            transform: translateZ(-100px) rotateY(90deg);
-        }
-        
-        .hero-slide.active {
-            opacity: 1;
-            transform: translateZ(0) rotateY(0deg);
-        }
-        
-        .hero-slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) translateZ(50px) scale(1.5);
+                opacity: 0;
+            }
         }
         
         .hero-overlay {
@@ -624,7 +645,7 @@
         
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 5; /* Increased z-index to ensure content is above particles */
             transform-style: preserve-3d;
         }
         
@@ -1037,6 +1058,7 @@
             margin-bottom: 25px;
             line-height: 1.7;
             font-size: 1.05rem;
+            text-align: justify;
         }
         
         .footer-logo {
@@ -1136,6 +1158,7 @@
             margin-right: 12px;
             margin-top: 5px;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
         
         .contact-info a {
@@ -1205,34 +1228,6 @@
         .back-to-top:hover {
             transform: translateY(-15px) rotateZ(10deg);
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Premium Particle Effect */
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0));
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 25s infinite linear;
-            transform-style: preserve-3d;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) translateZ(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) translateZ(100px) scale(1.8);
-                opacity: 0;
-            }
         }
         
         /* Premium Quote Form Modal */
@@ -2145,35 +2140,35 @@
     </button>
     
     <!-- Premium Hero Section -->
-    <section class="hero-gradient">
-        <!-- Hero Slideshow -->
-        <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-        </div>
+    <section id="main-content" class="hero-gradient">
+        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
+        <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         
         <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
         
+        <!-- Particles Container - FIXED POSITION -->
+        <div id="particles"></div>
+        
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <p class="text-xl mb-10 text-gray-300">Comprehensive solar energy solutions tailored to meet your specific needs. From residential to commercial, we have the perfect solution for everyone.</p>
+                    <h1 class="hero-title text-white">
+                        Power Your Future with <span class="text-gradient">Naptico Energy</span>
+                    </h1>
+                    <p class="text-xl mb-10 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="#hybrid" class="hero-btn hero-btn-primary">Explore Services</a>
-                        <a href="#contact" class="hero-btn hero-btn-secondary">Get Consultation</a>
+                        <a href="Coming Soon.html" class="hero-btn hero-btn-primary">Calculate Savings</a>
+                        <a href="#services-section" class="hero-btn hero-btn-secondary">Explore Services</a>
                     </div>
                 </div>
                 <div class="relative">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Services" class="rounded-2xl w-full h-auto">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Premium Particle Effect -->
-        <div id="particles"></div>
     </section>
     
     <!-- Services Navigation -->
@@ -2505,7 +2500,7 @@
                 </div>
                 
                 <div class="relative floating">
-                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater ETC" class="rounded-2xl shadow-xl w-full">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater ETC" class="rounded-2xl shadow-xl w-full">
                     <div class="service-stats">
                         <div class="service-stats-number text-purple-600">70%</div>
                         <div class="service-stats-label">Energy Efficiency</div>
@@ -3016,46 +3011,125 @@
             }, 300);
         });
         
-        // Premium Hero Slideshow
-        const slides = document.querySelectorAll('.hero-slide');
-        let currentSlide = 0;
+        // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
+        const heroImages = [
+            'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        ];
         
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-            currentSlide = index;
+        const heroFixedBg = document.getElementById('heroFixedBg');
+        const heroImage = document.getElementById('heroImage');
+        let currentHeroImage = 0;
+        let heroInterval;
+        
+        // Set hero background with optimized performance
+        function setHeroBackground(index) {
+            // Create a new Image object to preload
+            const img = new Image();
+            img.onload = function() {
+                // Once loaded, update the background
+                if (heroFixedBg) {
+                    heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                }
+                if (heroImage) {
+                    heroImage.src = heroImages[index];
+                }
+                currentHeroImage = index;
+            };
+            img.onerror = function() {
+                // If image fails to load, use a fallback
+                console.error('Failed to load hero image:', heroImages[index]);
+                // Try next image or use a default
+                const nextIndex = (index + 1) % heroImages.length;
+                if (nextIndex !== index) {
+                    setHeroBackground(nextIndex);
+                }
+            };
+            img.src = heroImages[index];
         }
         
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+        // Start hero image rotation with optimized timing
+        function startHeroRotation() {
+            // Clear any existing interval
+            if (heroInterval) {
+                clearInterval(heroInterval);
+            }
+            
+            // Set new interval
+            heroInterval = setInterval(() => {
+                currentHeroImage = (currentHeroImage + 1) % heroImages.length;
+                setHeroBackground(currentHeroImage);
+            }, 5000);
         }
         
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
+        // Initialize hero rotation after page load
+        window.addEventListener('load', () => {
+            // Start with a small delay to ensure everything is loaded
+            setTimeout(() => {
+                setHeroBackground(0);
+                startHeroRotation();
+            }, 100);
+        });
         
-        // Premium Particle Effect
+        // Pause rotation when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (heroInterval) {
+                    clearInterval(heroInterval);
+                }
+            } else {
+                startHeroRotation();
+            }
+        });
+        
+        // Premium Particle Effect - FIXED Z-INDEX and PERFORMANCE
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 60;
+            if (!particlesContainer) return;
+            
+            const particleCount = 30; // Reduced particle count for better performance
+            
+            // Clear existing particles if any
+            particlesContainer.innerHTML = '';
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                const size = Math.random() * 12 + 6;
+                const size = Math.random() * 8 + 4; // Smaller particles for better performance
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
+                // Random starting position
                 particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 25}s`;
-                particle.style.animationDuration = `${Math.random() * 15 + 20}s`;
+                particle.style.bottom = `-${size * 2}px`; // Start just below the viewport
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 5; // Reduced max delay
+                const duration = Math.random() * 10 + 15; // Shorter duration for faster movement
+                
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Set initial opacity
+                particle.style.opacity = Math.random() * 0.6 + 0.2; // Random opacity
                 
                 particlesContainer.appendChild(particle);
             }
         }
         
-        createParticles();
+        // Create particles immediately when DOM is loaded
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Also create particles when the page is fully loaded to ensure they're visible
+        window.addEventListener('load', () => {
+            // Check if particles exist, if not create them
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer && particlesContainer.children.length === 0) {
+                createParticles();
+            }
+        });
         
         // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add these meta tags for screenshot protection -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Naptico Green Energy Solars</title>
@@ -45,15 +51,104 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* CSS Reset and Base Styles */
         * {
             font-family: 'Inter', sans-serif;
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
-        /* Only apply custom cursor on non-touch devices */
-        @media (hover: hover) {
-            * {
-                cursor: none;
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background-color: #f8fafc;
+            position: relative;
+            cursor: none; /* Hide default cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+        
+        /* Prevent printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            body::after {
+                content: "Printing is disabled for this content.";
+                display: block;
+                visibility: visible;
+                text-align: center;
+                font-size: 24px;
+                margin-top: 50px;
+            }
+        }
+        
+        /* Screenshot Protection Overlay */
+        .screenshot-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: none;
+            z-index: 9999999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .screenshot-protection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .screenshot-protection p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot-protection button {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .screenshot-protection button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Hide custom cursor on mobile devices */
+        @media (max-width: 1024px) {
+            .cursor, .cursor-follower {
+                display: none !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+            }
+            
+            body {
+                cursor: auto; /* Show default cursor on mobile */
             }
         }
         
@@ -65,12 +160,13 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 100001;
+            z-index: 999999;
             mix-blend-mode: difference;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.15s ease;
+            transition: opacity 0.15s ease, transform 0.15s ease, width 0.15s ease, height 0.15s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
             will-change: transform;
+            transform: translate(-50%, -50%) scale(1);
         }
         
         .cursor-follower {
@@ -80,29 +176,23 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 100000;
+            z-index: 999998;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            transition: opacity 0.15s ease, transform 0.25s ease, width 0.25s ease, height 0.25s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
-        }
-        
-        /* Only show cursor on non-touch devices */
-        @media (hover: hover) {
-            .cursor, .cursor-follower {
-                opacity: 1;
-            }
+            transform: translate(-50%, -50%) scale(1.4);
         }
         
         .cursor.hover {
-            transform: scale(2.5);
             background: rgba(245, 158, 11, 0.15);
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+            transform: translate(-50%, -50%) scale(1.2);
         }
         
         .cursor-follower.hover {
-            transform: scale(3.5);
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+            transform: translate(-50%, -50%) scale(1.6);
         }
         
         /* Touch indicator for mobile devices */
@@ -114,7 +204,7 @@
             background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
             border: 2px solid rgba(245, 158, 11, 0.5);
             pointer-events: none;
-            z-index: 100000;
+            z-index: 999997;
             transform: translate(-50%, -50%) scale(0);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -123,19 +213,6 @@
         .touch-indicator.active {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
-        }
-        
-        /* Only show touch indicator on touch devices */
-        @media (hover: none) {
-            .touch-indicator {
-                display: block;
-            }
-        }
-        
-        @media (hover: hover) {
-            .touch-indicator {
-                display: none;
-            }
         }
         
         /* Premium Loading Screen with White Background */
@@ -150,7 +227,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 1000000;
             transition: opacity 0.8s ease, visibility 0.8s ease;
             overflow: hidden;
         }
@@ -158,6 +235,7 @@
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -210,7 +288,25 @@
             60%, 100% { content: '...'; }
         }
         
-        /* Premium Header with Glass Effect */
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #f59e0b;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
             top: 0;
@@ -219,13 +315,21 @@
             z-index: 1000;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            height: 100px; /* Fixed height to prevent wrapping */
         }
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 10px 0;
+            height: 80px; /* Smaller fixed height when scrolled */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(20px)) {
+            .header.scrolled {
+                background: rgba(15, 23, 42, 0.95);
+            }
         }
         
         .header-content {
@@ -234,6 +338,10 @@
             align-items: center;
             padding: 20px 5%;
             transition: all 0.3s ease;
+            height: 100%; /* Take full height of parent */
+            width: 100%;
+            max-width: 1400px; /* Limit max width for better alignment */
+            margin: 0 auto;
         }
         
         .header.scrolled .header-content {
@@ -244,22 +352,30 @@
             width: 220px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+            display: block;
+            outline: none; /* Remove focus outline */
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor on logo */
+            /* Prevent logo from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
         }
         
-        .header.scrolled .logo {
-            width: 170px;
-        }
-        
         .nav-menu {
             display: flex;
-            gap: 35px;
+            gap: 20px; /* Reduced gap to prevent wrapping */
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: nowrap; /* Prevent nav items from wrapping */
+            overflow: hidden; /* Hide overflow if needed */
         }
         
         .nav-link {
@@ -270,6 +386,13 @@
             transition: all 0.3s ease;
             transform-style: preserve-3d;
             padding: 5px 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+            font-size: 0.95rem; /* Slightly smaller font size */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .nav-link::before {
@@ -293,18 +416,21 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
+        /* Active navigation link styles */
         .nav-link.active {
-            color: #f59e0b;
+            color: #f59e0b !important;
+            font-weight: 600;
         }
         
         .nav-link.active::before {
-            width: 100%;
+            width: 100% !important;
         }
         
         .header-actions {
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-shrink: 0; /* Prevent actions from shrinking */
         }
         
         .contact-btn {
@@ -320,6 +446,14 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            white-space: nowrap; /* Prevent text from wrapping */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-btn::before {
@@ -357,6 +491,13 @@
             width: 30px;
             height: 30px;
             overflow: hidden;
+            flex-shrink: 0; /* Prevent button from shrinking */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-btn:hover {
@@ -404,7 +545,12 @@
             transform: rotate(-135deg);
         }
         
-        /* Mobile Menu Overlay */
+        /* Active state for mobile menu button */
+        .mobile-menu-btn.active span {
+            background: #f59e0b;
+        }
+        
+        /* Mobile Menu Overlay - FIXED */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -421,11 +567,20 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+            pointer-events: none; /* Initially disable pointer events */
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .mobile-menu-overlay {
+                background: rgba(15, 23, 42, 0.98);
+            }
         }
         
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .mobile-menu-close {
@@ -438,6 +593,14 @@
             font-size: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 1003; /* Higher z-index to ensure it's clickable */
+            pointer-events: auto; /* Always enable pointer events for close button */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-close:hover {
@@ -450,6 +613,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            pointer-events: auto; /* Enable pointer events for navigation */
         }
         
         .mobile-nav li {
@@ -464,6 +628,13 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
+            pointer-events: auto; /* Enable pointer events for links */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-nav a::after {
@@ -487,12 +658,14 @@
             transform: translateY(-3px);
         }
         
+        /* Active mobile navigation link styles */
         .mobile-nav a.active {
-            color: #f59e0b;
+            color: #f59e0b !important;
+            font-weight: 600;
         }
         
         .mobile-nav a.active::after {
-            width: 100%;
+            width: 100% !important;
         }
         
         .mobile-contact-btn {
@@ -511,6 +684,13 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             cursor: pointer;
+            pointer-events: auto; /* Enable pointer events for button */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-contact-btn::before {
@@ -543,7 +723,12 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 90px; /* Add padding to prevent header overlap */
+            padding-top: 100px; /* Add padding to prevent header overlap */
+            /* Prevent screenshot of hero section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fixed Hero Background - OPTIMIZED */
@@ -560,6 +745,8 @@
             background-attachment: fixed;
             will-change: transform;
             transition: background-image 1.5s ease-in-out;
+            /* Prevent background image from being saved */
+            pointer-events: none;
         }
         
         /* Dynamic Background Effect */
@@ -657,6 +844,11 @@
             transform-style: preserve-3d;
             animation: floatText 8s ease-in-out infinite;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes floatText {
@@ -682,6 +874,11 @@
             text-fill-color: transparent;
             background-size: 200% auto;
             animation: gradientShift 5s ease infinite;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes gradientShift {
@@ -705,6 +902,13 @@
             text-decoration: none;
             margin: 5px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .hero-btn-primary {
@@ -723,6 +927,13 @@
             color: white;
             border: 2px solid rgba(245, 158, 11, 0.5);
             backdrop-filter: blur(10px);
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .hero-btn-secondary {
+                background: rgba(255, 255, 255, 0.2);
+            }
         }
         
         .hero-btn-secondary:hover {
@@ -784,6 +995,13 @@
             z-index: 1;
             color: #e2e8f0;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .services-nav-link::before {
@@ -822,6 +1040,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of services section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .services-section::before {
@@ -847,6 +1070,11 @@
             margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .section-subtitle {
@@ -854,6 +1082,11 @@
             color: #e2e8f0;
             max-width: 3xl;
             margin: 0 auto 4rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Premium 3D Cards with Glass Effect */
@@ -868,6 +1101,21 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            /* Prevent screenshot of service cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .service-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
         .service-card::before {
@@ -905,6 +1153,9 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .service-card:hover .service-icon {
@@ -923,6 +1174,14 @@
             transition: all 0.3s ease;
             padding: 8px 0;
             margin-top: 15px;
+            margin-top: auto; /* Push to bottom of card */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .learn-more-btn:hover {
@@ -966,6 +1225,22 @@
             transform-style: preserve-3d;
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Prevent screenshot of feature cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .feature-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
         
         .feature-card:hover {
@@ -986,11 +1261,260 @@
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .feature-card:hover .feature-icon {
             transform: scale(1.15) rotateY(180deg);
             box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        /* Premium Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+            /* Prevent screenshot of testimonials section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
+            z-index: 0;
+        }
+        
+        .testimonials-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Prevent screenshot of testimonial cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .testimonial-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-20px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .testimonial-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid rgba(245, 158, 11, 0.5);
+            object-fit: cover;
+            object-position: top center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            /* Prevent avatar from being screenshotted */
+            pointer-events: none;
+        }
+        
+        .testimonial-info h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonial-info p {
+            color: #94a3b8;
+            font-size: 1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonial-rating {
+            color: #f59e0b;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonial-text {
+            color: #e2e8f0;
+            font-style: italic;
+            line-height: 1.7;
+            flex-grow: 1;
+            font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 3.5rem;
+            color: rgba(245, 158, 11, 0.15);
+            font-family: Georgia, serif;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Testimonial Carousel Styles - FIXED */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0 70px 0; /* Added padding to prevent shadow clipping */
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px; /* Added padding for side spacing */
+            box-sizing: border-box;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .testimonial-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonial-btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+        
+        .testimonial-indicators {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .testimonial-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .testimonial-indicator.active {
+            background: #f59e0b;
+            transform: scale(1.2);
         }
         
         /* Premium Footer */
@@ -1000,6 +1524,11 @@
             overflow: hidden;
             padding: 100px 0 50px;
             transform-style: preserve-3d;
+            /* Prevent screenshot of footer */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer::before {
@@ -1040,6 +1569,11 @@
             margin-bottom: 25px;
             position: relative;
             display: inline-block;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-section h3::after {
@@ -1059,6 +1593,11 @@
             line-height: 1.7;
             font-size: 1.05rem;
             text-align: justify;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-logo {
@@ -1066,6 +1605,10 @@
             transition: all 0.4s ease;
             max-width: 220px;
             height: auto;
+            display: block;
+            outline: none; /* Remove focus outline */
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .footer-logo:hover {
@@ -1092,6 +1635,8 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             font-size: 1.2rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .social-icon:hover {
@@ -1117,6 +1662,13 @@
             display: inline-block;
             position: relative;
             font-size: 1.05rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-links li a::before {
@@ -1151,6 +1703,11 @@
             margin-bottom: 20px;
             color: #94a3b8;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info i {
@@ -1165,6 +1722,13 @@
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info a:hover {
@@ -1179,12 +1743,24 @@
             position: relative;
             z-index: 1;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a {
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a:hover {
@@ -1211,6 +1787,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
             font-size: 1.5rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .back-to-top.visible {
@@ -1247,11 +1825,25 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
+            pointer-events: none; /* Initially disable pointer events */
+            /* Prevent modal from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .quote-modal {
+                background: rgba(0, 0, 0, 0.95);
+            }
         }
         
         .quote-modal.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .quote-form-container {
@@ -1269,6 +1861,12 @@
             margin: 20px auto;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
+            pointer-events: auto; /* Always enable pointer events for form container */
+            /* Prevent form from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-modal.active .quote-form-container {
@@ -1288,6 +1886,8 @@
             margin: 0 auto 25px;
             display: block;
             transition: transform 0.4s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .quote-form-logo:hover {
@@ -1300,12 +1900,22 @@
             margin-bottom: 15px;
             color: white;
             text-align: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-form-subtitle {
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
             font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-form-body {
@@ -1328,6 +1938,14 @@
             justify-content: center;
             transition: all 0.4s ease;
             z-index: 10;
+            pointer-events: auto; /* Always enable pointer events for close button */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-close:hover {
@@ -1357,6 +1975,11 @@
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-input, .form-textarea {
@@ -1370,6 +1993,11 @@
             outline: none;
             transition: all 0.4s ease;
             box-sizing: border-box;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-input:focus, .form-textarea:focus {
@@ -1395,6 +2023,8 @@
             width: 100%;
             height: 100%;
             cursor: pointer;
+            /* Prevent file input from being screenshotted */
+            pointer-events: none;
         }
         
         .file-upload-label {
@@ -1408,6 +2038,12 @@
             color: #e2e8f0;
             cursor: pointer;
             transition: all 0.4s ease;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-upload-label:hover {
@@ -1438,6 +2074,11 @@
             margin-bottom: 10px;
             color: #e2e8f0;
             font-size: 15px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-name {
@@ -1458,6 +2099,12 @@
             color: #f59e0b;
             cursor: pointer;
             transition: color 0.3s;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-remove:hover {
@@ -1482,6 +2129,13 @@
             justify-content: center;
             gap: 12px;
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-submit:hover {
@@ -1528,6 +2182,11 @@
             display: none;
             font-weight: 500;
             font-size: 16px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-message.success {
@@ -1552,6 +2211,11 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border-left: 4px solid #f59e0b;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Premium Scroll Animation */
@@ -1580,6 +2244,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of CTA section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cta-section::before {
@@ -1621,6 +2290,400 @@
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px) rotateX(5deg);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Premium FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 80px 0;
+            position: relative;
+            /* Prevent screenshot of FAQ section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Prevent screenshot of FAQ items */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .faq-question:hover {
+            background: rgba(245, 158, 11, 0.15);
+        }
+        
+        .faq-icon {
+            transition: transform 0.4s ease;
+            color: #f59e0b;
+            font-size: 1.2rem;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 25px;
+            color: #e2e8f0;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding: 0 25px 25px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Cookie Consent Banner Styles */
+        .cookie-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none; /* Initially disable pointer events */
+            /* Prevent banner from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-banner.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
+        }
+        
+        .cookie-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+            pointer-events: auto; /* Always enable pointer events for content */
+            /* Prevent content from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-banner.active .cookie-content {
+            transform: translateY(0);
+        }
+        
+        .cookie-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+        }
+        
+        .cookie-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 25px;
+            display: block;
+            transition: transform 0.4s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+        }
+        
+        .cookie-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .cookie-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            text-align: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-text {
+            color: #e2e8f0;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center;
+            font-size: 1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .cookie-accept {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            cursor: pointer;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-accept:hover {
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+        }
+        
+        .cookie-accept::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .cookie-accept:hover::before {
+            left: 100%;
+        }
+        
+        .cookie-settings {
+            background: transparent;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            color: #f59e0b;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-settings:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+            transform: translateY(-4px);
+        }
+        
+        /* Cookie Settings Panel */
+        .cookie-settings-panel {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Prevent panel from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-settings-panel.active {
+            display: block;
+        }
+        
+        .cookie-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* Prevent option from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-option:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .cookie-option-label {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-option-description {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            outline: none; /* Remove focus outline */
+            /* Prevent toggle from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-toggle.active {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+        }
+        
+        .cookie-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cookie-toggle.active .cookie-toggle-slider {
+            transform: translateX(24px);
+        }
+        
+        .cookie-save-settings {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .cookie-save-settings:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
         }
         
         /* Service Detail Styles */
@@ -1931,6 +2994,40 @@
                 padding-top: 80px; /* Adjust based on header height */
             }
             
+            /* Testimonial Carousel Mobile Adjustments */
+            .testimonial-slide {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .testimonial-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            /* Service Cards Mobile Adjustments */
+            .service-card {
+                margin-bottom: 20px;
+            }
+            
+            /* Feature Cards Mobile Adjustments */
+            .feature-card {
+                margin-bottom: 20px;
+            }
+            
+            /* Cookie Banner Mobile Adjustments */
+            .cookie-content {
+                padding: 30px 20px;
+            }
+            
+            .cookie-title {
+                font-size: 1.5rem;
+            }
+            
+            .cookie-text {
+                font-size: 0.9rem;
+            }
+            
             /* Services Navigation Mobile */
             .services-nav {
                 top: 70px;
@@ -2002,10 +3099,323 @@
                 font-size: 2.2rem;
                 margin-top: 20px; /* Add some space between header and title */
             }
+            
+            /* Section titles for smaller screens */
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            /* FAQ section for smaller screens */
+            .faq-title {
+                font-size: 2.2rem;
+            }
+            
+            /* Footer adjustments for smaller screens */
+            .footer-section h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+        
+        /* Medium screen adjustments for header */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px; /* Reduced gap for medium screens */
+            }
+            
+            .nav-link {
+                font-size: 0.9rem; /* Smaller font size for medium screens */
+            }
+            
+            .header-content {
+                padding: 20px 3%;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+        }
+        
+        /* Large screen adjustments for header */
+        @media (min-width: 1600px) {
+            .header-content {
+                max-width: 1600px; /* Larger max width for very large screens */
+            }
+            
+            .nav-menu {
+                gap: 30px; /* Increased gap for larger screens */
+            }
+            
+            .nav-link {
+                font-size: 1rem; /* Larger font size for larger screens */
+            }
+        }
+        
+        /* Performance optimization for slower devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Loading screen fix */
+        body {
+            overflow: hidden; /* Initially hide scrollbars */
+        }
+        
+        body.loaded {
+            overflow: visible; /* Show scrollbars after loading */
+        }
+        
+        /* Ensure the loading screen properly disappears */
+        .loading-screen.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for better accessibility - but not for logo */
+        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+        
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Container max-width for better responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Grid adjustments for better responsiveness */
+        @media (min-width: 768px) {
+            .grid {
+                display: grid;
+                gap: 30px;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        
+        /* Flex utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .gap-4 {
+            gap: 1rem;
+        }
+        
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        
+        /* Spacing utilities */
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .mb-20 {
+            margin-bottom: 5rem;
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        /* Background utilities */
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+        }
+        
+        .from-gray-900 {
+            --tw-gradient-from: #111827;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(17, 24, 39, 0));
+        }
+        
+        .to-gray-800 {
+            --tw-gradient-to: #1f2937;
+        }
+        
+        /* Z-index utilities */
+        .z-10 {
+            z-index: 10;
+        }
+        
+        /* Position utilities */
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        /* Overflow utilities */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        /* Visibility utilities */
+        .invisible {
+            visibility: hidden;
+        }
+        
+        .visible {
+            visibility: visible;
+        }
+        
+        /* Opacity utilities */
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .opacity-100 {
+            opacity: 1;
+        }
+        
+        /* Transform utilities */
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        
+        /* Transition utilities */
+        .transition {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        /* Shadow utilities */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -2016,23 +3426,83 @@
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
-        <a href="index.html">
+        <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <!-- Loading progress bar -->
+        <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
+            <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
+        </div>
+    </div>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-hidden="true">
+        <div class="cookie-content">
+            <!-- Logo path updated to use relative path -->
+            <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="cookie-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
+            <h3 class="cookie-title" id="cookieTitle">We Value Your Privacy</h3>
+            <p class="cookie-text">We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All Cookies", you consent to our use of cookies.</p>
+            
+            <div class="cookie-buttons">
+                <button id="cookieAccept" class="cookie-accept">Accept All Cookies</button>
+                <button id="cookieSettings" class="cookie-settings">Cookie Settings</button>
+            </div>
+            
+            <div id="cookieSettingsPanel" class="cookie-settings-panel">
+                <div class="cookie-option">
+                    <div>
+                        <div class="cookie-option-label">Essential Cookies</div>
+                        <div class="cookie-option-description">Necessary for the website to function properly</div>
+                    </div>
+                    <div class="cookie-toggle active" data-cookie="essential">
+                        <div class="cookie-toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <div class="cookie-option">
+                    <div>
+                        <div class="cookie-option-label">Analytics Cookies</div>
+                        <div class="cookie-option-description">Help us understand how visitors interact with our website</div>
+                    </div>
+                    <div class="cookie-toggle" data-cookie="analytics">
+                        <div class="cookie-toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <div class="cookie-option">
+                    <div>
+                        <div class="cookie-option-label">Marketing Cookies</div>
+                        <div class="cookie-option-description">Used to track visitors across websites to display relevant ads</div>
+                    </div>
+                    <div class="cookie-toggle" data-cookie="marketing">
+                        <div class="cookie-toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <button id="cookieSaveSettings" class="cookie-save-settings">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Screenshot Protection Overlay -->
+    <div id="screenshotProtection" class="screenshot-protection">
+        <h2>Screenshot Protection</h2>
+        <p>Screenshots are not allowed on this website. Please close this overlay to continue browsing.</p>
+        <button id="closeScreenshotProtection">Continue Browsing</button>
     </div>
     
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
             <!-- Logo path updated to use relative path and made clickable -->
-            <a href="index.html">
+            <a href="./">
                 <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
             </a>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                    <li><a href="./" class="nav-link">Home</a></li>
+                    <li><a href="Coming Soon.html" class="nav-link">About Us</a></li>
                     <li><a href="Coming Soon.html" class="nav-link active">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
@@ -2045,7 +3515,7 @@
                 <button class="contact-btn">Get Quote</button>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2054,13 +3524,13 @@
     </header>
     
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="mobile-menu-close" id="mobileMenuClose">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
         </button>
         <ul class="mobile-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="./">Home</a></li>
+            <li><a href="Coming Soon.html">About Us</a></li>
             <li><a href="Coming Soon.html" class="active">Services</a></li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
@@ -2072,22 +3542,26 @@
     </div>
     
     <!-- Premium Quote Form Modal -->
-    <div id="quoteModal" class="quote-modal">
+    <div id="quoteModal" class="quote-modal" role="dialog" aria-labelledby="quoteFormTitle" aria-hidden="true">
         <div class="quote-form-container">
             <div class="quote-form-header">
-                <button class="quote-close">
+                <button class="quote-close" id="quoteClose" aria-label="Close quote form">
                     <i class="fas fa-times"></i>
                 </button>
                 <!-- Logo path updated to use relative path and made clickable -->
-                <a href="index.html">
+                <a href="./">
                     <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
-                <h2 class="quote-form-title">Get Your Solar Quote</h2>
+                <h2 class="quote-form-title" id="quoteFormTitle">Get Your Solar Quote</h2>
                 <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
             </div>
             
             <div class="quote-form-body">
-                <form id="quoteForm" class="quote-form">
+                <!-- Formspree form integration -->
+                <form id="quoteForm" class="quote-form" action="https://formspree.io/f/mvgwoyzv" method="POST">
+                    <!-- Form subject field (removed the hidden email field for security) -->
+                    <input type="hidden" name="_subject" value="New Solar Quote Request from Naptico Website">
+                    
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name" class="form-label">Full Name <span class="required">*</span></label>
@@ -2104,7 +3578,7 @@
                         <div class="form-group">
                             <label for="bill" class="form-label">Electricity Bill <span class="required">*</span></label>
                             <div class="file-upload">
-                                <input type="file" id="bill" name="bill" class="file-upload-input" accept="image/*,.pdf" multiple required>
+                                <input type="file" id="bill" name="billUpload" class="file-upload-input" accept="image/*,.pdf" multiple required>
                                 <label for="bill" class="file-upload-label">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <span id="fileLabel">Choose Files</span>
@@ -2113,8 +3587,8 @@
                             <div id="fileList" class="file-list"></div>
                         </div>
                         <div class="form-group full-width">
-                            <label for="address" class="form-label">Address <span class="required">*</span></label>
-                            <textarea id="address" name="address" class="form-textarea" placeholder="Enter your complete address" required></textarea>
+                            <label for="inquiry" class="form-label">Inquiry <span class="required">*</span></label>
+                            <textarea id="inquiry" name="inquiry" class="form-textarea" placeholder="Enter your inquiry or message" required></textarea>
                         </div>
                     </div>
                     
@@ -2123,7 +3597,7 @@
                         <span>Submit Request</span>
                     </button>
                     
-                    <div id="formMessage" class="form-message"></div>
+                    <div id="formMessage" class="form-message" role="alert"></div>
                     
                     <div class="privacy-text">
                         <i class="fas fa-shield-alt" style="color: #f59e0b; margin-right: 10px;"></i>
@@ -2135,7 +3609,7 @@
     </div>
     
     <!-- Premium Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
@@ -2720,7 +4194,7 @@
         </div>
     </section>
     
-    <!-- Premium Why Choose Us Section (Added from first code) -->
+    <!-- Premium Why Choose Us Section -->
     <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-20 fade-in">
@@ -2764,6 +4238,234 @@
         </div>
     </section>
     
+    <!-- Premium Testimonials Section -->
+    <section class="testimonials-section py-20">
+        <div class="container mx-auto px-4 testimonials-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-4xl font-bold mb-5 text-white">What Our<span class="text-gradient"> Clients Say</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join the satisfied customers who have made the switch to solar</p>
+            </div>
+            
+            <!-- Testimonial Carousel -->
+            <div class="testimonial-carousel fade-in">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <!-- Testimonial Slide 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Sharma</h4>
+                                    <p>Resident, Mysore</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Naptico Green Energy Solar installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Business Owner, Bangalore [East]</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solar. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Anita Desai</h4>
+                                    <p>Houseowner, Bangalore [South]</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Naptico Green Energy Solar's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Dr. Suresh Patel</h4>
+                                    <p>Educational Institution, Hubli</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Our school installed a 25kW rooftop system with Naptico Green Energy Solar. Not only are we saving on electricity costs, but we're also teaching our students about renewable energy. The installation was seamless and the after-sales support is exceptional."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Dr. Meena Reddy</h4>
+                                    <p>Hospital Administrator, Mangalore</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"As a healthcare facility, uninterrupted power is critical. Naptico Green Energy Solar designed a hybrid system that ensures we always have power. The solar water heaters have also reduced our LPG consumption significantly. Highly recommended!"</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Vikram Singh</h4>
+                                    <p>Manufacturing Unit, Belgaum</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Our manufacturing unit's power bills were skyrocketing. After installing a 50kW system with Naptico Green Energy Solar, we've cut our electricity costs by 75%. The team's technical expertise and professionalism are unmatched."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Arun Fernandez</h4>
+                                    <p>Hotel Owner, Goa</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Running a beach resort in Goa means high electricity costs for AC and water heating. Naptico Green Energy Solar installed both solar panels and solar water heaters. Our guests love that we're eco-friendly, and our operational costs have dropped dramatically."</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Priya Sharma</h4>
+                                    <p>Resident, Pune</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"I was skeptical about solar initially, but Naptico Green Energy Solar's team explained everything clearly. The 3kW system on my terrace generates more power than I consume, and I even sell excess back to the grid. Best investment I've made!"</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Sanjay Mehta</h4>
+                                    <p>IT Park Manager, Hyderabad</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Our IT park has a massive power requirement. Naptico Green Energy Solar installed a 100kW system with battery backup. We've achieved energy independence and reduced our carbon footprint significantly. Their maintenance team is prompt and efficient."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Controls -->
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn" id="prevTestimonial" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-indicators">
+                        <span class="testimonial-indicator active" data-slide="0" aria-label="Slide 1"></span>
+                        <span class="testimonial-indicator" data-slide="1" aria-label="Slide 2"></span>
+                        <span class="testimonial-indicator" data-slide="2" aria-label="Slide 3"></span>
+                    </div>
+                    <button class="testimonial-btn" id="nextTestimonial" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Premium CTA Section -->
     <section class="cta-section py-20">
         <div class="container mx-auto px-4 text-center cta-content">
@@ -2776,28 +4478,88 @@
         </div>
     </section>
     
+    <!-- Premium FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How much can I save with solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Most homeowners save between 70-90% on their electricity bills after installing solar panels. The exact savings depend on your energy consumption, the size of your solar system, and local electricity rates. Our savings calculator can provide a personalized estimate for your specific situation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the lifespan of solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Solar panels typically have a lifespan of 25-30 years. Most manufacturers offer a performance warranty that guarantees at least 80% production after 25 years. With proper maintenance, your solar system can continue generating clean energy for decades.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are there government subsidies for solar installation?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the Indian government offers various subsidies and incentives for solar installation. These include capital subsidies, tax benefits, and accelerated depreciation. The exact benefits depend on your location and system size. Our team can help you navigate the available subsidies and maximize your savings.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does the installation process take?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The installation process typically takes 3-7 days from the site survey to completion. This includes design, permitting, installation, and inspection. Larger commercial installations may take longer. Our team works efficiently to minimize disruption to your daily activities.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What maintenance is required for solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Solar panels require minimal maintenance. Regular cleaning to remove dust and debris is typically sufficient. We recommend professional inspection once a year to ensure optimal performance. Our maintenance plans include cleaning, inspection, and any necessary repairs to keep your system running efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Premium Footer -->
     <footer class="footer">
         <div class="container mx-auto px-4">
             <div class="footer-content">
                 <div class="footer-section">
                     <!-- Logo path updated to use relative path and made clickable -->
-                    <a href="index.html">
-                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
+                    <a href="./">
+                        <!-- Fixed filename with space issue and added proper dimensions -->
+                        <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
+                             onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
+                             width="220" height="90" loading="lazy">
                     </a>
-                    <p>India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.</p>
+                    <p style="font-size: 14px;">We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon">
-                            <i class="fab fa-facebook text-white"></i>
+                        <a href="https://www.facebook.com/napticogreenenergysolarspvtltd" class="social-icon" aria-label="Visit our Facebook page">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon">
-                            <i class="fab fa-instagram text-white"></i>
+                        <a href="https://www.instagram.com/napticogreenenergysolars/" class="social-icon" aria-label="Visit our Instagram page">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon">
-                            <i class="fab fa-linkedin text-white"></i>
+                        <a href="https://www.linkedin.com/company/naptico-green-energy-solars/" class="social-icon" aria-label="Visit our LinkedIn page">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon">
-                            <i class="fab fa-youtube text-white"></i>
+                        <a href="https://www.youtube.com/@Napticogreenenergysolars" class="social-icon" aria-label="Visit our YouTube channel">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -2805,8 +4567,8 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="Coming Soon.html">About Us</a></li>
                         <li><a href="Coming Soon.html">Services</a></li>
                         <li><a href="Coming Soon.html">How It Works</a></li>
                         <li><a href="Coming Soon.html">Calculator</a></li>
@@ -2819,13 +4581,11 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="Coming Soon.html">Hybrid Solar System</a></li>
-                        <li><a href="Coming Soon.html">On-Grid Solar System</a></li>
-                        <li><a href="Coming Soon.html">Off-Grid Solar System</a></li>
-                        <li><a href="Coming Soon.html">Ground Mount System</a></li>
+                        <li><a href="Coming Soon.html">Rooftop Solar Panels</a></li>
+                        <li><a href="Coming Soon.html">Ground-Mounted Solar</a></li>
+                        <li><a href="Coming Soon.html">Solar Street Lights</a></li>
                         <li><a href="Coming Soon.html">Solar Water Heater (ETC)</a></li>
                         <li><a href="Coming Soon.html">Solar Water Heater (FPC)</a></li>
-                        <li><a href="Coming Soon.html">Solar Street Lights</a></li>
                         <li><a href="Coming Soon.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
@@ -2835,7 +4595,17 @@
                     <ul class="contact-info">
                         <li>
                             <i class="fas fa-map-marker-alt text-black"></i>
-                            <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 16px; display: block; margin-bottom: 5px;">Corporation Office:</strong>
+                                <span>150, Achuth Arcade, 50 feet road 1st Block, 3rd Phase, Banashankari 3rd Stage, Bengaluru, Karnataka 560085</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt text-black"></i>
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 16px; display: block; margin-bottom: 5px;">Registered Office:</strong>
+                                <span>10, Pavanasuta, 7th Cross, 30th Main, Near Balaji Kalyana Mantapa, Banashankari 3rd Stage, Bengaluru-560085</span>
+                            </div>
                         </li>
                         <li>
                             <i class="fas fa-phone-alt text-black"></i>
@@ -2859,108 +4629,280 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="Privacy Policy.html">Privacy Policy</a> | <a href="Terms of Service.html">Terms of Service</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
             </div>
         </div>
     </footer>
     
     <script>
-        // Function to detect if device is touch-enabled
-        function isTouchDevice() {
-            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        // URL Redirect for index.html
+        if (window.location.pathname.endsWith('index.html')) {
+            const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Premium Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 3500);
+        // Improved Loading Screen Script with better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
+            // Function to hide loading screen
+            function hideLoadingScreen() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    console.log('Loading screen hidden');
+                    // Ensure body can scroll
+                    document.body.style.overflow = 'auto';
+                    document.body.classList.add('loaded');
+                    // Enable pointer events
+                    document.body.style.pointerEvents = 'auto';
+                } else {
+                    console.error('Loading screen element not found');
+                }
+            }
+            
+            // Loading progress bar animation
+            const progressBar = document.getElementById('loadingProgressBar');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += 5;
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(hideLoadingScreen, 500);
+                }
+            }, 100);
+            
+            // Try to hide loading screen after a short delay
+            setTimeout(hideLoadingScreen, 1500);
+            
+            // Also hide when window is fully loaded
+            window.addEventListener('load', function() {
+                console.log('Window fully loaded');
+                setTimeout(hideLoadingScreen, 500);
+            });
+            
+            // Fallback: Force hide after 10 seconds no matter what
+            setTimeout(hideLoadingScreen, 10000);
         });
         
-        // Only initialize custom cursor on non-touch devices
-        if (!isTouchDevice()) {
-            // Premium Custom Cursor
-            const cursor = document.querySelector('.cursor');
-            const cursorFollower = document.querySelector('.cursor-follower');
+        // Check if the device supports touch
+        function isTouchDevice() {
+            return 'ontouchstart' in window || 
+                   navigator.maxTouchPoints > 0 || 
+                   navigator.msMaxTouchPoints > 0 || 
+                   // For some browsers that don't properly report touch support
+                   (window.DocumentTouch && document instanceof DocumentTouch);
+        }
+        
+        // Variables to track input type and cursor state
+        let lastInputType = null; // 'touch' or 'mouse'
+        let inputDetected = false;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+        
+        // Get cursor elements
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const touchIndicator = document.querySelector('.touch-indicator');
+        
+        // Initially hide both cursors
+        if (cursor) cursor.style.opacity = '0';
+        if (cursorFollower) cursorFollower.style.opacity = '0';
+        if (touchIndicator) touchIndicator.style.opacity = '0';
+        
+        // Function to show custom cursor
+        function showCustomCursor() {
+            if (cursor) cursor.style.opacity = '1';
+            if (cursorFollower) cursorFollower.style.opacity = '1';
+            if (touchIndicator) touchIndicator.style.opacity = '0';
+        }
+        
+        // Function to show touch indicator
+        function showTouchIndicator() {
+            if (cursor) cursor.style.opacity = '0';
+            if (cursorFollower) cursorFollower.style.opacity = '0';
+            if (touchIndicator) touchIndicator.style.opacity = '1';
+        }
+        
+        // Function to set input type and show appropriate cursor
+        function setInputType(type) {
+            if (lastInputType === type) return;
+            lastInputType = type;
+            if (type === 'touch') {
+                showTouchIndicator();
+            } else if (type === 'mouse') {
+                showCustomCursor();
+            }
+        }
+        
+        // If it's a touch device, immediately set the input type to touch
+        if (isTouchDevice()) {
+            setInputType('touch');
+            inputDetected = true;
             
-            // Optimized cursor movement using direct position updates
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
+            // Also add CSS to completely hide cursor elements on touch devices
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 1024px) {
+                    .cursor, .cursor-follower {
+                        display: none !important;
+                        opacity: 0 !important;
+                        pointer-events: none !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Listen for the first touch event
+        document.addEventListener('touchstart', function onFirstTouch(e) {
+            document.removeEventListener('touchstart', onFirstTouch);
+            inputDetected = true;
+            setInputType('touch');
+        }, { once: true });
+        
+        // Listen for the first mouse move event
+        document.addEventListener('mousemove', function onFirstMouseMove(e) {
+            document.removeEventListener('mousemove', onFirstMouseMove);
+            inputDetected = true;
+            setInputType('mouse');
             
-            document.addEventListener('mousemove', (e) => {
+            // Initialize cursor position to the current mouse position
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (cursor) {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            }
+            if (cursorFollower) {
+                followerX = mouseX;
+                followerY = mouseY;
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
+            }
+        }, { once: true });
+        
+        // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
+        setTimeout(() => {
+            if (!inputDetected && !isTouchDevice()) {
+                setInputType('mouse');
+            }
+        }, 1000);
+        
+        // Mouse move handler - only update when last input was mouse
+        document.addEventListener('mousemove', (e) => {
+            // Always update input type to mouse on mouse movement
+            setInputType('mouse');
+            
+            // Only update cursor position if the last input was mouse
+            if (lastInputType === 'mouse') {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
                 
                 // Update main cursor position immediately
-                cursor.style.left = mouseX - 12.5 + 'px';
-                cursor.style.top = mouseY - 12.5 + 'px';
-            });
-            
-            // Use requestAnimationFrame for smooth follower animation
-            function animateFollower() {
-                // Simple linear interpolation for smooth following
-                followerX += (mouseX - followerX) * 0.1;
-                followerY += (mouseY - followerY) * 0.1;
-                
-                // Apply position to follower
-                cursorFollower.style.left = followerX - 25 + 'px';
-                cursorFollower.style.top = followerY - 25 + 'px';
-                
-                requestAnimationFrame(animateFollower);
+                if (cursor) {
+                    cursor.style.left = mouseX + 'px';
+                    cursor.style.top = mouseY + 'px';
+                }
             }
-            
-            animateFollower();
-            
-            // Hide cursor when leaving the window
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-                cursorFollower.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-            
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .leadership-card, .milestone-arrow, .milestone-dot');
-            
-            hoverElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
-        }
+        });
         
-        // Touch indicator for mobile devices
-        if (isTouchDevice()) {
-            const touchIndicator = document.querySelector('.touch-indicator');
+        // Touch event handlers
+        document.addEventListener('touchstart', (e) => {
+            setInputType('touch');
             
-            document.addEventListener('touchstart', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
                 touchIndicator.classList.add('active');
-            });
-            
-            document.addEventListener('touchmove', (e) => {
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (lastInputType === 'touch' && touchIndicator) {
                 const touch = e.touches[0];
                 touchIndicator.style.left = touch.clientX + 'px';
                 touchIndicator.style.top = touch.clientY + 'px';
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (touchIndicator) {
+                touchIndicator.classList.remove('active');
+            }
+        });
+        
+        // Cursor follower animation - only when using mouse
+        function animateFollower() {
+            if (lastInputType === 'mouse') {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                
+                if (cursorFollower) {
+                    cursorFollower.style.left = followerX + 'px';
+                    cursorFollower.style.top = followerY + 'px';
+                }
+            }
+            requestAnimationFrame(animateFollower);
+        }
+        
+        animateFollower();
+        
+        // Hover effects - only apply when using mouse
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top, .services-nav-link');
+        
+        // Store the original cursor size to prevent jumping
+        let originalCursorSize = 25;
+        let originalFollowerSize = 50;
+        
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (lastInputType === 'mouse') {
+                    // Store original sizes if not already stored
+                    if (!originalCursorSize && cursor) {
+                        originalCursorSize = parseInt(cursor.style.width) || 25;
+                    }
+                    if (!originalFollowerSize && cursorFollower) {
+                        originalFollowerSize = parseInt(cursorFollower.style.width) || 50;
+                    }
+                    
+                    // Apply hover effect
+                    if (cursor) cursor.classList.add('hover');
+                    if (cursorFollower) cursorFollower.classList.add('hover');
+                }
             });
             
-            document.addEventListener('touchend', () => {
-                touchIndicator.classList.remove('active');
+            element.addEventListener('mouseleave', () => {
+                if (lastInputType === 'mouse') {
+                    // Remove hover effect
+                    if (cursor) cursor.classList.remove('hover');
+                    if (cursorFollower) cursorFollower.classList.remove('hover');
+                }
             });
-        }
+        });
+        
+        // Document enter/leave events for cursor - only when using mouse
+        document.addEventListener('mouseleave', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
+            }
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            if (lastInputType === 'mouse') {
+                if (cursor) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
+            }
+        });
         
         // Premium Header scroll effect
         const header = document.querySelector('.header');
@@ -2979,36 +4921,98 @@
         const mobileMenuClose = document.getElementById('mobileMenuClose');
         const mobileContactBtn = document.getElementById('mobileContactBtn');
         
-        // Open mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-            mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+        // Function to reset mobile menu state
+        function resetMobileMenu() {
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('active');
+            }
+            if (mobileMenuBtn) {
+                mobileMenuBtn.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+            // Re-enable pointer events on body
+            document.body.style.pointerEvents = 'auto';
+        }
+        
+        // Reset menu on page load
+        resetMobileMenu();
+        
+        // Reset menu when navigating back to the page
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                resetMobileMenu();
+            }
         });
+        
+        // Open mobile menu
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                
+                if (mobileMenuOverlay) {
+                    mobileMenuOverlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                // Don't disable pointer events on body as it prevents interaction with menu
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.add('active'); // Add animation class
+                }
+            });
+        }
         
         // Close mobile menu
         function closeMobileMenu() {
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-            mobileMenuBtn.classList.remove('active'); // Remove animation class
+            resetMobileMenu();
         }
         
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                closeMobileMenu();
+            });
+        }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                const href = link.getAttribute('href');
+                closeMobileMenu();
+                // Navigate to the link after a short delay
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
         });
         
         // Mobile contact button functionality
-        mobileContactBtn.addEventListener('click', () => {
-            closeMobileMenu();
-            // Open quote modal after a short delay
-            setTimeout(() => {
-                document.getElementById('quoteModal').classList.add('active');
-                centerModal();
-            }, 300);
+        if (mobileContactBtn) {
+            mobileContactBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                closeMobileMenu();
+                // Open quote modal after a short delay
+                setTimeout(() => {
+                    const quoteModal = document.getElementById('quoteModal');
+                    if (quoteModal) {
+                        quoteModal.classList.add('active');
+                        centerModal();
+                    }
+                }, 300);
+            });
+        }
+        
+        // Also close mobile menu when clicking outside the menu
+        document.addEventListener('click', (e) => {
+            if (mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
+                // Check if the click is outside the mobile menu
+                if (!mobileMenuOverlay.contains(e.target) && e.target !== mobileMenuBtn) {
+                    closeMobileMenu();
+                }
+            }
         });
         
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
@@ -3134,60 +5138,80 @@
         // Premium Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Premium Quote Form Modal
         const quoteModal = document.getElementById('quoteModal');
-        const quoteClose = document.querySelector('.quote-close');
-        const contactBtns = document.querySelectorAll('.contact-btn');
+        const quoteClose = document.getElementById('quoteClose');
+        const contactBtns = document.querySelectorAll('.contact-btn, #ctaQuoteBtn');
         
         contactBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                quoteModal.classList.add('active');
-                centerModal();
+                if (quoteModal) {
+                    quoteModal.classList.add('active');
+                    quoteModal.setAttribute('aria-hidden', 'false');
+                    centerModal();
+                }
             });
         });
         
-        quoteClose.addEventListener('click', () => {
-            quoteModal.classList.remove('active');
-        });
+        if (quoteClose) {
+            quoteClose.addEventListener('click', () => {
+                if (quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
         
-        quoteModal.addEventListener('click', (e) => {
-            if (e.target === quoteModal) {
-                quoteModal.classList.remove('active');
-            }
-        });
+        if (quoteModal) {
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    quoteModal.classList.remove('active');
+                    quoteModal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
         
-        // File upload handling for multiple files
+        // File upload handling for multiple files - FIXED
         const fileInput = document.getElementById('bill');
         const fileLabel = document.getElementById('fileLabel');
         const fileList = document.getElementById('fileList');
         let selectedFiles = [];
         
-        fileInput.addEventListener('change', function() {
-            // Get newly selected files
-            const newFiles = Array.from(this.files);
-            
-            // Add to our list of selected files
-            newFiles.forEach(file => {
-                selectedFiles.push(file);
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                // Clear the existing files array
+                selectedFiles = [];
+                
+                // Get all selected files
+                const files = this.files;
+                
+                // Add files to our array
+                for (let i = 0; i < files.length; i++) {
+                    selectedFiles.push(files[i]);
+                }
+                
+                // Update the display
+                updateFileDisplay();
             });
-            
-            // Update the display
-            updateFileDisplay();
-        });
+        }
         
         function updateFileDisplay() {
+            if (!fileLabel || !fileList) return;
+            
             // Clear current display
             fileList.innerHTML = '';
             
@@ -3210,7 +5234,7 @@
                 fileItem.innerHTML = `
                     <span class="file-name">${file.name}</span>
                     <span class="file-size">${fileSize}</span>
-                    <i class="fas fa-times file-remove" data-index="${index}"></i>
+                    <i class="fas fa-times file-remove" data-index="${index}" aria-label="Remove file"></i>
                 `;
                 
                 fileList.appendChild(fileItem);
@@ -3223,14 +5247,25 @@
                     selectedFiles.splice(index, 1);
                     updateFileDisplay();
                     
-                    // Update the actual input
-                    const dataTransfer = new DataTransfer();
-                    selectedFiles.forEach(file => {
-                        dataTransfer.items.add(file);
-                    });
-                    fileInput.files = dataTransfer.files;
+                    // Create a new FileList and update the input
+                    updateFileInput();
                 });
             });
+        }
+        
+        function updateFileInput() {
+            if (!fileInput) return;
+            
+            // Create a new DataTransfer object
+            const dataTransfer = new DataTransfer();
+            
+            // Add each file back to the DataTransfer
+            selectedFiles.forEach(file => {
+                dataTransfer.items.add(file);
+            });
+            
+            // Update the file input with the new FileList
+            fileInput.files = dataTransfer.files;
         }
         
         function formatFileSize(bytes) {
@@ -3244,6 +5279,8 @@
         // Function to center the modal properly
         function centerModal() {
             const modalContainer = document.querySelector('.quote-form-container');
+            if (!modalContainer) return;
+            
             const windowHeight = window.innerHeight;
             const modalHeight = modalContainer.offsetHeight;
             
@@ -3260,35 +5297,89 @@
         // Add event listener for window resize to re-center modal
         window.addEventListener('resize', centerModal);
         
-        // Form submission
+        // Form submission with Formspree integration - FIXED
         const quoteForm = document.getElementById('quoteForm');
         const formMessage = document.getElementById('formMessage');
         
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Here you would normally send the data to a server
-            // For demonstration, we'll just show a success message
-            
-            // Simulate form submission
-            formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            
-            // Reset form
-            this.reset();
-            selectedFiles = [];
-            updateFileDisplay();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-                quoteModal.classList.remove('active');
-            }, 5000);
-        });
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitBtn = this.querySelector('.form-submit');
+                const originalBtnContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+                submitBtn.disabled = true;
+                
+                // Get form data
+                const formData = new FormData(this);
+                
+                // Send form data to Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Network response was not ok.');
+                        });
+                    }
+                })
+                .then(data => {
+                    // Show success message
+                    if (formMessage) {
+                        formMessage.textContent = 'Thank you for your request! We will contact you shortly.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Reset form
+                    this.reset();
+                    selectedFiles = [];
+                    updateFileDisplay();
+                    
+                    // Hide message after 5 seconds and close modal
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                        if (quoteModal) {
+                            quoteModal.classList.remove('active');
+                            quoteModal.setAttribute('aria-hidden', 'true');
+                        }
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Show error message with specific details
+                    console.error('Error:', error);
+                    if (formMessage) {
+                        formMessage.textContent = `Error: ${error.message || 'There was an error submitting your form. Please try again.'}`;
+                        formMessage.className = 'form-message error';
+                        formMessage.style.display = 'block';
+                        formMessage.setAttribute('role', 'alert');
+                    }
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        if (formMessage) {
+                            formMessage.style.display = 'none';
+                        }
+                    }, 5000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
+            });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -3307,7 +5398,7 @@
         // Only apply 3D card effects on non-touch devices
         if (!isTouchDevice()) {
             // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .leadership-card');
+            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
@@ -3414,6 +5505,396 @@
             if (current) {
                 updateActiveServiceLink(current);
             }
+        });
+        
+        // Testimonial Carousel Functionality
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const prevBtn = document.getElementById('prevTestimonial');
+        const nextBtn = document.getElementById('nextTestimonial');
+        const indicators = document.querySelectorAll('.testimonial-indicator');
+        let currentTestimonialSlide = 0;
+        const totalTestimonialSlides = 3;
+        
+        function showTestimonialSlide(index) {
+            if (!testimonialTrack) return;
+            
+            // Update slide position
+            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+            });
+            if (indicators[index]) {
+                indicators[index].classList.add('active');
+            }
+            
+            currentTestimonialSlide = index;
+        }
+        
+        // Next slide
+        function nextTestimonialSlide() {
+            currentTestimonialSlide = (currentTestimonialSlide + 1) % totalTestimonialSlides;
+            showTestimonialSlide(currentTestimonialSlide);
+        }
+        
+        // Previous slide
+        function prevTestimonialSlide() {
+            currentTestimonialSlide = (currentTestimonialSlide - 1 + totalTestimonialSlides) % totalTestimonialSlides;
+            showTestimonialSlide(currentTestimonialSlide);
+        }
+        
+        // Button event listeners
+        if (nextBtn) {
+            nextBtn.addEventListener('click', nextTestimonialSlide);
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', prevTestimonialSlide);
+        }
+        
+        // Indicator event listeners
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showTestimonialSlide(index);
+            });
+        });
+        
+        // Auto-slide for testimonials
+        setInterval(nextTestimonialSlide, 8000); // Change slide every 8 seconds
+        
+        // FAQ Section Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            if (question) {
+                question.addEventListener('click', () => {
+                    // Toggle active class on clicked item
+                    item.classList.toggle('active');
+                    
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            }
+        });
+        
+        // Error handling for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.error('Image failed to load:', this.src);
+                // You could set a fallback image here if needed
+            });
+        });
+        
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // Escape key to close modal
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('quoteModal');
+                if (modal && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+                
+                const mobileMenu = document.getElementById('mobileMenuOverlay');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.pointerEvents = 'auto';
+                }
+            }
+        });
+        
+        // Performance optimization: lazy load images
+        if ('IntersectionObserver' in window) {
+            const imgOptions = {
+                threshold: 0,
+                rootMargin: '0px 0px 50px 0px'
+            };
+            
+            const imgObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imgObserver.unobserve(img);
+                    }
+                });
+            }, imgOptions);
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imgObserver.observe(img);
+            });
+        }
+        
+        // Cookie utility functions
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+            }
+            return null;
+        }
+        
+        // Initialize cookie banner
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieSettings = document.getElementById('cookieSettings');
+            const cookieSettingsPanel = document.getElementById('cookieSettingsPanel');
+            const cookieSaveSettings = document.getElementById('cookieSaveSettings');
+            const cookieToggles = document.querySelectorAll('.cookie-toggle');
+        
+            // Check if consent has been given
+            const consent = getCookie('cookieConsent');
+            if (!consent && cookieBanner) {
+                cookieBanner.classList.add('active');
+                cookieBanner.setAttribute('aria-hidden', 'false');
+            } else {
+                cookieBanner.classList.remove('active');
+                cookieBanner.setAttribute('aria-hidden', 'true');
+            }
+        
+            // Accept all cookies
+            if (cookieAccept) {
+                cookieAccept.addEventListener('click', () => {
+                    setCookie('cookieConsent', 'all', 365);
+                    setCookie('essentialCookies', 'true', 365);
+                    setCookie('analyticsCookies', 'true', 365);
+                    setCookie('marketingCookies', 'true', 365);
+                    
+                    if (cookieBanner) {
+                        cookieBanner.classList.remove('active');
+                        cookieBanner.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        
+            // Toggle settings panel
+            if (cookieSettings) {
+                cookieSettings.addEventListener('click', () => {
+                    if (cookieSettingsPanel) {
+                        cookieSettingsPanel.classList.toggle('active');
+                    }
+                });
+            }
+        
+            // Toggle individual cookie options
+            cookieToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.classList.toggle('active');
+                });
+            });
+        
+            // Save custom settings
+            if (cookieSaveSettings) {
+                cookieSaveSettings.addEventListener('click', () => {
+                    const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
+                    const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
+                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
+        
+                    // Essential cookies are always enabled
+                    setCookie('essentialCookies', 'true', 365);
+        
+                    // Set other cookies based on toggle state
+                    setCookie('analyticsCookies', analyticsToggle?.classList.contains('active') ? 'true' : 'false', 365);
+                    setCookie('marketingCookies', marketingToggle?.classList.contains('active') ? 'true' : 'false', 365);
+        
+                    // Set overall consent
+                    setCookie('cookieConsent', 'custom', 365);
+        
+                    if (cookieBanner) {
+                        cookieBanner.classList.remove('active');
+                        cookieBanner.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        });
+        
+        // Check cookie consent on page load
+        function checkCookieConsent() {
+            const consent = getCookie('cookieConsent');
+            if (!consent) {
+                const cookieBanner = document.getElementById('cookieBanner');
+                if (cookieBanner) {
+                    cookieBanner.classList.add('active');
+                    cookieBanner.setAttribute('aria-hidden', 'false');
+                }
+            }
+        }
+        
+        // Screenshot Protection
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshotProtection = document.getElementById('screenshotProtection');
+            const closeScreenshotProtection = document.getElementById('closeScreenshotProtection');
+            
+            // Show screenshot protection overlay when page is hidden
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'flex';
+                    }
+                } else {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Close screenshot protection overlay
+            if (closeScreenshotProtection) {
+                closeScreenshotProtection.addEventListener('click', function() {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Prevent context menu (right-click)
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent text selection
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent image dragging
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Disable keyboard shortcuts for copying
+            document.addEventListener('keydown', function(e) {
+                // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+                if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable F12 (Developer Tools)
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+J (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Print Screen
+                if (e.keyCode === 44) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Additional protection for images
+            document.querySelectorAll('img').forEach(function(img) {
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+            
+            // iOS specific protections
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+                // Prevent double-tap to zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Prevent pinch to zoom
+                document.addEventListener('gesturestart', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gesturechange', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gestureend', function(e) {
+                    e.preventDefault();
+                });
+            }
+            
+            // Android specific protections
+            if (navigator.userAgent.match(/Android/i)) {
+                // Prevent long press to save image
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Prevent long press to select text
+                document.addEventListener('touchstart', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                });
+            }
+            
+            // Add watermark for screenshots
+            function addWatermark() {
+                const watermark = document.createElement('div');
+                watermark.style.position = 'fixed';
+                watermark.style.top = '0';
+                watermark.style.left = '0';
+                watermark.style.width = '100%';
+                watermark.style.height = '100%';
+                watermark.style.pointerEvents = 'none';
+                watermark.style.zIndex = '9999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.backgroundRepeat = 'repeat';
+                watermark.style.backgroundSize = '200px 200px';
+                watermark.style.opacity = '0.1';
+                document.body.appendChild(watermark);
+            }
+            
+            addWatermark();
         });
     </script>
 </body>

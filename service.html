@@ -964,10 +964,16 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             position: sticky;
-            top: 80px;
-            z-index: 100;
+            top: 100px; /* Position below the fixed header */
+            z-index: 99;
             padding: 20px 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: top 0.3s ease; /* Smooth transition when header size changes */
+        }
+        
+        /* Adjust top position when header is scrolled */
+        .header.scrolled ~ .services-nav {
+            top: 80px; /* Adjust to match the smaller header height when scrolled */
         }
         
         .services-nav-container {
@@ -2367,6 +2373,10 @@
             /* Services Navigation Mobile */
             .services-nav {
                 top: 70px;
+            }
+            
+            .header.scrolled ~ .services-nav {
+                top: 60px;
             }
             
             .services-nav-links {
@@ -4478,8 +4488,13 @@
                 // Smooth scroll to the section
                 const target = document.getElementById(targetId);
                 if (target) {
+                    // Calculate the offset position considering the sticky header and services nav
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const servicesNavHeight = document.querySelector('.services-nav').offsetHeight;
+                    const offsetPosition = target.offsetTop - headerHeight - servicesNavHeight;
+                    
                     window.scrollTo({
-                        top: target.offsetTop - 100,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
@@ -4490,11 +4505,13 @@
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section[id]');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const servicesNavHeight = document.querySelector('.services-nav').offsetHeight;
+            const offset = headerHeight + servicesNavHeight + 50; // Add some extra offset
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - 200)) {
+                if (window.scrollY >= (sectionTop - offset)) {
                     current = section.getAttribute('id');
                 }
             });

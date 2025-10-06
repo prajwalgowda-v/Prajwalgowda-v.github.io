@@ -723,7 +723,7 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 180px; /* Increased padding to account for fixed header and services nav */
+            padding-top: 100px; /* Reduced padding since services nav is no longer fixed */
             /* Prevent screenshot of hero section */
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -960,24 +960,16 @@
             left: 100%;
         }
         
-        /* Services Navigation - FIXED TO BE ALWAYS VISIBLE */
+        /* Services Navigation - MOVED BELOW HERO SECTION */
         .services-nav {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            position: fixed; /* Changed from sticky to fixed */
-            top: 100px; /* Position below the fixed header */
-            left: 0;
+            position: relative; /* Changed from fixed to relative */
             width: 100%;
             z-index: 99; /* Reduced z-index to be below header but above content */
-            padding: 12px 0; /* Reduced padding */
+            padding: 20px 0; /* Increased padding */
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: top 0.3s ease; /* Smooth transition when header size changes */
             height: auto; /* Allow height to adjust based on content */
-        }
-        
-        /* Adjust top position when header is scrolled */
-        .header.scrolled + .services-nav {
-            top: 80px; /* Adjust to match the smaller header height when scrolled */
         }
         
         .services-nav-container {
@@ -990,7 +982,7 @@
             display: flex;
             flex-wrap: wrap; /* Changed from nowrap to wrap */
             justify-content: center;
-            gap: 8px; /* Reduced gap for better fit */
+            gap: 10px; /* Increased gap */
             padding-bottom: 5px; /* Space for scrollbar */
         }
         
@@ -1010,7 +1002,7 @@
         
         .services-nav-link {
             display: inline-block;
-            padding: 10px 14px; /* Adjusted padding for better text visibility */
+            padding: 12px 16px; /* Increased padding */
             border-radius: 30px;
             font-weight: 500;
             text-decoration: none;
@@ -1022,7 +1014,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
-            font-size: 0.85rem; /* Reduced font size for better fit */
+            font-size: 0.9rem; /* Increased font size */
             white-space: nowrap; /* Prevent text from wrapping */
             /* Prevent text selection */
             -webkit-user-select: none;
@@ -2121,16 +2113,17 @@
             line-height: 1.6;
         }
         
-        /* Service Stats */
+        /* Service Stats - FIXED */
         .service-stats {
             position: absolute;
-            bottom: -15px; /* Reduced distance */
-            right: -15px; /* Reduced distance */
+            bottom: 20px; /* Increased distance from bottom */
+            right: 20px; /* Increased distance from right */
             background: white;
-            padding: 15px; /* Reduced padding */
+            padding: 15px; /* Increased padding */
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             animation: pulse-glow 2s infinite;
+            z-index: 10; /* Ensure it's above the image */
         }
         
         @keyframes pulse-glow {
@@ -2140,15 +2133,15 @@
         }
         
         .service-stats-number {
-            font-size: 2.2rem; /* Reduced size */
+            font-size: 2.5rem; /* Increased size */
             font-weight: 800;
             line-height: 1;
         }
         
         .service-stats-label {
-            font-size: 0.85rem; /* Reduced size */
+            font-size: 0.9rem; /* Increased size */
             color: #64748b;
-            margin-top: 4px; /* Reduced margin */
+            margin-top: 5px; /* Increased margin */
         }
         
         /* Service Comparison Table */
@@ -2379,7 +2372,7 @@
             
             /* Add padding-top to hero section to account for fixed header */
             .hero-gradient {
-                padding-top: 140px; /* Adjusted to account for both header and services nav */
+                padding-top: 80px; /* Reduced padding since services nav is no longer fixed */
             }
             
             /* Service Cards Mobile Adjustments */
@@ -2394,11 +2387,7 @@
             
             /* Services Navigation Mobile */
             .services-nav {
-                top: 70px;
-            }
-            
-            .header.scrolled + .services-nav {
-                top: 60px;
+                padding: 15px 0; /* Reduced padding */
             }
             
             .services-nav-links {
@@ -2408,7 +2397,7 @@
             }
             
             .services-nav-link {
-                padding: 6px 12px; /* Reduced padding for mobile */
+                padding: 8px 12px; /* Reduced padding for mobile */
                 font-size: 0.8rem; /* Smaller font for mobile */
             }
             
@@ -2464,7 +2453,7 @@
             
             /* Adjust hero section padding for smaller screens */
             .hero-gradient {
-                padding-top: 130px; /* Slightly less padding for smaller screens */
+                padding-top: 70px; /* Slightly less padding for smaller screens */
             }
             
             .hero-title {
@@ -2505,6 +2494,21 @@
                 width: 80px; /* Further reduced size */
                 height: 80px; /* Further reduced size */
             }
+            
+            /* Service stats for very small screens */
+            .service-stats {
+                bottom: 15px; /* Reduced distance */
+                right: 15px; /* Reduced distance */
+                padding: 10px; /* Reduced padding */
+            }
+            
+            .service-stats-number {
+                font-size: 2rem; /* Reduced size */
+            }
+            
+            .service-stats-label {
+                font-size: 0.8rem; /* Reduced size */
+            }
         }
         
         /* Medium screen adjustments for header */
@@ -2530,7 +2534,7 @@
             }
             
             .hero-gradient {
-                padding-top: 180px; /* Adjusted for medium screens */
+                padding-top: 120px; /* Adjusted for medium screens */
             }
         }
         
@@ -2865,22 +2869,6 @@
         </div>
     </header>
     
-    <!-- Services Navigation - FIXED TO BE ALWAYS VISIBLE -->
-    <section id="services-nav" class="services-nav">
-        <div class="services-nav-container">
-            <div class="services-nav-links">
-                <a href="#hybrid" class="services-nav-link active">Hybrid Solar System</a>
-                <a href="#on-grid" class="services-nav-link">On-Grid Solar System</a>
-                <a href="#off-grid" class="services-nav-link">Off-Grid Solar System</a>
-                <a href="#ground-mount" class="services-nav-link">Ground Mount System</a>
-                <a href="#water-heater-etc" class="services-nav-link">Water Heater (ETC)</a>
-                <a href="#water-heater-fpc" class="services-nav-link">Water Heater (FPC)</a>
-                <a href="#street-light" class="services-nav-link">Street Lights</a>
-                <a href="#maintenance-support" class="services-nav-link">Maintenance & Support</a>
-            </div>
-        </div>
-    </section>
-    
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
         <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
@@ -3003,6 +2991,22 @@
         </div>
     </section>
     
+    <!-- Services Navigation - MOVED BELOW HERO SECTION -->
+    <section id="services-nav" class="services-nav">
+        <div class="services-nav-container">
+            <div class="services-nav-links">
+                <a href="#hybrid" class="services-nav-link active">Hybrid Solar System</a>
+                <a href="#on-grid" class="services-nav-link">On-Grid Solar System</a>
+                <a href="#off-grid" class="services-nav-link">Off-Grid Solar System</a>
+                <a href="#ground-mount" class="services-nav-link">Ground Mount System</a>
+                <a href="#water-heater-etc" class="services-nav-link">Water Heater (ETC)</a>
+                <a href="#water-heater-fpc" class="services-nav-link">Water Heater (FPC)</a>
+                <a href="#street-light" class="services-nav-link">Street Lights</a>
+                <a href="#maintenance-support" class="services-nav-link">Maintenance & Support</a>
+            </div>
+        </div>
+    </section>
+    
     <!-- Hybrid Solar System -->
     <section id="hybrid" class="services-section">
         <div class="container mx-auto px-4 services-content">
@@ -3061,7 +3065,7 @@
                 
                 <div class="relative floating">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hybrid Solar System" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hybrid Solar System" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-indigo-600">95%</div>
@@ -3078,7 +3082,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
                 <div class="order-2 lg:order-1">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="On-Grid Solar System" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="On-Grid Solar System" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-teal-600">90%</div>
@@ -3198,7 +3202,7 @@
                 
                 <div class="relative floating">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Off-Grid Solar System" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Off-Grid Solar System" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-emerald-600">100%</div>
@@ -3215,7 +3219,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
                 <div class="order-2 lg:order-1">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ground Mount Solar System" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ground Mount Solar System" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-blue-600">85%</div>
@@ -3334,7 +3338,7 @@
                 
                 <div class="relative floating">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater ETC" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater ETC" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-purple-600">70%</div>
@@ -3351,7 +3355,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
                 <div class="order-2 lg:order-1">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater FPC" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater FPC" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-red-600">65%</div>
@@ -3470,7 +3474,7 @@
                 
                 <div class="relative floating">
                     <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Street Light" class="rounded-2xl w-full h-auto">
+                        <img src="https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Street Light" class="rounded-2xl w-full h-auto">
                     </div>
                     <div class="service-stats">
                         <div class="service-stats-number text-amber-600">100%</div>

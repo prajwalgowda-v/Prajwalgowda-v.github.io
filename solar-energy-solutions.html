@@ -953,1264 +953,6 @@
             left: 100%;
         }
         
-        /* Premium Services Section */
-        .services-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            /* Prevent screenshot of services section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .services-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.03;
-            z-index: 0;
-        }
-        
-        .services-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .section-subtitle {
-            font-size: 1.4rem;
-            color: #e2e8f0;
-            max-width: 3xl;
-            margin: 0 auto 4rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Premium 3D Cards with Glass Effect */
-        .service-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            /* Prevent screenshot of service cards */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .service-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        .service-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-            flex-shrink: 0;
-            /* Prevent icon from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.15) rotateZ(10deg);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Animated Learn More Button */
-        .learn-more-btn {
-            display: inline-flex;
-            align-items: center;
-            color: #f59e0b;
-            font-weight: 600;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-            margin-top: 15px;
-            margin-top: auto; /* Push to bottom of card */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .learn-more-btn:hover {
-            color: #f97316;
-        }
-        
-        .learn-more-btn i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-            font-size: 14px;
-        }
-        
-        .learn-more-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        .learn-more-btn::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            transition: width 0.3s ease;
-        }
-        
-        .learn-more-btn:hover::after {
-            width: 100%;
-        }
-        
-        /* Premium Feature Cards */
-        .feature-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* Prevent screenshot of feature cards */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .feature-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .feature-icon {
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
-            flex-shrink: 0;
-            /* Prevent icon from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.15) rotateY(180deg);
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
-        }
-        
-        /* Premium Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            /* Prevent screenshot of testimonials section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
-            z-index: 0;
-        }
-        
-        .testimonials-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            /* Prevent screenshot of testimonial cards */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .testimonial-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-20px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .testimonial-card:hover::before {
-            opacity: 1;
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .testimonial-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-right: 20px;
-            border: 3px solid rgba(245, 158, 11, 0.5);
-            object-fit: cover;
-            object-position: top center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            flex-shrink: 0;
-            /* Prevent avatar from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .testimonial-info h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-info p {
-            color: #94a3b8;
-            font-size: 1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-rating {
-            color: #f59e0b;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-text {
-            color: #e2e8f0;
-            font-style: italic;
-            line-height: 1.7;
-            flex-grow: 1;
-            font-size: 1.1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-quote {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 3.5rem;
-            color: rgba(245, 158, 11, 0.15);
-            font-family: Georgia, serif;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Testimonial Carousel Styles - FIXED */
-        .testimonial-carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 20px 0 70px 0; /* Added padding to prevent shadow clipping */
-        }
-        
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial-slide {
-            min-width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0 20px; /* Added padding for side spacing */
-            box-sizing: border-box;
-        }
-        
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-        }
-        
-        .testimonial-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-btn:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: #f59e0b;
-        }
-        
-        .testimonial-indicators {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .testimonial-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-indicator.active {
-            background: #f59e0b;
-            transform: scale(1.2);
-        }
-        
-        /* Premium Footer */
-        .footer {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0 50px;
-            transform-style: preserve-3d;
-            /* Prevent screenshot of footer */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
-        }
-        
-        .footer::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .footer-content {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-section h3 {
-            color: #f59e0b;
-            font-size: 1.7rem;
-            margin-bottom: 25px;
-            position: relative;
-            display: inline-block;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        .footer-section p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-            line-height: 1.7;
-            font-size: 1.05rem;
-            text-align: justify;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .footer-logo {
-            margin-bottom: 25px;
-            transition: all 0.4s ease;
-            max-width: 220px;
-            height: auto;
-            display: block;
-            outline: none; /* Remove focus outline */
-            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-            cursor: pointer; /* Show pointer cursor */
-        }
-        
-        .footer-logo:hover {
-            transform: scale(1.05) rotateY(10deg);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 18px;
-            margin-top: 25px;
-        }
-        
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            font-size: 1.2rem;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-        }
-        
-        .social-icon:hover {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            transform: translateY(-8px) rotateZ(360deg);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
-            border-color: transparent;
-        }
-        
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links li a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            position: relative;
-            font-size: 1.05rem;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .footer-links li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #f59e0b;
-            transition: width 0.4s ease;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        .footer-links li a:hover {
-            color: #f59e0b;
-            transform: translateX(8px);
-        }
-        
-        .footer-links li a:hover::before {
-            width: 100%;
-        }
-        
-        .contact-info {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .contact-info li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            color: #94a3b8;
-            font-size: 1.05rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .contact-info i {
-            color: #f59e0b;
-            margin-right: 12px;
-            margin-top: 5px;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        
-        .contact-info a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .contact-info a:hover {
-            color: #f59e0b;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #64748b;
-            position: relative;
-            z-index: 1;
-            font-size: 1.05rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .footer-bottom a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .footer-bottom a:hover {
-            color: #f59e0b;
-        }
-        
-        /* Premium Back to Top Button - REDUCED SIZE */
-        .back-to-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 50px; /* Reduced from 70px */
-            height: 50px; /* Reduced from 70px */
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: black;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-            z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform-style: preserve-3d;
-            font-size: 1.2rem; /* Reduced from 1.5rem */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);} /* Reduced from -15px */
-            60% {transform: translateY(-5px);} /* Reduced from -8px */
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-10px) rotateZ(10deg); /* Reduced from -15px */
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Premium Quote Form Modal */
-        .quote-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-            overflow-y: auto;
-            pointer-events: none; /* Initially disable pointer events */
-            /* Prevent modal from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(10px)) {
-            .quote-modal {
-                background: rgba(0, 0, 0, 0.95);
-            }
-        }
-        
-        .quote-modal.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
-        }
-        
-        .quote-form-container {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-radius: 25px;
-            padding: 0;
-            width: 90%;
-            max-width: 650px;
-            position: relative;
-            transform: translateY(40px);
-            transition: transform 0.4s ease;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            overflow: hidden;
-            margin: 20px auto;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-            pointer-events: auto; /* Always enable pointer events for form container */
-            /* Prevent form from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .quote-modal.active .quote-form-container {
-            transform: translateY(0);
-        }
-        
-        .quote-form-header {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .quote-form-logo {
-            width: 140px;
-            height: auto;
-            margin: 0 auto 25px;
-            display: block;
-            transition: transform 0.4s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-        }
-        
-        .quote-form-logo:hover {
-            transform: scale(1.1);
-        }
-        
-        .quote-form-title {
-            font-size: 2.3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: white;
-            text-align: center;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .quote-form-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            font-size: 1.1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .quote-form-body {
-            padding: 50px 40px;
-        }
-        
-        .quote-close {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            font-size: 22px;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-            z-index: 10;
-            pointer-events: auto; /* Always enable pointer events for close button */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .quote-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-        
-        .form-group {
-            margin-bottom: 30px;
-        }
-        
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 10px;
-            color: #e2e8f0;
-            font-weight: 500;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .form-input, .form-textarea, .form-select {
-            width: 100%;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.4s ease;
-            box-sizing: border-box;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .form-input:focus, .form-textarea:focus, .form-select:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
-        }
-        
-        .form-textarea {
-            resize: vertical;
-            min-height: 140px;
-        }
-        
-        .file-upload {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .file-upload-input {
-            position: absolute;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            /* Prevent file input from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .file-upload-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            color: #e2e8f0;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .file-upload-label:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #f59e0b;
-        }
-        
-        .file-upload-label i {
-            margin-right: 12px;
-            color: #f59e0b;
-            font-size: 1.2rem;
-        }
-        
-        /* File list styles for multiple files */
-        .file-list {
-            margin-top: 15px;
-            max-height: 140px;
-            overflow-y: auto;
-        }
-        
-        .file-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            margin-bottom: 10px;
-            color: #e2e8f0;
-            font-size: 15px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .file-name {
-            flex-grow: 1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-right: 15px;
-        }
-        
-        .file-size {
-            color: #94a3b8;
-            font-size: 13px;
-            margin-right: 15px;
-        }
-        
-        .file-remove {
-            color: #f59e0b;
-            cursor: pointer;
-            transition: color 0.3s;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .file-remove:hover {
-            color: #f97316;
-        }
-        
-        .form-submit {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border: none;
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            font-size: 17px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .form-submit:hover {
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
-        }
-        
-        .form-submit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.6s ease;
-            z-index: 0;
-        }
-        
-        .form-submit:hover::before {
-            left: 100%;
-        }
-        
-        .form-submit i {
-            font-size: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .form-submit span {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .required {
-            color: #f59e0b;
-        }
-        
-        .form-message {
-            margin-top: 25px;
-            padding: 18px;
-            border-radius: 12px;
-            text-align: center;
-            display: none;
-            font-weight: 500;
-            font-size: 16px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .form-message.success {
-            background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            border: 1px solid rgba(16, 185, 129, 0.4);
-        }
-        
-        .form-message.error {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.4);
-        }
-        
-        .privacy-text {
-            color: #94a3b8;
-            font-size: 14px;
-            text-align: center;
-            margin-top: 30px;
-            line-height: 1.7;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border-left: 4px solid #f59e0b;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Premium Scroll Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Staggered animation delays */
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-        .stagger-5 { transition-delay: 0.5s; }
-        .stagger-6 { transition-delay: 0.6s; }
-        
-        /* Premium CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #f97316, #f59e0b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            /* Prevent screenshot of CTA section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
-            z-index: 0;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-btn-primary {
-            background: white;
-            color: #f97316;
-            border: none;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-        }
-        
-        .cta-btn-primary:hover {
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-            background: #f8fafc;
-        }
-        
-        .cta-btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
         /* Solar Solutions Section */
         .solutions-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -2895,8 +1637,742 @@
             font-size: 0.95rem;
         }
         
+        /* Premium Quote Form Modal - FIXED Z-INDEX */
+        .quote-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Reduced z-index to be below header */
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            overflow-y: auto;
+            pointer-events: none; /* Initially disable pointer events */
+            /* Prevent modal from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .quote-modal {
+                background: rgba(0, 0, 0, 0.95);
+            }
+        }
+        
+        .quote-modal.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
+        }
+        
+        .quote-form-container {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 25px;
+            padding: 0;
+            width: 90%;
+            max-width: 650px;
+            position: relative;
+            transform: translateY(40px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            margin: 20px auto;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            pointer-events: auto; /* Always enable pointer events for form container */
+            /* Prevent form from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .quote-modal.active .quote-form-container {
+            transform: translateY(0);
+        }
+        
+        .quote-form-header {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .quote-form-logo {
+            width: 140px;
+            height: auto;
+            margin: 0 auto 25px;
+            display: block;
+            transition: transform 0.4s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+        }
+        
+        .quote-form-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .quote-form-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            text-align: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .quote-form-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .quote-form-body {
+            padding: 50px 40px;
+        }
+        
+        .quote-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            font-size: 22px;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            z-index: 10;
+            pointer-events: auto; /* Always enable pointer events for close button */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .quote-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            font-weight: 500;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.4s ease;
+            box-sizing: border-box;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            /* Prevent file input from being screenshotted */
+            pointer-events: none;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .file-upload-label:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #f59e0b;
+        }
+        
+        .file-upload-label i {
+            margin-right: 12px;
+            color: #f59e0b;
+            font-size: 1.2rem;
+        }
+        
+        /* File list styles for multiple files */
+        .file-list {
+            margin-top: 15px;
+            max-height: 140px;
+            overflow-y: auto;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            font-size: 15px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .file-name {
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 15px;
+        }
+        
+        .file-size {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-right: 15px;
+        }
+        
+        .file-remove {
+            color: #f59e0b;
+            cursor: pointer;
+            transition: color 0.3s;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .file-remove:hover {
+            color: #f97316;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+        }
+        
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.6s ease;
+            z-index: 0;
+        }
+        
+        .form-submit:hover::before {
+            left: 100%;
+        }
+        
+        .form-submit i {
+            font-size: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-submit span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .required {
+            color: #f59e0b;
+        }
+        
+        .form-message {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+            font-weight: 500;
+            font-size: 16px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+        
+        .privacy-text {
+            color: #94a3b8;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 30px;
+            line-height: 1.7;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Premium Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            font-size: 1.2rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-10px) rotateZ(10deg);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Premium Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 60px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        
+        .footer-logo {
+            width: 220px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .footer-section p {
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #f59e0b;
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            margin-top: 5px;
+            color: #f59e0b;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-info a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #f59e0b;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-bottom p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: #f59e0b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: #f97316;
+            text-decoration: underline;
+        }
+        
+        /* Premium CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .cta-btn-primary {
+            background: white !important;
+            color: #f59e0b !important;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section title styles */
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: #e2e8f0;
+            max-width: 3xl;
+            margin: 0 auto 4rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
         /* Premium Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .nav-menu {
                 display: none;
             }
@@ -2922,8 +2398,8 @@
                 grid-template-columns: 1fr;
             }
             .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
             }
             .back-to-top {
                 width: 40px; /* Smaller on mobile */
@@ -2931,6 +2407,9 @@
                 bottom: 20px;
                 right: 20px;
                 font-size: 1rem; /* Smaller font on mobile */
+            }
+            .cta-section h2 {
+                font-size: 2.5rem;
             }
             
             /* Mobile Header Adjustments */
@@ -2962,27 +2441,6 @@
             /* Add padding-top to hero section to account for fixed header */
             .hero-gradient {
                 padding-top: 80px; /* Adjust based on header height */
-            }
-            
-            /* Testimonial Carousel Mobile Adjustments */
-            .testimonial-slide {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .testimonial-card {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            /* Service Cards Mobile Adjustments */
-            .service-card {
-                margin-bottom: 20px;
-            }
-            
-            /* Feature Cards Mobile Adjustments */
-            .feature-card {
-                margin-bottom: 20px;
             }
             
             /* Solar Systems Cards Mobile */
@@ -3019,7 +2477,7 @@
         }
         
         /* Additional mobile adjustments for smaller screens */
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .header-content {
                 padding: 12px 5%;
                 height: 60px; /* Smaller fixed height for very small screens */
@@ -3067,7 +2525,44 @@
             }
             
             .footer-content {
+                grid-template-columns: 1fr;
                 gap: 30px;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .contact-info li {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .contact-info i {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .cta-section {
+                padding: 60px 0;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-section p {
+                font-size: 1.1rem;
             }
         }
         
@@ -3556,369 +3051,13 @@
                     <p class="text-xl mb-10 text-gray-300">Empowering a sustainable future with innovative solar energy solutions. Naptico Green Energy Solars delivers reliable, efficient, and eco-friendly solar power systems tailored to meet your energy needs and reduce your carbon footprint.</p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#solutions-section" class="hero-btn hero-btn-primary">Explore Solutions</a>
-                        <a href="#services-section" class="hero-btn hero-btn-secondary">Our Services</a>
+                        <a href="#solutions-section" class="hero-btn hero-btn-secondary">Our Services</a>
                     </div>
                 </div>
                 <div class="relative">
                     <div class="service-card">
                         <img id="heroImage" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panels" class="rounded-2xl w-full h-auto" loading="lazy">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Premium Services Section -->
-    <section class="services-section py-20" id="services-section">
-        <div class="container mx-auto px-4 services-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="section-title">Our <span class="text-gradient">Solar Services</span></h2>
-                <p class="section-subtitle">Comprehensive solar energy solutions for homes, businesses, and communities</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Service 1 -->
-                <div class="service-card fade-in stagger-1">
-                    <div class="service-icon">
-                        <i class="fas fa-home text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Rooftop Solar Panels</h3>
-                    <p class="text-gray-300 mb-5">Transform your roof into a power plant with our high-efficiency solar panel systems.</p>
-                    <a href="Coming Soon.html" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card fade-in stagger-2">
-                    <div class="service-icon">
-                        <i class="fas fa-industry text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Ground-Mounted Solar</h3>
-                    <p class="text-gray-300 mb-5">Large-scale solar installations for commercial and industrial applications.</p>
-                    <a href="Coming Soon.html" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card fade-in stagger-3">
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Solar Street Lights</h3>
-                    <p class="text-gray-300 mb-5">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
-                    <a href="Coming Soon.html" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card fade-in stagger-4">
-                    <div class="service-icon">
-                        <i class="fas fa-fire text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (ETC)</h3>
-                    <p class="text-gray-300 mb-5">Evacuated tube collector systems for efficient water heating solutions.</p>
-                    <a href="Coming Soon.html" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card fade-in stagger-5">
-                    <div class="service-icon">
-                        <i class="fas fa-temperature-high text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (FPC)</h3>
-                    <p class="text-gray-300 mb-5">Flat plate collector systems for reliable and durable water heating.</p>
-                    <a href="Coming Soon.html" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card fade-in stagger-6">
-                    <div class="service-icon">
-                        <i class="fas fa-tools text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Maintenance & Support</h3>
-                    <p class="text-gray-300 mb-5">Comprehensive maintenance services to keep your solar system running efficiently.</p>
-                    <a href="Coming Soon.html" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Premium Why Choose Us Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="text-4xl font-bold mb-5 text-white">Why Choose <span class="text-gradient">Naptico Green Energy Solar</span></h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We're committed to delivering the best solar solutions with unmatched quality and service</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <div class="feature-card fade-in stagger-1">
-                    <div class="feature-icon">
-                        <i class="fas fa-award text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Award Winning</h3>
-                    <p class="text-gray-300"></p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-2">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">5-10 Year Warranty</h3>
-                    <p class="text-gray-300">Comprehensive warranty on all products and installation services</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-3">
-                    <div class="feature-icon">
-                        <i class="fas fa-users text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Expert Team</h3>
-                    <p class="text-gray-300">100+ certified solar experts with 5+ years of experience</p>
-                </div>
-                
-                <div class="feature-card fade-in stagger-4">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Quick Installation</h3>
-                    <p class="text-gray-300">Complete installation within 1-2 weeks from site survey</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Premium Testimonials Section -->
-    <section class="testimonials-section py-20">
-        <div class="container mx-auto px-4 testimonials-content">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="text-4xl font-bold mb-5 text-white">What Our<span class="text-gradient"> Clients Say</span></h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join the satisfied customers who have made the switch to solar</p>
-            </div>
-            
-            <!-- Testimonial Carousel -->
-            <div class="testimonial-carousel fade-in">
-                <div class="testimonial-track" id="testimonialTrack">
-                    <!-- Testimonial Slide 1 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Sharma</h4>
-                                    <p>Resident, Mysore</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Naptico Green Energy Solar installed a 5kW system on my rooftop, and my electricity bill has reduced by 90%! The team was professional and the installation was completed in just 2 days."</p>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Rajesh Kumar</h4>
-                                    <p>Business Owner, Bangalore [East]</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"We installed a 15kW ground-mounted system for our factory with Naptico Green Energy Solar. The ROI was better than expected, and we've reduced our operational costs significantly. Excellent service!"</p>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Anita Desai</h4>
-                                    <p>Houseowner, Bangalore [South]</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Naptico Green Energy Solar's solar street lights have transformed our city's infrastructure. The quality is outstanding, and we've saved 70% on our electricity bills for street lighting."</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Slide 2 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Dr. Suresh Patel</h4>
-                                    <p>Educational Institution, Hubli</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Our school installed a 25kW rooftop system with Naptico Green Energy Solar. Not only are we saving on electricity costs, but we're also teaching our students about renewable energy. The installation was seamless and the after-sales support is exceptional."</p>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user-md"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Dr. Meena Reddy</h4>
-                                    <p>Hospital Administrator, Mangalore</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"As a healthcare facility, uninterrupted power is critical. Naptico Green Energy Solar designed a hybrid system that ensures we always have power. The solar water heaters have also reduced our LPG consumption significantly. Highly recommended!"</p>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user-cog"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Vikram Singh</h4>
-                                    <p>Manufacturing Unit, Belgaum</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Our manufacturing unit's power bills were skyrocketing. After installing a 50kW system with Naptico Green Energy Solar, we've cut our electricity costs by 75%. The team's technical expertise and professionalism are unmatched."</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Slide 3 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Arun Fernandez</h4>
-                                    <p>Hotel Owner, Goa</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Running a beach resort in Goa means high electricity costs for AC and water heating. Naptico Green Energy Solar installed both solar panels and solar water heaters. Our guests love that we're eco-friendly, and our operational costs have dropped dramatically."</p>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Priya Sharma</h4>
-                                    <p>Resident, Pune</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"I was skeptical about solar initially, but Naptico Green Energy Solar's team explained everything clearly. The 3kW system on my terrace generates more power than I consume, and I even sell excess back to the grid. Best investment I've made!"</p>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="testimonial-info">
-                                    <h4>Sanjay Mehta</h4>
-                                    <p>IT Park Manager, Hyderabad</p>
-                                </div>
-                            </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"Our IT park has a massive power requirement. Naptico Green Energy Solar installed a 100kW system with battery backup. We've achieved energy independence and reduced our carbon footprint significantly. Their maintenance team is prompt and efficient."</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Controls -->
-                <div class="testimonial-controls">
-                    <button class="testimonial-btn" id="prevTestimonial" aria-label="Previous testimonial">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="testimonial-indicators">
-                        <span class="testimonial-indicator active" data-slide="0" aria-label="Slide 1"></span>
-                        <span class="testimonial-indicator" data-slide="1" aria-label="Slide 2"></span>
-                        <span class="testimonial-indicator" data-slide="2" aria-label="Slide 3"></span>
-                    </div>
-                    <button class="testimonial-btn" id="nextTestimonial" aria-label="Next testimonial">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
             </div>
         </div>
@@ -4646,8 +3785,8 @@
             <h2 class="text-4xl font-bold mb-8 text-white fade-in">Ready to Go Solar?</h2>
             <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Join the solar revolution and start saving on your electricity bills while helping the environment</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
-                <button id="ctaQuoteBtn" class="hero-btn hero-btn-primary">Get Free Consultation</button>
-                <a href="Coming Soon.html" class="hero-btn hero-btn-secondary">Calculate Savings</a>
+                <button id="ctaQuoteBtn" class="hero-btn hero-btn-primary cta-btn-primary">Get Free Consultation</button>
+                <a href="Coming Soon.html" class="hero-btn hero-btn-secondary cta-btn-secondary">Calculate Savings</a>
             </div>
         </div>
     </section>
@@ -5570,61 +4709,6 @@
                 element.classList.add('visible');
             }
         });
-        
-        // Testimonial Carousel Functionality
-        const testimonialTrack = document.getElementById('testimonialTrack');
-        const prevBtn = document.getElementById('prevTestimonial');
-        const nextBtn = document.getElementById('nextTestimonial');
-        const indicators = document.querySelectorAll('.testimonial-indicator');
-        let currentTestimonialSlide = 0;
-        const totalTestimonialSlides = 3;
-        
-        function showTestimonialSlide(index) {
-            if (!testimonialTrack) return;
-            
-            // Update slide position
-            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update indicators
-            indicators.forEach(indicator => {
-                indicator.classList.remove('active');
-            });
-            if (indicators[index]) {
-                indicators[index].classList.add('active');
-            }
-            
-            currentTestimonialSlide = index;
-        }
-        
-        // Next slide
-        function nextTestimonialSlide() {
-            currentTestimonialSlide = (currentTestimonialSlide + 1) % totalTestimonialSlides;
-            showTestimonialSlide(currentTestimonialSlide);
-        }
-        
-        // Previous slide
-        function prevTestimonialSlide() {
-            currentTestimonialSlide = (currentTestimonialSlide - 1 + totalTestimonialSlides) % totalTestimonialSlides;
-            showTestimonialSlide(currentTestimonialSlide);
-        }
-        
-        // Button event listeners
-        if (nextBtn) {
-            nextBtn.addEventListener('click', nextTestimonialSlide);
-        }
-        if (prevBtn) {
-            prevBtn.addEventListener('click', prevTestimonialSlide);
-        }
-        
-        // Indicator event listeners
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                showTestimonialSlide(index);
-            });
-        });
-        
-        // Auto-slide for testimonials
-        setInterval(nextTestimonialSlide, 8000); // Change slide every 8 seconds
         
         // Error handling for images
         document.querySelectorAll('img').forEach(img => {

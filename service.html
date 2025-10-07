@@ -964,13 +964,12 @@
         .services-nav {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            position: sticky;
-            top: 100px; /* Initial value, will be updated by JS */
+            position: sticky; /* Changed from fixed to sticky */
+            top: 80px; /* Position below the fixed header */
             width: 100%;
-            z-index: 99;
-            padding: 15px 0;
+            z-index: 99; /* Reduced z-index to be below header but above content */
+            padding: 15px 0; /* Reduced padding */
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease;
         }
         
         .services-nav-container {
@@ -1542,13 +1541,13 @@
             color: #f59e0b;
         }
         
-        /* Premium Back to Top Button */
+        /* Premium Back to Top Button - SMALLER SIZE */
         .back-to-top {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            width: 60px; /* Reduced size */
-            height: 60px; /* Reduced size */
+            width: 45px; /* Reduced size from 60px to 45px */
+            height: 45px; /* Reduced size from 60px to 45px */
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: black;
             border-radius: 50%;
@@ -1559,9 +1558,9 @@
             visibility: hidden;
             transition: all 0.4s ease;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Adjusted shadow for smaller size */
             transform-style: preserve-3d;
-            font-size: 1.3rem; /* Reduced size */
+            font-size: 1.1rem; /* Reduced size from 1.3rem to 1.1rem */
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
         }
@@ -1579,8 +1578,8 @@
         }
         
         .back-to-top:hover {
-            transform: translateY(-15px) rotateZ(10deg);
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
+            transform: translateY(-10px) rotateZ(10deg); /* Adjusted for smaller size */
+            box-shadow: 0 12px 25px rgba(245, 158, 11, 0.5); /* Adjusted shadow for smaller size */
         }
         
         /* Premium Quote Form Modal */
@@ -2339,8 +2338,8 @@
                 gap: 30px; /* Reduced gap */
             }
             .back-to-top {
-                width: 50px; /* Reduced size */
-                height: 50px; /* Reduced size */
+                width: 40px; /* Reduced size for mobile */
+                height: 40px; /* Reduced size for mobile */
                 bottom: 20px;
                 right: 20px;
             }
@@ -2510,6 +2509,13 @@
             
             .service-stats-label {
                 font-size: 0.8rem; /* Reduced size */
+            }
+            
+            /* Back to top button for very small screens */
+            .back-to-top {
+                width: 35px; /* Further reduced size */
+                height: 35px; /* Further reduced size */
+                font-size: 1rem; /* Further reduced size */
             }
         }
         
@@ -2956,7 +2962,7 @@
         </div>
     </div>
     
-    <!-- Premium Back to Top Button -->
+    <!-- Premium Back to Top Button - SMALLER SIZE -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -4061,38 +4067,16 @@
             }
         });
         
-        // Premium Header and Services Navigation scroll effect
+        // Premium Header scroll effect
         const header = document.querySelector('.header');
-        const servicesNav = document.querySelector('.services-nav');
         
-        function updateHeaderAndServicesNav() {
-            // Update header state
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-            
-            // Update services navigation position
-            if (servicesNav) {
-                const headerHeight = header.offsetHeight;
-                servicesNav.style.top = `${headerHeight}px`;
-                
-                // Add shadow when services nav is not at the top
-                if (window.scrollY > 50) {
-                    servicesNav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
-                } else {
-                    servicesNav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
-                }
-            }
-        }
-        
-        // Call it initially and on scroll
-        updateHeaderAndServicesNav();
-        window.addEventListener('scroll', updateHeaderAndServicesNav);
-        
-        // Also update on window resize
-        window.addEventListener('resize', updateHeaderAndServicesNav);
+        });
         
         // Mobile menu functionality - FIXED
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -4314,7 +4298,7 @@
             }
         });
         
-        // Premium Back to Top Button
+        // Premium Back to Top Button - SMALLER SIZE
         const backToTopBtn = document.getElementById('backToTop');
         
         if (backToTopBtn) {

@@ -1709,13 +1709,13 @@
             color: #f59e0b;
         }
         
-        /* Premium Back to Top Button */
+        /* Premium Back to Top Button - REDUCED SIZE */
         .back-to-top {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            width: 70px;
-            height: 70px;
+            width: 50px; /* Reduced from 70px */
+            height: 50px; /* Reduced from 70px */
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: black;
             border-radius: 50%;
@@ -1728,7 +1728,7 @@
             z-index: 100;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Reduced from 1.5rem */
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
         }
@@ -1741,12 +1741,12 @@
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-15px);}
-            60% {transform: translateY(-8px);}
+            40% {transform: translateY(-10px);} /* Reduced from -15px */
+            60% {transform: translateY(-5px);} /* Reduced from -8px */
         }
         
         .back-to-top:hover {
-            transform: translateY(-15px) rotateZ(10deg);
+            transform: translateY(-10px) rotateZ(10deg); /* Reduced from -15px */
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
@@ -2660,10 +2660,11 @@
                 gap: 40px;
             }
             .back-to-top {
-                width: 60px;
-                height: 60px;
+                width: 40px; /* Smaller on mobile */
+                height: 40px; /* Smaller on mobile */
                 bottom: 20px;
                 right: 20px;
+                font-size: 1rem; /* Smaller font on mobile */
             }
             
             /* Mobile Header Adjustments */

@@ -81,7 +81,7 @@
             pointer-events: none;
             z-index: 100000;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            transition: opacity 0.15s ease, transform 0.25s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
         }
@@ -247,10 +247,6 @@
         
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
-        }
-        
-        .header.scrolled .logo {
-            width: 170px;
         }
         
         .nav-menu {
@@ -2359,9 +2355,296 @@
                 font-size: 1rem;
             }
         }
+        
+        /* Cookie Consent Banner Styles */
+        .cookie-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .cookie-banner.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        
+        .cookie-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+            pointer-events: auto;
+        }
+        
+        .cookie-banner.active .cookie-content {
+            transform: translateY(0);
+        }
+        
+        .cookie-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+        }
+        
+        .cookie-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 25px;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .cookie-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .cookie-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            text-align: center;
+        }
+        
+        .cookie-text {
+            color: #e2e8f0;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .cookie-accept {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            cursor: pointer;
+        }
+        
+        .cookie-accept:hover {
+            transform: translateY(-4px) rotateX(5deg);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+        }
+        
+        .cookie-accept::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .cookie-accept:hover::before {
+            left: 100%;
+        }
+        
+        .cookie-settings {
+            background: transparent;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            color: #f59e0b;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .cookie-settings:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+            transform: translateY(-4px);
+        }
+        
+        /* Cookie Settings Panel */
+        .cookie-settings-panel {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cookie-settings-panel.active {
+            display: block;
+        }
+        
+        .cookie-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cookie-option:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .cookie-option-label {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+        
+        .cookie-option-description {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .cookie-toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .cookie-toggle.active {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+        }
+        
+        .cookie-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cookie-toggle.active .cookie-toggle-slider {
+            transform: translateX(24px);
+        }
+        
+        .cookie-save-settings {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .cookie-save-settings:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Screenshot Protection Overlay */
+        .screenshot-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: none;
+            z-index: 9999999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .screenshot-protection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .screenshot-protection p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot-protection button {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .screenshot-protection button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- PRELOAD HERO IMAGES -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
     <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -2376,6 +2659,66 @@
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
+        <!-- Loading progress bar -->
+        <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
+            <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
+        </div>
+    </div>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-hidden="true">
+        <div class="cookie-content">
+            <!-- Logo path updated to use relative path -->
+            <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="cookie-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
+            <h3 class="cookie-title" id="cookieTitle">We Value Your Privacy</h3>
+            <p class="cookie-text">We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All Cookies", you consent to our use of cookies.</p>
+            
+            <div class="cookie-buttons">
+                <button id="cookieAccept" class="cookie-accept">Accept All Cookies</button>
+                <button id="cookieSettings" class="cookie-settings">Cookie Settings</button>
+            </div>
+            
+            <div id="cookieSettingsPanel" class="cookie-settings-panel">
+                <div class="cookie-option">
+                    <div>
+                        <div class="cookie-option-label">Essential Cookies</div>
+                        <div class="cookie-option-description">Necessary for the website to function properly</div>
+                    </div>
+                    <div class="cookie-toggle active" data-cookie="essential">
+                        <div class="cookie-toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <div class="cookie-option">
+                    <div>
+                        <div class="cookie-option-label">Analytics Cookies</div>
+                        <div class="cookie-option-description">Help us understand how visitors interact with our website</div>
+                    </div>
+                    <div class="cookie-toggle" data-cookie="analytics">
+                        <div class="cookie-toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <div class="cookie-option">
+                    <div>
+                        <div class="cookie-option-label">Marketing Cookies</div>
+                        <div class="cookie-option-description">Used to track visitors across websites to display relevant ads</div>
+                    </div>
+                    <div class="cookie-toggle" data-cookie="marketing">
+                        <div class="cookie-toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <button id="cookieSaveSettings" class="cookie-save-settings">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Screenshot Protection Overlay -->
+    <div id="screenshotProtection" class="screenshot-protection">
+        <h2>Screenshot Protection</h2>
+        <p>Screenshots are not allowed on this website. Please close this overlay to continue browsing.</p>
+        <button id="closeScreenshotProtection">Continue Browsing</button>
     </div>
     
     <!-- Premium Header -->
@@ -2402,7 +2745,7 @@
                 <button class="contact-btn">Get Quote</button>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2411,8 +2754,8 @@
     </header>
     
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="mobile-menu-close" id="mobileMenuClose">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
         </button>
         <ul class="mobile-nav">
@@ -2430,17 +2773,17 @@
     </div>
     
     <!-- Premium Quote Form Modal -->
-    <div id="quoteModal" class="quote-modal">
+    <div id="quoteModal" class="quote-modal" role="dialog" aria-labelledby="quoteFormTitle" aria-hidden="true">
         <div class="quote-form-container">
             <div class="quote-form-header">
-                <button class="quote-close">
+                <button class="quote-close" id="quoteClose" aria-label="Close quote form">
                     <i class="fas fa-times"></i>
                 </button>
                 <!-- Logo path updated to use relative path and made clickable -->
                 <a href="index.html">
                     <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
-                <h2 class="quote-form-title">Get Your Solar Quote</h2>
+                <h2 class="quote-form-title" id="quoteFormTitle">Get Your Solar Quote</h2>
                 <p class="quote-form-subtitle">Fill in the details below and we'll get back to you with a customized solar solution</p>
             </div>
             
@@ -2512,12 +2855,12 @@
     </div>
     
     <!-- Premium Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
     <!-- Hero Section -->
-    <section class="hero-gradient">
+    <section id="main-content" class="hero-gradient">
         <!-- Hero Slideshow - All slides will change automatically -->
         <div class="hero-slideshow">
             <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
@@ -3422,8 +3765,8 @@
             <h2 class="text-4xl font-bold mb-8 text-white fade-in">Ready to Go Solar?</h2>
             <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto fade-in">Get in touch with our solar experts to find the perfect solution for your energy needs</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
-                <button id="ctaQuoteBtn" class="hero-btn hero-btn-primary cta-btn-primary">Get Free Quote</button>
-                <a href="contact.html" class="hero-btn hero-btn-secondary cta-btn-secondary">Contact Us</a>
+                <button id="ctaQuoteBtn" class="hero-btn hero-btn-primary">Get Free Quote</button>
+                <a href="contact.html" class="hero-btn hero-btn-secondary">Contact Us</a>
             </div>
         </div>
     </section>
@@ -4039,6 +4382,258 @@
                     }
                 });
             });
+        });
+        
+        // Cookie utility functions
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+            }
+            return null;
+        }
+        
+        // Initialize cookie banner
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieSettings = document.getElementById('cookieSettings');
+            const cookieSettingsPanel = document.getElementById('cookieSettingsPanel');
+            const cookieSaveSettings = document.getElementById('cookieSaveSettings');
+            const cookieToggles = document.querySelectorAll('.cookie-toggle');
+        
+            // Check if consent has been given
+            const consent = getCookie('cookieConsent');
+            if (!consent && cookieBanner) {
+                cookieBanner.classList.add('active');
+                cookieBanner.setAttribute('aria-hidden', 'false');
+            } else {
+                cookieBanner.classList.remove('active');
+                cookieBanner.setAttribute('aria-hidden', 'true');
+            }
+        
+            // Accept all cookies
+            if (cookieAccept) {
+                cookieAccept.addEventListener('click', () => {
+                    setCookie('cookieConsent', 'all', 365);
+                    setCookie('essentialCookies', 'true', 365);
+                    setCookie('analyticsCookies', 'true', 365);
+                    setCookie('marketingCookies', 'true', 365);
+                    
+                    if (cookieBanner) {
+                        cookieBanner.classList.remove('active');
+                        cookieBanner.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        
+            // Toggle settings panel
+            if (cookieSettings) {
+                cookieSettings.addEventListener('click', () => {
+                    if (cookieSettingsPanel) {
+                        cookieSettingsPanel.classList.toggle('active');
+                    }
+                });
+            }
+        
+            // Toggle individual cookie options
+            cookieToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.classList.toggle('active');
+                });
+            });
+        
+            // Save custom settings
+            if (cookieSaveSettings) {
+                cookieSaveSettings.addEventListener('click', () => {
+                    const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
+                    const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
+                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
+        
+                    // Essential cookies are always enabled
+                    setCookie('essentialCookies', 'true', 365);
+        
+                    // Set other cookies based on toggle state
+                    setCookie('analyticsCookies', analyticsToggle?.classList.contains('active') ? 'true' : 'false', 365);
+                    setCookie('marketingCookies', marketingToggle?.classList.contains('active') ? 'true' : 'false', 365);
+        
+                    // Set overall consent
+                    setCookie('cookieConsent', 'custom', 365);
+        
+                    if (cookieBanner) {
+                        cookieBanner.classList.remove('active');
+                        cookieBanner.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        });
+        
+        // Screenshot Protection
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshotProtection = document.getElementById('screenshotProtection');
+            const closeScreenshotProtection = document.getElementById('closeScreenshotProtection');
+            
+            // Show screenshot protection overlay when page is hidden
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'flex';
+                    }
+                } else {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Close screenshot protection overlay
+            if (closeScreenshotProtection) {
+                closeScreenshotProtection.addEventListener('click', function() {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Prevent context menu (right-click)
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent text selection
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent image dragging
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Disable keyboard shortcuts for copying
+            document.addEventListener('keydown', function(e) {
+                // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+                if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable F12 (Developer Tools)
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+J (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Print Screen
+                if (e.keyCode === 44) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Additional protection for images
+            document.querySelectorAll('img').forEach(function(img) {
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+            
+            // iOS specific protections
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+                // Prevent double-tap to zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Prevent pinch to zoom
+                document.addEventListener('gesturestart', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gesturechange', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gestureend', function(e) {
+                    e.preventDefault();
+                });
+            }
+            
+            // Android specific protections
+            if (navigator.userAgent.match(/Android/i)) {
+                // Prevent long press to save image
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Prevent long press to select text
+                document.addEventListener('touchstart', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                });
+            }
+            
+            // Add watermark for screenshots
+            function addWatermark() {
+                const watermark = document.createElement('div');
+                watermark.style.position = 'fixed';
+                watermark.style.top = '0';
+                watermark.style.left = '0';
+                watermark.style.width = '100%';
+                watermark.style.height = '100%';
+                watermark.style.pointerEvents = 'none';
+                watermark.style.zIndex = '9999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.backgroundRepeat = 'repeat';
+                watermark.style.backgroundSize = '200px 200px';
+                watermark.style.opacity = '0.1';
+                document.body.appendChild(watermark);
+            }
+            
+            addWatermark();
         });
     </script>
 </body>

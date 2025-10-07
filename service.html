@@ -960,16 +960,16 @@
             left: 100%;
         }
         
-        /* Services Navigation - MOVED BELOW HERO SECTION */
+        /* Services Navigation - STICKY NAVIGATION */
         .services-nav {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            position: relative; /* Changed from fixed to relative */
+            position: sticky; /* Changed from fixed to sticky */
+            top: 80px; /* Position below the fixed header */
             width: 100%;
             z-index: 99; /* Reduced z-index to be below header but above content */
-            padding: 20px 0; /* Increased padding */
+            padding: 15px 0; /* Reduced padding */
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            height: auto; /* Allow height to adjust based on content */
         }
         
         .services-nav-container {
@@ -2388,6 +2388,7 @@
             /* Services Navigation Mobile */
             .services-nav {
                 padding: 15px 0; /* Reduced padding */
+                top: 60px; /* Adjusted for mobile header height */
             }
             
             .services-nav-links {
@@ -2991,7 +2992,7 @@
         </div>
     </section>
     
-    <!-- Services Navigation - MOVED BELOW HERO SECTION -->
+    <!-- Services Navigation - STICKY NAVIGATION -->
     <section id="services-nav" class="services-nav">
         <div class="services-nav-container">
             <div class="services-nav-links">
@@ -3007,10 +3008,10 @@
         </div>
     </section>
     
-    <!-- Hybrid Solar System -->
+    <!-- Hybrid Solar System - IMAGE RIGHT, TEXT LEFT -->
     <section id="hybrid" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row-reverse gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hybrid Solar System" class="rounded-2xl w-full h-auto">
@@ -3075,10 +3076,10 @@
         </div>
     </section>
     
-    <!-- On-Grid Solar System -->
+    <!-- On-Grid Solar System - IMAGE LEFT, TEXT RIGHT -->
     <section id="on-grid" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="On-Grid Solar System" class="rounded-2xl w-full h-auto">
@@ -3143,10 +3144,10 @@
         </div>
     </section>
     
-    <!-- Off-Grid Solar System -->
+    <!-- Off-Grid Solar System - IMAGE RIGHT, TEXT LEFT -->
     <section id="off-grid" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row-reverse gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Off-Grid Solar System" class="rounded-2xl w-full h-auto">
@@ -3210,10 +3211,10 @@
         </div>
     </section>
     
-    <!-- Ground Mount Solar System -->
+    <!-- Ground Mount Solar System - IMAGE LEFT, TEXT RIGHT -->
     <section id="ground-mount" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ground Mount Solar System" class="rounded-2xl w-full h-auto">
@@ -3277,10 +3278,10 @@
         </div>
     </section>
     
-    <!-- Solar Water Heater (ETC) -->
+    <!-- Solar Water Heater (ETC) - IMAGE RIGHT, TEXT LEFT -->
     <section id="water-heater-etc" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row-reverse gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater ETC" class="rounded-2xl w-full h-auto">
@@ -3344,10 +3345,10 @@
         </div>
     </section>
     
-    <!-- Solar Water Heater (FPC) -->
+    <!-- Solar Water Heater (FPC) - IMAGE LEFT, TEXT RIGHT -->
     <section id="water-heater-fpc" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Water Heater FPC" class="rounded-2xl w-full h-auto">
@@ -3411,10 +3412,10 @@
         </div>
     </section>
     
-    <!-- Solar Street Light -->
+    <!-- Solar Street Light - IMAGE RIGHT, TEXT LEFT -->
     <section id="street-light" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row-reverse gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1593538312308-d4c29d8dc7f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Street Light" class="rounded-2xl w-full h-auto">
@@ -3478,10 +3479,10 @@
         </div>
     </section>
     
-    <!-- Maintenance & Support -->
+    <!-- Maintenance & Support - IMAGE LEFT, TEXT RIGHT -->
     <section id="maintenance-support" class="services-section">
         <div class="container mx-auto px-4 services-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center service-detail">
+            <div class="service-detail flex flex-col lg:flex-row gap-12 items-center">
                 <div class="relative floating">
                     <div class="service-card">
                         <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Maintenance & Support" class="rounded-2xl w-full h-auto">
@@ -4546,7 +4547,7 @@
                     const headerHeight = document.querySelector('.header').offsetHeight;
                     const servicesNavHeight = document.querySelector('.services-nav').offsetHeight;
                     const offsetPosition = target.offsetTop - headerHeight - servicesNavHeight;
-                    
+
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'

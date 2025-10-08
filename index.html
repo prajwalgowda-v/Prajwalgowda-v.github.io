@@ -3287,7 +3287,7 @@
                     <li><a href="./" class="nav-link">Home</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">About Us</a></li>
                     <li class="nav-item-dropdown">
-                        <a href="Coming Soon.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                        <span class="nav-link">Services <i class="fas fa-chevron-down"></i></span>
                         <ul class="dropdown-menu">
                             <li><a href="solar-energy-solutions.html" class="dropdown-link">Solar Energy Solutions</a></li>
                             <li><a href="ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
@@ -3325,7 +3325,7 @@
             <li><a href="./">Home</a></li>
             <li><a href="Coming Soon.html">About Us</a></li>
             <li class="nav-item-dropdown">
-                <a href="Coming Soon.html">Services <i class="fas fa-chevron-down"></i></a>
+                <span>Services <i class="fas fa-chevron-down"></i></span>
                 <ul class="dropdown-menu">
                     <li><a href="solar-energy-solutions.html">Solar Energy Solutions</a></li>
                     <li><a href="ground-mounted-solar.html">Ground-Mounted Solar</a></li>
@@ -4646,7 +4646,7 @@
             const windowHeight = window.innerHeight;
             const modalHeight = modalContainer.offsetHeight;
             
-            if (modalHeight > windowHeight - 40) {
+            if (modalHeight > windowHeight - 40px) {
                 modalContainer.style.marginTop = '20px';
                 modalContainer.style.marginBottom = '20px';
             } else {
@@ -4833,7 +4833,7 @@
                         }
                     });
                 });
-            }
+            });
         });
         
         // Testimonial Carousel Functionality
@@ -4997,7 +4997,7 @@
                 date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                 expires = "; expires=" + date.toUTCString();
             }
-            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
+            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/;`;
         }
         
         function getCookie(name) {
@@ -5084,7 +5084,7 @@
                 cookieSaveSettings.addEventListener('click', () => {
                     const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
                     const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
-                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
+                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]);
         
                     // Essential cookies are always enabled
                     setCookie('essentialCookies', 'true', 365);
@@ -5260,8 +5260,8 @@
                 watermark.style.width = '100%';
                 watermark.style.height = '100%';
                 watermark.style.pointerEvents = 'none';
-                watermark.style.zIndex = '9999998';
-                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.zIndex = '999999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxMjAw==");
                 watermark.style.backgroundRepeat = 'repeat';
                 watermark.style.backgroundSize = '200px 200px';
                 watermark.style.opacity = '0.1';

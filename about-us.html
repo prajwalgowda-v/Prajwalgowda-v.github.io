@@ -357,7 +357,7 @@
             transition: transform 0.3s ease;
         }
         
-        .dropdown:hover .dropdown-toggle::after {
+        .dropdown.active .dropdown-toggle::after {
             transform: rotate(180deg);
         }
         
@@ -386,7 +386,6 @@
             }
         }
         
-        .dropdown:hover .dropdown-menu,
         .dropdown.active .dropdown-menu {
             opacity: 1;
             visibility: visible;

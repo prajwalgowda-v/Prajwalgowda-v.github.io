@@ -232,7 +232,7 @@
             opacity: 1;
         }
         
-        /* Premium Loading Screen with White Background - FIXED */
+        /* Premium Loading Screen with White Background */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -250,9 +250,9 @@
         }
         
         .loading-screen.hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
         
         .loading-logo {
@@ -3207,7 +3207,7 @@
     <!-- Touch Indicator (for mobile only) -->
     <div class="touch-indicator"></div>
     
-    <!-- Premium Loading Screen with White Background - FIXED -->
+    <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="./">
@@ -3981,7 +3981,7 @@
             window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Improved Loading Screen Script with better error handling - FIXED
+        // Improved Loading Screen Script with better error handling
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM Content Loaded');
             

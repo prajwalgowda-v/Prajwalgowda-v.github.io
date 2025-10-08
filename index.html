@@ -2215,7 +2215,7 @@
             height: 100%;
             background: rgba(255, 255, 255, 0.2);
             transition: left 0.6s ease;
-            z-index: 0;
+            z-index: -1;
         }
         
         .form-submit:hover::before {
@@ -2964,6 +2964,7 @@
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
+            display: none !important;
         }
         
         /* Accessibility improvements */
@@ -3289,12 +3290,12 @@
                     <li class="nav-item-dropdown">
                         <span class="nav-link">Services <i class="fas fa-chevron-down"></i></span>
                         <ul class="dropdown-menu">
-                            <li><a href="solar-energy-solutions.html" class="dropdown-link">Solar Energy Solutions</a></li>
+                            <li><a href="solar-energy-solutions.html" class="dropdown-link">Rooftop Solar Panels</a></li>
                             <li><a href="ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
                             <li><a href="solar-street-lights.html" class="dropdown-link">Solar Street Lights</a></li>
                             <li><a href="solar-water-heater-etc.html" class="dropdown-link">Solar Water Heater (ETC)</a></li>
                             <li><a href="solar-water-heater-fpc.html" class="dropdown-link">Solar Water Heater (FPC)</a></li>
-                            <li><a href="maintenance-support.html" class="dropdown-link">Maintenance & Support</a></li>
+                            <li><a href="maintenance-support.html" class="dropdown-link">Solar Maintenance and Support</a></li>
                         </ul>
                     </li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
@@ -3327,12 +3328,12 @@
             <li class="nav-item-dropdown">
                 <span>Services <i class="fas fa-chevron-down"></i></span>
                 <ul class="dropdown-menu">
-                    <li><a href="solar-energy-solutions.html">Solar Energy Solutions</a></li>
+                    <li><a href="solar-energy-solutions.html">Rooftop Solar Panels</a></li>
                     <li><a href="ground-mounted-solar.html">Ground-Mounted Solar</a></li>
                     <li><a href="solar-street-lights.html">Solar Street Lights</a></li>
                     <li><a href="solar-water-heater-etc.html">Solar Water Heater (ETC)</a></li>
                     <li><a href="solar-water-heater-fpc.html">Solar Water Heater (FPC)</a></li>
-                    <li><a href="maintenance-support.html">Maintenance & Support</a></li>
+                    <li><a href="maintenance-support.html">Solar Maintenance and Support</a></li>
                 </ul>
             </li>
             <li><a href="Coming Soon.html">How It Works</a></li>
@@ -3522,7 +3523,7 @@
                     <div class="service-icon">
                         <i class="fas fa-tools text-black text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Maintenance & Support</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white">Solar Maintenance and Support</h3>
                     <p class="text-gray-300 mb-5">Comprehensive maintenance services to keep your solar system running efficiently.</p>
                     <a href="maintenance-support.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
@@ -3920,12 +3921,12 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="solar-energy-solutions.html">Solar Energy Solutions</a></li>
+                        <li><a href="solar-energy-solutions.html">Rooftop Solar Panels</a></li>
                         <li><a href="ground-mounted-solar.html">Ground-Mounted Solar</a></li>
                         <li><a href="solar-street-lights.html">Solar Street Lights</a></li>
                         <li><a href="solar-water-heater-etc.html">Solar Water Heater (ETC)</a></li>
                         <li><a href="solar-water-heater-fpc.html">Solar Water Heater (FPC)</a></li>
-                        <li><a href="maintenance-support.html">Maintenance & Support</a></li>
+                        <li><a href="maintenance-support.html">Solar Maintenance and Support</a></li>
                     </ul>
                 </div>
                 
@@ -5261,7 +5262,7 @@
                 watermark.style.height = '100%';
                 watermark.style.pointerEvents = 'none';
                 watermark.style.zIndex = '999999998';
-                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxMjAw==");
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxMjAw==")';
                 watermark.style.backgroundRepeat = 'repeat';
                 watermark.style.backgroundSize = '200px 200px';
                 watermark.style.opacity = '0.1';

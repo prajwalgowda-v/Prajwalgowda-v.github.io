@@ -731,126 +731,6 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
-        /* Dropdown Menu Styles */
-        .nav-item-dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            min-width: 250px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            padding: 15px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .dropdown-menu {
-                background: rgba(15, 23, 42, 0.98);
-            }
-        }
-
-        .nav-item-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 12px 25px;
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            white-space: nowrap;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .dropdown-link::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .dropdown-link:hover {
-            color: #f59e0b;
-            padding-left: 30px;
-            background: rgba(245, 158, 11, 0.1);
-        }
-
-        .dropdown-link:hover::before {
-            transform: scaleY(1);
-        }
-
-        /* Add chevron icon animation */
-        .nav-item-dropdown .nav-link i {
-            font-size: 0.8rem;
-            margin-left: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item-dropdown:hover .nav-link i {
-            transform: rotate(180deg);
-        }
-
-        /* Mobile dropdown styles */
-        @media (max-width: 768px) {
-            .nav-item-dropdown .nav-link i {
-                display: inline-block;
-            }
-            
-            .mobile-nav .nav-item-dropdown {
-                margin-bottom: 10px;
-            }
-            
-            .mobile-nav .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background: transparent;
-                box-shadow: none;
-                padding: 10px 0 10px 20px;
-                margin-top: 10px;
-                border-radius: 0;
-                border-left: 2px solid rgba(245, 158, 11, 0.5);
-            }
-            
-            .mobile-nav .dropdown-link {
-                padding: 8px 0;
-                font-size: 1.2rem;
-                color: #cbd5e1;
-            }
-            
-            .mobile-nav .dropdown-link:hover {
-                padding-left: 10px;
-                background: transparent;
-            }
-        }
-        
         /* Premium Hero Section with Advanced Effects */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
@@ -2215,7 +2095,7 @@
             height: 100%;
             background: rgba(255, 255, 255, 0.2);
             transition: left 0.6s ease;
-            z-index: -1;
+            z-index: 0;
         }
         
         .form-submit:hover::before {
@@ -2964,7 +2844,6 @@
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
-            display: none !important;
         }
         
         /* Accessibility improvements */
@@ -3287,17 +3166,7 @@
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item-dropdown">
-                        <span class="nav-link">Services <i class="fas fa-chevron-down"></i></span>
-                        <ul class="dropdown-menu">
-                            <li><a href="solar-energy-solutions.html" class="dropdown-link">Rooftop Solar Panels</a></li>
-                            <li><a href="ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
-                            <li><a href="solar-street-lights.html" class="dropdown-link">Solar Street Lights</a></li>
-                            <li><a href="solar-water-heater-etc.html" class="dropdown-link">Solar Water Heater (ETC)</a></li>
-                            <li><a href="solar-water-heater-fpc.html" class="dropdown-link">Solar Water Heater (FPC)</a></li>
-                            <li><a href="maintenance-support.html" class="dropdown-link">Solar Maintenance and Support</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Stories</a></li>
@@ -3325,17 +3194,7 @@
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
             <li><a href="Coming Soon.html">About Us</a></li>
-            <li class="nav-item-dropdown">
-                <span>Services <i class="fas fa-chevron-down"></i></span>
-                <ul class="dropdown-menu">
-                    <li><a href="solar-energy-solutions.html">Rooftop Solar Panels</a></li>
-                    <li><a href="ground-mounted-solar.html">Ground-Mounted Solar</a></li>
-                    <li><a href="solar-street-lights.html">Solar Street Lights</a></li>
-                    <li><a href="solar-water-heater-etc.html">Solar Water Heater (ETC)</a></li>
-                    <li><a href="solar-water-heater-fpc.html">Solar Water Heater (FPC)</a></li>
-                    <li><a href="maintenance-support.html">Solar Maintenance and Support</a></li>
-                </ul>
-            </li>
+            <li><a href="Coming Soon.html">Services</a></li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
             <li><a href="Coming Soon.html">Stories</a></li>
@@ -3465,7 +3324,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Rooftop Solar Panels</h3>
                     <p class="text-gray-300 mb-5">Transform your roof into a power plant with our high-efficiency solar panel systems.</p>
-                    <a href="solar-energy-solutions.html" class="learn-more-btn">
+                    <a href="Coming Soon.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3477,7 +3336,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Ground-Mounted Solar</h3>
                     <p class="text-gray-300 mb-5">Large-scale solar installations for commercial and industrial applications.</p>
-                    <a href="ground-mounted-solar.html" class="learn-more-btn">
+                    <a href="Coming Soon.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3489,7 +3348,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Street Lights</h3>
                     <p class="text-gray-300 mb-5">Energy-efficient lighting solutions for streets, parks, and public spaces.</p>
-                    <a href="solar-street-lights.html" class="learn-more-btn">
+                    <a href="Coming Soon.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3501,7 +3360,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (ETC)</h3>
                     <p class="text-gray-300 mb-5">Evacuated tube collector systems for efficient water heating solutions.</p>
-                    <a href="solar-water-heater-etc.html" class="learn-more-btn">
+                    <a href="Coming Soon.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3513,7 +3372,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Solar Water Heater (FPC)</h3>
                     <p class="text-gray-300 mb-5">Flat plate collector systems for reliable and durable water heating.</p>
-                    <a href="solar-water-heater-fpc.html" class="learn-more-btn">
+                    <a href="Coming Soon.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3523,9 +3382,9 @@
                     <div class="service-icon">
                         <i class="fas fa-tools text-black text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Solar Maintenance and Support</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white">Maintenance & Support</h3>
                     <p class="text-gray-300 mb-5">Comprehensive maintenance services to keep your solar system running efficiently.</p>
-                    <a href="maintenance-support.html" class="learn-more-btn">
+                    <a href="Coming Soon.html" class="learn-more-btn">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3884,8 +3743,8 @@
                     <a href="./">
                         <!-- Fixed filename with space issue and added proper dimensions -->
                         <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
-                            onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
-                            width="220" height="90" loading="lazy">
+                             onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
+                             width="220" height="90" loading="lazy">
                     </a>
                     <p style="font-size: 14px;">We are an Equal Opportunity/Affirmative Action employer committed to diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, age, national origin, disability, protected veteran status, gender identity, or any other factor protected by applicable federal, state, or local laws.</p>
                     <div class="social-icons">
@@ -3921,12 +3780,12 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="solar-energy-solutions.html">Rooftop Solar Panels</a></li>
-                        <li><a href="ground-mounted-solar.html">Ground-Mounted Solar</a></li>
-                        <li><a href="solar-street-lights.html">Solar Street Lights</a></li>
-                        <li><a href="solar-water-heater-etc.html">Solar Water Heater (ETC)</a></li>
-                        <li><a href="solar-water-heater-fpc.html">Solar Water Heater (FPC)</a></li>
-                        <li><a href="maintenance-support.html">Solar Maintenance and Support</a></li>
+                        <li><a href="Coming Soon.html">Rooftop Solar Panels</a></li>
+                        <li><a href="Coming Soon.html">Ground-Mounted Solar</a></li>
+                        <li><a href="Coming Soon.html">Solar Street Lights</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (ETC)</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (FPC)</a></li>
+                        <li><a href="Coming Soon.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -4033,10 +3892,10 @@
         // Check if the device supports touch
         function isTouchDevice() {
             return 'ontouchstart' in window || 
-                navigator.maxTouchPoints > 0 || 
-                navigator.msMaxTouchPoints > 0 || 
-                // For some browsers that don't properly report touch support
-                (window.DocumentTouch && document instanceof DocumentTouch);
+                   navigator.maxTouchPoints > 0 || 
+                   navigator.msMaxTouchPoints > 0 || 
+                   // For some browsers that don't properly report touch support
+                   (window.DocumentTouch && document instanceof DocumentTouch);
         }
         
         // Variables to track input type and cursor state
@@ -4355,29 +4214,6 @@
             }
         });
         
-        // Mobile dropdown toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileDropdowns = document.querySelectorAll('.mobile-nav .nav-item-dropdown');
-            
-            mobileDropdowns.forEach(dropdown => {
-                const link = dropdown.querySelector('.nav-link');
-                const menu = dropdown.querySelector('.dropdown-menu');
-                
-                if (link && menu) {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-                        
-                        // Toggle chevron rotation
-                        const icon = this.querySelector('i');
-                        if (icon) {
-                            icon.style.transform = menu.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0)';
-                        }
-                    });
-                }
-            });
-        });
-        
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
             'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
@@ -4647,7 +4483,7 @@
             const windowHeight = window.innerHeight;
             const modalHeight = modalContainer.offsetHeight;
             
-            if (modalHeight > windowHeight - 40px) {
+            if (modalHeight > windowHeight - 40) {
                 modalContainer.style.marginTop = '20px';
                 modalContainer.style.marginBottom = '20px';
             } else {
@@ -4998,7 +4834,7 @@
                 date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                 expires = "; expires=" + date.toUTCString();
             }
-            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/;`;
+            document.cookie = `${name}=${encodeURIComponent(value)}${expires}; path=/`;
         }
         
         function getCookie(name) {
@@ -5015,14 +4851,14 @@
         // Inject CSS styles
         const cookieStyles = `
         @media (max-width: 768px) {
-        #cookieBanner {
+          #cookieBanner {
             bottom: 0;
             left: 0;
             right: 0;
             border-radius: 0;
             max-height: 80vh;
             overflow-y: auto;
-        }
+          }
         }
         `;
         
@@ -5261,8 +5097,8 @@
                 watermark.style.width = '100%';
                 watermark.style.height = '100%';
                 watermark.style.pointerEvents = 'none';
-                watermark.style.zIndex = '999999998';
-                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxMjAw==")';
+                watermark.style.zIndex = '9999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
                 watermark.style.backgroundRepeat = 'repeat';
                 watermark.style.backgroundSize = '200px 200px';
                 watermark.style.opacity = '0.1';

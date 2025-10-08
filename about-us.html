@@ -298,10 +298,6 @@
             overflow: hidden; /* Hide overflow if needed */
         }
         
-        .nav-item {
-            position: relative;
-        }
-        
         .nav-link {
             position: relative;
             color: white;
@@ -312,8 +308,6 @@
             padding: 5px 0;
             white-space: nowrap; /* Prevent text from wrapping */
             font-size: 0.95rem; /* Slightly smaller font size */
-            display: flex;
-            align-items: center;
         }
         
         .nav-link::before {
@@ -335,86 +329,6 @@
         .nav-link:hover {
             transform: translateY(-3px);
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
-        }
-        
-        /* Dropdown Menu Styles - COMPLETELY REWRITTEN FOR VISIBILITY */
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-toggle {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-        
-        .dropdown-toggle::after {
-            content: '\f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-left: 5px;
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .dropdown.active .dropdown-toggle::after {
-            transform: rotate(180deg);
-        }
-        
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(15px);
-            min-width: 220px;
-            border-radius: 8px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: all 0.3s ease;
-            z-index: 9999999; /* Extremely high z-index */
-            padding: 12px 0;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            margin-top: 10px; /* Added margin to prevent overlap with header */
-            display: block; /* Ensure it's always in the DOM */
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .dropdown-menu {
-                background: rgba(15, 23, 42, 0.98);
-            }
-        }
-        
-        .dropdown.active .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            display: block; /* Ensure it's displayed when active */
-        }
-        
-        .dropdown-item {
-            display: block;
-            padding: 12px 20px;
-            color: #e2e8f0;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-        
-        .dropdown-item:hover {
-            background: rgba(245, 158, 11, 0.2);
-            color: #f59e0b;
-            padding-left: 25px;
-        }
-        
-        .dropdown-item i {
-            margin-right: 8px;
-            width: 16px;
-            text-align: center;
         }
         
         .header-actions {
@@ -650,44 +564,6 @@
         .mobile-contact-btn:hover {
             transform: translateY(-4px) rotateX(5deg);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
-        }
-        
-        /* Mobile Services Dropdown */
-        .mobile-services-dropdown {
-            margin-top: 10px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .mobile-services-dropdown.active {
-            max-height: 300px;
-        }
-        
-        .mobile-services-dropdown a {
-            display: block;
-            padding: 10px 0;
-            font-size: 1.2rem;
-            color: #e2e8f0;
-        }
-        
-        .mobile-services-dropdown a:hover {
-            color: #f59e0b;
-        }
-        
-        .mobile-services-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .mobile-services-toggle i {
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-services-toggle.active i {
-            transform: rotate(180deg);
         }
         
         /* Premium Hero Section with Advanced Effects */
@@ -2057,88 +1933,6 @@
             color: #f59e0b;
         }
         
-        /* Footer Dropdown Styles */
-        .footer-dropdown {
-            position: relative;
-            margin-bottom: 15px;
-        }
-        
-        .footer-dropdown-toggle {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 1.05rem;
-            cursor: pointer;
-        }
-        
-        .footer-dropdown-toggle::after {
-            content: '\f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-left: 5px;
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .footer-dropdown.active .footer-dropdown-toggle::after {
-            transform: rotate(180deg);
-        }
-        
-        .footer-dropdown-toggle:hover {
-            color: #f59e0b;
-        }
-        
-        .footer-dropdown-menu {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .footer-dropdown.active .footer-dropdown-menu {
-            max-height: 300px;
-        }
-        
-        .footer-dropdown-item {
-            margin-bottom: 10px;
-            padding-left: 15px;
-        }
-        
-        .footer-dropdown-item a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            position: relative;
-            font-size: 0.95rem;
-        }
-        
-        .footer-dropdown-item a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #f59e0b;
-            transition: width 0.4s ease;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        
-        .footer-dropdown-item a:hover {
-            color: #f59e0b;
-            transform: translateX(5px);
-        }
-        
-        .footer-dropdown-item a:hover::before {
-            width: 100%;
-        }
-        
         /* Premium Back to Top Button - Updated to match first code */
         .back-to-top {
             position: fixed;
@@ -2647,11 +2441,6 @@
             .leadership-grid {
                 grid-template-columns: 1fr;
             }
-            
-            /* Hide dropdown on mobile and use mobile services dropdown instead */
-            .dropdown-menu {
-                display: none;
-            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -3018,17 +2807,7 @@
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
                     <li><a href="about-us" class="nav-link active">About Us</a></li>
-                    <li class="dropdown">
-                        <div class="nav-link dropdown-toggle">Services</div>
-                        <div class="dropdown-menu">
-                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-solar-panel"></i> Rooftop Solar</a>
-                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-sun"></i> Ground-Mounted Solar</a>
-                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Solar Streetlights</a>
-                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-fire"></i> Solar Water Heater ETC</a>
-                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-tint"></i> Solar Water Heater FPC</a>
-                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-tools"></i> Solar Maintenance and Support</a>
-                        </div>
-                    </li>
+                    <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Stories</a></li>
@@ -3056,20 +2835,7 @@
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
             <li><a href="about-us">About Us</a></li>
-            <li>
-                <div class="mobile-services-toggle" id="mobileServicesToggle">
-                    <span>Services</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="mobile-services-dropdown" id="mobileServicesDropdown">
-                    <a href="Coming Soon.html"><i class="fas fa-solar-panel"></i> Rooftop Solar</a>
-                    <a href="Coming Soon.html"><i class="fas fa-sun"></i> Ground-Mounted Solar</a>
-                    <a href="Coming Soon.html"><i class="fas fa-lightbulb"></i> Solar Streetlights</a>
-                    <a href="Coming Soon.html"><i class="fas fa-fire"></i> Solar Water Heater ETC</a>
-                    <a href="Coming Soon.html"><i class="fas fa-tint"></i> Solar Water Heater FPC</a>
-                    <a href="Coming Soon.html"><i class="fas fa-tools"></i> Solar Maintenance and Support</a>
-                </div>
-            </li>
+            <li><a href="Coming Soon.html">Services</a></li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
             <li><a href="Coming Soon.html">Stories</a></li>
@@ -3529,17 +3295,7 @@
                     <ul class="footer-links">
                         <li><a href="./">Home</a></li>
                         <li><a href="about-us">About Us</a></li>
-                        <li class="footer-dropdown">
-                            <div class="footer-dropdown-toggle">Services</div>
-                            <ul class="footer-dropdown-menu">
-                                <li class="footer-dropdown-item"><a href="Coming Soon.html">Rooftop Solar</a></li>
-                                <li class="footer-dropdown-item"><a href="Coming Soon.html">Ground-Mounted Solar</a></li>
-                                <li class="footer-dropdown-item"><a href="Coming Soon.html">Solar Streetlights</a></li>
-                                <li class="footer-dropdown-item"><a href="Coming Soon.html">Solar Water Heater ETC</a></li>
-                                <li class="footer-dropdown-item"><a href="Coming Soon.html">Solar Water Heater FPC</a></li>
-                                <li class="footer-dropdown-item"><a href="Coming Soon.html">Solar Maintenance and Support</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="Coming Soon.html">Services</a></li>
                         <li><a href="Coming Soon.html">How It Works</a></li>
                         <li><a href="Coming Soon.html">Calculator</a></li>
                         <li><a href="Coming Soon.html">Customer Stories</a></li>
@@ -3551,12 +3307,12 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="Coming Soon.html">Rooftop Solar</a></li>
+                        <li><a href="Coming Soon.html">Rooftop Solar Panels</a></li>
                         <li><a href="Coming Soon.html">Ground-Mounted Solar</a></li>
-                        <li><a href="Coming Soon.html">Solar Streetlights</a></li>
-                        <li><a href="Coming Soon.html">Solar Water Heater ETC</a></li>
-                        <li><a href="Coming Soon.html">Solar Water Heater FPC</a></li>
-                        <li><a href="Coming Soon.html">Solar Maintenance and Support</a></li>
+                        <li><a href="Coming Soon.html">Solar Street Lights</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (ETC)</a></li>
+                        <li><a href="Coming Soon.html">Solar Water Heater (FPC)</a></li>
+                        <li><a href="Coming Soon.html">Maintenance & Support</a></li>
                     </ul>
                 </div>
                 
@@ -3821,14 +3577,14 @@
         document.addEventListener('mouseleave', () => {
             if (lastInputType === 'mouse') {
                 if (cursor) cursor.style.opacity = '0';
-                if (cursorFollower) cursorFollower.style.opacity = '0';
+                if (cursorFollower) cursor.style.opacity = '0';
             }
         });
         
         document.addEventListener('mouseenter', () => {
             if (lastInputType === 'mouse') {
                 if (cursor) cursor.style.opacity = '1';
-                if (cursorFollower) cursorFollower.style.opacity = '1';
+                if (cursorFollower) cursor.style.opacity = '1';
             }
         });
         
@@ -3914,17 +3670,6 @@
                         centerModal();
                     }
                 }, 300);
-            });
-        }
-        
-        // Mobile Services Dropdown
-        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
-        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
-        
-        if (mobileServicesToggle && mobileServicesDropdown) {
-            mobileServicesToggle.addEventListener('click', () => {
-                mobileServicesDropdown.classList.toggle('active');
-                mobileServicesToggle.classList.toggle('active');
             });
         }
         
@@ -4497,83 +4242,6 @@
                 imgObserver.observe(img);
             });
         }
-        
-        // Dropdown functionality - COMPLETELY REWRITTEN FOR VISIBILITY
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-        
-        dropdownToggles.forEach(toggle => {
-            // For desktop: show on click (changed from hover)
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation(); // Prevent event from bubbling up
-                
-                const dropdown = this.closest('.dropdown');
-                if (dropdown) {
-                    // Close all other dropdowns
-                    document.querySelectorAll('.dropdown').forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('active');
-                        }
-                    });
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('active');
-                    
-                    // Force browser to repaint the dropdown
-                    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-                    if (dropdownMenu) {
-                        dropdownMenu.style.display = 'block';
-                        dropdownMenu.offsetHeight; // Trigger reflow
-                        dropdownMenu.style.display = '';
-                    }
-                }
-            });
-            
-            // Prevent dropdown from closing when clicking inside
-            const dropdownMenu = toggle.nextElementSibling;
-            if (dropdownMenu) {
-                dropdownMenu.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            }
-        });
-        
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-        });
-        
-        // Footer dropdown functionality
-        const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
-        
-        footerDropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                const dropdown = this.closest('.footer-dropdown');
-                if (dropdown) {
-                    // Close all other dropdowns
-                    document.querySelectorAll('.footer-dropdown').forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('active');
-                        }
-                    });
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-        
-        // Close footer dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.footer-dropdown')) {
-                document.querySelectorAll('.footer-dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-        });
         
         // Disable right-click context menu
         document.addEventListener('contextmenu', function(e) {

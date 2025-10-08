@@ -232,7 +232,7 @@
             opacity: 1;
         }
         
-        /* Premium Loading Screen with White Background */
+        /* Premium Loading Screen with White Background - FIXED */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -250,9 +250,9 @@
         }
         
         .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
         
         .loading-logo {
@@ -3206,7 +3206,7 @@
     <!-- Touch Indicator (for mobile only) -->
     <div class="touch-indicator"></div>
     
-    <!-- Premium Loading Screen with White Background -->
+    <!-- Premium Loading Screen with White Background - FIXED -->
     <div id="loadingScreen" class="loading-screen">
         <!-- Logo path updated to use relative path and made clickable -->
         <a href="./">
@@ -3980,7 +3980,7 @@
             window.history.replaceState({}, document.title, newUrl);
         }
         
-        // Improved Loading Screen Script with better error handling
+        // Improved Loading Screen Script with better error handling - FIXED
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM Content Loaded');
             
@@ -4833,7 +4833,7 @@
                         }
                     });
                 });
-            });
+            }
         });
         
         // Testimonial Carousel Functionality
@@ -5084,7 +5084,7 @@
                 cookieSaveSettings.addEventListener('click', () => {
                     const essentialToggle = document.querySelector('.cookie-toggle[data-cookie="essential"]');
                     const analyticsToggle = document.querySelector('.cookie-toggle[data-cookie="analytics"]');
-                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]);
+                    const marketingToggle = document.querySelector('.cookie-toggle[data-cookie="marketing"]');
         
                     // Essential cookies are always enabled
                     setCookie('essentialCookies', 'true', 365);

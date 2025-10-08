@@ -337,7 +337,7 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
-        /* Dropdown Menu Styles - FIXED */
+        /* Dropdown Menu Styles - UPDATED FOR CLICKABLE FUNCTIONALITY */
         .dropdown {
             position: relative;
         }
@@ -4495,19 +4495,11 @@
             });
         }
         
-        // Dropdown functionality - FIXED
+        // Dropdown functionality - UPDATED FOR CLICKABLE FUNCTIONALITY
         const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
         
         dropdownToggles.forEach(toggle => {
-            // For desktop: show on hover
-            toggle.addEventListener('mouseenter', function() {
-                const dropdown = this.closest('.dropdown');
-                if (dropdown) {
-                    dropdown.classList.add('active');
-                }
-            });
-            
-            // For mobile: show on click
+            // For desktop: show on click (changed from hover)
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 const dropdown = this.closest('.dropdown');

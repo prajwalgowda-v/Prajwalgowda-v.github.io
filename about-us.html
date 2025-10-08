@@ -337,7 +337,7 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
-        /* Dropdown Menu Styles - FIXED FOR VISIBILITY */
+        /* Dropdown Menu Styles - COMPLETELY REWRITTEN FOR VISIBILITY */
         .dropdown {
             position: relative;
         }
@@ -374,10 +374,11 @@
             visibility: hidden;
             transform: translateY(15px);
             transition: all 0.3s ease;
-            z-index: 10001; /* Increased z-index to ensure visibility */
+            z-index: 9999999; /* Extremely high z-index */
             padding: 12px 0;
             border: 1px solid rgba(255, 255, 255, 0.15);
             margin-top: 10px; /* Added margin to prevent overlap with header */
+            display: block; /* Ensure it's always in the DOM */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -391,6 +392,7 @@
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+            display: block; /* Ensure it's displayed when active */
         }
         
         .dropdown-item {
@@ -4496,7 +4498,7 @@
             });
         }
         
-        // Dropdown functionality - FIXED FOR VISIBILITY
+        // Dropdown functionality - COMPLETELY REWRITTEN FOR VISIBILITY
         const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
         
         dropdownToggles.forEach(toggle => {
@@ -4515,6 +4517,14 @@
                     });
                     // Toggle current dropdown
                     dropdown.classList.toggle('active');
+                    
+                    // Force browser to repaint the dropdown
+                    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                    if (dropdownMenu) {
+                        dropdownMenu.style.display = 'block';
+                        dropdownMenu.offsetHeight; // Trigger reflow
+                        dropdownMenu.style.display = '';
+                    }
                 }
             });
             

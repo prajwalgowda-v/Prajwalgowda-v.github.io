@@ -298,6 +298,10 @@
             overflow: hidden; /* Hide overflow if needed */
         }
         
+        .nav-item {
+            position: relative;
+        }
+        
         .nav-link {
             position: relative;
             color: white;
@@ -308,6 +312,8 @@
             padding: 5px 0;
             white-space: nowrap; /* Prevent text from wrapping */
             font-size: 0.95rem; /* Slightly smaller font size */
+            display: flex;
+            align-items: center;
         }
         
         .nav-link::before {
@@ -329,6 +335,83 @@
         .nav-link:hover {
             transform: translateY(-3px);
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dropdown-toggle::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 5px;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 10px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(10px)) {
+            .dropdown-menu {
+                background: rgba(15, 23, 42, 0.98);
+            }
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            padding-left: 25px;
+        }
+        
+        .dropdown-item i {
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
         }
         
         .header-actions {
@@ -564,6 +647,44 @@
         .mobile-contact-btn:hover {
             transform: translateY(-4px) rotateX(5deg);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
+        }
+        
+        /* Mobile Services Dropdown */
+        .mobile-services-dropdown {
+            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-services-dropdown.active {
+            max-height: 300px;
+        }
+        
+        .mobile-services-dropdown a {
+            display: block;
+            padding: 10px 0;
+            font-size: 1.2rem;
+            color: #e2e8f0;
+        }
+        
+        .mobile-services-dropdown a:hover {
+            color: #f59e0b;
+        }
+        
+        .mobile-services-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .mobile-services-toggle i {
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-services-toggle.active i {
+            transform: rotate(180deg);
         }
         
         /* Premium Hero Section with Advanced Effects */
@@ -2441,6 +2562,11 @@
             .leadership-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Hide dropdown on mobile and use mobile services dropdown instead */
+            .dropdown-menu {
+                display: none;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -2807,7 +2933,17 @@
                 <ul class="nav-menu">
                     <li><a href="./" class="nav-link">Home</a></li>
                     <li><a href="about-us" class="nav-link active">About Us</a></li>
-                    <li><a href="Coming Soon.html" class="nav-link">Services</a></li>
+                    <li class="dropdown">
+                        <div class="nav-link dropdown-toggle">Services</div>
+                        <div class="dropdown-menu">
+                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-solar-panel"></i> Rooftop Solar Panels</a>
+                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-sun"></i> Ground-Mounted Solar</a>
+                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Solar Street Lights</a>
+                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-fire"></i> Solar Water Heater (ETC)</a>
+                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-tint"></i> Solar Water Heater (FPC)</a>
+                            <a href="Coming Soon.html" class="dropdown-item"><i class="fas fa-tools"></i> Maintenance & Support</a>
+                        </div>
+                    </li>
                     <li><a href="Coming Soon.html" class="nav-link">How It Works</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Calculator</a></li>
                     <li><a href="Coming Soon.html" class="nav-link">Stories</a></li>
@@ -2835,7 +2971,20 @@
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
             <li><a href="about-us">About Us</a></li>
-            <li><a href="Coming Soon.html">Services</a></li>
+            <li>
+                <div class="mobile-services-toggle" id="mobileServicesToggle">
+                    <span>Services</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="mobile-services-dropdown" id="mobileServicesDropdown">
+                    <a href="Coming Soon.html"><i class="fas fa-solar-panel"></i> Rooftop Solar Panels</a>
+                    <a href="Coming Soon.html"><i class="fas fa-sun"></i> Ground-Mounted Solar</a>
+                    <a href="Coming Soon.html"><i class="fas fa-lightbulb"></i> Solar Street Lights</a>
+                    <a href="Coming Soon.html"><i class="fas fa-fire"></i> Solar Water Heater (ETC)</a>
+                    <a href="Coming Soon.html"><i class="fas fa-tint"></i> Solar Water Heater (FPC)</a>
+                    <a href="Coming Soon.html"><i class="fas fa-tools"></i> Maintenance & Support</a>
+                </div>
+            </li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
             <li><a href="Coming Soon.html">Stories</a></li>
@@ -3577,14 +3726,14 @@
         document.addEventListener('mouseleave', () => {
             if (lastInputType === 'mouse') {
                 if (cursor) cursor.style.opacity = '0';
-                if (cursorFollower) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
             }
         });
         
         document.addEventListener('mouseenter', () => {
             if (lastInputType === 'mouse') {
                 if (cursor) cursor.style.opacity = '1';
-                if (cursorFollower) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
             }
         });
         
@@ -3670,6 +3819,17 @@
                         centerModal();
                     }
                 }, 300);
+            });
+        }
+        
+        // Mobile Services Dropdown
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+        
+        if (mobileServicesToggle && mobileServicesDropdown) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesDropdown.classList.toggle('active');
+                mobileServicesToggle.classList.toggle('active');
             });
         }
         

@@ -337,7 +337,7 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
-        /* Dropdown Menu Styles - UPDATED FOR CLICKABLE FUNCTIONALITY */
+        /* Dropdown Menu Styles - FIXED FOR VISIBILITY */
         .dropdown {
             position: relative;
         }
@@ -365,22 +365,23 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            min-width: 200px;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(15px);
+            min-width: 220px;
             border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
+            transform: translateY(15px);
             transition: all 0.3s ease;
-            z-index: 10000; /* Increased z-index to ensure it appears above other elements */
-            padding: 10px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10001; /* Increased z-index to ensure visibility */
+            padding: 12px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 10px; /* Added margin to prevent overlap with header */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(10px)) {
+        @supports not (backdrop-filter: blur(15px)) {
             .dropdown-menu {
                 background: rgba(15, 23, 42, 0.98);
             }
@@ -394,7 +395,7 @@
         
         .dropdown-item {
             display: block;
-            padding: 10px 20px;
+            padding: 12px 20px;
             color: #e2e8f0;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -4495,13 +4496,15 @@
             });
         }
         
-        // Dropdown functionality - UPDATED FOR CLICKABLE FUNCTIONALITY
+        // Dropdown functionality - FIXED FOR VISIBILITY
         const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
         
         dropdownToggles.forEach(toggle => {
             // For desktop: show on click (changed from hover)
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation(); // Prevent event from bubbling up
+                
                 const dropdown = this.closest('.dropdown');
                 if (dropdown) {
                     // Close all other dropdowns
@@ -4514,6 +4517,14 @@
                     dropdown.classList.toggle('active');
                 }
             });
+            
+            // Prevent dropdown from closing when clicking inside
+            const dropdownMenu = toggle.nextElementSibling;
+            if (dropdownMenu) {
+                dropdownMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
         });
         
         // Close dropdowns when clicking outside

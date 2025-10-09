@@ -2313,9 +2313,14 @@
     </footer>
     
     <script>
-        // URL Redirect for index.html
+        // URL Redirect for index.html and legal-disclaimer.html
         if (window.location.pathname.endsWith('index.html')) {
             const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        
+        if (window.location.pathname.endsWith('legal-disclaimer.html')) {
+            const newUrl = window.location.href.replace('legal-disclaimer.html', 'legal-disclaimer');
             window.history.replaceState({}, document.title, newUrl);
         }
         

@@ -1,74 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Add these meta tags for screenshot protection -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Solar Panels Work - Naptico Green Energy Solars</title>
-    
-    <!-- Favicon for all devices and platforms -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
-
-    <!-- PNG favicons for modern browsers -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/Icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/Icon.png">
     <link rel="icon" type="image/png" sizes="48x48" href="./images/Icon.png">
-
-    <!-- Apple Touch Icons (for iOS home screen) -->
     <link rel="apple-touch-icon" sizes="180x180" href="./images/Icon.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./images/Icon.png">
     <link rel="apple-touch-icon" sizes="120x120" href="./images/Icon.png">
-
-    <!-- Android/Chrome and PWA -->
     <link rel="manifest" href="./images/Icon.png">
-
-    <!-- Windows Tiles (Microsoft / Edge / IE) -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./images/icon.png">
-
-    <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#ffffff">
-    
-    <!-- SEO and Social Media Meta Tags -->
     <meta name="description" content="Comprehensive guide on how solar panels work, photovoltaic technology, benefits, and applications. Discover the science behind solar energy with Naptico Green Energy Solars.">
     <meta name="keywords" content="how solar panels work, photovoltaic effect, solar energy benefits, solar panel types, solar installation, renewable energy, solar technology">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://napticogreenenergysolars.com/how-it-works.html">
     <meta property="og:title" content="How Solar Panels Work - Naptico Green Energy Solars">
     <meta property="og:description" content="Discover the complete science behind solar panels, their benefits, types, and applications. Learn about photovoltaic technology with Naptico Green Energy Solars.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://napticogreenenergysolars.com/how-it-works.html">
     <meta property="twitter:title" content="How Solar Panels Work - Naptico Green Energy Solars">
     <meta property="twitter:description" content="Discover the complete science behind solar panels, their benefits, types, and applications. Learn about photovoltaic technology with Naptico Green Energy Solars.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
-    
-    <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Updated Google Fonts link to use Inter instead of Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS Reset and Base Styles */
         * {
             font-family: 'Inter', sans-serif;
             box-sizing: border-box;
@@ -85,8 +57,7 @@
             overflow-x: hidden;
             background-color: #f8fafc;
             position: relative;
-            cursor: none; /* Hide default cursor */
-            /* Prevent text selection */
+            cursor: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -94,7 +65,6 @@
             -webkit-touch-callout: none;
         }
         
-        /* Prevent printing */
         @media print {
             body * {
                 visibility: hidden;
@@ -109,7 +79,6 @@
             }
         }
         
-        /* Screenshot Protection Overlay */
         .screenshot-protection {
             position: fixed;
             top: 0;
@@ -156,7 +125,6 @@
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
         }
         
-        /* Hide custom cursor on mobile devices */
         @media (max-width: 1024px) {
             .cursor, .cursor-follower {
                 display: none !important;
@@ -165,11 +133,10 @@
             }
             
             body {
-                cursor: auto; /* Show default cursor on mobile */
+                cursor: auto;
             }
         }
         
-        /* Premium Cursor with Glowing Effect - Only for non-touch devices */
         .cursor {
             width: 25px;
             height: 25px;
@@ -212,7 +179,6 @@
             transform: translate(-50%, -50%) scale(1.6);
         }
         
-        /* Touch indicator for mobile devices */
         .touch-indicator {
             position: fixed;
             width: 60px;
@@ -232,7 +198,6 @@
             opacity: 1;
         }
         
-        /* Premium Loading Screen with White Background */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -305,7 +270,6 @@
             60%, 100% { content: '...'; }
         }
         
-        /* Skip to main content link for accessibility */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -323,7 +287,6 @@
             top: 0;
         }
         
-        /* Premium Header with Glass Effect - FIXED */
         .header {
             position: fixed;
             top: 0;
@@ -332,17 +295,16 @@
             z-index: 1000;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
-            height: 100px; /* Fixed height to prevent wrapping */
+            height: 100px;
         }
         
         .header.scrolled {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            height: 80px; /* Smaller fixed height when scrolled */
+            height: 80px;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(20px)) {
             .header.scrolled {
                 background: rgba(15, 23, 42, 0.95);
@@ -355,9 +317,9 @@
             align-items: center;
             padding: 20px 5%;
             transition: all 0.3s ease;
-            height: 100%; /* Take full height of parent */
+            height: 100%;
             width: 100%;
-            max-width: 1400px; /* Limit max width for better alignment */
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -369,12 +331,11 @@
             width: 220px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
-            flex-shrink: 0; /* Prevent logo from shrinking */
+            flex-shrink: 0;
             display: block;
-            outline: none; /* Remove focus outline */
-            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-            cursor: pointer; /* Show pointer cursor on logo */
-            /* Prevent logo from being screenshotted */
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -387,12 +348,12 @@
         
         .nav-menu {
             display: flex;
-            gap: 20px; /* Reduced gap to prevent wrapping */
+            gap: 20px;
             list-style: none;
             margin: 0;
             padding: 0;
-            flex-wrap: nowrap; /* Prevent nav items from wrapping */
-            overflow: hidden; /* Hide overflow if needed */
+            flex-wrap: nowrap;
+            overflow: hidden;
         }
         
         .nav-link {
@@ -403,9 +364,8 @@
             transition: all 0.3s ease;
             transform-style: preserve-3d;
             padding: 5px 0;
-            white-space: nowrap; /* Prevent text from wrapping */
-            font-size: 0.95rem; /* Slightly smaller font size */
-            /* Prevent text selection */
+            white-space: nowrap;
+            font-size: 0.95rem;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -433,7 +393,6 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
-        /* Active navigation link styles */
         .nav-link.active {
             color: #f59e0b !important;
             font-weight: 600;
@@ -447,7 +406,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
-            flex-shrink: 0; /* Prevent actions from shrinking */
+            flex-shrink: 0;
         }
         
         .contact-btn {
@@ -463,10 +422,9 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-            white-space: nowrap; /* Prevent text from wrapping */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
+            white-space: nowrap;
+            outline: none;
+            cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -494,7 +452,6 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
-        /* Mobile Menu Button - FIXED */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -508,9 +465,8 @@
             width: 30px;
             height: 30px;
             overflow: hidden;
-            flex-shrink: 0; /* Prevent button from shrinking */
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
+            flex-shrink: 0;
+            outline: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -521,7 +477,6 @@
             color: #f59e0b;
         }
         
-        /* Mobile Menu Icon Animation - FIXED */
         .mobile-menu-btn span {
             display: block;
             position: absolute;
@@ -562,12 +517,10 @@
             transform: rotate(-135deg);
         }
         
-        /* Active state for mobile menu button */
         .mobile-menu-btn.active span {
             background: #f59e0b;
         }
         
-        /* Mobile Menu Overlay - FIXED */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -584,10 +537,9 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
-            pointer-events: none; /* Initially disable pointer events */
+            pointer-events: none;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .mobile-menu-overlay {
                 background: rgba(15, 23, 42, 0.98);
@@ -597,7 +549,7 @@
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
+            pointer-events: auto;
         }
         
         .mobile-menu-close {
@@ -610,10 +562,9 @@
             font-size: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 1003; /* Higher z-index to ensure it's clickable */
-            pointer-events: auto; /* Always enable pointer events for close button */
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
+            z-index: 1003;
+            pointer-events: auto;
+            outline: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -630,7 +581,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
-            pointer-events: auto; /* Enable pointer events for navigation */
+            pointer-events: auto;
         }
         
         .mobile-nav li {
@@ -645,9 +596,8 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
-            pointer-events: auto; /* Enable pointer events for links */
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
+            pointer-events: auto;
+            outline: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -675,7 +625,6 @@
             transform: translateY(-3px);
         }
         
-        /* Active mobile navigation link styles */
         .mobile-nav a.active {
             color: #f59e0b !important;
             font-weight: 600;
@@ -701,9 +650,8 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             cursor: pointer;
-            pointer-events: auto; /* Enable pointer events for button */
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
+            pointer-events: auto;
+            outline: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -731,7 +679,6 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
         
-        /* Premium Hero Section with Advanced Effects */
         .hero-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #011827 50%, #050f1d 100%);
             position: relative;
@@ -740,15 +687,13 @@
             display: flex;
             align-items: center;
             perspective: 1000px;
-            padding-top: 100px; /* Add padding to prevent header overlap */
-            /* Prevent screenshot of hero section */
+            padding-top: 100px;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
         }
         
-        /* Fixed Hero Background - OPTIMIZED */
         .hero-fixed-bg {
             position: fixed;
             top: 0;
@@ -762,11 +707,9 @@
             background-attachment: fixed;
             will-change: transform;
             transition: background-image 1.5s ease-in-out;
-            /* Prevent background image from being saved */
             pointer-events: none;
         }
         
-        /* Dynamic Background Effect */
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -797,14 +740,13 @@
             }
         }
         
-        /* Premium Particle Effect - FIXED Z-INDEX */
         #particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Behind the content but above the background */
+            z-index: 1;
             pointer-events: none;
             overflow: hidden;
         }
@@ -817,7 +759,7 @@
             animation: particleFloat 25s infinite linear;
             transform-style: preserve-3d;
             box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-            will-change: transform, opacity; /* Hardware acceleration */
+            will-change: transform, opacity;
         }
         
         @keyframes particleFloat {
@@ -849,11 +791,10 @@
         
         .hero-content {
             position: relative;
-            z-index: 5; /* Increased z-index to ensure content is above particles */
+            z-index: 5;
             transform-style: preserve-3d;
         }
         
-        /* Premium 3D Text Effects */
         .hero-title {
             font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 800;
@@ -861,7 +802,6 @@
             transform-style: preserve-3d;
             animation: floatText 8s ease-in-out infinite;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            /* Prevent text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -891,7 +831,6 @@
             text-fill-color: transparent;
             background-size: 200% auto;
             animation: gradientShift 5s ease infinite;
-            /* Prevent text selection */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -904,7 +843,6 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* Premium Button Design */
         .hero-btn {
             display: inline-block;
             padding: 18px 35px;
@@ -919,9 +857,8 @@
             text-decoration: none;
             margin: 5px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
+            outline: none;
+            cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -946,7 +883,6 @@
             backdrop-filter: blur(10px);
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .hero-btn-secondary {
                 background: rgba(255, 255, 255, 0.2);
@@ -976,7 +912,7 @@
             left: 100%;
         }
         
-        /* Enhanced How Solar Works Section */
+        /* FIXED: How Solar Works Section */
         .how-solar-works {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 120px 0;
@@ -1004,6 +940,8 @@
         .process-timeline {
             position: relative;
             padding: 50px 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .process-timeline::before {
@@ -1024,6 +962,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
+            width: 100%;
         }
         
         .process-step:nth-child(even) {
@@ -1034,11 +973,12 @@
             font-size: 4rem;
             font-weight: 900;
             color: #f59e0b;
-            margin-right: 40px;
+            margin: 0 40px;
             min-width: 100px;
             text-align: center;
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
             position: relative;
+            flex-shrink: 0;
         }
         
         .process-number::before {
@@ -1065,11 +1005,6 @@
             }
         }
         
-        .process-step:nth-child(even) .process-number {
-            margin-right: 0;
-            margin-left: 40px;
-        }
-        
         .process-content {
             flex: 1;
             background: rgba(255, 255, 255, 0.08);
@@ -1081,6 +1016,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
         }
         
         .process-content:hover {
@@ -1188,7 +1124,7 @@
             transform: scale(1.05);
         }
         
-        /* Enhanced Solar Panel Types Section */
+        /* FIXED: Solar Panel Types Section */
         .solar-types {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             padding: 120px 0;
@@ -1210,6 +1146,9 @@
         .solar-types-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .solar-type-card {
@@ -1368,7 +1307,7 @@
             margin-right: 8px;
         }
         
-        /* Enhanced Solar Panel Designs Section */
+        /* FIXED: Solar Panel Designs Section */
         .solar-designs {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 120px 0;
@@ -1391,6 +1330,9 @@
         .solar-designs-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .design-card {
@@ -1531,7 +1473,7 @@
             font-size: 0.8rem;
         }
         
-        /* Enhanced Benefits Section */
+        /* FIXED: Benefits Section */
         .benefits-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 120px 0;
@@ -1554,6 +1496,9 @@
         .benefits-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .benefit-card {
@@ -1651,7 +1596,7 @@
             font-size: 0.9rem;
         }
         
-        /* Enhanced Usage Applications Section */
+        /* FIXED: Usage Applications Section */
         .usage-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             padding: 120px 0;
@@ -1673,6 +1618,9 @@
         .usage-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .usage-card {
@@ -1851,7 +1799,7 @@
             font-size: 0.9rem;
         }
         
-        /* Interactive Comparison Table */
+        /* FIXED: Comparison Table Section */
         .comparison-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 120px 0;
@@ -1873,6 +1821,9 @@
         .comparison-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .comparison-table {
@@ -1889,7 +1840,7 @@
         .comparison-table table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 800px;
+            min-width: 900px;
         }
         
         .comparison-table th {
@@ -1962,6 +1913,9 @@
         .tech-specs-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .spec-grid {
@@ -2048,7 +2002,7 @@
             font-size: 1rem;
         }
         
-        /* Enhanced FAQ Section */
+        /* FAQ Section */
         .faq-section {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             padding: 120px 0;
@@ -2147,7 +2101,7 @@
             background: rgba(245, 158, 11, 0.1);
         }
         
-        /* Premium CTA Section */
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #f97316, #f59e0b);
             position: relative;
@@ -2169,6 +2123,9 @@
         .cta-content {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .cta-btn-primary {
@@ -2209,12 +2166,12 @@
         .section-subtitle {
             font-size: 1.4rem;
             color: #e2e8f0;
-            max-width: 3xl;
+            max-width: 800px;
             margin: 0 auto 4rem;
             text-align: center;
         }
         
-        /* Premium Footer */
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             position: relative;
@@ -2253,6 +2210,10 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
             margin-bottom: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
         }
         
         .footer-section h3 {
@@ -2410,6 +2371,10 @@
             position: relative;
             z-index: 1;
             font-size: 1.05rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 20px 20px;
         }
         
         .footer-bottom a {
@@ -2424,7 +2389,7 @@
             color: #f59e0b;
         }
         
-        /* Premium Back to Top Button */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 40px;
@@ -2465,7 +2430,7 @@
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
-        /* Premium Quote Form Modal */
+        /* Quote Form Modal */
         .quote-modal {
             position: fixed;
             top: 0;
@@ -2485,7 +2450,6 @@
             pointer-events: none;
         }
         
-        /* Fallback for browsers that don't support backdrop-filter */
         @supports not (backdrop-filter: blur(10px)) {
             .quote-modal {
                 background: rgba(0, 0, 0, 0.95);
@@ -2673,7 +2637,6 @@
             font-size: 1.2rem;
         }
         
-        /* File list styles for multiple files */
         .file-list {
             margin-top: 15px;
             max-height: 140px;
@@ -2810,7 +2773,7 @@
             border-left: 4px solid #f59e0b;
         }
         
-        /* Premium Scroll Animation */
+        /* Scroll Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
@@ -2822,7 +2785,6 @@
             transform: translateY(0);
         }
         
-        /* Staggered animation delays */
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
         .stagger-3 { transition-delay: 0.3s; }
@@ -2830,7 +2792,7 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
-        /* Premium Responsive adjustments */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -2868,7 +2830,6 @@
                 font-size: 1rem;
             }
             
-            /* Mobile Header Adjustments */
             .header-content {
                 padding: 15px 5%;
                 justify-content: space-between;
@@ -2958,7 +2919,6 @@
             }
         }
         
-        /* Additional mobile adjustments for smaller screens */
         @media (max-width: 480px) {
             .header-content {
                 padding: 12px 5%;
@@ -3003,7 +2963,6 @@
                 gap: 30px;
             }
             
-            /* Process Steps Small Mobile */
             .process-title {
                 font-size: 1.5rem;
             }
@@ -3012,7 +2971,6 @@
                 font-size: 1rem;
             }
             
-            /* Solar Types Small Mobile */
             .solar-type-title {
                 font-size: 1.8rem;
             }
@@ -3021,7 +2979,6 @@
                 font-size: 1rem;
             }
             
-            /* Usage Cards Small Mobile */
             .usage-title {
                 font-size: 1.8rem;
             }
@@ -3031,7 +2988,6 @@
             }
         }
         
-        /* Medium screen adjustments for header */
         @media (min-width: 769px) and (max-width: 1024px) {
             .nav-menu {
                 gap: 15px;
@@ -3054,7 +3010,6 @@
             }
         }
         
-        /* Large screen adjustments for header */
         @media (min-width: 1600px) {
             .header-content {
                 max-width: 1600px;
@@ -3069,7 +3024,6 @@
             }
         }
         
-        /* Performance optimization for slower devices */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -3078,7 +3032,6 @@
             }
         }
         
-        /* Loading screen fix */
         body {
             overflow: hidden;
         }
@@ -3093,7 +3046,6 @@
             pointer-events: none !important;
         }
         
-        /* Accessibility improvements */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -3298,22 +3250,16 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- PRELOAD HERO IMAGES -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
-    <!-- Premium Custom Cursor (for desktop only) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
-    
-    <!-- Touch Indicator (for mobile only) -->
     <div class="touch-indicator"></div>
     
-    <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
@@ -3324,14 +3270,12 @@
         </div>
     </div>
     
-    <!-- Screenshot Protection Overlay -->
     <div id="screenshotProtection" class="screenshot-protection">
         <h2>Screenshot Protection</h2>
         <p>Screenshots are not allowed on this website. Please close this overlay to continue browsing.</p>
         <button id="closeScreenshotProtection">Continue Browsing</button>
     </div>
     
-    <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
             <a href="./">
@@ -3360,7 +3304,6 @@
         </div>
     </header>
     
-    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" role="navigation" aria-label="Mobile Navigation">
         <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
@@ -3378,7 +3321,6 @@
         <button class="mobile-contact-btn" id="mobileContactBtn">Get Quote</button>
     </div>
     
-    <!-- Premium Quote Form Modal -->
     <div id="quoteModal" class="quote-modal" role="dialog" aria-labelledby="quoteFormTitle" aria-hidden="true">
         <div class="quote-form-container">
             <div class="quote-form-header">
@@ -3442,12 +3384,10 @@
         </div>
     </div>
     
-    <!-- Premium Back to Top Button -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Premium Hero Section -->
     <section id="main-content" class="hero-gradient">
         <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
         <div class="hero-overlay"></div>
@@ -3473,7 +3413,6 @@
         </div>
     </section>
     
-    <!-- Enhanced How Solar Works Section -->
     <section id="process" class="how-solar-works py-20">
         <div class="container mx-auto px-4 how-solar-content">
             <div class="text-center mb-20 fade-in">
@@ -3482,7 +3421,6 @@
             </div>
             
             <div class="process-timeline">
-                <!-- Process Step 1 -->
                 <div class="process-step fade-in">
                     <div class="process-number">1</div>
                     <div class="process-content">
@@ -3502,7 +3440,6 @@
                     </div>
                 </div>
                 
-                <!-- Process Step 2 -->
                 <div class="process-step fade-in">
                     <div class="process-number">2</div>
                     <div class="process-content">
@@ -3522,7 +3459,6 @@
                     </div>
                 </div>
                 
-                <!-- Process Step 3 -->
                 <div class="process-step fade-in">
                     <div class="process-number">3</div>
                     <div class="process-content">
@@ -3542,7 +3478,6 @@
                     </div>
                 </div>
                 
-                <!-- Process Step 4 -->
                 <div class="process-step fade-in">
                     <div class="process-number">4</div>
                     <div class="process-content">
@@ -3565,7 +3500,6 @@
         </div>
     </section>
     
-    <!-- Enhanced Solar Panel Types Section -->
     <section id="types" class="solar-types py-20">
         <div class="container mx-auto px-4 solar-types-content">
             <div class="text-center mb-20 fade-in">
@@ -3573,7 +3507,6 @@
                 <p class="section-subtitle">Advanced photovoltaic technologies with unique advantages for different applications</p>
             </div>
             
-            <!-- Monocrystalline Solar Panels -->
             <div class="solar-type-card fade-in">
                 <div class="solar-type-header">
                     <div class="solar-type-icon">
@@ -3616,7 +3549,6 @@
                 </div>
             </div>
             
-            <!-- Polycrystalline Solar Panels -->
             <div class="solar-type-card fade-in">
                 <div class="solar-type-header">
                     <div class="solar-type-icon">
@@ -3659,7 +3591,6 @@
                 </div>
             </div>
             
-            <!-- Thin-Film Solar Panels -->
             <div class="solar-type-card fade-in">
                 <div class="solar-type-header">
                     <div class="solar-type-icon">
@@ -3702,7 +3633,6 @@
                 </div>
             </div>
             
-            <!-- Bifacial Solar Panels -->
             <div class="solar-type-card fade-in">
                 <div class="solar-type-header">
                     <div class="solar-type-icon">
@@ -3745,7 +3675,6 @@
                 </div>
             </div>
             
-            <!-- PERC Solar Panels -->
             <div class="solar-type-card fade-in">
                 <div class="solar-type-header">
                     <div class="solar-type-icon">
@@ -3790,7 +3719,6 @@
         </div>
     </section>
     
-    <!-- Solar Panel Designs Section -->
     <section class="solar-designs py-20">
         <div class="container mx-auto px-4 solar-designs-content">
             <div class="text-center mb-20 fade-in">
@@ -3799,7 +3727,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Rooftop Installation -->
                 <div class="design-card fade-in stagger-1">
                     <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1542361341-1e1a9a6a7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rooftop solar installation" loading="lazy">
@@ -3818,7 +3745,6 @@
                     </div>
                 </div>
                 
-                <!-- Ground-Mounted Installation -->
                 <div class="design-card fade-in stagger-2">
                     <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ground-mounted solar installation" loading="lazy">
@@ -3837,7 +3763,6 @@
                     </div>
                 </div>
                 
-                <!-- Solar Carports -->
                 <div class="design-card fade-in stagger-3">
                     <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar carport installation" loading="lazy">
@@ -3856,7 +3781,6 @@
                     </div>
                 </div>
                 
-                <!-- Floating Solar -->
                 <div class="design-card fade-in stagger-4">
                     <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Floating solar installation" loading="lazy">
@@ -3875,7 +3799,6 @@
                     </div>
                 </div>
                 
-                <!-- Building-Integrated PV -->
                 <div class="design-card fade-in stagger-5">
                     <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Building-integrated solar panels" loading="lazy">
@@ -3894,7 +3817,6 @@
                     </div>
                 </div>
                 
-                <!-- Solar Tracking Systems -->
                 <div class="design-card fade-in stagger-6">
                     <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar tracking system" loading="lazy">
@@ -3916,7 +3838,6 @@
         </div>
     </section>
     
-    <!-- Interactive Comparison Table Section -->
     <section class="comparison-section py-20">
         <div class="container mx-auto px-4 comparison-content">
             <div class="text-center mb-20 fade-in">
@@ -4007,7 +3928,6 @@
         </div>
     </section>
     
-    <!-- Technical Specifications Section -->
     <section class="tech-specs py-20">
         <div class="container mx-auto px-4 tech-specs-content">
             <div class="text-center mb-20 fade-in">
@@ -4073,7 +3993,6 @@
         </div>
     </section>
     
-    <!-- Enhanced Benefits Section -->
     <section id="benefits" class="benefits-section py-20">
         <div class="container mx-auto px-4 benefits-content">
             <div class="text-center mb-20 fade-in">
@@ -4157,7 +4076,6 @@
         </div>
     </section>
     
-    <!-- Enhanced Usage Applications Section -->
     <section id="usage" class="usage-section py-20">
         <div class="container mx-auto px-4 usage-content">
             <div class="text-center mb-20 fade-in">
@@ -4165,7 +4083,6 @@
                 <p class="section-subtitle">How solar power can be utilized across different sectors</p>
             </div>
             
-            <!-- Residential Application -->
             <div class="usage-card fade-in">
                 <div class="usage-image">
                     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Residential solar application" loading="lazy">
@@ -4195,7 +4112,6 @@
                 </div>
             </div>
             
-            <!-- Commercial Application -->
             <div class="usage-card fade-in">
                 <div class="usage-image">
                     <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Commercial solar application" loading="lazy">
@@ -4225,7 +4141,6 @@
                 </div>
             </div>
             
-            <!-- Industrial Application -->
             <div class="usage-card fade-in">
                 <div class="usage-image">
                     <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industrial solar application" loading="lazy">
@@ -4255,7 +4170,6 @@
                 </div>
             </div>
             
-            <!-- Agricultural Application -->
             <div class="usage-card fade-in">
                 <div class="usage-image">
                     <img src="https://images.unsplash.com/photo-1542361341-1e1a9a6a7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Agricultural solar application" loading="lazy">
@@ -4287,7 +4201,6 @@
         </div>
     </section>
     
-    <!-- Enhanced FAQ Section -->
     <section class="faq-section">
         <div class="faq-container">
             <h2 class="faq-title">Frequently Asked Questions</h2>
@@ -4374,7 +4287,6 @@
         </div>
     </section>
     
-    <!-- Premium CTA Section -->
     <section class="cta-section py-20">
         <div class="absolute inset-0 bg-black opacity-10"></div>
         <div class="container mx-auto px-4 text-center cta-content">
@@ -4387,7 +4299,6 @@
         </div>
     </section>
     
-    <!-- Premium Footer -->
     <footer class="footer">
         <div class="container mx-auto px-4">
             <div class="footer-content">

@@ -5,28 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Naptico Green Energy Solars</title>
     
+    <!-- Add these meta tags for screenshot protection -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <!-- Favicon for all devices and platforms -->
     <link rel="icon" href="./images/Icon.png" type="image/x-icon">
-
-    <!-- PNG favicons for modern browsers -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/Icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/Icon.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="./images/Icon.png">
-
-    <!-- Apple Touch Icons (for iOS home screen) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/Icon.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./images/Icon.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./images/Icon.png">
-
-    <!-- Android/Chrome and PWA -->
-    <link rel="manifest" href="./images/Icon.png">
-
-    <!-- Windows Tiles (Microsoft / Edge / IE) -->
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./images/icon.png">
-
-    <!-- Theme color for mobile browsers -->
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
     
     <!-- SEO and Social Media Meta Tags -->
     <meta name="description" content="Learn about Naptico Green Energy Solars - India's most trusted solar energy provider with 50,000+ installations and 200+ MW of clean energy generated.">
@@ -80,6 +69,88 @@
             overflow-x: hidden;
             background-color: #f8fafc;
             position: relative;
+            cursor: none; /* Hide default cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+        
+        /* Prevent printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            body::after {
+                content: "Printing is disabled for this content.";
+                display: block;
+                visibility: visible;
+                text-align: center;
+                font-size: 24px;
+                margin-top: 50px;
+            }
+        }
+        
+        /* Screenshot Protection Overlay */
+        .screenshot-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: none;
+            z-index: 9999999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .screenshot-protection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .screenshot-protection p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot-protection button {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .screenshot-protection button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Hide custom cursor on mobile devices */
+        @media (max-width: 1024px) {
+            .cursor, .cursor-follower {
+                display: none !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+            }
+            
+            body {
+                cursor: auto; /* Show default cursor on mobile */
+            }
         }
         
         /* Premium Cursor with Glowing Effect - Only for non-touch devices */
@@ -93,9 +164,10 @@
             z-index: 999999;
             mix-blend-mode: difference;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.15s ease;
+            transition: opacity 0.15s ease, transform 0.15s ease, width 0.15s ease, height 0.15s ease;
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
             will-change: transform;
+            transform: translate(-50%, -50%) scale(1);
         }
         
         .cursor-follower {
@@ -107,20 +179,21 @@
             pointer-events: none;
             z-index: 999998;
             opacity: 0;
-            transition: opacity 0.15s ease, transform 0.25s ease-out;
+            transition: opacity 0.15s ease, transform 0.25s ease, width 0.25s ease, height 0.25s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
             will-change: transform;
+            transform: translate(-50%, -50%) scale(1.4);
         }
         
         .cursor.hover {
-            transform: scale(2.5);
             background: rgba(245, 158, 11, 0.15);
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+            transform: translate(-50%, -50%) scale(1.2);
         }
         
         .cursor-follower.hover {
-            transform: scale(3.5);
             background: radial-gradient(circle, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0));
+            transform: translate(-50%, -50%) scale(1.6);
         }
         
         /* Touch indicator for mobile devices */
@@ -247,7 +320,7 @@
         }
         
         .header.scrolled {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             height: 80px; /* Smaller fixed height when scrolled */
@@ -282,6 +355,14 @@
             transform-style: preserve-3d;
             flex-shrink: 0; /* Prevent logo from shrinking */
             display: block;
+            outline: none; /* Remove focus outline */
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor on logo */
+            /* Prevent logo from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .logo:hover {
@@ -308,6 +389,11 @@
             padding: 5px 0;
             white-space: nowrap; /* Prevent text from wrapping */
             font-size: 0.95rem; /* Slightly smaller font size */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .nav-link::before {
@@ -331,6 +417,16 @@
             text-shadow: 0 5px 15px rgba(245, 158, 11, 0.7);
         }
         
+        /* Active navigation link styles */
+        .nav-link.active {
+            color: #f59e0b !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active::before {
+            width: 100% !important;
+        }
+        
         .header-actions {
             display: flex;
             gap: 20px;
@@ -352,6 +448,13 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             white-space: nowrap; /* Prevent text from wrapping */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-btn::before {
@@ -390,6 +493,12 @@
             height: 30px;
             overflow: hidden;
             flex-shrink: 0; /* Prevent button from shrinking */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-btn:hover {
@@ -437,7 +546,12 @@
             transform: rotate(-135deg);
         }
         
-        /* Mobile Menu Overlay */
+        /* Active state for mobile menu button */
+        .mobile-menu-btn.active span {
+            background: #f59e0b;
+        }
+        
+        /* Mobile Menu Overlay - FIXED */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -454,6 +568,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+            pointer-events: none; /* Initially disable pointer events */
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -466,6 +581,7 @@
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .mobile-menu-close {
@@ -478,6 +594,14 @@
             font-size: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 1003; /* Higher z-index to ensure it's clickable */
+            pointer-events: auto; /* Always enable pointer events for close button */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-menu-close:hover {
@@ -490,6 +614,7 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            pointer-events: auto; /* Enable pointer events for navigation */
         }
         
         .mobile-nav li {
@@ -504,6 +629,13 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
+            pointer-events: auto; /* Enable pointer events for links */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-nav a::after {
@@ -527,6 +659,16 @@
             transform: translateY(-3px);
         }
         
+        /* Active mobile navigation link styles */
+        .mobile-nav a.active {
+            color: #f59e0b !important;
+            font-weight: 600;
+        }
+        
+        .mobile-nav a.active::after {
+            width: 100% !important;
+        }
+        
         .mobile-contact-btn {
             margin-top: 30px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
@@ -543,6 +685,13 @@
             z-index: 1;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
             cursor: pointer;
+            pointer-events: auto; /* Enable pointer events for button */
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .mobile-contact-btn::before {
@@ -576,6 +725,12 @@
             align-items: center;
             perspective: 1000px;
             padding-top: 100px; /* Add padding to prevent header overlap */
+            /* Prevent screenshot of hero section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            z-index: 1; /* Added z-index to ensure hero is above other elements */
         }
         
         /* Fixed Hero Background - OPTIMIZED */
@@ -592,6 +747,8 @@
             background-attachment: fixed;
             will-change: transform;
             transition: background-image 1.5s ease-in-out;
+            /* Prevent background image from being saved */
+            pointer-events: none;
         }
         
         /* Dynamic Background Effect */
@@ -689,6 +846,11 @@
             transform-style: preserve-3d;
             animation: floatText 8s ease-in-out infinite;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes floatText {
@@ -714,6 +876,11 @@
             text-fill-color: transparent;
             background-size: 200% auto;
             animation: gradientShift 5s ease infinite;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         @keyframes gradientShift {
@@ -737,6 +904,13 @@
             text-decoration: none;
             margin: 5px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .hero-btn-primary {
@@ -793,6 +967,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of about section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .about-section::before {
@@ -813,11 +992,16 @@
         }
         
         .section-title {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
             font-weight: 800;
             margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .section-subtitle {
@@ -825,6 +1009,11 @@
             color: #e2e8f0;
             max-width: 3xl;
             margin: 0 auto 4rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Services Section - Fixed background color */
@@ -833,6 +1022,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of services section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .services-section::before {
@@ -867,6 +1061,11 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            /* Prevent screenshot of service cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -907,6 +1106,8 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
             transition: all 0.5s ease;
+            /* Prevent image from being screenshotted */
+            pointer-events: none;
         }
         
         .hero-image::before {
@@ -932,6 +1133,13 @@
             height: auto;
             display: block;
             transition: all 0.5s ease;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
         
         .hero-image:hover img {
@@ -973,6 +1181,11 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            /* Prevent screenshot of about cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1018,6 +1231,8 @@
             transform-style: preserve-3d;
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
             flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .about-card:hover .about-icon {
@@ -1122,6 +1337,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* Prevent screenshot of team members */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1153,6 +1373,8 @@
             color: white;
             font-size: 3rem;
             flex-shrink: 0;
+            /* Prevent avatar from being screenshotted */
+            pointer-events: none;
         }
         
         .team-member:hover .team-avatar {
@@ -1199,6 +1421,13 @@
             text-decoration: none;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .team-social a:hover {
@@ -1224,6 +1453,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* Prevent screenshot of value cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1252,6 +1486,8 @@
             transform-style: preserve-3d;
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
             flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .value-card:hover .value-icon {
@@ -1278,6 +1514,11 @@
             padding: 80px 0;
             position: relative;
             overflow: hidden;
+            /* Prevent screenshot of milestones section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .milestones-section::before {
@@ -1339,6 +1580,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
         
         .milestone-overlay {
@@ -1397,6 +1645,13 @@
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .milestone-dot.active {
@@ -1427,6 +1682,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 20px;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .milestone-arrow:hover {
@@ -1440,6 +1702,11 @@
             padding: 80px 0;
             position: relative;
             overflow: hidden;
+            /* Prevent screenshot of leadership section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .leadership-section::before {
@@ -1494,6 +1761,11 @@
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Prevent screenshot of leadership cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .leadership-card::before {
@@ -1529,6 +1801,13 @@
             height: 200%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
         
         .leadership-card:hover .leadership-image img {
@@ -1607,6 +1886,13 @@
             justify-content: center;
             color: white;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .leadership-social a:hover {
@@ -1650,6 +1936,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* Prevent screenshot of feature cards */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1678,6 +1969,8 @@
             transform-style: preserve-3d;
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
             flex-shrink: 0;
+            /* Prevent icon from being screenshotted */
+            pointer-events: none;
         }
         
         .feature-card:hover .feature-icon {
@@ -1691,6 +1984,11 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            /* Prevent screenshot of CTA section */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .cta-section::before {
@@ -1741,6 +2039,11 @@
             overflow: hidden;
             padding: 100px 0 50px;
             transform-style: preserve-3d;
+            /* Prevent screenshot of footer */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer::before {
@@ -1781,6 +2084,11 @@
             margin-bottom: 25px;
             position: relative;
             display: inline-block;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-section h3::after {
@@ -1800,6 +2108,11 @@
             line-height: 1.7;
             font-size: 1.05rem;
             text-align: justify;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-logo {
@@ -1808,6 +2121,9 @@
             max-width: 220px;
             height: auto;
             display: block;
+            outline: none; /* Remove focus outline */
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .footer-logo:hover {
@@ -1834,6 +2150,13 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             font-size: 1.2rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .social-icon:hover {
@@ -1859,6 +2182,13 @@
             display: inline-block;
             position: relative;
             font-size: 1.05rem;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-links li a::before {
@@ -1893,6 +2223,11 @@
             margin-bottom: 20px;
             color: #94a3b8;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info i {
@@ -1907,6 +2242,13 @@
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .contact-info a:hover {
@@ -1921,25 +2263,37 @@
             position: relative;
             z-index: 1;
             font-size: 1.05rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a {
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .footer-bottom a:hover {
             color: #f59e0b;
         }
         
-        /* Premium Back to Top Button - Updated to match first code */
+        /* Premium Back to Top Button - REDUCED SIZE */
         .back-to-top {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            width: 50px; /* Changed from 70px to 50px */
-            height: 50px; /* Changed from 70px to 50px */
+            width: 50px; /* Changed from 45px to 50px */
+            height: 50px; /* Changed from 45px to 50px */
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: black;
             border-radius: 50%;
@@ -1950,11 +2304,11 @@
             visibility: hidden;
             transition: all 0.4s ease;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Changed shadow values */
             transform-style: preserve-3d;
-            font-size: 1.2rem; /* Changed from 1.5rem to 1.2rem */
-            outline: none; /* Added this property */
-            cursor: pointer; /* Added this property */
+            font-size: 1.2rem; /* Changed from 1.1rem to 1.2rem */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .back-to-top.visible {
@@ -1970,8 +2324,8 @@
         }
         
         .back-to-top:hover {
-            transform: translateY(-10px) rotateZ(10deg); /* Changed from -15px to -10px */
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
+            transform: translateY(-10px) rotateZ(10deg);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5); /* Changed shadow values */
         }
         
         /* Premium Quote Form Modal */
@@ -1991,6 +2345,12 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
+            pointer-events: none; /* Initially disable pointer events */
+            /* Prevent modal from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -2003,6 +2363,7 @@
         .quote-modal.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto; /* Enable pointer events when active */
         }
         
         .quote-form-container {
@@ -2020,6 +2381,12 @@
             margin: 20px auto;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
+            pointer-events: auto; /* Always enable pointer events for form container */
+            /* Prevent form from being screenshotted */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-modal.active .quote-form-container {
@@ -2039,6 +2406,8 @@
             margin: 0 auto 25px;
             display: block;
             transition: transform 0.4s ease;
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
         }
         
         .quote-form-logo:hover {
@@ -2051,12 +2420,22 @@
             margin-bottom: 15px;
             color: white;
             text-align: center;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-form-subtitle {
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
             font-size: 1.1rem;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-form-body {
@@ -2079,6 +2458,14 @@
             justify-content: center;
             transition: all 0.4s ease;
             z-index: 10;
+            pointer-events: auto; /* Always enable pointer events for close button */
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .quote-close:hover {
@@ -2108,6 +2495,11 @@
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-input, .form-textarea {
@@ -2121,6 +2513,11 @@
             outline: none;
             transition: all 0.4s ease;
             box-sizing: border-box;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-input:focus, .form-textarea:focus {
@@ -2146,6 +2543,8 @@
             width: 100%;
             height: 100%;
             cursor: pointer;
+            /* Prevent file input from being screenshotted */
+            pointer-events: none;
         }
         
         .file-upload-label {
@@ -2159,6 +2558,12 @@
             color: #e2e8f0;
             cursor: pointer;
             transition: all 0.4s ease;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-upload-label:hover {
@@ -2189,6 +2594,11 @@
             margin-bottom: 10px;
             color: #e2e8f0;
             font-size: 15px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-name {
@@ -2209,6 +2619,12 @@
             color: #f59e0b;
             cursor: pointer;
             transition: color 0.3s;
+            outline: none; /* Remove focus outline */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .file-remove:hover {
@@ -2226,7 +2642,6 @@
             font-size: 17px;
             transition: all 0.4s ease;
             transform-style: preserve-3d;
-            margin-top: 35px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -2234,6 +2649,13 @@
             justify-content: center;
             gap: 12px;
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-submit:hover {
@@ -2280,6 +2702,11 @@
             display: none;
             font-weight: 500;
             font-size: 16px;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .form-message.success {
@@ -2304,6 +2731,11 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border-left: 4px solid #f59e0b;
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Premium Scroll Animation */
@@ -2326,6 +2758,187 @@
         .stagger-5 { transition-delay: 0.5s; }
         .stagger-6 { transition-delay: 0.6s; }
         
+        /* Service Stats - FIXED */
+        .service-stats {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: pulse-glow 2s infinite;
+            z-index: 10;
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+            50% { box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4); }
+            100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+        }
+        
+        .service-stats-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .service-stats-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        
+        /* Image Upload Styles */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+        }
+        
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .upload-btn {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            outline: none; /* Remove focus outline */
+            cursor: pointer; /* Show pointer cursor */
+            /* Prevent text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+        }
+        
+        .upload-btn i {
+            font-size: 16px;
+        }
+        
+        /* Enhanced Button Animations */
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: scale(1);
+            z-index: 1;
+        }
+        
+        .btn-animate:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-animate::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        
+        .btn-animate:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Enhanced Hero Text Animation */
+        .hero-title {
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+        
+        .hero-subtitle {
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhanced Particle Effect */
+        .particle {
+            position: absolute;
+            background-color: rgba(245, 158, 11, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: particle-float 15s infinite;
+        }
+        
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced Staggered Animation */
+        .stagger-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.5s ease;
+        }
+        
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -2338,42 +2951,41 @@
                 display: block;
             }
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             .quote-form-container {
                 width: 95%;
             }
             .quote-form-body {
-                padding: 40px 25px;
+                padding: 30px 20px;
             }
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             .form-grid {
                 grid-template-columns: 1fr;
             }
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
             .back-to-top {
-                width: 40px; /* Smaller on mobile */
-                height: 40px; /* Smaller on mobile */
+                width: 40px;
+                height: 40px;
                 bottom: 20px;
                 right: 20px;
-                font-size: 1rem; /* Smaller font on mobile */
             }
             
             /* Mobile Header Adjustments */
             .header-content {
                 padding: 15px 5%;
                 justify-content: space-between;
-                height: 70px; /* Fixed height for mobile header */
+                height: 70px;
             }
             
             .logo {
                 width: 140px;
-                height: auto; /* Ensure logo maintains aspect ratio */
+                height: auto;
             }
             
             .header.scrolled .logo {
@@ -2382,7 +2994,7 @@
             
             .header.scrolled .header-content {
                 padding: 10px 5%;
-                height: 60px; /* Slightly smaller when scrolled */
+                height: 60px;
             }
             
             .mobile-menu-btn {
@@ -2392,7 +3004,7 @@
             
             /* Add padding-top to hero section to account for fixed header */
             .hero-gradient {
-                padding-top: 80px; /* Adjust based on header height */
+                padding-top: 80px;
             }
             
             /* Timeline Mobile Adjustments */
@@ -2447,7 +3059,7 @@
         @media (max-width: 480px) {
             .header-content {
                 padding: 12px 5%;
-                height: 60px; /* Smaller fixed height for very small screens */
+                height: 60px;
             }
             
             .logo {
@@ -2465,17 +3077,17 @@
             
             /* Adjust hero section padding for smaller screens */
             .hero-gradient {
-                padding-top: 70px; /* Slightly less padding for smaller screens */
+                padding-top: 70px;
             }
             
             .hero-title {
                 font-size: 2.2rem;
-                margin-top: 20px; /* Add some space between header and title */
+                margin-top: 20px;
             }
             
             /* Section titles for smaller screens */
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             /* Footer adjustments for smaller screens */
@@ -2484,18 +3096,18 @@
             }
             
             .footer-content {
-                gap: 30px;
+                gap: 25px;
             }
         }
         
         /* Medium screen adjustments for header */
         @media (min-width: 769px) and (max-width: 1024px) {
             .nav-menu {
-                gap: 15px; /* Reduced gap for medium screens */
+                gap: 15px;
             }
             
             .nav-link {
-                font-size: 0.9rem; /* Smaller font size for medium screens */
+                font-size: 0.9rem;
             }
             
             .header-content {
@@ -2514,15 +3126,15 @@
         /* Large screen adjustments for header */
         @media (min-width: 1600px) {
             .header-content {
-                max-width: 1600px; /* Larger max width for very large screens */
+                max-width: 1600px;
             }
             
             .nav-menu {
-                gap: 30px; /* Increased gap for larger screens */
+                gap: 30px;
             }
             
             .nav-link {
-                font-size: 1rem; /* Larger font size for larger screens */
+                font-size: 1rem;
             }
         }
         
@@ -2537,11 +3149,11 @@
         
         /* Loading screen fix */
         body {
-            overflow: hidden; /* Initially hide scrollbars */
+            overflow: hidden;
         }
         
         body.loaded {
-            overflow: visible; /* Show scrollbars after loading */
+            overflow: visible;
         }
         
         /* Ensure the loading screen properly disappears */
@@ -2564,8 +3176,8 @@
             border-width: 0;
         }
         
-        /* Focus styles for better accessibility */
-        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+        /* Focus styles for better accessibility - but not for logo */
+        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
             outline: 2px solid #f59e0b;
             outline-offset: 2px;
         }
@@ -2574,6 +3186,13 @@
         img {
             max-width: 100%;
             height: auto;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
         
         /* Smooth scrolling for the entire page */
@@ -2796,6 +3415,13 @@
         </div>
     </div>
     
+    <!-- Screenshot Protection Overlay -->
+    <div id="screenshotProtection" class="screenshot-protection">
+        <h2>Screenshot Protection</h2>
+        <p>Screenshots are not allowed on this website. Please close this overlay to continue browsing.</p>
+        <button id="closeScreenshotProtection">Continue Browsing</button>
+    </div>
+    
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
@@ -2834,7 +3460,7 @@
         </button>
         <ul class="mobile-nav">
             <li><a href="./">Home</a></li>
-            <li><a href="about-us">About Us</a></li>
+            <li><a href="about-us" class="active">About Us</a></li>
             <li><a href="Coming Soon.html">Services</a></li>
             <li><a href="Coming Soon.html">How It Works</a></li>
             <li><a href="Coming Soon.html">Calculator</a></li>
@@ -2912,7 +3538,7 @@
         </div>
     </div>
     
-    <!-- Premium Back to Top Button -->
+    <!-- Premium Back to Top Button - REDUCED SIZE -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -2942,7 +3568,18 @@
                 </div>
                 <div class="relative">
                     <div class="about-card">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Naptico Green Energy Team" class="rounded-2xl w-full h-auto" loading="lazy">
+                            <div class="image-overlay">
+                                <button class="upload-btn" onclick="uploadImage('hero')">
+                                    <i class="fas fa-upload"></i> Upload Image
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-stats">
+                            <div class="service-stats-number text-indigo-600">50,000+</div>
+                            <div class="service-stats-label">Happy Customers</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2965,16 +3602,22 @@
                     <p class="text-gray-300">Naptico Green Energy Solars operates out of Bengaluru, Karnataka, India, and was incorporated in August 2025. The company excels in delivering innovative technology and energy solutions, striving to empower businesses and households to transition smoothly to solar power.</p>
                 </div>
                 <div class="fade-in stagger-2">
-                    <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Office" class="rounded-2xl w-full h-auto">
+                    <!-- Using about-card instead of hero-image for the same effect as hero banner -->
+                    <div class="about-card">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Office" class="rounded-2xl w-full h-auto">
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1 fade-in stagger-3">
-                    <div class="hero-image">
-                        <img src="https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVuZXdhYmxlJTIwZW5lcmd5fGVufDB8fDB8fHww" alt="Solar Installation" class="rounded-2xl w-full h-auto">
+                    <!-- Using about-card instead of hero-image for the same effect as hero banner -->
+                    <div class="about-card">
+                        <div class="image-container">
+                            <img src="https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVuZXdhYmxlJTIwZW5lcmd5fGVufDB8fDB8fHww" alt="Solar Installation" class="rounded-2xl w-full h-auto">
+                        </div>
                     </div>
                 </div>
                 <div class="order-1 lg:order-2 fade-in stagger-4">
@@ -3047,7 +3690,7 @@
                     
                     <!-- Milestone 5 -->
                     <div class="milestone-slide">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industry Recognition">
                         <div class="milestone-overlay">
                             <div class="milestone-content">
                                 <div class="milestone-year">2022</div>
@@ -3360,6 +4003,9 @@
         </div>
     </footer>
     
+    <!-- Hidden file input for image uploads -->
+    <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+    
     <script>
         // URL Redirect for index.html
         if (window.location.pathname.endsWith('index.html')) {
@@ -3416,6 +4062,15 @@
             setTimeout(hideLoadingScreen, 10000);
         });
         
+        // Check if the device supports touch
+        function isTouchDevice() {
+            return 'ontouchstart' in window || 
+                   navigator.maxTouchPoints > 0 || 
+                   navigator.msMaxTouchPoints > 0 || 
+                   // For some browsers that don't properly report touch support
+                   (window.DocumentTouch && document instanceof DocumentTouch);
+        }
+        
         // Variables to track input type and cursor state
         let lastInputType = null; // 'touch' or 'mouse'
         let inputDetected = false;
@@ -3459,6 +4114,25 @@
             }
         }
         
+        // If it's a touch device, immediately set the input type to touch
+        if (isTouchDevice()) {
+            setInputType('touch');
+            inputDetected = true;
+            
+            // Also add CSS to completely hide cursor elements on touch devices
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 1024px) {
+                    .cursor, .cursor-follower {
+                        display: none !important;
+                        opacity: 0 !important;
+                        pointer-events: none !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
         // Listen for the first touch event
         document.addEventListener('touchstart', function onFirstTouch(e) {
             document.removeEventListener('touchstart', onFirstTouch);
@@ -3476,20 +4150,20 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             if (cursor) {
-                cursor.style.left = mouseX - 12.5 + 'px';
-                cursor.style.top = mouseY - 12.5 + 'px';
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
             }
             if (cursorFollower) {
                 followerX = mouseX;
                 followerY = mouseY;
-                cursorFollower.style.left = followerX - 25 + 'px';
-                cursorFollower.style.top = followerY - 25 + 'px';
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
             }
         }, { once: true });
         
         // If we haven't detected any input after a short time, assume mouse (for non-touch devices)
         setTimeout(() => {
-            if (!inputDetected) {
+            if (!inputDetected && !isTouchDevice()) {
                 setInputType('mouse');
             }
         }, 1000);
@@ -3506,8 +4180,8 @@
                 
                 // Update main cursor position immediately
                 if (cursor) {
-                    cursor.style.left = mouseX - 12.5 + 'px';
-                    cursor.style.top = mouseY - 12.5 + 'px';
+                    cursor.style.left = mouseX + 'px';
+                    cursor.style.top = mouseY + 'px';
                 }
             }
         });
@@ -3545,8 +4219,8 @@
                 followerY += (mouseY - followerY) * 0.1;
                 
                 if (cursorFollower) {
-                    cursorFollower.style.left = followerX - 25 + 'px';
-                    cursorFollower.style.top = followerY - 25 + 'px';
+                    cursorFollower.style.left = followerX + 'px';
+                    cursorFollower.style.top = followerY + 'px';
                 }
             }
             requestAnimationFrame(animateFollower);
@@ -3577,14 +4251,14 @@
         document.addEventListener('mouseleave', () => {
             if (lastInputType === 'mouse') {
                 if (cursor) cursor.style.opacity = '0';
-                if (cursorFollower) cursor.style.opacity = '0';
+                if (cursorFollower) cursorFollower.style.opacity = '0';
             }
         });
         
         document.addEventListener('mouseenter', () => {
             if (lastInputType === 'mouse') {
                 if (cursor) cursor.style.opacity = '1';
-                if (cursorFollower) cursor.style.opacity = '1';
+                if (cursorFollower) cursorFollower.style.opacity = '1';
             }
         });
         
@@ -3630,15 +4304,17 @@
         
         // Open mobile menu
         if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                
                 if (mobileMenuOverlay) {
                     mobileMenuOverlay.classList.add('active');
                 }
                 document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-                // Disable pointer events on content behind menu
-                document.body.style.pointerEvents = 'none';
+                // Don't disable pointer events on body as it prevents interaction with menu
                 if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.toggle('active'); // Toggle animation class
+                    mobileMenuBtn.classList.add('active'); // Add animation class
                 }
             });
         }
@@ -3649,18 +4325,32 @@
         }
         
         if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuClose.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
+                closeMobileMenu();
+            });
         }
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                const href = link.getAttribute('href');
+                closeMobileMenu();
+                // Navigate to the link after a short delay
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
         });
         
         // Mobile contact button functionality
         if (mobileContactBtn) {
-            mobileContactBtn.addEventListener('click', () => {
+            mobileContactBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event propagation
                 closeMobileMenu();
                 // Open quote modal after a short delay
                 setTimeout(() => {
@@ -3673,6 +4363,16 @@
             });
         }
         
+        // Also close mobile menu when clicking outside the menu
+        document.addEventListener('click', (e) => {
+            if (mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
+                // Check if the click is outside the mobile menu
+                if (!mobileMenuOverlay.contains(e.target) && e.target !== mobileMenuBtn) {
+                    closeMobileMenu();
+                }
+            }
+        });
+        
         // OPTIMIZED HERO BANNER WITH FIXED BACKGROUND
         const heroImages = [
             'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
@@ -3680,6 +4380,7 @@
         ];
         
         const heroFixedBg = document.getElementById('heroFixedBg');
+        const heroImage = document.getElementById('heroImage');
         let currentHeroImage = 0;
         let heroInterval;
         
@@ -3691,6 +4392,9 @@
                 // Once loaded, update the background
                 if (heroFixedBg) {
                     heroFixedBg.style.backgroundImage = `url('${heroImages[index]}')`;
+                }
+                if (heroImage) {
+                    heroImage.src = heroImages[index];
                 }
                 currentHeroImage = index;
             };
@@ -3788,7 +4492,7 @@
             }
         });
         
-        // Premium Back to Top Button
+        // Premium Back to Top Button - REDUCED SIZE
         const backToTopBtn = document.getElementById('backToTop');
         
         if (backToTopBtn) {
@@ -4040,8 +4744,12 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    // Calculate the offset position considering the sticky header
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const offsetPosition = target.offsetTop - headerHeight;
+
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
@@ -4049,7 +4757,7 @@
         });
         
         // Only apply 3D card effects on non-touch devices
-        if (!('ontouchstart' in window)) {
+        if (!isTouchDevice()) {
             // Premium 3D Card Effect
             const cards = document.querySelectorAll('.about-card, .team-member, .value-card, .timeline-content, .leadership-card, .feature-card, .hero-image');
             
@@ -4243,103 +4951,186 @@
             });
         }
         
-        // Disable right-click context menu
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        // Image upload functionality
+        function uploadImage(imageId) {
+            document.getElementById('image-upload').setAttribute('data-image', imageId);
+            document.getElementById('image-upload').click();
+        }
         
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable image dragging
-        document.addEventListener('dragstart', function(e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-                return false;
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageId = document.getElementById('image-upload').getAttribute('data-image');
+                    const imgElement = document.querySelector(`#${imageId} img`);
+                    if (imgElement) {
+                        imgElement.src = e.target.result;
+                    }
+                };
+                reader.readAsDataURL(file);
             }
+        }
+        
+        // Reset file input after use
+        document.getElementById('image-upload').addEventListener('change', function() {
+            this.value = '';
         });
         
-        // Disable keyboard shortcuts for copying
-        document.addEventListener('keydown', function(e) {
-            // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
+        // Screenshot Protection
+        document.addEventListener('DOMContentLoaded', function() {
+            const screenshotProtection = document.getElementById('screenshotProtection');
+            const closeScreenshotProtection = document.getElementById('closeScreenshotProtection');
+            
+            // Show screenshot protection overlay when page is hidden
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'flex';
+                    }
+                } else {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Close screenshot protection overlay
+            if (closeScreenshotProtection) {
+                closeScreenshotProtection.addEventListener('click', function() {
+                    if (screenshotProtection) {
+                        screenshotProtection.style.display = 'none';
+                    }
+                });
             }
             
-            // Disable F12 (Developer Tools)
-            if (e.keyCode === 123) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+I (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+J (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Additional protection for images
-        document.querySelectorAll('img').forEach(function(img) {
-            img.addEventListener('contextmenu', function(e) {
+            // Prevent context menu (right-click)
+            document.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
                 return false;
             });
             
-            img.addEventListener('dragstart', function(e) {
+            // Prevent text selection
+            document.addEventListener('selectstart', function(e) {
                 e.preventDefault();
                 return false;
             });
             
-            // Add transparent overlay to prevent screenshots
-            img.style.pointerEvents = 'none';
-            img.style.userSelect = 'none';
-            img.style.webkitUserSelect = 'none';
-            img.style.mozUserSelect = 'none';
-            img.style.msUserSelect = 'none';
+            // Prevent image dragging
+            document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Disable keyboard shortcuts for copying
+            document.addEventListener('keydown', function(e) {
+                // Disable Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+S, Ctrl+U
+                if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 88 || e.keyCode === 83 || e.keyCode === 85)) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable F12 (Developer Tools)
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Ctrl+Shift+J (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Disable Print Screen
+                if (e.keyCode === 44) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Additional protection for images
+            document.querySelectorAll('img').forEach(function(img) {
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+            
+            // iOS specific protections
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+                // Prevent double-tap to zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Prevent pinch to zoom
+                document.addEventListener('gesturestart', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gesturechange', function(e) {
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('gestureend', function(e) {
+                    e.preventDefault();
+                });
+            }
+            
+            // Android specific protections
+            if (navigator.userAgent.match(/Android/i)) {
+                // Prevent long press to save image
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Prevent long press to select text
+                document.addEventListener('touchstart', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                });
+            }
+            
+            // Add watermark for screenshots
+            function addWatermark() {
+                const watermark = document.createElement('div');
+                watermark.style.position = 'fixed';
+                watermark.style.top = '0';
+                watermark.style.left = '0';
+                watermark.style.width = '100%';
+                watermark.style.height = '100%';
+                watermark.style.pointerEvents = 'none';
+                watermark.style.zIndex = '9999998';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.backgroundRepeat = 'repeat';
+                watermark.style.backgroundSize = '200px 200px';
+                watermark.style.opacity = '0.1';
+                document.body.appendChild(watermark);
+            }
+            
+            addWatermark();
         });
-        
-        // Add CSS to disable text selection
-        document.head.insertAdjacentHTML('beforeend', `
-            <style>
-                body {
-                    -webkit-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
-                    -webkit-touch-callout: none;
-                    -khtml-user-select: none;
-                }
-                
-                img {
-                    -webkit-user-drag: none;
-                    -khtml-user-drag: none;
-                    -moz-user-drag: none;
-                    -o-user-drag: none;
-                    user-drag: none;
-                    pointer-events: none;
-                }
-                
-                a, button, input, textarea, select {
-                    -webkit-user-select: auto;
-                    -moz-user-select: auto;
-                    -ms-user-select: auto;
-                    user-select: auto;
-                    pointer-events: auto;
-                }
-            </style>
-        `);
     </script>
 </body>
 </html>

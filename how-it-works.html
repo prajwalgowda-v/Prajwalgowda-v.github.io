@@ -35,8 +35,8 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="Learn how solar panels work, their benefits, and various applications. Discover the science behind photovoltaic technology with Naptico Green Energy Solars.">
-    <meta name="keywords" content="how solar panels work, photovoltaic effect, solar energy benefits, solar panel types, solar installation, renewable energy">
+    <meta name="description" content="Comprehensive guide on how solar panels work, photovoltaic technology, benefits, and applications. Discover the science behind solar energy with Naptico Green Energy Solars.">
+    <meta name="keywords" content="how solar panels work, photovoltaic effect, solar energy benefits, solar panel types, solar installation, renewable energy, solar technology">
     <meta name="author" content="Naptico Green Energy Solars">
     <meta name="robots" content="index, follow">
     
@@ -44,14 +44,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://napticogreenenergysolars.com/how-it-works.html">
     <meta property="og:title" content="How Solar Panels Work - Naptico Green Energy Solars">
-    <meta property="og:description" content="Discover the science behind solar panels, their benefits, and various applications. Learn about photovoltaic technology with Naptico Green Energy Solars.">
+    <meta property="og:description" content="Discover the complete science behind solar panels, their benefits, types, and applications. Learn about photovoltaic technology with Naptico Green Energy Solars.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://napticogreenenergysolars.com/how-it-works.html">
     <meta property="twitter:title" content="How Solar Panels Work - Naptico Green Energy Solars">
-    <meta property="twitter:description" content="Discover the science behind solar panels, their benefits, and various applications. Learn about photovoltaic technology with Naptico Green Energy Solars.">
+    <meta property="twitter:description" content="Discover the complete science behind solar panels, their benefits, types, and applications. Learn about photovoltaic technology with Naptico Green Energy Solars.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Security Headers -->
@@ -976,20 +976,407 @@
             left: 100%;
         }
         
-        /* Premium Services Section */
-        .services-section {
+        /* Enhanced How Solar Works Section */
+        .how-solar-works {
             background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 120px 0;
             position: relative;
             overflow: hidden;
-            padding: 100px 0;
-            /* Prevent screenshot of services section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
-        .services-section::before {
+        .how-solar-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .how-solar-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #f59e0b, #f97316, #f59e0b);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .process-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #f59e0b;
+            margin-right: 40px;
+            min-width: 100px;
+            text-align: center;
+            text-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            position: relative;
+        }
+        
+        .process-number::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+        
+        .process-step:nth-child(even) .process-number {
+            margin-right: 0;
+            margin-left: 40px;
+        }
+        
+        .process-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .process-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .process-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .process-content:hover::before {
+            opacity: 1;
+        }
+        
+        .process-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .process-title i {
+            color: #f59e0b;
+            font-size: 1.5rem;
+        }
+        
+        .process-description {
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .process-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .process-feature {
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #f59e0b;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .process-feature i {
+            font-size: 0.8rem;
+        }
+        
+        .process-image {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .process-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .process-image:hover::before {
+            opacity: 1;
+        }
+        
+        .process-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .process-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Enhanced Solar Panel Types Section */
+        .solar-types {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solar-types::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .solar-types-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .solar-type-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 50px;
+            margin-bottom: 50px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .solar-type-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .solar-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .solar-type-card:hover::before {
+            opacity: 1;
+        }
+        
+        .solar-type-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 30px;
+        }
+        
+        .solar-type-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .solar-type-card:hover .solar-type-icon {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.5);
+        }
+        
+        .solar-type-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .solar-type-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .solar-type-subtitle {
+            color: #f59e0b;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+        
+        .solar-type-image {
+            margin: 30px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .solar-type-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .solar-type-image:hover::before {
+            opacity: 1;
+        }
+        
+        .solar-type-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .solar-type-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .solar-type-description {
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+        
+        .solar-type-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .spec-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            color: #e2e8f0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .spec-item:hover {
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-5px);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        
+        .spec-item strong {
+            color: #f59e0b;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .spec-item i {
+            color: #f59e0b;
+            margin-right: 8px;
+        }
+        
+        /* Enhanced Solar Panel Designs Section */
+        .solar-designs {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solar-designs::before {
             content: '';
             position: absolute;
             top: 0;
@@ -997,26 +1384,821 @@
             width: 100%;
             height: 100%;
             background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.03;
+            opacity: 0.05;
             z-index: 0;
         }
         
-        .services-content {
+        .solar-designs-content {
             position: relative;
             z-index: 1;
         }
         
+        .design-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .design-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .design-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .design-card:hover::before {
+            opacity: 1;
+        }
+        
+        .design-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .design-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .design-card:hover .design-image::before {
+            opacity: 1;
+        }
+        
+        .design-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .design-card:hover .design-image img {
+            transform: scale(1.05);
+        }
+        
+        .design-content {
+            padding: 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .design-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .design-card:hover .design-icon {
+            transform: scale(1.1) rotateZ(10deg);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
+        }
+        
+        .design-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .design-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .design-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .design-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .design-feature {
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #f59e0b;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .design-feature i {
+            font-size: 0.8rem;
+        }
+        
+        /* Enhanced Benefits Section */
+        .benefits-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefits-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .benefits-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+        
+        .benefit-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.3);
+            transition: all 0.5s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.5);
+        }
+        
+        .benefit-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .benefit-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            flex-grow: 1;
+        }
+        
+        .benefit-stats {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .benefit-stat {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 5px;
+        }
+        
+        .benefit-stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Enhanced Usage Applications Section */
+        .usage-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .usage-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .usage-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .usage-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .usage-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .usage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .usage-card:hover::before {
+            opacity: 1;
+        }
+        
+        .usage-card:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .usage-card:nth-child(even) .usage-details {
+            direction: ltr;
+        }
+        
+        .usage-image {
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .usage-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .usage-card:hover .usage-image::before {
+            opacity: 1;
+        }
+        
+        .usage-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .usage-card:hover .usage-image img {
+            transform: scale(1.05);
+        }
+        
+        .usage-details {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .usage-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .usage-card:hover .usage-icon {
+            transform: scale(1.1) rotateZ(10deg);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
+        }
+        
+        .usage-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .usage-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .usage-description {
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+        
+        .usage-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .usage-feature {
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 20px;
+            padding: 10px 18px;
+            color: #f59e0b;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .usage-feature:hover {
+            background: rgba(245, 158, 11, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .usage-feature i {
+            font-size: 0.9rem;
+        }
+        
+        .usage-stats {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 30px;
+        }
+        
+        .usage-stat {
+            flex: 1;
+        }
+        
+        .usage-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 5px;
+        }
+        
+        .usage-stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Interactive Comparison Table */
+        .comparison-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .comparison-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .comparison-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .comparison-table {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            font-size: 1rem;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .comparison-table .rating {
+            color: #f59e0b;
+        }
+        
+        .comparison-table .best {
+            background: rgba(245, 158, 11, 0.2);
+            position: relative;
+        }
+        
+        .comparison-table .best::after {
+            content: '⭐ Best';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f59e0b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Technical Specifications Section */
+        .tech-specs {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-specs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .tech-specs-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .spec-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .spec-card:hover::before {
+            opacity: 1;
+        }
+        
+        .spec-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .spec-card:hover .spec-icon {
+            transform: scale(1.1) rotateZ(10deg);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
+        }
+        
+        .spec-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .spec-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .spec-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        
+        .spec-description {
+            color: #e2e8f0;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        /* Enhanced FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .faq-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+            color: white;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        
+        .faq-question {
+            padding: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(245, 158, 11, 0.15);
+            padding-left: 40px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.4s ease;
+            color: #f59e0b;
+            font-size: 1.5rem;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 30px;
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 30px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-question {
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        /* Premium CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f97316, #f59e0b);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: #f97316;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            background: #f8fafc;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Common Section Styles */
         .section-title {
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            text-align: center;
         }
         
         .section-subtitle {
@@ -1024,439 +2206,7 @@
             color: #e2e8f0;
             max-width: 3xl;
             margin: 0 auto 4rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Premium 3D Cards with Glass Effect */
-        .service-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            /* Prevent screenshot of service cards */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .service-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-25px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        .service-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-            flex-shrink: 0;
-            /* Prevent icon from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.15) rotateZ(10deg);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);
-        }
-        
-        /* Animated Learn More Button */
-        .learn-more-btn {
-            display: inline-flex;
-            align-items: center;
-            color: #f59e0b;
-            font-weight: 600;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-            margin-top: 15px;
-            margin-top: auto; /* Push to bottom of card */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .learn-more-btn:hover {
-            color: #f97316;
-        }
-        
-        .learn-more-btn i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-            font-size: 14px;
-        }
-        
-        .learn-more-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        .learn-more-btn::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f59e0b, #f97316);
-            transition: width 0.3s ease;
-        }
-        
-        .learn-more-btn:hover::after {
-            width: 100%;
-        }
-        
-        /* Premium Feature Cards */
-        .feature-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
             text-align: center;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* Prevent screenshot of feature cards */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .feature-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .feature-icon {
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
-            flex-shrink: 0;
-            /* Prevent icon from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.15) rotateY(180deg);
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
-        }
-        
-        /* Premium Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            /* Prevent screenshot of testimonials section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
-            z-index: 0;
-        }
-        
-        .testimonials-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            /* Prevent screenshot of testimonial cards */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Fallback for browsers that don't support backdrop-filter */
-        @supports not (backdrop-filter: blur(15px)) {
-            .testimonial-card {
-                background: rgba(255, 255, 255, 0.15);
-            }
-        }
-        
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-20px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .testimonial-card:hover::before {
-            opacity: 1;
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .testimonial-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-right: 20px;
-            border: 3px solid rgba(245, 158, 11, 0.5);
-            object-fit: cover;
-            object-position: top center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            flex-shrink: 0;
-            /* Prevent avatar from being screenshotted */
-            pointer-events: none;
-        }
-        
-        .testimonial-info h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-info p {
-            color: #94a3b8;
-            font-size: 1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-rating {
-            color: #f59e0b;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-text {
-            color: #e2e8f0;
-            font-style: italic;
-            line-height: 1.7;
-            flex-grow: 1;
-            font-size: 1.1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-quote {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 3.5rem;
-            color: rgba(245, 158, 11, 0.15);
-            font-family: Georgia, serif;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Testimonial Carousel Styles - FIXED */
-        .testimonial-carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 20px 0 70px 0; /* Added padding to prevent shadow clipping */
-        }
-        
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial-slide {
-            min-width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0 20px; /* Added padding for side spacing */
-            box-sizing: border-box;
-        }
-        
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-        }
-        
-        .testimonial-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-btn:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: #f59e0b;
-        }
-        
-        .testimonial-indicators {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .testimonial-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .testimonial-indicator.active {
-            background: #f59e0b;
-            transform: scale(1.2);
         }
         
         /* Premium Footer */
@@ -1466,11 +2216,6 @@
             overflow: hidden;
             padding: 100px 0 50px;
             transform-style: preserve-3d;
-            /* Prevent screenshot of footer */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .footer::before {
@@ -1511,11 +2256,6 @@
             margin-bottom: 25px;
             position: relative;
             display: inline-block;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .footer-section h3::after {
@@ -1535,11 +2275,6 @@
             line-height: 1.7;
             font-size: 1.05rem;
             text-align: justify;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .footer-logo {
@@ -1548,9 +2283,9 @@
             max-width: 220px;
             height: auto;
             display: block;
-            outline: none; /* Remove focus outline */
-            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-            cursor: pointer; /* Show pointer cursor */
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
         }
         
         .footer-logo:hover {
@@ -1577,8 +2312,8 @@
             transition: all 0.4s ease;
             transform-style: preserve-3d;
             font-size: 1.2rem;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
+            outline: none;
+            cursor: pointer;
         }
         
         .social-icon:hover {
@@ -1604,13 +2339,8 @@
             display: inline-block;
             position: relative;
             font-size: 1.05rem;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
+            cursor: pointer;
         }
         
         .footer-links li a::before {
@@ -1645,11 +2375,6 @@
             margin-bottom: 20px;
             color: #94a3b8;
             font-size: 1.05rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .contact-info i {
@@ -1664,13 +2389,8 @@
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
+            cursor: pointer;
         }
         
         .contact-info a:hover {
@@ -1685,37 +2405,27 @@
             position: relative;
             z-index: 1;
             font-size: 1.05rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .footer-bottom a {
             color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
+            cursor: pointer;
         }
         
         .footer-bottom a:hover {
             color: #f59e0b;
         }
         
-        /* Premium Back to Top Button - REDUCED SIZE */
+        /* Premium Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            width: 50px; /* Reduced from 70px */
-            height: 50px; /* Reduced from 70px */
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: black;
             border-radius: 50%;
@@ -1728,9 +2438,9 @@
             z-index: 100;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
-            font-size: 1.2rem; /* Reduced from 1.5rem */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
+            font-size: 1.2rem;
+            outline: none;
+            cursor: pointer;
         }
         
         .back-to-top.visible {
@@ -1741,12 +2451,12 @@
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);} /* Reduced from -15px */
-            60% {transform: translateY(-5px);} /* Reduced from -8px */
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
         }
         
         .back-to-top:hover {
-            transform: translateY(-10px) rotateZ(10deg); /* Reduced from -15px */
+            transform: translateY(-10px) rotateZ(10deg);
             box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
         }
         
@@ -1767,12 +2477,7 @@
             visibility: hidden;
             transition: all 0.4s ease;
             overflow-y: auto;
-            pointer-events: none; /* Initially disable pointer events */
-            /* Prevent modal from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            pointer-events: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1785,7 +2490,7 @@
         .quote-modal.active {
             opacity: 1;
             visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
+            pointer-events: auto;
         }
         
         .quote-form-container {
@@ -1803,12 +2508,7 @@
             margin: 20px auto;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
-            pointer-events: auto; /* Always enable pointer events for form container */
-            /* Prevent form from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            pointer-events: auto;
         }
         
         .quote-modal.active .quote-form-container {
@@ -1828,8 +2528,8 @@
             margin: 0 auto 25px;
             display: block;
             transition: transform 0.4s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
+            outline: none;
+            cursor: pointer;
         }
         
         .quote-form-logo:hover {
@@ -1842,22 +2542,12 @@
             margin-bottom: 15px;
             color: white;
             text-align: center;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .quote-form-subtitle {
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
             font-size: 1.1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .quote-form-body {
@@ -1880,14 +2570,9 @@
             justify-content: center;
             transition: all 0.4s ease;
             z-index: 10;
-            pointer-events: auto; /* Always enable pointer events for close button */
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            pointer-events: auto;
+            outline: none;
+            cursor: pointer;
         }
         
         .quote-close:hover {
@@ -1917,11 +2602,6 @@
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .form-input, .form-textarea {
@@ -1935,11 +2615,6 @@
             outline: none;
             transition: all 0.4s ease;
             box-sizing: border-box;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .form-input:focus, .form-textarea:focus {
@@ -1965,7 +2640,6 @@
             width: 100%;
             height: 100%;
             cursor: pointer;
-            /* Prevent file input from being screenshotted */
             pointer-events: none;
         }
         
@@ -1980,12 +2654,7 @@
             color: #e2e8f0;
             cursor: pointer;
             transition: all 0.4s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
         }
         
         .file-upload-label:hover {
@@ -2016,11 +2685,6 @@
             margin-bottom: 10px;
             color: #e2e8f0;
             font-size: 15px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .file-name {
@@ -2041,12 +2705,7 @@
             color: #f59e0b;
             cursor: pointer;
             transition: color 0.3s;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
         }
         
         .file-remove:hover {
@@ -2072,13 +2731,8 @@
             justify-content: center;
             gap: 12px;
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
+            cursor: pointer;
         }
         
         .form-submit:hover {
@@ -2125,11 +2779,6 @@
             display: none;
             font-weight: 500;
             font-size: 16px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .form-message.success {
@@ -2154,181 +2803,6 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border-left: 4px solid #f59e0b;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Premium Scroll Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Staggered animation delays */
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-        .stagger-5 { transition-delay: 0.5s; }
-        .stagger-6 { transition-delay: 0.6s; }
-        
-        /* Premium CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #f97316, #f59e0b);
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            /* Prevent screenshot of CTA section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.25), transparent 70%);
-            z-index: 0;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-btn-primary {
-            background: white;
-            color: #f97316;
-            border: none;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-        }
-        
-        .cta-btn-primary:hover {
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-            background: #f8fafc;
-        }
-        
-        .cta-btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px) rotateX(5deg);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Premium FAQ Section */
-        .faq-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 80px 0;
-            position: relative;
-            /* Prevent screenshot of FAQ section */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .faq-container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .faq-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            text-align: center;
-            color: white;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .faq-item {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Prevent screenshot of FAQ items */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .faq-question {
-            padding: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.1rem;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .faq-question:hover {
-            background: rgba(245, 158, 11, 0.15);
-        }
-        
-        .faq-icon {
-            transition: transform 0.4s ease;
-            color: #f59e0b;
-            font-size: 1.2rem;
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            padding: 0 25px;
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.05rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 400px;
-            padding: 0 25px 25px;
-        }
-        
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
         }
         
         /* Cookie Consent Banner Styles */
@@ -2346,18 +2820,13 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            pointer-events: none; /* Initially disable pointer events */
-            /* Prevent banner from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            pointer-events: none;
         }
         
         .cookie-banner.active {
             opacity: 1;
             visibility: visible;
-            pointer-events: auto; /* Enable pointer events when active */
+            pointer-events: auto;
         }
         
         .cookie-content {
@@ -2372,12 +2841,7 @@
             overflow: hidden;
             transform: translateY(30px);
             transition: transform 0.4s ease;
-            pointer-events: auto; /* Always enable pointer events for content */
-            /* Prevent content from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            pointer-events: auto;
         }
         
         .cookie-banner.active .cookie-content {
@@ -2401,8 +2865,8 @@
             margin: 0 auto 25px;
             display: block;
             transition: transform 0.4s ease;
-            outline: none; /* Remove focus outline */
-            cursor: pointer; /* Show pointer cursor */
+            outline: none;
+            cursor: pointer;
         }
         
         .cookie-logo:hover {
@@ -2415,11 +2879,6 @@
             margin-bottom: 15px;
             color: white;
             text-align: center;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .cookie-text {
@@ -2428,11 +2887,6 @@
             line-height: 1.6;
             text-align: center;
             font-size: 1rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .cookie-buttons {
@@ -2456,12 +2910,7 @@
             z-index: 1;
             box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
             cursor: pointer;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
         }
         
         .cookie-accept:hover {
@@ -2495,12 +2944,7 @@
             font-size: 1rem;
             transition: all 0.4s ease;
             cursor: pointer;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
         }
         
         .cookie-settings:hover {
@@ -2517,11 +2961,6 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Prevent panel from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .cookie-settings-panel.active {
@@ -2535,11 +2974,6 @@
             margin-bottom: 15px;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            /* Prevent option from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .cookie-option:last-child {
@@ -2550,22 +2984,12 @@
         .cookie-option-label {
             color: #e2e8f0;
             font-size: 0.95rem;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .cookie-option-description {
             color: #94a3b8;
             font-size: 0.85rem;
             margin-top: 5px;
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         
         .cookie-toggle {
@@ -2576,12 +3000,7 @@
             border-radius: 13px;
             cursor: pointer;
             transition: background 0.3s ease;
-            outline: none; /* Remove focus outline */
-            /* Prevent toggle from being screenshotted */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
         }
         
         .cookie-toggle.active {
@@ -2616,12 +3035,7 @@
             margin-top: 15px;
             width: 100%;
             cursor: pointer;
-            outline: none; /* Remove focus outline */
-            /* Prevent text selection */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            outline: none;
         }
         
         .cookie-save-settings:hover {
@@ -2629,370 +3043,25 @@
             box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
         }
         
-        /* How Solar Works Section Specific Styles */
-        .how-solar-works {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
+        /* Premium Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .how-solar-works::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .how-solar-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .process-step {
-            display: flex;
-            margin-bottom: 60px;
-            align-items: center;
-        }
-        
-        .process-step:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .process-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #f59e0b;
-            margin-right: 30px;
-            min-width: 80px;
-            text-align: center;
-        }
-        
-        .process-step:nth-child(even) .process-number {
-            margin-right: 0;
-            margin-left: 30px;
-        }
-        
-        .process-content {
-            flex: 1;
-        }
-        
-        .process-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .process-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
-        
-        .process-image {
-            flex: 1;
-            max-width: 500px;
-            margin: 0 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .process-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .process-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .solar-types {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .solar-types::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .solar-types-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .solar-type-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .solar-type-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .solar-type-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .solar-type-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 25px;
-            flex-shrink: 0;
-        }
-        
-        .solar-type-icon i {
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .solar-type-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .solar-type-image {
-            margin: 25px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .solar-type-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .solar-type-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .solar-type-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
-        
-        .solar-type-specs {
-            margin-top: 25px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .spec-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 12px 20px;
-            color: #e2e8f0;
-            font-size: 0.95rem;
-        }
-        
-        .spec-item strong {
-            color: #f59e0b;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .benefits-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .benefits-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .benefits-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 35px;
-            height: 100%;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-        }
-        
-        .benefit-icon i {
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .benefit-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            text-align: center;
-        }
-        
-        .usage-section {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .usage-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .usage-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .usage-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s ease;
-        }
-        
-        .usage-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        
-        .usage-image {
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .usage-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .usage-card:hover .usage-image img {
-            transform: scale(1.05);
-        }
-        
-        .usage-details {
-            padding: 30px;
-        }
-        
-        .usage-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .usage-description {
-            color: #e2e8f0;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-        
-        .usage-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .usage-feature {
-            background: rgba(245, 158, 11, 0.2);
-            border-radius: 20px;
-            padding: 8px 15px;
-            color: #f59e0b;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+        /* Staggered animation delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
         
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
@@ -3025,23 +3094,23 @@
                 gap: 40px;
             }
             .back-to-top {
-                width: 40px; /* Smaller on mobile */
-                height: 40px; /* Smaller on mobile */
+                width: 40px;
+                height: 40px;
                 bottom: 20px;
                 right: 20px;
-                font-size: 1rem; /* Smaller font on mobile */
+                font-size: 1rem;
             }
             
             /* Mobile Header Adjustments */
             .header-content {
                 padding: 15px 5%;
                 justify-content: space-between;
-                height: 70px; /* Fixed height for mobile header */
+                height: 70px;
             }
             
             .logo {
                 width: 140px;
-                height: auto; /* Ensure logo maintains aspect ratio */
+                height: auto;
             }
             
             .header.scrolled .logo {
@@ -3050,7 +3119,7 @@
             
             .header.scrolled .header-content {
                 padding: 10px 5%;
-                height: 60px; /* Slightly smaller when scrolled */
+                height: 60px;
             }
             
             .mobile-menu-btn {
@@ -3058,30 +3127,67 @@
                 padding: 8px;
             }
             
-            /* Add padding-top to hero section to account for fixed header */
             .hero-gradient {
-                padding-top: 80px; /* Adjust based on header height */
+                padding-top: 80px;
             }
             
-            /* Testimonial Carousel Mobile Adjustments */
-            .testimonial-slide {
+            /* Process Steps Mobile */
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-step {
+                flex-direction: column !important;
+                margin-bottom: 50px;
+                padding-left: 60px;
+            }
+            
+            .process-number {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin-right: 0;
+                margin-bottom: 20px;
+                font-size: 3rem;
+                min-width: 60px;
+            }
+            
+            .process-image {
+                margin: 20px 0;
+                max-width: 100%;
+            }
+            
+            /* Solar Types Mobile */
+            .solar-type-header {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
             
-            .testimonial-card {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            /* Service Cards Mobile Adjustments */
-            .service-card {
+            .solar-type-icon {
+                margin-right: 0;
                 margin-bottom: 20px;
             }
             
-            /* Feature Cards Mobile Adjustments */
-            .feature-card {
-                margin-bottom: 20px;
+            /* Design Cards Mobile */
+            .usage-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .usage-card:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .usage-details {
+                padding: 30px;
+            }
+            
+            /* Comparison Table Mobile */
+            .comparison-table {
+                overflow-x: auto;
+            }
+            
+            .comparison-table table {
+                min-width: 600px;
             }
             
             /* Cookie Banner Mobile Adjustments */
@@ -3096,39 +3202,13 @@
             .cookie-text {
                 font-size: 0.9rem;
             }
-            
-            /* How Solar Works Mobile Adjustments */
-            .process-step {
-                flex-direction: column !important;
-                margin-bottom: 40px;
-            }
-            
-            .process-number {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .process-image {
-                margin: 20px 0;
-                max-width: 100%;
-            }
-            
-            .solar-type-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .solar-type-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
         }
         
         /* Additional mobile adjustments for smaller screens */
         @media (max-width: 480px) {
             .header-content {
                 padding: 12px 5%;
-                height: 60px; /* Smaller fixed height for very small screens */
+                height: 60px;
             }
             
             .logo {
@@ -3144,27 +3224,23 @@
                 padding: 6px;
             }
             
-            /* Adjust hero section padding for smaller screens */
             .hero-gradient {
-                padding-top: 70px; /* Slightly less padding for smaller screens */
+                padding-top: 70px;
             }
             
             .hero-title {
                 font-size: 2.2rem;
-                margin-top: 20px; /* Add some space between header and title */
+                margin-top: 20px;
             }
             
-            /* Section titles for smaller screens */
             .section-title {
                 font-size: 2rem;
             }
             
-            /* FAQ section for smaller screens */
             .faq-title {
                 font-size: 2.2rem;
             }
             
-            /* Footer adjustments for smaller screens */
             .footer-section h3 {
                 font-size: 1.4rem;
             }
@@ -3172,16 +3248,43 @@
             .footer-content {
                 gap: 30px;
             }
+            
+            /* Process Steps Small Mobile */
+            .process-title {
+                font-size: 1.5rem;
+            }
+            
+            .process-description {
+                font-size: 1rem;
+            }
+            
+            /* Solar Types Small Mobile */
+            .solar-type-title {
+                font-size: 1.8rem;
+            }
+            
+            .solar-type-description {
+                font-size: 1rem;
+            }
+            
+            /* Usage Cards Small Mobile */
+            .usage-title {
+                font-size: 1.8rem;
+            }
+            
+            .usage-description {
+                font-size: 1rem;
+            }
         }
         
         /* Medium screen adjustments for header */
         @media (min-width: 769px) and (max-width: 1024px) {
             .nav-menu {
-                gap: 15px; /* Reduced gap for medium screens */
+                gap: 15px;
             }
             
             .nav-link {
-                font-size: 0.9rem; /* Smaller font size for medium screens */
+                font-size: 0.9rem;
             }
             
             .header-content {
@@ -3200,15 +3303,15 @@
         /* Large screen adjustments for header */
         @media (min-width: 1600px) {
             .header-content {
-                max-width: 1600px; /* Larger max width for very large screens */
+                max-width: 1600px;
             }
             
             .nav-menu {
-                gap: 30px; /* Increased gap for larger screens */
+                gap: 30px;
             }
             
             .nav-link {
-                font-size: 1rem; /* Larger font size for larger screens */
+                font-size: 1rem;
             }
         }
         
@@ -3223,14 +3326,13 @@
         
         /* Loading screen fix */
         body {
-            overflow: hidden; /* Initially hide scrollbars */
+            overflow: hidden;
         }
         
         body.loaded {
-            overflow: visible; /* Show scrollbars after loading */
+            overflow: visible;
         }
         
-        /* Ensure the loading screen properly disappears */
         .loading-screen.hidden {
             opacity: 0 !important;
             visibility: hidden !important;
@@ -3250,17 +3352,14 @@
             border-width: 0;
         }
         
-        /* Focus styles for better accessibility - but not for logo */
         a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
             outline: 2px solid #f59e0b;
             outline-offset: 2px;
         }
         
-        /* Image loading optimization */
         img {
             max-width: 100%;
             height: auto;
-            /* Prevent images from being dragged or saved */
             pointer-events: none;
             -webkit-user-drag: none;
             -khtml-user-drag: none;
@@ -3269,43 +3368,37 @@
             user-drag: none;
         }
         
-        /* Smooth scrolling for the entire page */
         html {
             scroll-behavior: smooth;
         }
         
-        /* Container max-width for better responsiveness */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Grid adjustments for better responsiveness */
-        @media (min-width: 768px) {
-            .grid {
-                display: grid;
-                gap: 30px;
-            }
-            
-            .grid-cols-1 {
-                grid-template-columns: repeat(1, minmax(0, 1fr));
-            }
-            
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            
-            .grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-            
-            .grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
+        .grid {
+            display: grid;
+            gap: 30px;
         }
         
-        /* Flex utilities */
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        
         .flex {
             display: flex;
         }
@@ -3338,7 +3431,6 @@
             gap: 1.5rem;
         }
         
-        /* Spacing utilities */
         .py-10 {
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
@@ -3361,7 +3453,6 @@
             margin-bottom: 5rem;
         }
         
-        /* Text utilities */
         .text-center {
             text-align: center;
         }
@@ -3388,7 +3479,6 @@
             font-weight: 600;
         }
         
-        /* Background utilities */
         .bg-gradient-to-br {
             background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
         }
@@ -3402,12 +3492,10 @@
             --tw-gradient-to: #1f2937;
         }
         
-        /* Z-index utilities */
         .z-10 {
             z-index: 10;
         }
         
-        /* Position utilities */
         .relative {
             position: relative;
         }
@@ -3420,12 +3508,10 @@
             position: fixed;
         }
         
-        /* Overflow utilities */
         .overflow-hidden {
             overflow: hidden;
         }
         
-        /* Visibility utilities */
         .invisible {
             visibility: hidden;
         }
@@ -3434,7 +3520,6 @@
             visibility: visible;
         }
         
-        /* Opacity utilities */
         .opacity-0 {
             opacity: 0;
         }
@@ -3443,19 +3528,16 @@
             opacity: 1;
         }
         
-        /* Transform utilities */
         .transform {
             transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
         }
         
-        /* Transition utilities */
         .transition {
             transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 150ms;
         }
         
-        /* Shadow utilities */
         .shadow-lg {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
@@ -3479,12 +3561,10 @@
     
     <!-- Premium Loading Screen with White Background -->
     <div id="loadingScreen" class="loading-screen">
-        <!-- Logo path updated to use relative path and made clickable -->
         <a href="./">
             <img src="./images/Logo.png" alt="Naptico Green Energy Solars" class="loading-logo" onerror="this.src='https://via.placeholder.com/300x120?text=Naptico+Green+Energy+Solars'">
         </a>
         <p class="loading-text">Powering Your Future<span class="loading-dots"></span></p>
-        <!-- Loading progress bar -->
         <div style="position: absolute; bottom: 40px; left: 0; width: 100%; height: 4px; background-color: rgba(0,0,0,0.1);">
             <div id="loadingProgressBar" style="height: 100%; width: 0%; background-color: #f59e0b; transition: width 0.3s ease;"></div>
         </div>
@@ -3493,7 +3573,6 @@
     <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-hidden="true">
         <div class="cookie-content">
-            <!-- Logo path updated to use relative path -->
             <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="cookie-logo" onerror="this.src='https://via.placeholder.com/120x50?text=Naptico+Green+Energy+Solars'">
             <h3 class="cookie-title" id="cookieTitle">We Value Your Privacy</h3>
             <p class="cookie-text">We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All Cookies", you consent to our use of cookies.</p>
@@ -3549,7 +3628,6 @@
     <!-- Premium Header -->
     <header class="header">
         <div class="header-content">
-            <!-- Logo path updated to use relative path and made clickable -->
             <a href="./">
                 <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="logo" onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'">
             </a>
@@ -3568,7 +3646,6 @@
             <div class="header-actions">
                 <button class="contact-btn">Get Quote</button>
             </div>
-            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
@@ -3602,7 +3679,6 @@
                 <button class="quote-close" id="quoteClose" aria-label="Close quote form">
                     <i class="fas fa-times"></i>
                 </button>
-                <!-- Logo path updated to use relative path and made clickable -->
                 <a href="./">
                     <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="quote-form-logo" onerror="this.src='https://via.placeholder.com/140x60?text=Naptico+Green+Energy+Solars'">
                 </a>
@@ -3611,9 +3687,7 @@
             </div>
             
             <div class="quote-form-body">
-                <!-- Formspree form integration -->
                 <form id="quoteForm" class="quote-form" action="https://formspree.io/f/mvgwoyzv" method="POST">
-                    <!-- Form subject field (removed the hidden email field for security) -->
                     <input type="hidden" name="_subject" value="New Solar Quote Request from Naptico Website">
                     
                     <div class="form-grid">
@@ -3669,15 +3743,9 @@
     
     <!-- Premium Hero Section -->
     <section id="main-content" class="hero-gradient">
-        <!-- Fixed Hero Background - SET INLINE TO AVOID LAG -->
         <div id="heroFixedBg" class="hero-fixed-bg" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-        
-        <!-- Hero Overlay -->
         <div class="hero-overlay"></div>
-        
-        <!-- Particles Container - FIXED POSITION -->
         <div id="particles"></div>
-        
         <div class="container mx-auto px-4 relative z-10 hero-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -3699,70 +3767,104 @@
         </div>
     </section>
     
-    <!-- How Solar Works Section -->
+    <!-- Enhanced How Solar Works Section -->
     <section id="process" class="how-solar-works py-20">
         <div class="container mx-auto px-4 how-solar-content">
             <div class="text-center mb-20 fade-in">
                 <h2 class="section-title">The Solar Energy <span class="text-gradient">Process</span></h2>
-                <p class="section-subtitle">Understanding how sunlight is converted into usable electricity</p>
+                <p class="section-subtitle">Understanding how sunlight is converted into usable electricity through advanced photovoltaic technology</p>
             </div>
             
-            <!-- Process Step 1 -->
-            <div class="process-step fade-in">
-                <div class="process-number">1</div>
-                <div class="process-content">
-                    <h3 class="process-title">Sunlight Absorption</h3>
-                    <p class="process-description">Solar panels are designed with photovoltaic (PV) cells that contain semiconductor materials, typically silicon. When sunlight strikes these cells, photons (light particles) are absorbed by the semiconductor material, knocking electrons loose from their atoms.</p>
+            <div class="process-timeline">
+                <!-- Process Step 1 -->
+                <div class="process-step fade-in">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3 class="process-title">
+                            <i class="fas fa-sun"></i>
+                            Sunlight Absorption
+                        </h3>
+                        <p class="process-description">Solar panels are engineered with photovoltaic (PV) cells containing semiconductor materials, primarily high-purity silicon. When photons from sunlight strike these cells, they transfer their energy to electrons in the semiconductor material, liberating them from their atomic bonds through the photoelectric effect.</p>
+                        <div class="process-features">
+                            <span class="process-feature"><i class="fas fa-check"></i> Photovoltaic cells</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> Silicon semiconductors</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> Photon absorption</span>
+                        </div>
+                    </div>
+                    <div class="process-image">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sunlight absorption by solar panels" loading="lazy">
+                    </div>
                 </div>
-                <div class="process-image">
-                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sunlight absorption by solar panels" loading="lazy">
+                
+                <!-- Process Step 2 -->
+                <div class="process-step fade-in">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3 class="process-title">
+                            <i class="fas fa-bolt"></i>
+                            Electric Current Generation
+                        </h3>
+                        <p class="process-description">The freed electrons flow through the material creating direct current (DC) electricity. This flow is captured by conductive plates on the cell's surface and directed through wiring. The p-n junction in the semiconductor creates an electric field that forces electrons to move in one direction, generating a steady flow of current.</p>
+                        <div class="process-features">
+                            <span class="process-feature"><i class="fas fa-check"></i> DC electricity</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> Electron flow</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> P-n junction</span>
+                        </div>
+                    </div>
+                    <div class="process-image">
+                        <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Electric current generation in solar panels" loading="lazy">
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Process Step 2 -->
-            <div class="process-step fade-in">
-                <div class="process-number">2</div>
-                <div class="process-content">
-                    <h3 class="process-title">Electric Current Generation</h3>
-                    <p class="process-description">The freed electrons flow through the material to produce direct current (DC) electricity. This flow of electrons is captured by the conductive plates on the sides of the cell and directed to an inverter.</p>
+                
+                <!-- Process Step 3 -->
+                <div class="process-step fade-in">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3 class="process-title">
+                            <i class="fas fa-exchange-alt"></i>
+                            Energy Conversion
+                        </h3>
+                        <p class="process-description">The inverter transforms the DC electricity from solar panels into alternating current (AC) electricity through sophisticated power electronics. Modern inverters use maximum power point tracking (MPPT) technology to optimize energy harvest by continuously adjusting the electrical operating point of the modules.</p>
+                        <div class="process-features">
+                            <span class="process-feature"><i class="fas fa-check"></i> DC to AC conversion</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> MPPT technology</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> Grid synchronization</span>
+                        </div>
+                    </div>
+                    <div class="process-image">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solar inverter converting DC to AC electricity" loading="lazy">
+                    </div>
                 </div>
-                <div class="process-image">
-                    <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Electric current generation in solar panels" loading="lazy">
-                </div>
-            </div>
-            
-            <!-- Process Step 3 -->
-            <div class="process-step fade-in">
-                <div class="process-number">3</div>
-                <div class="process-content">
-                    <h3 class="process-title">Energy Conversion</h3>
-                    <p class="process-description">The inverter converts the DC electricity from the solar panels into alternating current (AC) electricity, which is the type of electricity used by most home appliances and the electrical grid.</p>
-                </div>
-                <div class="process-image">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solar inverter converting DC to AC electricity" loading="lazy">
-                </div>
-            </div>
-            
-            <!-- Process Step 4 -->
-            <div class="process-step fade-in">
-                <div class="process-number">4</div>
-                <div class="process-content">
-                    <h3 class="process-title">Power Distribution</h3>
-                    <p class="process-description">The converted AC electricity flows from the inverter to your home's electrical panel, where it powers your lights, appliances, and other electrical devices. Any excess electricity can be sent back to the grid or stored in batteries for later use.</p>
-                </div>
-                <div class="process-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power distribution from solar panels to home" loading="lazy">
+                
+                <!-- Process Step 4 -->
+                <div class="process-step fade-in">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3 class="process-title">
+                            <i class="fas fa-plug"></i>
+                            Power Distribution
+                        </h3>
+                        <p class="process-description">The converted AC electricity flows from the inverter to your home's electrical panel, powering your appliances and devices. Smart energy management systems can prioritize loads, store excess energy in batteries, or sell surplus power back to the grid through net metering arrangements.</p>
+                        <div class="process-features">
+                            <span class="process-feature"><i class="fas fa-check"></i> Home integration</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> Battery storage</span>
+                            <span class="process-feature"><i class="fas fa-check"></i> Net metering</span>
+                        </div>
+                    </div>
+                    <div class="process-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power distribution from solar panels to home" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Solar Panel Types Section -->
+    <!-- Enhanced Solar Panel Types Section -->
     <section id="types" class="solar-types py-20">
         <div class="container mx-auto px-4 solar-types-content">
             <div class="text-center mb-20 fade-in">
                 <h2 class="section-title">Types of <span class="text-gradient">Solar Panels</span></h2>
-                <p class="section-subtitle">Different technologies with unique advantages for various applications</p>
+                <p class="section-subtitle">Advanced photovoltaic technologies with unique advantages for different applications</p>
             </div>
             
             <!-- Monocrystalline Solar Panels -->
@@ -3771,28 +3873,39 @@
                     <div class="solar-type-icon">
                         <i class="fas fa-gem"></i>
                     </div>
-                    <h3 class="solar-type-title">Monocrystalline Solar Panels</h3>
+                    <div>
+                        <h3 class="solar-type-title">Monocrystalline Solar Panels</h3>
+                        <p class="solar-type-subtitle">Premium Efficiency Technology</p>
+                    </div>
                 </div>
                 <div class="solar-type-image">
                     <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Monocrystalline solar panels" loading="lazy">
                 </div>
-                <p class="solar-type-description">Monocrystalline panels are made from single-crystal silicon, giving them the highest efficiency rates (typically 17-22%). They perform better in low-light conditions and have a longer lifespan. Their distinctive black appearance and uniform color make them aesthetically pleasing for residential installations.</p>
+                <p class="solar-type-description">Monocrystalline panels are manufactured from single-crystal silicon, grown through the Czochralski process. This creates a continuous crystal lattice with minimal defects, resulting in the highest efficiency rates available in the market (typically 22-24%). These panels excel in low-light conditions and maintain superior performance throughout their 30+ year lifespan.</p>
                 <div class="solar-type-specs">
                     <div class="spec-item">
-                        <strong>Efficiency</strong>
-                        17-22%
+                        <strong><i class="fas fa-chart-line"></i> Efficiency</strong>
+                        22-24%
                     </div>
                     <div class="spec-item">
-                        <strong>Lifespan</strong>
-                        25-30 years
+                        <strong><i class="fas fa-hourglass-half"></i> Lifespan</strong>
+                        30-35 years
                     </div>
                     <div class="spec-item">
-                        <strong>Cost</strong>
-                        Higher
+                        <strong><i class="fas fa-dollar-sign"></i> Cost</strong>
+                        Premium
                     </div>
                     <div class="spec-item">
-                        <strong>Space Requirement</strong>
-                        Less
+                        <strong><i class="fas fa-compress"></i> Space</strong>
+                        Minimal
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-temperature-low"></i> Temp Coefficient</strong>
+                        -0.3%/°C
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-shield-alt"></i> Warranty</strong>
+                        25 years
                     </div>
                 </div>
             </div>
@@ -3803,28 +3916,39 @@
                     <div class="solar-type-icon">
                         <i class="fas fa-th"></i>
                     </div>
-                    <h3 class="solar-type-title">Polycrystalline Solar Panels</h3>
+                    <div>
+                        <h3 class="solar-type-title">Polycrystalline Solar Panels</h3>
+                        <p class="solar-type-subtitle">Cost-Effective Solution</p>
+                    </div>
                 </div>
                 <div class="solar-type-image">
                     <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Polycrystalline solar panels" loading="lazy">
                 </div>
-                <p class="solar-type-description">Polycrystalline panels are made from multiple silicon crystals melted together, resulting in a blue, speckled appearance. They have slightly lower efficiency rates (15-17%) compared to monocrystalline panels but are more affordable to produce, making them a popular choice for budget-conscious installations.</p>
+                <p class="solar-type-description">Polycrystalline panels are created by melting multiple silicon fragments together to form wafers. This manufacturing process is less energy-intensive and more cost-effective than monocrystalline production. While slightly less efficient (17-19%), these panels offer excellent value and have improved significantly in recent years with better temperature coefficients.</p>
                 <div class="solar-type-specs">
                     <div class="spec-item">
-                        <strong>Efficiency</strong>
-                        15-17%
+                        <strong><i class="fas fa-chart-line"></i> Efficiency</strong>
+                        17-19%
                     </div>
                     <div class="spec-item">
-                        <strong>Lifespan</strong>
-                        20-25 years
+                        <strong><i class="fas fa-hourglass-half"></i> Lifespan</strong>
+                        25-30 years
                     </div>
                     <div class="spec-item">
-                        <strong>Cost</strong>
+                        <strong><i class="fas fa-dollar-sign"></i> Cost</strong>
                         Moderate
                     </div>
                     <div class="spec-item">
-                        <strong>Space Requirement</strong>
+                        <strong><i class="fas fa-compress"></i> Space</strong>
                         Moderate
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-temperature-low"></i> Temp Coefficient</strong>
+                        -0.4%/°C
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-shield-alt"></i> Warranty</strong>
+                        25 years
                     </div>
                 </div>
             </div>
@@ -3835,28 +3959,39 @@
                     <div class="solar-type-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3 class="solar-type-title">Thin-Film Solar Panels</h3>
+                    <div>
+                        <h3 class="solar-type-title">Thin-Film Solar Panels</h3>
+                        <p class="solar-type-subtitle">Flexible & Lightweight</p>
+                    </div>
                 </div>
                 <div class="solar-type-image">
                     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thin-film solar panels" loading="lazy">
                 </div>
-                <p class="solar-type-description">Thin-film panels are made by depositing one or more thin layers of photovoltaic material onto a substrate. They are flexible, lightweight, and perform better in high temperatures, but have lower efficiency rates (10-13%). They're ideal for applications where weight and flexibility are important factors.</p>
+                <p class="solar-type-description">Thin-film technology deposits ultra-thin layers of photovoltaic material onto substrates like glass, plastic, or metal. These panels can be made flexible and lightweight, making them ideal for curved surfaces, portable applications, and building integration. They perform exceptionally well in high temperatures and low-light conditions.</p>
                 <div class="solar-type-specs">
                     <div class="spec-item">
-                        <strong>Efficiency</strong>
+                        <strong><i class="fas fa-chart-line"></i> Efficiency</strong>
                         10-13%
                     </div>
                     <div class="spec-item">
-                        <strong>Lifespan</strong>
+                        <strong><i class="fas fa-hourglass-half"></i> Lifespan</strong>
                         15-20 years
                     </div>
                     <div class="spec-item">
-                        <strong>Cost</strong>
-                        Lower
+                        <strong><i class="fas fa-dollar-sign"></i> Cost</strong>
+                        Economical
                     </div>
                     <div class="spec-item">
-                        <strong>Space Requirement</strong>
-                        More
+                        <strong><i class="fas fa-compress"></i> Space</strong>
+                        Extensive
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-temperature-low"></i> Temp Coefficient</strong>
+                        -0.2%/°C
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-shield-alt"></i> Warranty</strong>
+                        10-15 years
                     </div>
                 </div>
             </div>
@@ -3867,28 +4002,82 @@
                     <div class="solar-type-icon">
                         <i class="fas fa-clone"></i>
                     </div>
-                    <h3 class="solar-type-title">Bifacial Solar Panels</h3>
+                    <div>
+                        <h3 class="solar-type-title">Bifacial Solar Panels</h3>
+                        <p class="solar-type-subtitle">Dual-Side Power Generation</p>
+                    </div>
                 </div>
                 <div class="solar-type-image">
                     <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bifacial solar panels" loading="lazy">
                 </div>
-                <p class="solar-type-description">Bifacial panels can capture sunlight from both sides, increasing energy production by up to 30% compared to traditional panels. They work best when installed with reflective surfaces underneath or elevated to allow light to reach the rear side. They're becoming increasingly popular for commercial and utility-scale installations.</p>
+                <p class="solar-type-description">Bifacial panels feature photovoltaic cells on both sides, capturing direct sunlight on the front and reflected light on the rear. This innovative design can increase energy production by 10-30% compared to traditional panels. They're particularly effective with reflective surfaces underneath or elevated installations.</p>
                 <div class="solar-type-specs">
                     <div class="spec-item">
-                        <strong>Efficiency</strong>
-                        19-22%
+                        <strong><i class="fas fa-chart-line"></i> Efficiency</strong>
+                        23-25%
                     </div>
                     <div class="spec-item">
-                        <strong>Lifespan</strong>
-                        25-30 years
+                        <strong><i class="fas fa-hourglass-half"></i> Lifespan</strong>
+                        30-35 years
                     </div>
                     <div class="spec-item">
-                        <strong>Cost</strong>
-                        Higher
+                        <strong><i class="fas fa-dollar-sign"></i> Cost</strong>
+                        Premium
                     </div>
                     <div class="spec-item">
-                        <strong>Space Requirement</strong>
-                        Less
+                        <strong><i class="fas fa-compress"></i> Space</strong>
+                        Minimal
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-temperature-low"></i> Temp Coefficient</strong>
+                        -0.35%/°C
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-shield-alt"></i> Warranty</strong>
+                        25 years
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PERC Solar Panels -->
+            <div class="solar-type-card fade-in">
+                <div class="solar-type-header">
+                    <div class="solar-type-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div>
+                        <h3 class="solar-type-title">PERC Solar Panels</h3>
+                        <p class="solar-type-subtitle">Passivated Emitter Technology</p>
+                    </div>
+                </div>
+                <div class="solar-type-image">
+                    <img src="https://images.unsplash.com/photo-1542361341-1e1a9a6a7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PERC solar panels" loading="lazy">
+                </div>
+                <p class="solar-type-description">PERC (Passivated Emitter and Rear Cell) technology adds a dielectric passivation layer to the rear side of solar cells, reducing electron recombination and increasing light absorption. This advanced technology boosts efficiency by 1-2% over conventional cells and has become the industry standard for new installations.</p>
+                <div class="solar-type-specs">
+                    <div class="spec-item">
+                        <strong><i class="fas fa-chart-line"></i> Efficiency</strong>
+                        20-22%
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-hourglass-half"></i> Lifespan</strong>
+                        30-35 years
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-dollar-sign"></i> Cost</strong>
+                        Competitive
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-compress"></i> Space</strong>
+                        Efficient
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-temperature-low"></i> Temp Coefficient</strong>
+                        -0.37%/°C
+                    </div>
+                    <div class="spec-item">
+                        <strong><i class="fas fa-shield-alt"></i> Warranty</strong>
+                        25 years
                     </div>
                 </div>
             </div>
@@ -3896,108 +4085,289 @@
     </section>
     
     <!-- Solar Panel Designs Section -->
-    <section class="services-section py-20">
-        <div class="container mx-auto px-4 services-content">
+    <section class="solar-designs py-20">
+        <div class="container mx-auto px-4 solar-designs-content">
             <div class="text-center mb-20 fade-in">
                 <h2 class="section-title">Solar Panel <span class="text-gradient">Designs & Installation</span></h2>
-                <p class="section-subtitle">Various mounting options to suit different locations and requirements</p>
+                <p class="section-subtitle">Innovative mounting solutions for optimal energy capture</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Rooftop Installation -->
-                <div class="service-card fade-in stagger-1">
-                    <div class="service-icon">
-                        <i class="fas fa-home text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Rooftop Installation</h3>
-                    <p class="text-gray-300 mb-5">The most common residential installation method, utilizing unused roof space to generate electricity. Can be installed on flat or sloped roofs with specialized mounting systems.</p>
-                    <div class="solar-type-image">
+                <div class="design-card fade-in stagger-1">
+                    <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1542361341-1e1a9a6a7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rooftop solar installation" loading="lazy">
                     </div>
-                    <a href="#usage" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="design-content">
+                        <div class="design-icon">
+                            <i class="fas fa-home text-black text-3xl"></i>
+                        </div>
+                        <h3 class="design-title">Rooftop Installation</h3>
+                        <p class="design-description">The most popular residential solution utilizing unused roof space. Advanced mounting systems ensure optimal tilt angles and secure attachment to various roof types including flat, pitched, and curved surfaces.</p>
+                        <div class="design-features">
+                            <span class="design-feature"><i class="fas fa-check"></i> Space efficient</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Minimal ground impact</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Easy maintenance</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Ground-Mounted Installation -->
-                <div class="service-card fade-in stagger-2">
-                    <div class="service-icon">
-                        <i class="fas fa-industry text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Ground-Mounted Installation</h3>
-                    <p class="text-gray-300 mb-5">Ideal for properties with available land space. Offers optimal positioning for maximum sun exposure and easier maintenance compared to rooftop systems.</p>
-                    <div class="solar-type-image">
+                <div class="design-card fade-in stagger-2">
+                    <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ground-mounted solar installation" loading="lazy">
                     </div>
-                    <a href="#usage" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="design-content">
+                        <div class="design-icon">
+                            <i class="fas fa-industry text-black text-3xl"></i>
+                        </div>
+                        <h3 class="design-title">Ground-Mounted Systems</h3>
+                        <p class="design-description">Ideal for properties with available land, allowing optimal positioning for maximum sun exposure. Supports larger system capacities and easier access for maintenance and cleaning.</p>
+                        <div class="design-features">
+                            <span class="design-feature"><i class="fas fa-check"></i> Optimal orientation</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Scalable capacity</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Easy maintenance</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Solar Carports -->
-                <div class="service-card fade-in stagger-3">
-                    <div class="service-icon">
-                        <i class="fas fa-car text-black text-3xl"></i>
+                <div class="design-card fade-in stagger-3">
+                    <div class="design-image">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar carport installation" loading="lazy">
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Solar Carports</h3>
-                    <p class="text-gray-300 mb-5">Dual-purpose structures that provide shade for vehicles while generating electricity. Perfect for commercial parking lots and residential driveways.</p>
-                    <div class="solar-type-image">
-                        <img src="https://images.unsplash.com/photo-1542361341-1e1a9a6a7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar carport installation" loading="lazy">
+                    <div class="design-content">
+                        <div class="design-icon">
+                            <i class="fas fa-car text-black text-3xl"></i>
+                        </div>
+                        <h3 class="design-title">Solar Carports</h3>
+                        <p class="design-description">Dual-purpose structures providing vehicle shelter while generating electricity. Perfect for commercial parking lots, residential driveways, and EV charging stations with integrated power supply.</p>
+                        <div class="design-features">
+                            <span class="design-feature"><i class="fas fa-check"></i> Vehicle protection</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> EV charging ready</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Space optimization</span>
+                        </div>
                     </div>
-                    <a href="#usage" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
                 
                 <!-- Floating Solar -->
-                <div class="service-card fade-in stagger-4">
-                    <div class="service-icon">
-                        <i class="fas fa-water text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Floating Solar</h3>
-                    <p class="text-gray-300 mb-5">Innovative solution for water bodies like reservoirs and lakes. Reduces water evaporation while generating electricity, with cooling effects that improve efficiency.</p>
-                    <div class="solar-type-image">
+                <div class="design-card fade-in stagger-4">
+                    <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Floating solar installation" loading="lazy">
                     </div>
-                    <a href="#usage" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="design-content">
+                        <div class="design-icon">
+                            <i class="fas fa-water text-black text-3xl"></i>
+                        </div>
+                        <h3 class="design-title">Floating Solar Systems</h3>
+                        <p class="design-description">Innovative solution for water bodies like reservoirs and lakes. Reduces water evaporation by up to 70% while improving panel efficiency through natural cooling effects.</p>
+                        <div class="design-features">
+                            <span class="design-feature"><i class="fas fa-check"></i> Water conservation</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Higher efficiency</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Land preservation</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Building-Integrated PV -->
-                <div class="service-card fade-in stagger-5">
-                    <div class="service-icon">
-                        <i class="fas fa-building text-black text-3xl"></i>
+                <div class="design-card fade-in stagger-5">
+                    <div class="design-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Building-integrated solar panels" loading="lazy">
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Building-Integrated PV</h3>
-                    <p class="text-gray-300 mb-5">Solar panels that serve as building materials like facades, skylights, and railings. Seamlessly integrates with architecture while generating power.</p>
-                    <div class="solar-type-image">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Building-integrated solar panels" loading="lazy">
+                    <div class="design-content">
+                        <div class="design-icon">
+                            <i class="fas fa-building text-black text-3xl"></i>
+                        </div>
+                        <h3 class="design-title">Building-Integrated PV</h3>
+                        <p class="design-description">Solar panels that serve as building materials including facades, skylights, and railings. Seamlessly integrates with architecture while generating power, enhancing aesthetic appeal.</p>
+                        <div class="design-features">
+                            <span class="design-feature"><i class="fas fa-check"></i> Architectural integration</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Material replacement</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Aesthetic design</span>
+                        </div>
                     </div>
-                    <a href="#usage" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
                 
                 <!-- Solar Tracking Systems -->
-                <div class="service-card fade-in stagger-6">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt text-black text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Solar Tracking Systems</h3>
-                    <p class="text-gray-300 mb-5">Automated systems that adjust panel orientation throughout the day to follow the sun's path, increasing energy production by 25-35% compared to fixed installations.</p>
-                    <div class="solar-type-image">
+                <div class="design-card fade-in stagger-6">
+                    <div class="design-image">
                         <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar tracking system" loading="lazy">
                     </div>
-                    <a href="#usage" class="learn-more-btn">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="design-content">
+                        <div class="design-icon">
+                            <i class="fas fa-sync-alt text-black text-3xl"></i>
+                        </div>
+                        <h3 class="design-title">Solar Tracking Systems</h3>
+                        <p class="design-description">Automated systems that adjust panel orientation throughout the day to follow the sun's path. Increases energy production by 25-35% compared to fixed installations with GPS-based optimization.</p>
+                        <div class="design-features">
+                            <span class="design-feature"><i class="fas fa-check"></i> 25-35% more energy</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> GPS optimization</span>
+                            <span class="design-feature"><i class="fas fa-check"></i> Weather adaptive</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Benefits Section -->
+    <!-- Interactive Comparison Table Section -->
+    <section class="comparison-section py-20">
+        <div class="container mx-auto px-4 comparison-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Solar Panel <span class="text-gradient">Comparison</span></h2>
+                <p class="section-subtitle">Compare different solar panel technologies to make the best choice</p>
+            </div>
+            
+            <div class="comparison-table fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Monocrystalline</th>
+                            <th>Polycrystalline</th>
+                            <th>Thin-Film</th>
+                            <th>Bifacial</th>
+                            <th>PERC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Efficiency</strong></td>
+                            <td class="best">22-24% ⭐ Best</td>
+                            <td>17-19%</td>
+                            <td>10-13%</td>
+                            <td>23-25%</td>
+                            <td>20-22%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost per Watt</strong></td>
+                            <td>$0.60-$0.80</td>
+                            <td class="best">$0.45-$0.65 ⭐ Best</td>
+                            <td>$0.40-$0.60</td>
+                            <td>$0.70-$0.90</td>
+                            <td>$0.55-$0.75</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lifespan</strong></td>
+                            <td class="best">30-35 years ⭐ Best</td>
+                            <td>25-30 years</td>
+                            <td>15-20 years</td>
+                            <td>30-35 years</td>
+                            <td>30-35 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Temperature Coefficient</strong></td>
+                            <td>-0.3%/°C</td>
+                            <td>-0.4%/°C</td>
+                            <td class="best">-0.2%/°C ⭐ Best</td>
+                            <td>-0.35%/°C</td>
+                            <td>-0.37%/°C</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Space Requirement</strong></td>
+                            <td class="best">Minimal ⭐ Best</td>
+                            <td>Moderate</td>
+                            <td>Extensive</td>
+                            <td>Minimal</td>
+                            <td>Efficient</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Low Light Performance</strong></td>
+                            <td class="best">Excellent ⭐ Best</td>
+                            <td>Good</td>
+                            <td>Very Good</td>
+                            <td>Excellent</td>
+                            <td>Very Good</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aesthetics</strong></td>
+                            <td class="best">Premium ⭐ Best</td>
+                            <td>Blue speckled</td>
+                            <td>Uniform</td>
+                            <td>Modern</td>
+                            <td>Clean</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best Application</strong></td>
+                            <td>Residential</td>
+                            <td>Utility-scale</td>
+                            <td>BIPV, Portable</td>
+                            <td>Commercial</td>
+                            <td class="best">All-purpose ⭐ Best</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technical Specifications Section -->
+    <section class="tech-specs py-20">
+        <div class="container mx-auto px-4 tech-specs-content">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="section-title">Technical <span class="text-gradient">Specifications</span></h2>
+                <p class="section-subtitle">Key performance metrics and technical parameters</p>
+            </div>
+            
+            <div class="spec-grid">
+                <div class="spec-card fade-in">
+                    <div class="spec-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="spec-title">Solar Irradiance</h3>
+                    <div class="spec-value">1,000 W/m²</div>
+                    <p class="spec-description">Standard test conditions for measuring solar panel output under peak sunlight</p>
+                </div>
+                
+                <div class="spec-card fade-in">
+                    <div class="spec-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3 class="spec-title">Operating Temperature</h3>
+                    <div class="spec-value">-40°C to 85°C</div>
+                    <p class="spec-description">Safe operating temperature range for most solar panels</p>
+                </div>
+                
+                <div class="spec-card fade-in">
+                    <div class="spec-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="spec-title">Wind Load</h3>
+                    <div class="spec-value">2,400 Pa</div>
+                    <p class="spec-description">Maximum wind pressure panels can withstand without damage</p>
+                </div>
+                
+                <div class="spec-card fade-in">
+                    <div class="spec-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3 class="spec-title">Weight</h3>
+                    <div class="spec-value">15-25 kg/m²</div>
+                    <p class="spec-description">Typical weight range for standard solar panels</p>
+                </div>
+                
+                <div class="spec-card fade-in">
+                    <div class="spec-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="spec-title">Voltage</h3>
+                    <div class="spec-value">30-40V</div>
+                    <p class="spec-description">Typical open-circuit voltage for 60-cell panels</p>
+                </div>
+                
+                <div class="spec-card fade-in">
+                    <div class="spec-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="spec-title">Degradation Rate</h3>
+                    <div class="spec-value">0.5%/year</div>
+                    <p class="spec-description">Annual performance degradation for quality panels</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Enhanced Benefits Section -->
     <section id="benefits" class="benefits-section py-20">
         <div class="container mx-auto px-4 benefits-content">
             <div class="text-center mb-20 fade-in">
@@ -4006,64 +4376,82 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Environmental Benefits -->
                 <div class="benefit-card fade-in stagger-1">
                     <div class="benefit-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3 class="benefit-title">Environmental Benefits</h3>
-                    <p class="benefit-description">Solar energy is clean, renewable, and produces no greenhouse gas emissions during operation. A typical residential solar system can offset 100,000 lbs of carbon dioxide over 20 years, equivalent to planting 1,000 trees.</p>
+                    <p class="benefit-description">Solar energy is completely clean and renewable, producing zero greenhouse gas emissions during operation. A typical 5kW residential system offsets 100,000 lbs of CO2 over 20 years - equivalent to planting 1,000 trees.</p>
+                    <div class="benefit-stats">
+                        <div class="benefit-stat">100%</div>
+                        <div class="benefit-stat-label">Clean Energy</div>
+                    </div>
                 </div>
                 
-                <!-- Financial Savings -->
                 <div class="benefit-card fade-in stagger-2">
                     <div class="benefit-icon">
                         <i class="fas fa-piggy-bank"></i>
                     </div>
                     <h3 class="benefit-title">Financial Savings</h3>
-                    <p class="benefit-description">Reduce or eliminate electricity bills with solar power. Most systems pay for themselves within 5-7 years through energy savings, after which you enjoy free electricity for the remaining 20+ years of the system's lifespan.</p>
+                    <p class="benefit-description">Reduce or eliminate electricity bills with solar power. Most systems pay for themselves within 5-7 years through energy savings, after which you enjoy free electricity for the remaining 25+ years of system lifespan.</p>
+                    <div class="benefit-stats">
+                        <div class="benefit-stat">70-90%</div>
+                        <div class="benefit-stat-label">Bill Reduction</div>
+                    </div>
                 </div>
                 
-                <!-- Energy Independence -->
                 <div class="benefit-card fade-in stagger-3">
                     <div class="benefit-icon">
                         <i class="fas fa-plug"></i>
                     </div>
                     <h3 class="benefit-title">Energy Independence</h3>
                     <p class="benefit-description">Generate your own electricity and reduce dependence on the grid. With battery storage, you can have power during outages and peak demand periods when electricity rates are highest.</p>
+                    <div class="benefit-stats">
+                        <div class="benefit-stat">24/7</div>
+                        <div class="benefit-stat-label">Power Availability</div>
+                    </div>
                 </div>
                 
-                <!-- Low Maintenance -->
                 <div class="benefit-card fade-in stagger-4">
                     <div class="benefit-icon">
                         <i class="fas fa-wrench"></i>
                     </div>
                     <h3 class="benefit-title">Low Maintenance</h3>
                     <p class="benefit-description">Solar panels require minimal maintenance - occasional cleaning and annual inspections. With no moving parts, they're highly reliable and come with 25-year performance warranties.</p>
+                    <div class="benefit-stats">
+                        <div class="benefit-stat">25+</div>
+                        <div class="benefit-stat-label">Years Warranty</div>
+                    </div>
                 </div>
                 
-                <!-- Increased Property Value -->
                 <div class="benefit-card fade-in stagger-5">
                     <div class="benefit-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="benefit-title">Increased Property Value</h3>
+                    <h3 class="benefit-title">Property Value</h3>
                     <p class="benefit-description">Homes with solar panels sell for approximately 4.1% more than comparable homes without solar. Buyers are willing to pay more for homes with lower electricity costs.</p>
+                    <div class="benefit-stats">
+                        <div class="benefit-stat">4.1%</div>
+                        <div class="benefit-stat-label">Value Increase</div>
+                    </div>
                 </div>
                 
-                <!-- Government Incentives -->
                 <div class="benefit-card fade-in stagger-6">
                     <div class="benefit-icon">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
                     <h3 class="benefit-title">Government Incentives</h3>
                     <p class="benefit-description">Take advantage of federal tax credits, state rebates, and other incentives that can reduce the cost of solar installation by 30-50%. These programs make solar more affordable than ever.</p>
+                    <div class="benefit-stats">
+                        <div class="benefit-stat">30-50%</div>
+                        <div class="benefit-stat-label">Cost Reduction</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Usage Applications Section -->
+    <!-- Enhanced Usage Applications Section -->
     <section id="usage" class="usage-section py-20">
         <div class="container mx-auto px-4 usage-content">
             <div class="text-center mb-20 fade-in">
@@ -4077,13 +4465,26 @@
                     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Residential solar application" loading="lazy">
                 </div>
                 <div class="usage-details">
+                    <div class="usage-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
                     <h3 class="usage-title">Residential Applications</h3>
                     <p class="usage-description">Solar panels for homes provide electricity for daily needs, reducing monthly utility bills and carbon footprint. Residential systems typically range from 3-10kW and can be installed on rooftops or in yards. With net metering, excess energy can be sold back to the utility company, further increasing savings.</p>
                     <div class="usage-features">
-                        <span class="usage-feature">Rooftop Installation</span>
-                        <span class="usage-feature">Battery Storage</span>
-                        <span class="usage-feature">Net Metering</span>
-                        <span class="usage-feature">Smart Home Integration</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Rooftop Installation</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Battery Storage</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Net Metering</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Smart Home Integration</span>
+                    </div>
+                    <div class="usage-stats">
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">3-10kW</div>
+                            <div class="usage-stat-label">Typical Size</div>
+                        </div>
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">5-7</div>
+                            <div class="usage-stat-label">Payback Years</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4094,13 +4495,26 @@
                     <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Commercial solar application" loading="lazy">
                 </div>
                 <div class="usage-details">
+                    <div class="usage-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
                     <h3 class="usage-title">Commercial Applications</h3>
-                    <p class="usage-description">Businesses can significantly reduce operational costs with solar power. Commercial systems often range from 10kW to several megawatts, depending on energy needs and available space. Solar can power office buildings, retail stores, warehouses, and manufacturing facilities, providing long-term energy price stability.</p>
+                    <p class="usage-description">Businesses can significantly reduce operational costs with solar power. Commercial systems often range from 10kW to several megawatts, depending on energy needs and available space. Solar can power office buildings, retail stores, warehouses, and manufacturing facilities.</p>
                     <div class="usage-features">
-                        <span class="usage-feature">Large Rooftop Systems</span>
-                        <span class="usage-feature">Solar Carports</span>
-                        <span class="usage-feature">Energy Management</span>
-                        <span class="usage-feature">Tax Benefits</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Large Rooftop Systems</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Solar Carports</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Energy Management</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Tax Benefits</span>
+                    </div>
+                    <div class="usage-stats">
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">10kW-5MW</div>
+                            <div class="usage-stat-label">System Range</div>
+                        </div>
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">3-5</div>
+                            <div class="usage-stat-label">Payback Years</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4111,13 +4525,26 @@
                     <img src="https://images.unsplash.com/photo-1559302995-f1d923e464c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industrial solar application" loading="lazy">
                 </div>
                 <div class="usage-details">
+                    <div class="usage-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
                     <h3 class="usage-title">Industrial Applications</h3>
-                    <p class="usage-description">Industrial facilities with high energy demands benefit from large-scale solar installations. These systems can power manufacturing processes, water treatment plants, mining operations, and more. Solar power helps industries reduce energy costs and meet sustainability goals while ensuring reliable power supply.</p>
+                    <p class="usage-description">Industrial facilities with high energy demands benefit from large-scale solar installations. These systems can power manufacturing processes, water treatment plants, mining operations, and more. Solar power helps industries reduce energy costs and meet sustainability goals.</p>
                     <div class="usage-features">
-                        <span class="usage-feature">Ground-Mounted Arrays</span>
-                        <span class="usage-feature">High-Capacity Systems</span>
-                        <span class="usage-feature">Process Integration</span>
-                        <span class="usage-feature">Grid Independence</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Ground-Mounted Arrays</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> High-Capacity Systems</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Process Integration</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Grid Independence</span>
+                    </div>
+                    <div class="usage-stats">
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">1-10MW</div>
+                            <div class="usage-stat-label">Typical Size</div>
+                        </div>
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">2-4</div>
+                            <div class="usage-stat-label">Payback Years</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4128,14 +4555,114 @@
                     <img src="https://images.unsplash.com/photo-1542361341-1e1a9a6a7f9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Agricultural solar application" loading="lazy">
                 </div>
                 <div class="usage-details">
-                    <h3 class="usage-title">Agricultural Applications</h3>
-                    <p class="usage-description">Solar power is transforming agriculture by providing electricity for irrigation systems, greenhouse operations, and farm buildings. Solar water pumps reduce reliance on expensive diesel generators, while solar-powered cold storage helps preserve produce. Agrivoltaics combines farming with solar energy production on the same land.</p>
-                    <div class="usage-features">
-                        <span class="usage-feature">Solar Water Pumps</span>
-                        <span class="usage-feature">Greenhouse Power</span>
-                        <span class="usage-feature">Cold Storage</span>
-                        <span class="usage-feature">Agrivoltaics</span>
+                    <div class="usage-icon">
+                        <i class="fas fa-seedling"></i>
                     </div>
+                    <h3 class="usage-title">Agricultural Applications</h3>
+                    <p class="usage-description">Solar power is transforming agriculture by providing electricity for irrigation systems, greenhouse operations, and farm buildings. Solar water pumps reduce reliance on expensive diesel generators, while solar-powered cold storage helps preserve produce.</p>
+                    <div class="usage-features">
+                        <span class="usage-feature"><i class="fas fa-check"></i> Solar Water Pumps</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Greenhouse Power</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Cold Storage</span>
+                        <span class="usage-feature"><i class="fas fa-check"></i> Agrivoltaics</span>
+                    </div>
+                    <div class="usage-stats">
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">5-50kW</div>
+                            <div class="usage-stat-label">Farm Size</div>
+                        </div>
+                        <div class="usage-stat">
+                            <div class="usage-stat-number">70%</div>
+                            <div class="usage-stat-label">Cost Savings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Enhanced FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How much electricity can solar panels generate?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The amount of electricity generated depends on several factors including panel efficiency, system size, location, and weather conditions. On average, a 1kW solar panel system can generate approximately 4-5 kWh per day in sunny regions. A typical residential system (5kW) can produce 20-25 kWh daily, enough to power most homes. Factors like shading, orientation, tilt angle, and temperature affect actual output.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do solar panels work on cloudy days?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, solar panels still generate electricity on cloudy days, though at reduced efficiency (typically 10-25% of their normal output). Modern panels are designed to capture both direct and indirect sunlight. Some advanced technologies like bifacial panels can even capture light reflected off clouds, improving performance in overcast conditions. Solar systems are designed with this variability in mind.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long do solar panels last?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Most solar panels come with a 25-year performance warranty and can continue generating electricity for 30-40 years. They typically degrade at a rate of 0.5-1% per year, meaning after 25 years, they still operate at 75-87.5% of their original capacity. The inverter may need replacement after 10-15 years. Regular maintenance can extend the system's lifespan.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What maintenance do solar panels require?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Solar panels require minimal maintenance. Regular cleaning 2-4 times a year to remove dust, leaves, and other debris is typically sufficient. Annual professional inspections are recommended to check electrical connections and mounting hardware. In snowy regions, snow may need to be cleared to maintain production. Most issues can be detected early through monitoring systems.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I go completely off-grid with solar panels?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, with the right combination of solar panels, battery storage, and energy management systems, you can go completely off-grid. However, off-grid systems require careful planning to ensure you have enough capacity for your needs, especially during periods of low sunlight. Most homeowners opt for grid-tied systems with battery backup for the best balance of independence and reliability.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How much does a solar panel system cost?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The cost varies based on system size, panel type, and installation complexity. Residential systems typically cost $2.50-$3.50 per watt before incentives. A 5kW system might cost $12,500-$17,500. After federal tax credits and state incentives, the net cost can be reduced by 30-50%. Commercial systems generally have lower per-watt costs due to economies of scale.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is net metering?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Net metering is a billing mechanism that credits solar energy system owners for the electricity they add to the grid. When your solar panels produce more electricity than you consume, the excess is sent to the grid, and your meter runs backward. You receive credits for this excess power, which can offset electricity you draw from the grid when your system isn't producing enough.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do solar panels work during a power outage?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard grid-tied solar systems automatically shut down during power outages for safety reasons. However, if you have a battery storage system or a hybrid inverter, your solar panels can continue to power your home during outages. Battery systems store excess energy generated during the day for use at night or during power outages.</p>
                 </div>
             </div>
         </div>
@@ -4154,71 +4681,12 @@
         </div>
     </section>
     
-    <!-- Premium FAQ Section -->
-    <section class="faq-section">
-        <div class="faq-container">
-            <h2 class="faq-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How much electricity can solar panels generate?</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>The amount of electricity generated depends on several factors including panel efficiency, system size, location, and weather conditions. On average, a 1kW solar panel system can generate approximately 4-5 kWh per day in sunny regions. A typical residential system (5kW) can produce 20-25 kWh daily, enough to power most homes.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Do solar panels work on cloudy days?</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, solar panels still generate electricity on cloudy days, though at reduced efficiency (typically 10-25% of their normal output). Modern panels are designed to capture both direct and indirect sunlight. Some advanced technologies like bifacial panels can even capture light reflected off clouds, improving performance in overcast conditions.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How long do solar panels last?</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Most solar panels come with a 25-year performance warranty and can continue generating electricity for 30-40 years. They typically degrade at a rate of 0.5-1% per year, meaning after 25 years, they still operate at 75-87.5% of their original capacity. The inverter may need replacement after 10-15 years.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What maintenance do solar panels require?</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Solar panels require minimal maintenance. Regular cleaning 2-4 times a year to remove dust, leaves, and other debris is typically sufficient. Annual professional inspections are recommended to check electrical connections and mounting hardware. In snowy regions, snow may need to be cleared to maintain production.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Can I go completely off-grid with solar panels?</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, with the right combination of solar panels, battery storage, and energy management systems, you can go completely off-grid. However, off-grid systems require careful planning to ensure you have enough capacity for your needs, especially during periods of low sunlight. Most homeowners opt for grid-tied systems with battery backup for the best balance of independence and reliability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Premium Footer -->
     <footer class="footer">
         <div class="container mx-auto px-4">
             <div class="footer-content">
                 <div class="footer-section">
-                    <!-- Logo path updated to use relative path and made clickable -->
                     <a href="./">
-                        <!-- Fixed filename with space issue and added proper dimensions -->
                         <img src="./images/White Logo.png" alt="Naptico Green Energy Solars" class="footer-logo" 
                              onerror="this.src='https://via.placeholder.com/220x90?text=Naptico+Green+Energy+Solars'"
                              width="220" height="90" loading="lazy">
@@ -5520,7 +5988,7 @@
                 watermark.style.height = '100%';
                 watermark.style.pointerEvents = 'none';
                 watermark.style.zIndex = '9999998';
-                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUpIj5OYXB0aWNvIEVuZXJneTwvdGV4dD48L3N2Zz4=")';
+                watermark.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNDUsIDE1OCwgMTEsIDAuMSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHRyYW5zZm9ybT0icm90YXRlKC00NSkiPk5hcHRpY28gRW5lcmd5PC90ZXh0PjwvN3Z2Zz4=")';
                 watermark.style.backgroundRepeat = 'repeat';
                 watermark.style.backgroundSize = '200px 200px';
                 watermark.style.opacity = '0.1';

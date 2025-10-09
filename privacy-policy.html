@@ -42,14 +42,14 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://napticogreenenergysolars.com/privacy-policy.html">
+    <meta property="og:url" content="https://napticogreenenergysolars.com/privacy-policy">
     <meta property="og:title" content="Privacy Policy - Naptico Green Energy Solars">
     <meta property="og:description" content="Privacy Policy for Naptico Green Energy Solars. Learn how we collect, use, and protect your personal information.">
     <meta property="og:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://napticogreenenergysolars.com/privacy-policy.html">
+    <meta property="twitter:url" content="https://napticogreenenergysolars.com/privacy-policy">
     <meta property="twitter:title" content="Privacy Policy - Naptico Green Energy Solars">
     <meta property="twitter:description" content="Privacy Policy for Naptico Green Energy Solars. Learn how we collect, use, and protect your personal information.">
     <meta property="twitter:image" content="https://napticogreenenergysolars.com/images/og-image.jpg">
@@ -2361,16 +2361,21 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
+                <p>&copy; Copyright 2025 | All Rights Reserved | Powered by Naptico Green Energy Solars. | <a href="legal-disclaimer.html" target="_blank">Legal Disclaimer</a> | <a href="privacy-policy" target="_blank">Privacy Policy</a> | <a href="terms-conditions.html" target="_blank">Terms & Conditions</a> | <a href="refund-return-policy.html" target="_blank">Refund & Return Policy</a></p>
                 <p style="margin-top: 8px; font-size: 0.9rem;">Last Updated: <span id="footerLastUpdated">January 1, 2025</span></p>
             </div>
         </div>
     </footer>
     
     <script>
-        // URL Redirect for index.html
+        // URL Redirect for index.html and privacy-policy.html
         if (window.location.pathname.endsWith('index.html')) {
             const newUrl = window.location.href.replace('index.html', '');
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        
+        if (window.location.pathname.endsWith('privacy-policy.html')) {
+            const newUrl = window.location.href.replace('privacy-policy.html', 'privacy-policy');
             window.history.replaceState({}, document.title, newUrl);
         }
         

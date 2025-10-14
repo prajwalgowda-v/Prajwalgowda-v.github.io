@@ -1752,407 +1752,6 @@
             user-select: none;
         }
         
-        /* Premium Responsive adjustments */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .header-actions {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            .section-title {
-                font-size: 2.5rem;
-            }
-            .quote-form-container {
-                width: 95%;
-            }
-            .quote-form-body {
-                padding: 40px 25px;
-            }
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .back-to-top {
-                width: 40px; /* Smaller on mobile */
-                height: 40px; /* Smaller on mobile */
-                bottom: 20px;
-                right: 20px;
-                font-size: 1rem; /* Smaller font on mobile */
-            }
-            
-            /* Mobile Header Adjustments */
-            .header-content {
-                padding: 15px 5%;
-                justify-content: space-between;
-                height: 70px; /* Fixed height for mobile header */
-            }
-            
-            .logo {
-                width: 140px;
-                height: auto; /* Ensure logo maintains aspect ratio */
-            }
-            
-            .header.scrolled .logo {
-                width: 120px;
-            }
-            
-            .header.scrolled .header-content {
-                padding: 10px 5%;
-                height: 60px; /* Slightly smaller when scrolled */
-            }
-            
-            .mobile-menu-btn {
-                font-size: 20px;
-                padding: 8px;
-            }
-            
-            /* Add padding-top to hero section to account for fixed header */
-            .hero-gradient {
-                padding-top: 80px; /* Adjust based on header height */
-            }
-        }
-        
-        /* Additional mobile adjustments for smaller screens */
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 12px 5%;
-                height: 60px; /* Smaller fixed height for very small screens */
-            }
-            
-            .logo {
-                width: 120px;
-            }
-            
-            .header.scrolled .logo {
-                width: 100px;
-            }
-            
-            .mobile-menu-btn {
-                font-size: 18px;
-                padding: 6px;
-            }
-            
-            /* Adjust hero section padding for smaller screens */
-            .hero-gradient {
-                padding-top: 70px; /* Slightly less padding for smaller screens */
-            }
-            
-            .hero-title {
-                font-size: 2.2rem;
-                margin-top: 20px; /* Add some space between header and title */
-            }
-            
-            /* Section titles for smaller screens */
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            /* Footer adjustments for smaller screens */
-            .footer-section h3 {
-                font-size: 1.4rem;
-            }
-            
-            .footer-content {
-                gap: 30px;
-            }
-        }
-        
-        /* Medium screen adjustments for header */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .nav-menu {
-                gap: 15px; /* Reduced gap for medium screens */
-            }
-            
-            .nav-link {
-                font-size: 0.9rem; /* Smaller font size for medium screens */
-            }
-            
-            .header-content {
-                padding: 20px 3%;
-            }
-            
-            .logo {
-                width: 180px;
-            }
-            
-            .header.scrolled .logo {
-                width: 140px;
-            }
-        }
-        
-        /* Large screen adjustments for header */
-        @media (min-width: 1600px) {
-            .header-content {
-                max-width: 1600px; /* Larger max width for very large screens */
-            }
-            
-            .nav-menu {
-                gap: 30px; /* Increased gap for larger screens */
-            }
-            
-            .nav-link {
-                font-size: 1rem; /* Larger font size for larger screens */
-            }
-        }
-        
-        /* Performance optimization for slower devices */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        /* Loading screen fix */
-        body {
-            overflow: hidden; /* Initially hide scrollbars */
-        }
-        
-        body.loaded {
-            overflow: visible; /* Show scrollbars after loading */
-        }
-        
-        /* Ensure the loading screen properly disappears */
-        .loading-screen.hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
-        
-        /* Accessibility improvements */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-        
-        /* Focus styles for better accessibility - but not for logo */
-        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
-        }
-        
-        /* Image loading optimization */
-        img {
-            max-width: 100%;
-            height: auto;
-            /* Prevent images from being dragged or saved */
-            pointer-events: none;
-            -webkit-user-drag: none;
-            -khtml-user-drag: none;
-            -moz-user-drag: none;
-            -o-user-drag: none;
-            user-drag: none;
-        }
-        
-        /* Smooth scrolling for the entire page */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Container max-width for better responsiveness */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Grid adjustments for better responsiveness */
-        @media (min-width: 768px) {
-            .grid {
-                display: grid;
-                gap: 30px;
-            }
-            
-            .grid-cols-1 {
-                grid-template-columns: repeat(1, minmax(0, 1fr));
-            }
-            
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            
-            .grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-            
-            .grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-        }
-        
-        /* Flex utilities */
-        .flex {
-            display: flex;
-        }
-        
-        .flex-col {
-            flex-direction: column;
-        }
-        
-        .flex-wrap {
-            flex-wrap: wrap;
-        }
-        
-        .items-center {
-            align-items: center;
-        }
-        
-        .justify-center {
-            justify-content: center;
-        }
-        
-        .justify-between {
-            justify-content: space-between;
-        }
-        
-        .gap-4 {
-            gap: 1rem;
-        }
-        
-        .gap-6 {
-            gap: 1.5rem;
-        }
-        
-        /* Spacing utilities */
-        .py-10 {
-            padding-top: 2.5rem;
-            padding-bottom: 2.5rem;
-        }
-        
-        .py-20 {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-        
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-        
-        .mb-10 {
-            margin-bottom: 2.5rem;
-        }
-        
-        .mb-20 {
-            margin-bottom: 5rem;
-        }
-        
-        /* Text utilities */
-        .text-center {
-            text-align: center;
-        }
-        
-        .text-white {
-            color: white;
-        }
-        
-        .text-xl {
-            font-size: 1.25rem;
-            line-height: 1.75rem;
-        }
-        
-        .text-4xl {
-            font-size: 2.25rem;
-            line-height: 2.5rem;
-        }
-        
-        .font-bold {
-            font-weight: 700;
-        }
-        
-        .font-semibold {
-            font-weight: 600;
-        }
-        
-        /* Background utilities */
-        .bg-gradient-to-br {
-            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-        }
-        
-        .from-gray-900 {
-            --tw-gradient-from: #111827;
-            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(17, 24, 39, 0));
-        }
-        
-        .to-gray-800 {
-            --tw-gradient-to: #1f2937;
-        }
-        
-        /* Z-index utilities */
-        .z-10 {
-            z-index: 10;
-        }
-        
-        /* Position utilities */
-        .relative {
-            position: relative;
-        }
-        
-        .absolute {
-            position: absolute;
-        }
-        
-        .fixed {
-            position: fixed;
-        }
-        
-        /* Overflow utilities */
-        .overflow-hidden {
-            overflow: hidden;
-        }
-        
-        /* Visibility utilities */
-        .invisible {
-            visibility: hidden;
-        }
-        
-        .visible {
-            visibility: visible;
-        }
-        
-        /* Opacity utilities */
-        .opacity-0 {
-            opacity: 0;
-        }
-        
-        .opacity-100 {
-            opacity: 1;
-        }
-        
-        /* Transform utilities */
-        .transform {
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-        }
-        
-        /* Transition utilities */
-        .transition {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-        }
-        
-        /* Shadow utilities */
-        .shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
         /* Subsidy Page Specific Styles */
         .subsidy-card {
             transition: all 0.3s ease;
@@ -2615,6 +2214,407 @@
         
         .financing-options .text-green-500 {
             color: #10b981 !important;
+        }
+        
+        /* Premium Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .header-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .quote-form-container {
+                width: 95%;
+            }
+            .quote-form-body {
+                padding: 40px 25px;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .back-to-top {
+                width: 40px; /* Smaller on mobile */
+                height: 40px; /* Smaller on mobile */
+                bottom: 20px;
+                right: 20px;
+                font-size: 1rem; /* Smaller font on mobile */
+            }
+            
+            /* Mobile Header Adjustments */
+            .header-content {
+                padding: 15px 5%;
+                justify-content: space-between;
+                height: 70px; /* Fixed height for mobile header */
+            }
+            
+            .logo {
+                width: 140px;
+                height: auto; /* Ensure logo maintains aspect ratio */
+            }
+            
+            .header.scrolled .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .header-content {
+                padding: 10px 5%;
+                height: 60px; /* Slightly smaller when scrolled */
+            }
+            
+            .mobile-menu-btn {
+                font-size: 20px;
+                padding: 8px;
+            }
+            
+            /* Add padding-top to hero section to account for fixed header */
+            .hero-gradient {
+                padding-top: 80px; /* Adjust based on header height */
+            }
+        }
+        
+        /* Additional mobile adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 12px 5%;
+                height: 60px; /* Smaller fixed height for very small screens */
+            }
+            
+            .logo {
+                width: 120px;
+            }
+            
+            .header.scrolled .logo {
+                width: 100px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 18px;
+                padding: 6px;
+            }
+            
+            /* Adjust hero section padding for smaller screens */
+            .hero-gradient {
+                padding-top: 70px; /* Slightly less padding for smaller screens */
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+                margin-top: 20px; /* Add some space between header and title */
+            }
+            
+            /* Section titles for smaller screens */
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            /* Footer adjustments for smaller screens */
+            .footer-section h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+        
+        /* Medium screen adjustments for header */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px; /* Reduced gap for medium screens */
+            }
+            
+            .nav-link {
+                font-size: 0.9rem; /* Smaller font size for medium screens */
+            }
+            
+            .header-content {
+                padding: 20px 3%;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .header.scrolled .logo {
+                width: 140px;
+            }
+        }
+        
+        /* Large screen adjustments for header */
+        @media (min-width: 1600px) {
+            .header-content {
+                max-width: 1600px; /* Larger max width for very large screens */
+            }
+            
+            .nav-menu {
+                gap: 30px; /* Increased gap for larger screens */
+            }
+            
+            .nav-link {
+                font-size: 1rem; /* Larger font size for larger screens */
+            }
+        }
+        
+        /* Performance optimization for slower devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Loading screen fix */
+        body {
+            overflow: hidden; /* Initially hide scrollbars */
+        }
+        
+        body.loaded {
+            overflow: visible; /* Show scrollbars after loading */
+        }
+        
+        /* Ensure the loading screen properly disappears */
+        .loading-screen.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for better accessibility - but not for logo */
+        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+        
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            /* Prevent images from being dragged or saved */
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Container max-width for better responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Grid adjustments for better responsiveness */
+        @media (min-width: 768px) {
+            .grid {
+                display: grid;
+                gap: 30px;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        
+        /* Flex utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .gap-4 {
+            gap: 1rem;
+        }
+        
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        
+        /* Spacing utilities */
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .mb-20 {
+            margin-bottom: 5rem;
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        /* Background utilities */
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+        }
+        
+        .from-gray-900 {
+            --tw-gradient-from: #111827;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(17, 24, 39, 0));
+        }
+        
+        .to-gray-800 {
+            --tw-gradient-to: #1f2937;
+        }
+        
+        /* Z-index utilities */
+        .z-10 {
+            z-index: 10;
+        }
+        
+        /* Position utilities */
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        /* Overflow utilities */
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        /* Visibility utilities */
+        .invisible {
+            visibility: hidden;
+        }
+        
+        .visible {
+            visibility: visible;
+        }
+        
+        /* Opacity utilities */
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .opacity-100 {
+            opacity: 1;
+        }
+        
+        /* Transform utilities */
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        
+        /* Transition utilities */
+        .transition {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        /* Shadow utilities */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>

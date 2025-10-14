@@ -2216,6 +2216,431 @@
             color: #10b981 !important;
         }
         
+        /* Application Process Section */
+        .application-process {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .application-process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.15), transparent 70%);
+            z-index: 0;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step {
+            width: calc(25% - 30px);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .process-step {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .process-step:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .step-description {
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            right: -45px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+            z-index: 2;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        /* Documentation Section */
+        .documentation {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .documentation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .doc-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .doc-card {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .doc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .doc-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .doc-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .doc-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .doc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .doc-list li {
+            color: #e2e8f0;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .doc-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 70%);
+            z-index: 0;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .faq-item {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .faq-question h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+            padding-right: 20px;
+        }
+        
+        .faq-toggle {
+            width: 40px;
+            height: 40px;
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq-toggle i {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 30px 25px;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            padding: 0 15px;
+        }
+        
+        .testimonial-content {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .testimonial-content {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: rgba(245, 158, 11, 0.2);
+        }
+        
+        .testimonial-text {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-style: italic;
+            padding-left: 30px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 3px solid rgba(245, 158, 11, 0.5);
+        }
+        
+        .author-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #94a3b8;
+            margin: 0;
+        }
+        
+        .testimonial-rating {
+            margin-top: 10px;
+            color: #f59e0b;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-dot.active {
+            background: #f59e0b;
+            transform: scale(1.2);
+        }
+        
         /* Premium Responsive adjustments */
         @media (max-width: 768px) {
             .nav-menu {
@@ -2284,6 +2709,32 @@
             .hero-gradient {
                 padding-top: 80px; /* Adjust based on header height */
             }
+            
+            /* Process Steps Responsive */
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 30px;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+            
+            /* Testimonials Responsive */
+            .testimonial-text {
+                font-size: 1rem;
+            }
+            
+            .author-image {
+                width: 60px;
+                height: 60px;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -2351,6 +2802,15 @@
             
             .header.scrolled .logo {
                 width: 140px;
+            }
+            
+            /* Process Steps Medium Screen */
+            .process-step {
+                width: calc(50% - 20px);
+            }
+            
+            .process-step::after {
+                display: none;
             }
         }
         
@@ -2986,6 +3446,118 @@
         </div>
     </section>
 
+    <!-- Application Process Section -->
+    <section id="application-process" class="application-process">
+        <div class="container mx-auto px-4 section-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Subsidy Application <span class="text-gradient">Process</span></h2>
+                <p class="section-subtitle">Simple step-by-step process to avail government subsidies for your solar installation</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in stagger-1">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Initial Consultation</h3>
+                    <p class="step-description">Our experts assess your energy requirements and site conditions to determine the optimal solar solution for your needs.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-2">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Documentation</h3>
+                    <p class="step-description">We help you prepare all necessary documents including electricity bills, address proof, and property documents.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-3">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Subsidy Application</h3>
+                    <p class="step-description">Our team submits the subsidy application on your behalf through the official government portal.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-4">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Installation & Commissioning</h3>
+                    <p class="step-description">After approval, we install and commission your solar system with high-quality components.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-5">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Inspection & Verification</h3>
+                    <p class="step-description">Government officials inspect the installation to verify compliance with technical specifications.</p>
+                </div>
+                
+                <div class="process-step fade-in stagger-6">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">Subsidy Disbursement</h3>
+                    <p class="step-description">The subsidy amount is directly transferred to your bank account within 30 days of verification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="documentation">
+        <div class="container mx-auto px-4 section-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Required <span class="text-gradient">Documentation</span></h2>
+                <p class="section-subtitle">Essential documents needed for subsidy application</p>
+            </div>
+            
+            <div class="doc-grid">
+                <div class="doc-card fade-in stagger-1">
+                    <div class="doc-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="doc-title">Identity Proof</h3>
+                    <ul class="doc-list">
+                        <li>Aadhaar Card</li>
+                        <li>PAN Card</li>
+                        <li>Voter ID</li>
+                        <li>Passport</li>
+                    </ul>
+                </div>
+                
+                <div class="doc-card fade-in stagger-2">
+                    <div class="doc-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="doc-title">Address Proof</h3>
+                    <ul class="doc-list">
+                        <li>Electricity Bill</li>
+                        <li>Property Tax Receipt</li>
+                        <li>Rent Agreement (if rented)</li>
+                        <li>Ownership Documents</li>
+                    </ul>
+                </div>
+                
+                <div class="doc-card fade-in stagger-3">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3 class="doc-title">Financial Documents</h3>
+                    <ul class="doc-list">
+                        <li>Bank Account Details</li>
+                        <li>Cancelled Cheque</li>
+                        <li>IT Returns (for commercial)</li>
+                        <li>Financial Statements</li>
+                    </ul>
+                </div>
+                
+                <div class="doc-card fade-in stagger-4">
+                    <div class="doc-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="doc-title">Electricity Related</h3>
+                    <ul class="doc-list">
+                        <li>Latest Electricity Bill</li>
+                        <li>Sanctioned Load Certificate</li>
+                        <li>Net Metering Application</li>
+                        <li>Connection Agreement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Financing Options -->
     <section id="financing-options" class="financing-options">
         <div class="container mx-auto px-4 section-content">
@@ -3196,6 +3768,190 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="faq-section">
+        <div class="container mx-auto px-4 section-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-subtitle">Common questions about solar subsidies and financing</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in stagger-1">
+                    <div class="faq-question">
+                        <h3>Who is eligible for solar subsidies?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Residential consumers, institutional users (schools, hospitals, etc.), and social sector organizations are eligible for solar subsidies. Commercial and industrial establishments can avail accelerated depreciation benefits instead of direct subsidies.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-2">
+                    <div class="faq-question">
+                        <h3>How long does it take to receive the subsidy amount?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>After installation and inspection by the designated agency, the subsidy amount is typically processed within 30 days and directly transferred to your bank account through the Direct Benefit Transfer (DBT) mechanism.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-3">
+                    <div class="faq-question">
+                        <h3>Can I avail both central and state subsidies simultaneously?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, in many states, you can avail both central and state subsidies simultaneously. Our team will help you understand the specific subsidy structure applicable to your location and maximize your benefits.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-4">
+                    <div class="faq-question">
+                        <h3>What is the minimum loan amount for solar financing?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>The minimum loan amount varies by lender but typically starts from ₹50,000. Most banks offer loans covering 70-80% of the total system cost, with the remaining amount to be paid as down payment.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-5">
+                    <div class="faq-question">
+                        <h3>Is there any collateral required for solar loans?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>For loans up to ₹10 lakh, most banks do not require any collateral. The solar system itself serves as security. For higher loan amounts, some banks may require collateral or a third-party guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in stagger-6">
+                    <div class="faq-question">
+                        <h3>What happens if I sell my property with a solar system?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>If you sell your property, the solar system can be transferred to the new owner. In case of an ongoing loan, the loan can be transferred to the new owner or closed by you before the sale. The remaining loan tenure and terms will be applicable to the new owner.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container mx-auto px-4 section-content">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Customer <span class="text-gradient">Testimonials</span></h2>
+                <p class="section-subtitle">Hear from our customers who have benefited from subsidies and financing options</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-track">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">The subsidy process was much simpler than I expected. Naptico's team handled all the paperwork and I received the subsidy amount within 25 days of installation. My electricity bills have reduced by 80%!</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Kumar" class="author-image">
+                                    <div class="author-info">
+                                        <h4>Rajesh Kumar</h4>
+                                        <p>Bengaluru, Karnataka</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">As a small business owner, I was concerned about the upfront cost of solar installation. Naptico helped me secure a loan at just 7.5% interest rate with zero collateral. The system will pay for itself in just 4 years!</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="author-image">
+                                    <div class="author-info">
+                                        <h4>Priya Sharma</h4>
+                                        <p>Business Owner, Pune</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">We opted for the OPEX model for our school as we had no capital budget. Naptico installed the system at zero cost and we're now saving 40% on our electricity bills from day one. It's a win-win situation!</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Anand Verma" class="author-image">
+                                    <div class="author-info">
+                                        <h4>Anand Verma</h4>
+                                        <p>School Principal, Delhi</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <div class="testimonial-dot active" data-slide="0"></div>
+                    <div class="testimonial-dot" data-slide="1"></div>
+                    <div class="testimonial-dot" data-slide="2"></div>
                 </div>
             </div>
         </div>
@@ -4176,6 +4932,61 @@
                     emiResult.classList.remove('hidden');
                 }
             });
+        }
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonialTrack = document.querySelector('.testimonial-track');
+        let currentTestimonial = 0;
+        
+        if (testimonialDots.length > 0 && testimonialTrack) {
+            testimonialDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                    currentTestimonial = slideIndex;
+                    updateTestimonialSlider();
+                });
+            });
+            
+            function updateTestimonialSlider() {
+                // Update dots
+                testimonialDots.forEach((dot, index) => {
+                    if (index === currentTestimonial) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                // Update track position
+                testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            }
+            
+            // Auto-rotate testimonials
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+                updateTestimonialSlider();
+            }, 5000);
         }
         
         // Error handling for images

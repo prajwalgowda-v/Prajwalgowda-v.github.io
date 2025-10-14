@@ -3090,6 +3090,64 @@
             line-height: 1.7;
         }
         
+        /* Image Box Effect - Applied to all images */
+        .image-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            width: 100%;
+        }
+        
+        /* Fallback for browsers that don't support backdrop-filter */
+        @supports not (backdrop-filter: blur(15px)) {
+            .image-box {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        
+        .image-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .image-box:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        
+        .image-box:hover::before {
+            opacity: 1;
+        }
+        
+        .image-box img {
+            border-radius: 12px;
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-box:hover img {
+            transform: scale(1.02);
+        }
+        
         @media (max-width: 768px) {
             .process-flow::before {
                 display: none;
@@ -3120,6 +3178,10 @@
             
             .conclusion-description {
                 font-size: 1.1rem;
+            }
+            
+            .image-box {
+                padding: 15px;
             }
         }
     </style>
@@ -3329,7 +3391,9 @@
                     <p class="text-gray-300">The Earth receives 174 petawatts (PW) of incoming solar radiation at the upper atmosphere. Approximately 30% is reflected back to space while the rest is absorbed by clouds, oceans and land masses.</p>
                 </div>
                 <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Energy Concept" class="rounded-2xl w-full h-auto">
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Energy Concept" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
@@ -3370,7 +3434,9 @@
             </div>
             
             <div class="mt-16 text-center fade-in">
-                <img src="https://images.unsplash.com/photo-1559304661-d0cb5525f2c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panel Technology" class="rounded-2xl w-full max-w-4xl mx-auto h-auto">
+                <div class="image-box" style="max-width: 1000px; margin: 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1559304661-d0cb5525f2c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar Panel Technology" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
@@ -4079,7 +4145,7 @@
         animateFollower();
         
         // Hover effects - only apply when using mouse
-        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top');
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .service-card, .feature-card, .testimonial-card, .nav-link, .contact-btn, .mobile-contact-btn, .hero-btn, .social-icon, .testimonial-btn, .faq-question, .file-upload-label, .form-submit, .back-to-top, .image-box');
         
         // Store the original cursor size to prevent jumping
         let originalCursorSize = 25;
@@ -4620,7 +4686,7 @@
         // Only apply 3D card effects on non-touch devices
         if (!('ontouchstart' in window)) {
             // Premium 3D Card Effect
-            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card');
+            const cards = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, .image-box');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {

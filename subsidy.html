@@ -74,6 +74,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            outline: none;
         }
         
         html {
@@ -166,6 +167,11 @@
             
             body {
                 cursor: auto; /* Show default cursor on mobile */
+            }
+
+            * {
+                -webkit-tap-highlight-color: transparent;
+                outline: none;
             }
         }
         
@@ -2605,6 +2611,11 @@
                 max-width: 400px;
                 margin-bottom: 30px;
             }
+
+            * {
+                -webkit-tap-highlight-color: transparent;
+                outline: none;
+            }
         }
         
         /* Additional mobile adjustments for smaller screens */
@@ -2649,6 +2660,11 @@
             
             .footer-content {
                 gap: 30px;
+            }
+
+            * {
+                -webkit-tap-highlight-color: transparent;
+                outline: none;
             }
         }
         
@@ -2735,8 +2751,7 @@
         
         /* Focus styles for better accessibility - but not for logo */
         a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
+            outline: none;
         }
         
         /* Image loading optimization */

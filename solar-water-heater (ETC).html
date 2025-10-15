@@ -2760,24 +2760,44 @@
         
         /* Content Section Styles */
         .content-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover::before {
+            transform: scaleX(1);
         }
         
         .content-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
         
         .subsection-title {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: #1e293b;
+            color: white;
             position: relative;
             padding-left: 20px;
         }
@@ -2807,7 +2827,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: #e2e8f0;
+            background: rgba(255, 255, 255, 0.2);
         }
         
         .timeline-item {
@@ -2862,20 +2882,22 @@
             border: none;
             padding: 12px 15px;
             text-align: left;
+            color: #e2e8f0;
         }
         
         .price-table th {
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
             font-weight: 600;
+            border-bottom: 2px solid #f59e0b;
         }
         
         .price-table tr:nth-child(even) {
-            background-color: #f8fafc;
+            background-color: rgba(255, 255, 255, 0.05);
         }
         
         .price-table tr:hover {
-            background-color: #f1f5f9;
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
         /* Added color styles from first code */
@@ -2897,8 +2919,8 @@
         }
         
         .price-table th {
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
             font-weight: 600;
             border-bottom: 2px solid #f59e0b;
         }
@@ -2920,11 +2942,13 @@
         
         /* Enhanced hover effects for content sections */
         .content-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -2948,7 +2972,7 @@
         
         .content-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
         
         /* Enhanced button styles */
@@ -3214,10 +3238,10 @@
     </section>
     
     <!-- Overview Section -->
-    <section class="py-20 bg-white" id="overview">
-        <div class="container mx-auto px-4">
+    <section class="services-section py-20" id="overview">
+        <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800">What is ETC Solar Water Heater?</h2>
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-white">What is ETC Solar Water Heater?</h2>
                 <p class="section-subtitle text-xl">Advanced technology for efficient water heating</p>
             </div>
             <div class="max-w-4xl mx-auto">
@@ -3346,10 +3370,10 @@
     </section>
     
     <!-- How It Works Section -->
-    <section class="py-20 bg-white" id="how-it-works">
-        <div class="container mx-auto px-4">
+    <section class="services-section py-20" id="how-it-works">
+        <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800">How ETC Solar Water Heaters Work</h2>
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-white">How ETC Solar Water Heaters Work</h2>
                 <p class="section-subtitle text-xl">The science behind efficient water heating</p>
             </div>
             <div class="max-w-4xl mx-auto">
@@ -3357,8 +3381,8 @@
                     <div class="timeline-item fade-in">
                         <div class="process-step">
                             <div class="step-number">1</div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Solar Energy Absorption</h3>
-                            <p class="text-gray-600">
+                            <h3 class="text-xl font-bold mb-2 text-white">Solar Energy Absorption</h3>
+                            <p class="text-gray-300">
                                 Sunlight passes through the outer glass tube and strikes the inner tube's selective coating, which absorbs solar radiation and converts it to heat.
                             </p>
                         </div>
@@ -3366,8 +3390,8 @@
                     <div class="timeline-item fade-in" style="animation-delay: 0.1s;">
                         <div class="process-step">
                             <div class="step-number">2</div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Heat Transfer to Heat Pipe</h3>
-                            <p class="text-gray-600">
+                            <h3 class="text-xl font-bold mb-2 text-white">Heat Transfer to Heat Pipe</h3>
+                            <p class="text-gray-300">
                                 The absorbed heat is transferred to the heat pipe inside the tube, containing a small amount of liquid that vaporizes when heated.
                             </p>
                         </div>
@@ -3375,8 +3399,8 @@
                     <div class="timeline-item fade-in" style="animation-delay: 0.2s;">
                         <div class="process-step">
                             <div class="step-number">3</div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Vapor Rises to Condenser</h3>
-                            <p class="text-gray-600">
+                            <h3 class="text-xl font-bold mb-2 text-white">Vapor Rises to Condenser</h3>
+                            <p class="text-gray-300">
                                 The hot vapor rises to the top of the heat pipe where it comes into contact with the condenser, a copper bulb that transfers heat to the water.
                             </p>
                         </div>
@@ -3384,8 +3408,8 @@
                     <div class="timeline-item fade-in" style="animation-delay: 0.3s;">
                         <div class="process-step">
                             <div class="step-number">4</div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Heat Exchange</h3>
-                            <p class="text-gray-600">
+                            <h3 class="text-xl font-bold mb-2 text-white">Heat Exchange</h3>
+                            <p class="text-gray-300">
                             As the vapor condenses back to liquid, it releases its heat to the water in the storage tank through a heat exchanger.
                             </p>
                         </div>
@@ -3393,8 +3417,8 @@
                     <div class="timeline-item fade-in" style="animation-delay: 0.4s;">
                         <div class="process-step">
                             <div class="step-number">5</div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Circulation and Storage</h3>
-                            <p class="text-gray-600">
+                            <h3 class="text-xl font-bold mb-2 text-white">Circulation and Storage</h3>
+                            <p class="text-gray-300">
                             The condensed liquid returns to the bottom of the heat pipe, and the cycle repeats. Heated water rises to the top of the storage tank by natural convection.
                             </p>
                         </div>
@@ -3405,55 +3429,55 @@
     </section>
     
     <!-- Benefits Section -->
-    <section class="py-20 bg-gray-50" id="benefits">
-        <div class="container mx-auto px-4">
+    <section class="services-section py-20" id="benefits">
+        <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800">Benefits of ETC Solar Water Heaters</h2>
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-white">Benefits of ETC Solar Water Heaters</h2>
                 <p class="section-subtitle text-xl">Why ETC technology is superior</p>
             </div>
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="content-section fade-in">
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
                                 <i class="fas fa-bolt text-green-600 text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Energy Efficiency</h3>
+                            <h3 class="text-2xl font-bold text-white">Energy Efficiency</h3>
                         </div>
-                        <p class="text-gray-600">
+                        <p class="text-gray-300">
                             ETC solar water heaters achieve 60-70% thermal efficiency, significantly higher than flat plate collectors (50-60%) and electric geysers (90-95% but using expensive electricity).
                         </p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-lg fade-in" style="animation-delay: 0.1s;">
+                    <div class="content-section fade-in" style="animation-delay: 0.1s;">
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
                                 <i class="fas fa-snowflake text-blue-600 text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800">All-Weather Performance</h3>
+                            <h3 class="text-2xl font-bold text-white">All-Weather Performance</h3>
                         </div>
-                        <p class="text-gray-600">
+                        <p class="text-gray-300">
                             The vacuum insulation minimizes heat loss to the surroundings, allowing ETC heaters to work efficiently even in cold climates and during cloudy days.
                         </p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-lg fade-in" style="animation-delay: 0.2s;">
+                    <div class="content-section fade-in" style="animation-delay: 0.2s;">
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4">
                                 <i class="fas fa-tools text-amber-600 text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Easy Maintenance</h3>
+                            <h3 class="text-2xl font-bold text-white">Easy Maintenance</h3>
                         </div>
-                        <p class="text-gray-600">
+                        <p class="text-gray-300">
                             Individual tubes can be replaced without shutting down the entire system, making maintenance simple and cost-effective. Broken tubes don't affect the system's overall performance.
                         </p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-lg fade-in" style="animation-delay: 0.3s;">
+                    <div class="content-section fade-in" style="animation-delay: 0.3s;">
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
                                 <i class="fas fa-coins text-purple-600 text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Cost Savings</h3>
+                            <h3 class="text-2xl font-bold text-white">Cost Savings</h3>
                         </div>
-                        <p class="text-gray-600">
+                        <p class="text-gray-300">
                             With a lifespan of 15-20 years and minimal maintenance costs, ETC solar water heaters offer excellent ROI, typically paying for themselves within 2-4 years through electricity savings.
                         </p>
                     </div>
@@ -3463,10 +3487,10 @@
     </section>
     
     <!-- Comparison Section -->
-    <section class="py-20 bg-white" id="comparison">
-        <div class="container mx-auto px-4">
+    <section class="services-section py-20" id="comparison">
+        <div class="container mx-auto px-4 services-content">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800">ETC vs FPC vs Electric</h2>
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-white">ETC vs FPC vs Electric</h2>
                 <p class="section-subtitle text-xl">Comparing water heating technologies</p>
             </div>
             <div class="max-w-6xl mx-auto">

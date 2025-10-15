@@ -75,7 +75,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
         }
         
         /* Prevent printing */
@@ -3176,12 +3176,6 @@
             border-width: 0;
         }
         
-        /* Focus styles for better accessibility - but not for logo */
-        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
-        }
-        
         /* Image loading optimization */
         img {
             max-width: 100%;
@@ -3384,6 +3378,11 @@
         /* Shadow utilities */
         .shadow-lg {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Global outline removal */
+        *:focus {
+            outline: none !important;
         }
     </style>
 </head>

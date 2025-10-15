@@ -91,7 +91,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
         }
         
         /* Prevent printing */
@@ -321,6 +321,7 @@
         
         .skip-link:focus {
             top: 0;
+            outline: none;
         }
         
         /* Premium Header with Glass Effect - FIXED */
@@ -381,6 +382,10 @@
             user-select: none;
         }
         
+        .logo:focus {
+            outline: none;
+        }
+        
         .logo:hover {
             transform: scale(1.05) rotateY(10deg);
         }
@@ -410,6 +415,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .nav-link:focus {
+            outline: none;
         }
         
         .nav-link::before {
@@ -471,6 +481,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .contact-btn:focus {
+            outline: none;
         }
         
         .contact-btn::before {
@@ -515,6 +530,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .mobile-menu-btn:focus {
+            outline: none;
         }
         
         .mobile-menu-btn:hover {
@@ -618,6 +638,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .mobile-menu-close:focus {
+            outline: none;
         }
         
         .mobile-menu-close:hover {
@@ -652,6 +677,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .mobile-nav a:focus {
+            outline: none;
         }
         
         .mobile-nav a::after {
@@ -708,6 +738,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .mobile-contact-btn:focus {
+            outline: none;
         }
         
         .mobile-contact-btn::before {
@@ -866,6 +901,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .hero-title:focus {
+            outline: none;
         }
         
         @keyframes floatText {
@@ -896,6 +936,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .text-gradient:focus {
+            outline: none;
         }
         
         @keyframes gradientShift {
@@ -948,6 +993,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .section-title:focus {
+            outline: none;
         }
         
         .section-subtitle {
@@ -960,6 +1010,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .section-subtitle:focus {
+            outline: none;
         }
         
         .terms-card {
@@ -979,6 +1034,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .terms-card:focus {
+            outline: none;
         }
         
         /* Fallback for browsers that don't support backdrop-filter */
@@ -1005,6 +1065,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .terms-card h3:focus {
+            outline: none;
         }
         
         .terms-card h3 i {
@@ -1022,6 +1087,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .terms-card p:focus {
+            outline: none;
         }
         
         .terms-card ul {
@@ -1035,10 +1105,20 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .terms-card ul:focus {
+            outline: none;
         }
         
         .terms-card li {
             margin-bottom: 10px;
+            outline: none;
+        }
+        
+        .terms-card li:focus {
+            outline: none;
         }
         
         .terms-card a {
@@ -1050,6 +1130,12 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .terms-card a:focus {
+            outline: none;
         }
         
         .terms-card a:hover {
@@ -1068,6 +1154,11 @@
             color: #f59e0b;
             display: flex;
             align-items: flex-start;
+            outline: none;
+        }
+        
+        .note:focus {
+            outline: none;
         }
         
         .note i {
@@ -1086,6 +1177,11 @@
             color: #ef4444;
             display: flex;
             align-items: flex-start;
+            outline: none;
+        }
+        
+        .warning:focus {
+            outline: none;
         }
         
         .warning i {
@@ -1104,6 +1200,11 @@
             color: #3b82f6;
             display: flex;
             align-items: flex-start;
+            outline: none;
+        }
+        
+        .info:focus {
+            outline: none;
         }
         
         .info i {
@@ -1125,6 +1226,11 @@
             flex-wrap: wrap;
             gap: 20px;
             backdrop-filter: blur(10px);
+            outline: none;
+        }
+        
+        .last-updated:focus {
+            outline: none;
         }
         
         .last-updated-left {
@@ -1143,11 +1249,21 @@
             font-size: 1.2rem;
             margin-bottom: 5px;
             font-weight: 600;
+            outline: none;
+        }
+        
+        .last-updated-text h4:focus {
+            outline: none;
         }
         
         .last-updated-text p {
             color: #cbd5e1;
             font-size: 1rem;
+            outline: none;
+        }
+        
+        .last-updated-text p:focus {
+            outline: none;
         }
         
         .last-updated-date {
@@ -1159,6 +1275,11 @@
             font-size: 1rem;
             display: flex;
             align-items: center;
+            outline: none;
+        }
+        
+        .last-updated-date:focus {
+            outline: none;
         }
         
         .last-updated-date i {
@@ -1222,6 +1343,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .footer-section h3:focus {
+            outline: none;
         }
         
         .footer-section h3::after {
@@ -1246,6 +1372,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .footer-section p:focus {
+            outline: none;
         }
         
         .footer-logo {
@@ -1257,6 +1388,10 @@
             outline: none; /* Remove focus outline */
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
             cursor: pointer; /* Show pointer cursor */
+        }
+        
+        .footer-logo:focus {
+            outline: none;
         }
         
         .footer-logo:hover {
@@ -1285,6 +1420,11 @@
             font-size: 1.2rem;
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .social-icon:focus {
+            outline: none;
         }
         
         .social-icon:hover {
@@ -1317,6 +1457,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .footer-links li a:focus {
+            outline: none;
         }
         
         .footer-links li a::before {
@@ -1356,6 +1501,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .contact-info li:focus {
+            outline: none;
         }
         
         .contact-info i {
@@ -1377,6 +1527,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .contact-info a:focus {
+            outline: none;
         }
         
         .contact-info a:hover {
@@ -1396,6 +1551,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            outline: none;
+        }
+        
+        .footer-bottom:focus {
+            outline: none;
         }
         
         .footer-bottom a {
@@ -1409,6 +1569,11 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .footer-bottom a:focus {
+            outline: none;
         }
         
         .footer-bottom a:hover {
@@ -1437,6 +1602,11 @@
             font-size: 1.2rem; /* Updated from 1.5rem to 1.2rem */
             outline: none; /* Remove focus outline */
             cursor: pointer; /* Show pointer cursor */
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .back-to-top:focus {
+            outline: none;
         }
         
         .back-to-top.visible {
@@ -1732,9 +1902,8 @@
         }
         
         /* Focus styles for better accessibility - but not for logo */
-        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
+        a:focus, button:focus, input:focus, textarea:focus, select:focus, .terms-card:focus, .note:focus, .warning:focus, .info:focus, .last-updated:focus, .footer-section h3:focus, .footer-links li a:focus, .contact-info a:focus, .footer-bottom a:focus, .social-icon:focus {
+            outline: none;
         }
         
         /* Image loading optimization */

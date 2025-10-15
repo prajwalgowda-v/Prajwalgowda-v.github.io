@@ -91,7 +91,8 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            -webkit-touch-callout: none;
+            /* Remove all outlines */
+            outline: none !important;
         }
         
         /* Prevent printing */
@@ -1729,12 +1730,6 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border-width: 0;
-        }
-        
-        /* Focus styles for better accessibility - but not for logo */
-        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
         }
         
         /* Image loading optimization */

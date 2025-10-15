@@ -2781,8 +2781,12 @@
         
         /* Focus styles for better accessibility - but not for logo */
         a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
+            outline: none !important;
+        }
+        
+        /* Remove all outlines globally */
+        *:focus {
+            outline: none !important;
         }
         
         /* Image loading optimization */

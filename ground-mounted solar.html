@@ -74,7 +74,8 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            -webkit-touch-callout: none;
+            /* Remove all outlines globally */
+            outline: none !important;
         }
         
         /* Prevent printing */
@@ -149,6 +150,13 @@
             
             body {
                 cursor: auto; /* Show default cursor on mobile */
+            }
+
+            /* Remove outlines on mobile for all interactive elements */
+            a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
+                outline: none !important;
+                -webkit-tap-highlight-color: transparent !important;
+                tap-highlight-color: transparent !important;
             }
         }
         
@@ -2772,12 +2780,6 @@
             border-width: 0;
         }
         
-        /* Focus styles for better accessibility - but not for logo */
-        a:focus:not(.logo), button:focus:not(.logo), input:focus, textarea:focus, select:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
-        }
-        
         /* Image loading optimization */
         img {
             max-width: 100%;
@@ -3900,6 +3902,7 @@
                             <p>System activation, calibration, and</p>
                         </div>
                     </div>
+                </div>
                 connection to the grid </div>
                 
                 <!-- Why Choose Naptico Green Energy Solars? -->

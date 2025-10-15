@@ -177,7 +177,7 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 999999;
+            z-index: 2147483647; /* Maximum possible z-index */
             mix-blend-mode: difference;
             opacity: 0;
             transition: opacity 0.15s ease, transform 0.15s ease, width 0.15s ease, height 0.15s ease;
@@ -193,7 +193,7 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 999998;
+            z-index: 2147483646; /* Maximum possible z-index - 1 */
             opacity: 0;
             transition: opacity 0.15s ease, transform 0.25s ease, width 0.25s ease, height 0.25s ease;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
@@ -2353,6 +2353,7 @@
             border-radius: 1rem;
             overflow: hidden;
             position: relative;
+            z-index: 1; /* Ensure map container has a z-index */
         }
         
         .map-overlay {
@@ -2367,6 +2368,7 @@
             justify-content: center;
             color: #6b7280;
             font-size: 1.2rem;
+            z-index: 2; /* Ensure overlay is above the iframe */
         }
         
         .form-input {
@@ -3118,23 +3120,34 @@
             }
         }, 1000);
         
-        // Mouse move handler - only update when last input was mouse
+        // Global mouse move handler - CRITICAL FIX FOR MAP ISSUE
         document.addEventListener('mousemove', (e) => {
             // Always update input type to mouse on mouse movement
             setInputType('mouse');
             
-            // Only update cursor position if the last input was mouse
-            if (lastInputType === 'mouse') {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                
-                // Update main cursor position immediately
-                if (cursor) {
-                    cursor.style.left = mouseX + 'px';
-                    cursor.style.top = mouseY + 'px';
-                }
+            // Update mouse position regardless of input type
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Update main cursor position immediately
+            if (cursor) {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
             }
         });
+        
+        // Add mouse move listener to window to catch all events including over iframes
+        window.addEventListener('mousemove', (e) => {
+            // Update mouse position
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Update cursor position
+            if (cursor) {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            }
+        }, true); // Use capture phase to ensure we get the event first
         
         // Touch event handlers
         document.addEventListener('touchstart', (e) => {

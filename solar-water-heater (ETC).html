@@ -74,6 +74,13 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        *:focus {
+            outline: none !important;
+            box-shadow: none !important;
         }
         
         html {
@@ -172,6 +179,12 @@
             /* Remove all outlines on mobile */
             * {
                 outline: none !important;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            *:focus {
+                outline: none !important;
+                box-shadow: none !important;
             }
         }
         
